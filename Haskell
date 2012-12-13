@@ -1,0 +1,45 @@
+LEARN HASKELL FAST + + + 
+
++ Cannot change state
++ is statically typed
++ is lazy .. does it refers to non-blocking .. could not get it !!!
++ STATICALLY TYPED - means - compiler knows which is string, which is number, etc
++ Type system can intelligently figure out if a number or string
++ was out in 2003 in a stable version 
+
++ GHC + + +
++ popular used compiler for Haskell
+
++ + + function call + + 
+succ 8
+> 9
+
+
+div 92 10
+or
+92 `div` 10 //Note the backtick 
+
+
++ + On Fucntion Naming + + 
+can start with lower case
+
++ + lists are homogenous
++ string is just a list of characters
++ So functions can be applied on strings effectively
++ [] , [[]], [[],[]] are different things
++ empty list, list containing empty list, list containing 2 empty lists
++ You can use : or ++ to concatenate lists
++ 
+
++ list comparison is done in a lexicographical order
+[3,2,1] > [2,1,0]
+> True
+
++ util functions on lists
++ head tail last init & so on
++ head ++ tail will give you the entire list
++ init ++ last will give you the entire list
+
++ BE CAREFUL OF EXCEPTIONS
++ when using functions on empty lists
++ 
