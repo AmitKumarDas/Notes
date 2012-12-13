@@ -1,5 +1,7 @@
 LEARN HASKELL FAST + + + 
 
+A Developer's Cookbook for the developer who knows Haskell but just wants to revise.
+
 + Cannot change state
 + is statically typed
 + is lazy .. does it refers to non-blocking .. could not get it !!!
@@ -43,3 +45,71 @@ can start with lower case
 + BE CAREFUL OF EXCEPTIONS
 + when using functions on empty lists
 + 
+
++ Ranges + + 
+[2,4..20]  
+> [2,4,6,8,10,12,14,16,18,20]  
+
+['K'..'Z']  
+> "KLMNOPQRSTUVWXYZ" 
+
++ + List Comprehension + + +
++ [x*2 | x <- [1..10]]  
+> [2,4,6,8,10,12,14,16,18,20]  
+
++ + Predicate i.e. Conditions
++ [x*2 | x <- [1..10], x*2 >= 12]  
+> [12,14,16,18,20] 
+
++ + Filtering via Predicate
++ boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x]
+> boomBangs [7..13]  
+> ["BOOM!","BOOM!","BANG!","BANG!"] 
+
++ + No More Iteration 
++ [ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]  
+> [55,80,100,110]  
+
++ + Temp or NoOp variable
++ length' xs = sum [1 | _ <- xs]
++ above is custom length implementation
++ _ represents the temp or noop variable
+
++ + remember list comprehension
++ removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]
+> removeNonUppercase "Hahaha! Ahahaha!"  
+> "HA"  
+
++ + Tuples +
++ useful when you know how many values you want to combine
++ Tuple unlike List need not be HOMOGENOUS .. can have various types
+
++ + Tuples vs Lists 
++ Note - List can accept nested lists of uneven length
++ In Tuple its not possible...kind of a contract
++ 
+
++ + Type Inference 
++ Auto Infer
++ :t is used to determine type
++ :t 'a'  
+>'a' :: Char 
+
++ + Defining function with types is GOOD
+removeNonUppercase :: [Char] -> [Char]  
+removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']] 
+
+factorial :: Integer -> Integer  
+factorial n = product [1..n]
+
++ + Type Variables i.e. Generics
++ :t fst  
+> fst :: (a, b) -> a 
+
++ + Typeclasses i.e. Java Interface & more
++ Defines the behavior
++ 
+
+
+Refences:
+1) http://learnyouahaskell.com/
