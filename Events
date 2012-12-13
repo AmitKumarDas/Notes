@@ -1,0 +1,29 @@
+
+Thought of putting together Events as defined & used in various languages/frameworks together.
+
++ + In JavaScript + + 
+------------------------------------
+
+element.addEventListener(event, handler, useCapture);
++ setting useCapture to false; means capture the event on bubbling than on capture phase
++ setting usecapture to false; you will be fine in most of the cases
++ lots o interesting properties comes in with the argument event
++ use event.currentTarget than `this` keyword
+> coz, this may be bound to something else
+
++ + Event Delegation
++ Add event handler to an element & get all of its child elements for free
++ event handler is expensive to the browser, so event delegation is GOOD
+
++ + CSS Transitions & Animations
++ have their own events
++ CSS transition fire a single event called transitionend
++ CSS animation events have animationstart, animationend & animationiteration
+
++ + Many More ...
++ Media have their events too
++ Device Orientation, Touch Events, postMessage, pageVisibility, history Events
+
+
+References : 
+1) http://coding.smashingmagazine.com/2012/08/17/javascript-events-responding-user/
