@@ -1,0 +1,34 @@
+
+Developers guide to SAML Workings 0-0-0-
+
+0-0-0 SAML Specs 0-0-0
++ Assertions - tokens to tranfer user identity info in the messages
++ Protocols  - Types of Request & Response messages
++ Bindings   - COmmunication method to transport the messages
+
+
+
+0-0-0 Protocols 0-0-0
++ Authentication Request
++ Single Logout
++ Artifact Resolution
++ Name Identifier Management
+
+
+0-0-0 Binding 0-0-0
++ can be HTTP
+> HTTP Redirect
+> HTTP POST
+> HTTP artifact
++ can be SOAP
++ 
+
+0-0-0 Profiles 0-0-0
++ Combination of protocols, assertions & bindings that are used to create a federation
++ Browser Artifact - SOAP based - known as SOAP Back Channel
++ Browser POST
++ Web Browser SSO
++ Single Logout
++ Name Identifier Management
++ Identity Provider Discovery
++ 
