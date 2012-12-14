@@ -1,0 +1,43 @@
+
++ + Developer's cookbook for cert management used in various APIs/frameworks. . . 
+
+0-0-0 SAML Signing 0-0-0
++ IDP sends a signed SAML assertion using its private key
++ Signature can include the X.509 (public key) certificate
++ This public key is Base64 encoded before being included in the signature
++ Signed assertions will be Validated by the trusting party
+
+0-0-0 Server Authentication 0-0-0
++ If SSL is configured at the server only then it is termed as Server Authentication
++ To enable Server Auth, you need to ::
+> STEP 1 - Create a public/private key pair
+> STEP 2 - Obtain  a certificate
++ This cert is known as Server Certificate or Personal Certificate
++ This cert is used by the Server to authenticate itself to the client
+
+0-0-0 What does the client do in case of Server Authentication 0-0-0
++ Client will obtain the cert of the CA that issued the server cert
++ The client maintains a list of trusted issuers
++ Client will add CA certificate to that list
+
+0-0-0 Who Stores the certs 0-0-0
++ Private keys & Personal Certs are stored in KeyStores
++ Public Keys & CA certs are stored oin TrustStores
++ 
+
+0-0-0 On Encryption at SAML 0-0-0
++ Use partner's Public Key to encrypt
++ This Public Key will correspond to the partner's Private key
++ Partner will use its Private Key to decrypt
+
+0-0-0 Different SAML Signing Requirements 0-0-0
++ Message can be signed
++ Assertion can be signed
++ Use can use same or different keys for signing Message & Assertion
++ Above is applicable only for SAML 2.0
+
+0-0-0 Password protection 0-0-0
++ Private/Personal keys in a keystore can be encrypted by a password
++ The KeyStore is also protected by a password
++ 
+
