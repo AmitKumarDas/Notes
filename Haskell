@@ -2,6 +2,7 @@ LEARN HASKELL FAST + + +
 
 A Developer's Cookbook for the developer who knows Haskell but just wants to revise.
 
+0-0-0 General Knowledge 0-0-0
 + Cannot change state
 + is statically typed
 + is lazy .. does it refers to non-blocking .. could not get it !!!
@@ -24,6 +25,23 @@ or
 
 + + On Fucntion Naming + + 
 can start with lower case
+
+-0-0-0 Infix Function -0-0-0-
++ funcs comprised of special chars
++ e.g. == + - /
+
+0-0-0 What is => 0-0-0
++ => is called as class constraint
++ 
+
+> :t (==)
+> (==) :: (Eq a) => a -> a -> Bool
+-- equality func takes any 2 values
+-- dat r of same type
+-- & returns a Bool
+-- a is of generics type
+-- Eq is known as a typeclass 
+-- typeclass == Interface in Java
 
 + + lists are homogenous
 + string is just a list of characters
@@ -89,8 +107,11 @@ can start with lower case
 + In Tuple its not possible...kind of a contract
 + 
 
+0-0- Haskell Type 0-0
++ starts with a Caps
+
 + + Type Inference 
-+ Auto Infer
++ Is auto Infer
 + :t is used to determine type
 + :t 'a'  
 >'a' :: Char 
@@ -103,8 +124,10 @@ factorial :: Integer -> Integer
 factorial n = product [1..n]
 
 + + Type Variables i.e. Generics
-+ :t fst  
++ :t fst  //determine what type if fst
 > fst :: (a, b) -> a 
+> Here a & b are in small case. hence not a Type & a Generic Type
+
 
 + + Typeclasses i.e. Java Interface & more
 + Defines the behavior
