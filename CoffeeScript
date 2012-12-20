@@ -1,0 +1,20 @@
+
+Way to learn/revise CS faster 0-0-0
+
+0-0- Function 0-0
+> (x,y) -> x * y 
+> above was an anonymous fucntion
+
+> double list, (x) -> 2 * x
+> func named double
+
+> $(".click").click (event) ->
+  event.stopPropagation()
+  alert "Clicked"
+
+> fib = (x) -> 
+  switch x
+    when 0 then 1
+    when 1 then 1
+    else fib(x-1) + fib(x-2)
+
