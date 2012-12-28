@@ -1,0 +1,61 @@
+
+This note is a collage of blogs & writeups of various Authors on JavaScript w.r.t asynchronous behavior.
+I have tried to give due references of the Authors but might have missed others.
+
+0-0-0 Node JS - radical approach
+ - no threads but only async I/O
+
+0-0-0  2 styles to do async stuff -0-0-
+one - event based
+second - callback based
+
+0-0-0 Event style - A non-local approach -0-0
++ Event style - emit @ some point & have listeners & act thereupon
++ Event Style - works well with Http client & server
++ Can U have event style for handling Biz logic
++ i.e. NON LOCAL BIZ LOGIC
+
+0-0-0- Callback based -0-0-0
++ A local approach
++ For async functions use callbacks
++ These async functions will have callback as an argument
+
+0-0-0- Using callbacks -0-0-
++ My exp in Spiffy tells that single callback will not suffice.
++ Read further to understand
+
+0-0-0 Callbacks + Wrong way 0-0-0-0-0-0-0-0
+
+function fetch() {
+  var result = 'snap!';
+  $.getJSON("http://.....", function messyCallback(data){
+    result = data;
+  });
+  return result;
+}
+
+document.write(fetch());​
+
+
+-0-0 Realistic Callback Usage -0-0-0-0-0
+
+function fetch(receiver) {
+    $.getJSON("blah...", function(data) { //inside 1st cb
+        receiver(data); //invoke second cb
+    });
+}
+
+fetch(function(result) { document.write(result); });
+
+-0-0 Cleaner Callbacks Usage -0-0-0-0-0-0-
+
++ Generators can be used to make asynchronous code a lot more linear in style.
++ Not standardized
+
+
+
+
+References -
+http://bjouhier.wordpress.com/
+http://stackoverflow.com/questions/2222847/asynchronous-programming-in-javascript-without-messy-callbacks
+
