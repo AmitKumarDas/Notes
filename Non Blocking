@@ -1,0 +1,38 @@
+
+
+
+0-0 Scripts Block Downloads 0-0-0
+--------------------------
++ scripts take time to download
++ however, it blocks downloads of other resources
++ How to overcome this issue?
+
+0-0 Non-Blocking scripts -0-0-
+----------------------------
++ include scripts dynamically via DOM methods
++ simply create a new <script> element & append it to the <head>
+
+-0- Do stylesheets BLOCK ? -0-0-
+-------------------------------
+- they dont in IE
+- they do block in FF
+
+0-0-0- Other Ways to Non-Blocking scripts -0-0-
+--------------------------------------------------
++ defer - unreliable
+
++ document.write() - not recommended coding practice
+
++ XMLHttpRequest to get the source & then execute within eval() 
+-> eval() is evil
+-> same-domain policy restriction
+
++ XHR request to get source, create a new script tag, set its content 
+-> more complex
+-> same-domain policy 
+
++ Load script in an iframe - complex, iframe overhead, same-domain policy
+
+
+References:
+1. http://yuiblog.com/blog/2008/07/22/non-blocking-scripts/
