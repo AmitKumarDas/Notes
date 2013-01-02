@@ -19,6 +19,11 @@ second - callback based
 + For async functions use callbacks
 + These async functions will have callback as an argument
 
+-0-0 Other ways -0-0
++ Aliter ways - Thread per asyncFunc & then serialze the Threads
++ Aliter ways - CoRoutines
++ Aliter way - transform the routines into a State-Machine-Like form
+
 
 
 -0-0 Async Funcs & Serial invocation -0-0
