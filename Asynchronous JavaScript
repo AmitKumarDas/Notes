@@ -1,4 +1,3 @@
-
 This note is a collage of blogs & writeups of various Authors on JavaScript w.r.t asynchronous behavior.
 I have tried to give due references of the Authors but might have missed others.
 
@@ -20,7 +19,56 @@ second - callback based
 + For async functions use callbacks
 + These async functions will have callback as an argument
 
+
+
+-0-0 Async Funcs & Serial invocation -0-0
++ If invoked in a loop i.e. serially
+> will execute parallely
+> Can you collect the aggregate results in such a case ?
+> No. The solution is to invoke the async funcs Recursively.
+> Coz Iteration will not give you results.
+
+-0-0 Recursion & Async -0-0
++ Recursive function should invoke Async Func
++ 
+
+-0-0 Recursive + Async + Functional -0-0-
+asyncForEach(array,iterator,then){
+ function loop(i){
+  if(i < array.length) 
+				iterator(array[i], function(){loop(i+1)};);
+		else 
+				then();
+ }
+	loop(0);
+}
+
+-- Above function defines a template for recursive logic
+-- Above does NOT define the Iterator function
+-- Above defines the signature of Iterator function
+-- The Iterator fucntion can defined depending on caller's requirements
+-- The Iterator function must invoke a async function somewhere within its body
+
+-- The Template i.e. asyncForEach is defined FIRST
+-- The CALLBACKS within the Template are defined while invoking the Template.
+
+asyncForEach(array, function(item, next) {
+  // body of iterator
+  somethingAsync(function(err, result) {
+    if (err) {callback(err); return; } 
+
+    // do something with item and result
+
+    next(); // don't forget me at the end of every code path
+
+  });
+}, function() {
+  // this is where execution resumes after the loop
+});
+
+
 0-0-0- Using callbacks -0-0-
+-------------------------------
 + My exp in Spiffy tells that single callback will not suffice.
 + Read further to understand
 
@@ -51,7 +99,6 @@ fetch(function(result) { document.write(result); });
 
 + Generators can be used to make asynchronous code a lot more linear in style.
 + Not standardized
-
 
 
 
