@@ -2,8 +2,8 @@ This Note will cater to various languages & their good design principles ++
 
 -0-0 Recursive + Async + Functional -0-0-
 asyncForEach(array,iterator,then){
-	function loop(i){
-		if(i < array.length) 
+function loop(i){
+if(i < array.length) 
 		{
 			iterator(array[i], function(){loop(i+1)};);
     }	
