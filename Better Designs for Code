@@ -1,2 +1,35 @@
-
 This Note will cater to various languages & their good design principles ++
+
+-0-0 Recursive + Async + Functional -0-0-
+asyncForEach(array,iterator,then){
+  function loop(i){
+    if(i < array.length) 
+  	  iterator(array[i], function(){loop(i+1)};);
+		else 
+		  then();
+  }
+  loop(0);
+}
+
+-- Above function defines a template for recursive logic
+-- Above does NOT define the Iterator function
+-- Above defines the signature of Iterator function
+-- The Iterator fucntion can defined depending on caller's requirements
+-- The Iterator function must invoke a async function somewhere within its body
+
+-- The Template i.e. asyncForEach is defined FIRST
+-- The CALLBACKS within the Template are defined while invoking the Template.
+
+asyncForEach(array, function(item, next) {
+  // body of iterator
+  somethingAsync(function(err, result) {
+    if (err) {callback(err); return; } 
+
+    // do something with item and result
+
+    next(); // don't forget me at the end of every code path
+
+  });
+}, function() {
+  // this is where execution resumes after the loop
+});
