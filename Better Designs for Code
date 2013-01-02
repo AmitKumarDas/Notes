@@ -4,9 +4,13 @@ This Note will cater to various languages & their good design principles ++
 asyncForEach(array,iterator,then){
   function loop(i){
     if(i < array.length) 
-  	  iterator(array[i], function(){loop(i+1)};);
-		else 
-		  then();
+        {
+	iterator(array[i], function(){loop(i+1)};);
+        }	
+        else 
+        {
+	then();
+        }
   }
   loop(0);
 }
