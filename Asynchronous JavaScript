@@ -36,11 +36,11 @@ second - callback based
 asyncForEach(array,iterator,then){
  function loop(i){
   if(i < array.length) 
-				iterator(array[i], function(){loop(i+1)};);
-		else 
-				then();
+   iterator(array[i], function(){loop(i+1)};);
+  else 
+   then();
  }
-	loop(0);
+ loop(0);
 }
 
 -- Above function defines a template for recursive logic
