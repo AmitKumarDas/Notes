@@ -16,7 +16,9 @@ asyncForEach(array,iterator,then){
 -- The Iterator function must invoke a async function somewhere within its body
 
 -- The Template i.e. asyncForEach is defined FIRST
+-- Callbacks are invoked inside the Template
 -- The CALLBACKS within the Template are defined while invoking the Template.
+-- i.e. reversal of definition & invocation
 
 asyncForEach(array, function(item, next) {
   // body of iterator
