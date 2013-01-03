@@ -1,0 +1,17 @@
+
+
+-0-0- Issues in JS -0-0-
+----------------------------
++ Global Variables
++ Lacks support for classes
++ Hard to make inheritance
++ Automatic type conversion between string & number
++ NaM is not a number, however it is a number
+
+
+
+
+
+
+References:
+1/ http://www.infoq.com/presentations/CoffeeScript-Introduction
