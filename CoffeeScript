@@ -1,12 +1,26 @@
-
 Way to learn/revise CS faster 0-0-0
 
 0-0- Function 0-0
 > (x,y) -> x * y 
 > above was an anonymous fucntion
 
+-0- Implicit Return -0-0-
+> last expression is the return value
+
 > double list, (x) -> 2 * x
 > func named double
+
+-0- If & Unless -0-0-
++ similar to handlebars
++ If doesnot require parentheses
+
+-0- Modifiers -0-0-
+> callIndex() if isJson
+> exit() unless validated and inContext
+
+
+
+
 
 > $(".click").click (event) ->
   event.stopPropagation()
@@ -17,4 +31,12 @@ Way to learn/revise CS faster 0-0-0
     when 0 then 1
     when 1 then 1
     else fib(x-1) + fib(x-2)
+
+
+-0-0- String Interpolation -0-0-
++ use # and {}
+
++ "The result is #{3}" == "The result is 3"
++ use expression
+> "/movies/#{id}"
 
