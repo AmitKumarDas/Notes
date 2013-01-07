@@ -1,5 +1,4 @@
 
-
 -0-0- Issues in JS -0-0-
 ----------------------------
 + Global Variables
@@ -7,6 +6,42 @@
 + Hard to make inheritance
 + Automatic type conversion between string & number
 + NaM is not a number, however it is a number
+
+
+-0- Values & Defaults -0-0-
++ true/false
+> this.silent       = options.silent || options.silent !== true;
++ object
+> this.target       = options.target || {};
++ true/false again
+> this.hostnameOnly = options.hostnameOnly === true;
+
+
+-0-0- typeOf Checks -0-0-
++ typeof options.router === 'string'
++ typeof options.router === 'object'
+
+-0- Node & File -0-0
++ require('fs');
++ read synchronous, 
++ also watch file for changes & read again ..now in callback
++ unwatch the file in a close function of self/this
+
+-0- Node & events -0-
++ ev = require('events')
++ REGISTER with self 
+> ev.EventEmitter.call(this);
+
+-0-0 Node & Util -0-0
+- require('util')
+- has inheritance stuff
+- 
+
+
+
+-0-0- Passing Configuration -0-0
+- pass options
+- inside, check for specific properties
 
 
 
