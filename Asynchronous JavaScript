@@ -72,6 +72,25 @@ asyncForEach(array, function(item, next) {
 });
 
 
+
+0-0- Callbacks & Templates II 0-0-
++ function template(abc, options, callback){
+  otherFunc(abc, function(err,data){
+   if(err) return callback(err); // U defined the signature not implementation of cb
+ 
+   callback.counter +=1;         // U defined a property of the cb
+
+   if(done) callback(null, callback.files); // U defined the signature of cb again
+
+  });
+
+}
+
+
++ Now usign all the above definition of callback
++ Implement the callback
+
+
 0-0-0- Using callbacks -0-0-
 -------------------------------
 + My exp in Spiffy tells that single callback will not suffice.
