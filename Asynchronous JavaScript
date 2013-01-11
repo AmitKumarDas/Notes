@@ -16,13 +16,7 @@ second - callback based
 
 0-0-0- Callback based -0-0-0
 + A local approach
-+ For async functions use callbacks
-+ These async functions will have callback as an argument
 
--0-0 Other ways -0-0
-+ Aliter ways - Thread per asyncFunc & then serialze the Threads
-+ Aliter ways - CoRoutines
-+ Aliter way - transform the routines into a State-Machine-Like form
 
 
 
@@ -41,21 +35,13 @@ second - callback based
 asyncForEach(array,iterator,then){
  function loop(i){
   if(i < array.length) 
-   iterator(array[i], function(){loop(i+1)};);
+   iterator(array[i], function(){loop(i+1)};); //defined the iterator cb's signature // aliter- invoke iterator
   else 
-   then();
+   then(); //defined the then cb signature //aliter- invoke then
  }
  loop(0);
 }
 
--- Above function defines a template for recursive logic
--- Above does NOT define the Iterator function
--- Above defines the signature of Iterator function
--- The Iterator fucntion can defined depending on caller's requirements
--- The Iterator function must invoke a async function somewhere within its body
-
--- The Template i.e. asyncForEach is defined FIRST
--- The CALLBACKS within the Template are defined while invoking the Template.
 
 asyncForEach(array, function(item, next) {
   // body of iterator
@@ -68,7 +54,7 @@ asyncForEach(array, function(item, next) {
 
   });
 }, function() {
-  // this is where execution resumes after the loop
+  // body of then
 });
 
 
@@ -76,11 +62,11 @@ asyncForEach(array, function(item, next) {
 0-0- Callbacks & Templates II 0-0-
 + function template(abc, options, callback){
   otherFunc(abc, function(err,data){
-   if(err) return callback(err); // U defined the signature not implementation of cb
+   if(err) return callback(err); // CB signature defined // && Invoked CB
  
-   callback.counter +=1;         // U defined a property of the cb
+   callback.counter +=1;         // A CB property defined & Assigned
 
-   if(done) callback(null, callback.files); // U defined the signature of cb again
+   if(done) callback(null, callback.files); // CB signature defined // && Invoked CB
 
   });
 
@@ -88,10 +74,7 @@ asyncForEach(array, function(item, next) {
 
 -0- Templates & Callbacks III -0-0
 + Dont think of RETURNING result
-+ try to pass the results to CB
-+ This is what is known as Templating
-+ It will be good to IMPLEMENT the CB in a separate place
-+ Can you do that ? Coz you need to pass results from the CB to local variable
++ Try to pass the results to CB && Invoke CB
 
 
 
