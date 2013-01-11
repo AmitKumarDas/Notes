@@ -1,24 +1,17 @@
 This Note will cater to various languages & their good design principles ++
 
 -0-0 Recursive + Async + Functional + JS -0-0-
+-------------------------------------------------
 asyncForEach(array,iterator,then){
  function loop(i){
-  if(i < array.length)  iterator(array[i], function(){loop(i+1)};);
-  else then();
+  if(i < array.length)  {
+   iterator(array[i], function(){loop(i+1)};); // define CB signature // Invoke CB
+  }
+  else then(); //define CB signature // Invoke CB
  }
  loop(0);
 }
 
--- Above function defines a template for recursive logic
--- Above does NOT define the Iterator function
--- Above defines the signature of Iterator function
--- The Iterator fucntion can defined depending on caller's requirements
--- The Iterator function must invoke a async function somewhere within its body
-
--- The Template i.e. asyncForEach is defined FIRST
--- Callbacks are invoked inside the Template
--- The CALLBACKS within the Template are defined while invoking the Template.
--- i.e. reversal of definition & invocation
 
 asyncForEach(array, function(item, next) {
   // body of iterator
@@ -33,3 +26,30 @@ asyncForEach(array, function(item, next) {
 }, function() {
   // this is where execution resumes after the loop
 });
+
+
+-0-0 Monkey Patching vs Other styles in JS -0-0
+-----------------------------------------------
++ Monkey Patching 
+>- Assign the fucntion to a variable
+>- Modify the function
+>- simple onBefore & onAfter functions
+>- Modified funciton will call onBefore, original func , onAfter serially
+
++ Other styles
+>- use above intelligence
+>- use apply to pass the context i.e this, to onBefore, actual & onAfter
+>- at last return this, for chainable ops
+
+-0- Better Argument Handling -0-0
+-----------------------------
++ passing each arg is not great
++ what if arg changes ?
++ use arguments i.e. the implicit argument
++ 
+
+
+
+
+References
+1/ http://encosia.com/adding-your-own-callbacks-to-existing-javascript-functions/
