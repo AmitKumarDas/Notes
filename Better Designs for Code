@@ -41,6 +41,8 @@ asyncForEach(array, function(item, next) {
 >- use apply to pass the context i.e this, to onBefore, actual & onAfter
 >- at last return this, for chainable ops
 
+
+
 -0- Better Argument Handling -0-0
 -----------------------------
 + passing each arg is not great
