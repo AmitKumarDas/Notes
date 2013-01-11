@@ -31,16 +31,21 @@ asyncForEach(array, function(item, next) {
 -0-0 Monkey Patching vs Other styles in JS -0-0
 -----------------------------------------------
 + Monkey Patching 
->- Assign the fucntion to a variable
->- Modify the function
+>- Assign the function to a tmp variable
 >- simple onBefore & onAfter functions
->- Modified funciton will call onBefore, original func , onAfter serially
+>- Modified funciton == onBefore, original func , onAfter serially
 
 + Other styles
 >- use above intelligence
 >- use apply to pass the context i.e this, to onBefore, actual & onAfter
 >- at last return this, for chainable ops
 
++ Other Styles - Closure & Namespacing -0-
+>- Write all above in closure
+>- i.e. (function (w){ ... })(window || {});
+>- ... will have all the above code
+>- if a jQuery then
+>- (function($){....})(jQuery || {});
 
 
 -0- Better Argument Handling -0-0
