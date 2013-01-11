@@ -86,6 +86,17 @@ asyncForEach(array, function(item, next) {
 
 }
 
+-0- Templates & Callbacks III -0-0
++ Dont think of RETURNING result
++ try to pass the results to CB
++ This is what is known as Templating
++ It will be good to IMPLEMENT the CB in a separate place
++ Can you do that ? Coz you need to pass results from the CB to local variable
+
+
+
+
+
 
 + Now usign all the above definition of callback
 + Implement the callback
