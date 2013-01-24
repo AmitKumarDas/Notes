@@ -1,6 +1,5 @@
 
 
-
 0-0 Scripts Block Downloads 0-0-0
 --------------------------
 + scripts take time to download
@@ -34,5 +33,53 @@
 + Load script in an iframe - complex, iframe overhead, same-domain policy
 
 
+-0- Event Loop -0-
++ The event loop is a way of having a non-blocking I/O (NIO in Java parlance) 
+--> and to allow your application to scale more effectively by offloading I/O activities
+--> to native functions in the operating system.
+
+-0- Event Loop + Java + Example -0-
++ So the java.nio packages implement some of the key-functionality 
+--> and we use the Netty framework. 
+--> Netty builds utility classes and functions on top of NIO 
+--> which make it much easier to work with that programming model
+
+-0- Avoid blocking the Event Thread .. HOW ? ? -0--
++ The typical pattern is to implement a callback and this is what they underlying structure in Java is doing, 
+--> they select the selection keys and you get an event of a selector
+--> and then you can work with the events. 
+--> If it’s a socket then you listen on a server socket, 
+--> you get an event telling you there has been a connect event 
+--> and you create a new socket channel. 
+--> Because you can place a request, it’s not a queue, 
+--> but if you place a request to be notified when something has happened, 
+--> you can then go off and do other work until that event arrives and then you go back and pick the data up or respond in some way. 
+
+-0- How to handle Blocking APIs ? -0-
+--> For newer applications where there is async we can do implementations straight away, 
+++ --> but when there are things like JDBC, <--
+--> there is not a non-blocking JDBC implementation that I’m aware of, 
+--> so we have to handle that slightly differently in vert.x, 
+--> so rather than having one event loop, one thread pool that is engaged in that activity, 
+--> we have to have a second pool of threads which we call the worker pool. 
+
+
+--> Some Implementation 4 blocking APIs <--
+And the worker pool has typically more threads in it, 
+but it still listens on the EventBus and it still has all the same capabilities 
+but we separate them out, so that you can make a decision to put your blocking activity in a pool 
+with more threads available to it, in the knowledge that the rest of your application can remain async. 
+So we have a pragmatic view of how to handle this and 
+this also means that we have access to the rest of the Java ecosystem in terms of libraries
+because significant numbers of those are not non-blocking implementations.
+
+-0- What about Actor Model -0-
+- one of the things we looked at was how best to handle handlers. 
+- Do we do the same things as we’ve done in Groovy which is passing closures or Scala functions or can we use actors?
+
+
+
+
 References:
 1. http://yuiblog.com/blog/2008/07/22/non-blocking-scripts/
+2. http://www.infoq.com/interviews/williams-vertx
