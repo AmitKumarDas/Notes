@@ -1,0 +1,7 @@
+C is actually quite relevant to certain things like writing device drivers 
+-- and creating very low level modules within your system, 
+-- but writing concurrent C code or raw socket programming in C, 
+-- these are that sort of stuff that is not really fun to do.
+-- We are looking at using Erlang as the orchestrator for these complex systems.
+-- higher level complexities such as distributedness, communication, concurrency, fault tolerance, supervision, etc, 
+-- and still keep your C drivers to talk to low level hardware.
