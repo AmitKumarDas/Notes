@@ -1,4 +1,3 @@
-
 + + Developer's cookbook for cert management used in various APIs/frameworks. . . 
 
 0-0-0 SAML Signing 0-0-0
@@ -41,3 +40,10 @@
 + The KeyStore is also protected by a password
 + 
 
+-0- private key & public cert as 2 files -0-
++ They received it as 2 separate files, a .crt file with the certificate, and a .key file with the private key. 
++ We are trying to combine these files into a .pfx file to import into the Certificate Store.
+>> openssl -in a.crt -inkey a.key -export -out a.pfx
+>> import the .pfx output file from the command above into Internet Explorer, 
+>> and then export it from IE with the private key and all of the CA certificates in the certification chain. 
+>> The resulting exported .pfx from IE would then successfully import into the Certificate Store.
