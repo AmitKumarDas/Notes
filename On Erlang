@@ -5,3 +5,22 @@ C is actually quite relevant to certain things like writing device drivers
 -- We are looking at using Erlang as the orchestrator for these complex systems.
 -- higher level complexities such as distributedness, communication, concurrency, fault tolerance, supervision, etc, 
 -- and still keep your C drivers to talk to low level hardware.
+
+-0- Actor Model 4 Concurrency -0-
++ Erlang uses the actor model of concurrency. 
++ It’s a very simple model, it’s been around for a while and the basic idea is that you compose your system using actors, 
++ In the Erlang World we call them Erlang processes, 
++ which are self-contained atomic units that contain some functionality
++ and the way you communicate between them is by asynchronous message passing. 
+
+-0- Actors behind Hardware -0-
++ The idea behind utilising actors as hardware control blocks is 
++ that you can model your system using something along the lines of a black box design methodology
++ that we have in the electronics engineering world, 
++ So you can represent EACH PART of your system as an Erlang process 
++ and then use the supervision hierarchies to create a layered safety model for these components as well. 
++ So your subsystem of your car can be actually a collection of Erlang processes with its own supervision hierarchy
++ that gives you the security and safety, more safety I guess, aspects of these applications. 
++ We are doing some experiments with that sort of structure or layering your subsystems into supervisors, 
++ sort of proxies and actual hardware drivers etc, at the moment. 
+
