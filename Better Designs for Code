@@ -1,65 +1,30 @@
-This Note will cater to various languages & their good design principles ++
 
--0-0 Recursive + Async + Functional + JS -0-0-
--------------------------------------------------
-asyncForEach(array,iterator,then){
- function loop(i){
-  if(i < array.length)  {
-   iterator(array[i], function(){loop(i+1)};); // define CB signature // Invoke CB
-  }
-  else then(); //define CB signature // Invoke CB
- }
- loop(0);
-}
+-0- Hypermedia APIs vs old styled APIs -0-
++ common design pattern for APIs
+> RPC style design pattern
+> accept parameter & return objects
++ Hypermedia style APIs
+> interactions will be based on links & forms
 
+-0- Hypermedia API vs RPC API -0-
+> Hypermedia - use of a shared message model
+> Hypermedia - usually use a registered media type -
+>> HTML, Atom, HAL, Collection-JSON
+>> this message model will be used regardless of the object or collection being passed
 
-asyncForEach(array, function(item, next) {
-  // body of iterator
-  somethingAsync(function(err, result) {
-    if (err) {callback(err); return; } 
-
-    // do something with item and result
-
-    next(); // don't forget me at the end of every code path
-
-  });
-}, function() {
-  // this is where execution resumes after the loop
-});
+-0- Marshalling Objects vs. Representing State -0-
++ H Apis - focussed on representing state of the app
+>> Not focussed on functions that affect the state
++ Representing state of app as an object
+>> seems good for local source code 
+>> not great for WWW
+>> most cases the shared message represent the shared understanding between apps
+>> 
 
 
--0- This Closure is OK -0-
-function createEventHandlers(){
- var btn;
-	for(var i=1; i <= 3; i++){
-		btn = document.getElementById('btn' + i);
-		btn.onclick = createOneHandler(i);
-	}
-}
-
-function createOneHandler(number){
-	return function() {
-		alert('Clicked button #' + number);
-	}
-}
-
-+ above will have proper scopes
-
--0- DONT PRODUCE CLOSURES ON THE SAME LOCAL SCOPES -0-
-
--0- Below doesnot work as intended + + + + 
-function createEventHandlers(){
-	var btn;
-	for(var i=1; i <= 3; i++){
-		btn = document.getElementById('btn' + i);
-		btn.onclick = function(){
-			alert('Clicked button #' + i);
-		}
-	}
-}
 
 
 
 
 References
-1/ http://encosia.com/adding-your-own-callbacks-to-existing-javascript-functions/
+1/ http://www.infoq.com/articles/hypermedia-api-tutorial-part-one
