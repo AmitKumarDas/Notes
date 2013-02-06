@@ -28,6 +28,35 @@ asyncForEach(array, function(item, next) {
 });
 
 
+-0- This Closure is OK -0-
+function createEventHandlers(){
+ var btn;
+	for(var i=1; i <= 3; i++){
+		btn = document.getElementById('btn' + i);
+		btn.onclick = createOneHandler(i);
+	}
+}
+
+function createOneHandler(number){
+	return function() {
+		alert('Clicked button #' + number);
+	}
+}
+
++ above will have proper scopes
+
+-0- DONT PRODUCE CLOSURES ON THE SAME LOCAL SCOPES -0-
+
+-0- Below doesnot work as intended + + + + 
+function createEventHandlers(){
+	var btn;
+	for(var i=1; i <= 3; i++){
+		btn = document.getElementById('btn' + i);
+		btn.onclick = function(){
+			alert('Clicked button #' + i);
+		}
+	}
+}
 
 
 
