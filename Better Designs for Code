@@ -28,43 +28,6 @@ asyncForEach(array, function(item, next) {
 });
 
 
--0-0 Monkey Patching vs Other styles in JS -0-0
------------------------------------------------
-+ Monkey Patching 
->- Assign the function to a tmp variable
->- simple onBefore & onAfter functions
->- Modified funciton == onBefore, original func , onAfter serially
-
-+ Other styles
->- use above intelligence
->- use apply to pass the context i.e this, to onBefore, actual & onAfter
->- at last return this, for chainable ops
-
-+ Other Styles - Closure & Namespacing -0-
->- Write all above in closure
->- i.e. (function (w){ ... })(window || {});
->- ... will have all the above code
->- if a jQuery then
->- (function($){....})(jQuery || {});
-
-
--0- Better Argument Handling -0-0
------------------------------
-+ passing each arg is not great
-+ what if arg changes ?
-+ use arguments i.e. the implicit argument
-+ 
-
-
--0- Inner Classes & Anonymous Classes -0-
-+ helps avoid if else & switches
-+ seen in GUI, async & spring templates
-++ Example ++
-> Some base class
-> will have some inner classes
-> each inner class will extend some Listener class
-
-
 
 
 
