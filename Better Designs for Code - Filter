@@ -1,0 +1,134 @@
+-0- The Filter Pattern -0-
+
+public abstract class Filter<T> {
+  public abstract boolean passes(T object);
+  public Iterator<T> filter(Iterator<T> iterator) {
+    return new FilterIterator(iterator);
+  }
+  public Iterable<T> filter(Iterable<T> iterable) {
+    return new Iterable<T>() {
+      public Iterator<T> iterator() {
+        return filter(iterable.iterator());
+      }
+    };
+  }
+  private class FilterIterator implements Iterator<T> {
+    private Iterator<T> iterator;
+    private T next;
+    private FilterIterator(Iterator<T> iterator) {
+      this.iterator = iterator;
+      toNext();
+    }
+    public boolean hasNext() {
+      return next != null;
+    }
+    public T next() {
+      if (next == null)
+        throw new NoSuchElementException();
+      T returnValue = next;
+      toNext();
+      return returnValue;
+    }
+    public void remove() {
+      throw new UnsupportedOperationException();
+    }
+    private void toNext() {
+      next = null;
+      while (iterator.hasNext()) {
+        T item = iterator.next();
+        if (item != null && passes(item)) {
+          next = item;
+          break;
+        }
+      }
+    }
+  }
+}
+
+
+/ Usage/
+public static final Filter<Product> IN_STOCK =
+  new Filter<Product>() {
+    public boolean passes(Product product) {
+      return product.getQuantityInStock() > 0;
+    }
+  };
+
+Collection<Product> allProducts = getAllProducts();
+for(Product product : IN_STOCK.filter(allProducts)) {
+  display(product);
+}
+
+/More usage /
+//Comparable Filters//
+
+public abstract class ComparableFilter<T extends Comparable<T>>
+    extends Filter<T> {
+  private final T comparable;
+  protected ComparableFilter(T comparable) {
+    this.comparable = comparable;
+  }
+  @Override
+  public boolean passes(T object) {
+    return passes(object.compareTo(comparable));
+  }
+  protected abstract boolean passes(int result);
+}
+
+public static <T extends Comparable<T>> Filter<T> lessThan(T comparable) {
+  return new ComparableFilter<T>(comparable) {
+    @Override
+    protected boolean passes(int result) {
+      return result < 0;
+    }
+  };
+}
+
+Collection<Integer> values = getValues();
+for(Integer value : ComparableFilter.lessThan(5).filter(values)) {
+  // do stuff
+}
+
+
+/ More usage /
+/ Compound Filter /
+
+public class AndFilter<T> extends Filter<T> {
+  private final Filter<T>[] filters;
+  public AndFilter(final Filter<T>... filters) {
+    this.filters = filters;
+  }
+  @Override
+  public boolean passes(T object) {
+    for (Filter<T> filter : filters) {
+      if (!filter.passes(object))
+        return false; // short circuit
+    }
+    return true;
+  }
+}
+
+Collection<Integer> values = getValues();
+Filter<Integer> filter = new OrFilter(
+  new AndFilter(
+    EvenFilter.INSTANCE,
+    ComparableFilter.lessThan(50)),
+  new AndFilter(
+    OddFilter.INSTANCE,
+    ComparableFilter.greaterThan(100)));
+for(Integer value : filter.filter(values)) {
+  // do stuff
+}
+
+/ More Usage /
+/ Filter as First Class Function /
+public class Mailbox {
+  private List<Message> messages;
+  ...
+  public void markAs(Status status, Filter<Message> filter) {
+    for(Message message : filter.filter(messages))
+      message.markAs(status);
+  }
+}
+
+The filter that we pass into markAs() could be filtering by the selected messages in the UI, messages older than 5 days, …anything!
