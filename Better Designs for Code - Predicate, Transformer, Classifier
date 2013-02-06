@@ -1,0 +1,120 @@
+1/ Transformer<T1,T2>
+
+2/ A collection utility
+
+public static <T1,T2,T3 extends T1> List<T2> transform (Collection<T3> input, Transormer<T1,T2> transformer){
+  if(null==input) return null;
+
+	List<T2> output = new ArrayList<T2>(input.size());
+
+	for(T1 t1 : input){
+		output.add(transformer.transform(t1));
+	}
+	
+	return output;
+}
+
+3/ A transformer instance utility
+
+public static Transformer<Person,PersonDto> PERSON_DTO = new Transformer<Person, PersonDto>(){
+
+	@Override
+	public PersonDto transform(Person input){
+		if(null == input) return null;
+
+		PersonDto personDto = new PersonDto();
+		dto.setAgeInYears(DateUtil.calculateAge(input.getDOB(),new Date()));
+		dto.setName(input.getName());
+		return dto;
+	}
+};
+
+4/ Optional
++ Now define public static transformers in Util class
+
+public Collection<PersonDto> transformPersonsToPersonDto(Collection<Person> persons){
+	return CollectionUtil.transform(persons, PersonTransformer.PERSON_DTO);
+}
+
+
+0-0-0- Cleaner Code Predicate 0-0-0-
+1/
+public static <T> Collection<T> filter (Collection<T> c, Predicate<T> predicate){
+	if(null == c) return null;
+
+	Collection<T> collection = new ArrayList<T>();
+	for (T t: c){
+		if(predicate.evaluate(t)){
+			collection.add(t);
+		}
+	}
+	
+	return collection;
+}
+
+
+2/
+public interface Predicate<TYPE>
+{
+	boolean evaluate(TYPE input);
+}
+
+3/ outer function's arg --> scoped into inner function
+
+public static final Predicate<Person> PERSON_BORN_AFTER(final Date date)
+{
+	return new Predicate<Person>()
+	{
+		public boolean evaluate(Person person)
+		{
+			return null != person && person.getDOB() != null && person.getDOB.after(date);
+		}
+	};
+}
+
+4/
+public Collection<Person> getPersonsBornAfterDate(Collection<Person> persons, Date date)
+{
+	return CollectionUtil.filter(persons, PersonPredicate.PERSON_BORN_AFTER(date));
+}
+
+
+
+public static Classifier<Integer, Person> BY_HEIGHT = new Classifier<Integer, Person>()
+{
+	@Override
+	public Integer evaluate(Person o);
+	{
+		return o.getHeight();
+	}
+}
+
+public static <T1, T2, T3 extends Collection<T2>> Map<T1,T3> classify(Collection<T2> c, Classifier<T1,T2> p)
+{
+	Map<T1,T3> map = new HashMap<T1,T3>();
+	
+	for(T2 t2 : c)
+	{
+		T1 t1 = p.evaluate(t2);
+		if (map.containsKey(t1)
+		{
+			map.get(t1).add(t2);
+		}
+		else
+		{
+			T3 l = (T3) new ArrayList<T2>();
+			l.add(t2);
+			map.put(t1,l);
+		}
+	}
+	
+	return map;
+}
+
+
+public Map<Integer,List<Person>> classifyPersonsByHeight(Collection<Person> persons)
+{
+	return CollectionUtil.classify(persons, PersonClassifier.BY_HEIGHT);
+}
+
+Ref - InfoQ
