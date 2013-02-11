@@ -1,4 +1,3 @@
-
 -0- Hypermedia APIs vs old styled APIs -0-
 + common design pattern for APIs
 > RPC style design pattern
@@ -9,17 +8,25 @@
 -0- Hypermedia API vs RPC API -0-
 > Hypermedia - use of a shared message model
 > Hypermedia - usually use a registered media type -
+
+-0- Registered Media Type -0-
 >> HTML, Atom, HAL, Collection-JSON
 >> this message model will be used regardless of the object or collection being passed
 
 -0- Marshalling Objects vs. Representing State -0-
 + H Apis - focussed on representing state of the app
 >> Not focussed on functions that affect the state
+
+-0- Marshall Objects -0-
 + Representing state of app as an object
 >> seems good for local source code 
 >> not great for WWW
 >> most cases the shared message represent the shared understanding between apps
->> 
+
+-0- More than just DATA -0-
++ data plus control
++ control that represents the next steps
+
 
 
 
