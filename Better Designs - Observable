@@ -1,0 +1,14 @@
+
+An {@link Observer} must call an Observable's <code>subscribe</code> method in order to register itself
+    to receive push-based notifications from the Observable.
+
+An Observable can subsribe an Observer & return a Subscription. 
+    > DONT just add & keep quiet
+
+An Observable can subscribe a list of Callbacks & return a Subscription.
+    > writing style talks of <code>subscribe</code> as a method in Observable
+    > In theory, callbacks subscribe an Observable
+
+
+
+References: https://github.com/Netflix/RxJava/blob/master/rxjava-core/src/main/java/rx/Observable.java
