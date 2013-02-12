@@ -1,5 +1,23 @@
 
 
+ -0- Green threads
+  > Emulate multi-threaded environments 
+  > NO relying on native OS capabilities, 
+  > and they are managed in user space instead of kernel space, 
+  > enabling them to work in environments that do not have native thread support.
+  > known as Space Threads or Fibers
+  > manage concurrency in a COOPERATIVE than PRE-EMPTIVE WAY
+
+ -0- Python's threads
+  > are implemented as pthreads (kernel threads) 
+  > and because of the Global Interpreter Lock (GIL), 
+  > A python process only runs ONE THREAD at a time.
+
+
+
+
+
+
 0-0 Scripts Block Downloads 0-0-0
 --------------------------
 + scripts take time to download
@@ -76,7 +94,6 @@ because significant numbers of those are not non-blocking implementations.
 -0- What about Actor Model -0-
 - one of the things we looked at was how best to handle handlers. 
 - Do we do the same things as we’ve done in Groovy which is passing closures or Scala functions or can we use actors?
-
 
 
 
