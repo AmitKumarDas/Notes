@@ -1,0 +1,13 @@
+
+Data Transfer can be done in any of three modes:
+   
+> Stream mode: Data is sent as a continuous stream, 
+          Relieving FTP from doing any processing. 
+          Rather, all processing is left up to TCP. 
+          No End-of-file indicator is needed, unless the data is divided into records.
+
+> Block mode: FTP breaks the data into several blocks 
+          (block header, byte count, and data field) and then passes it on to TCP.
+
+> Compressed mode: Data is compressed using a single algorithm (usually run-length encoding).
+
