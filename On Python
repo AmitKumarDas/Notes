@@ -1,12 +1,39 @@
-def  <> function
-self <> this
+def  <=> function
+self <=> this
 All about indentations
 __init__
 __del__
-() <> new operator
-() & del <> create & destroy object
-self <> prefix to variable & it becomes a instance variable
-self <> as an argument in a method then it becomes an instance method
-self <> not present in argument then it becomes a static method
-__ <> double underscore for data members are private
+() <=> new operator
+() & del <=> create & destroy object
+self <=> prefix to variable & it becomes a instance variable
+self <=> as an argument in a method then it becomes an instance method
+self <=> not present in argument then it becomes a static method
+__ <=> double underscore for data members are private
+
+Tuples 
+ > are immutable
+ > hold multiple objects
+ > tuple within a tuple doesnot lose its identity
+ > access item using SQUARE bracket
+ > constructed using ()
+
+Dictionary
+ > constructed via {}
+ > use SQUARE bracket
+
+List
+ > constructed using []
+ > use SQUARE bracket
+
+Sequences
+ > full slice or copy => [:]
+ > last item          => [-1]
+ 
+Reference
+ > only reference & not copies
+ > use full slice to get a copy
+
+Join
+  > seems to be a cool string util method
+
 
