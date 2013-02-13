@@ -1,4 +1,14 @@
 
+
+ -0- Deep Copy
+  
+  > Most of the time, you want to do a 'deep copy' so that an entirely new array is formed, 
+    This is done by adding 'true, {}' as the first two arguments:
+
+  > $.extend(true, {}, cloudstack.someObject, { a: 1, b: 2 })
+
+
+
 -0-0- Issues in JS -0-0-
 ----------------------------
 + Global Variables
