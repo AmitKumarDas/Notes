@@ -15,7 +15,7 @@
 
 -0- Cloudstack Agent Container
 
-  > deploys Server Resource
+  > deploys Server Resource if deployed remotely
   > handle protocol issues
     > communicating via firewall
     > serializing/ deserializing
