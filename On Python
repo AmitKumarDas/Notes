@@ -42,6 +42,56 @@ Native Python Library vs C Library
   > try: ... except:
 
 
+[]
+-----------
+  > use .append
+  > to append object
+
+Inheritance
+----------------
+  > can be modeled like GENERICS
+
+
+Serialization
+--------------
+  > pickle or cPickle library
+  > data for the instance is pickled
+  > class definition is not pickled
+
+Simulate Stream
+----------------
+  > use StringIO
+
+Circuar References
+-------------------
+  > pickle can serialize .. No Problem
+
+
+
+
+Simulate FILE
+------------------
+  > use StringIO
+
+Workers
+-------------
+  > os.fork()
+  > os.pipe()
+
+
+Worker Pool Manager
+------------------
+  > multiprocessing library
+  > 
+
+
+
+
+
+
+
+
+
 
 
 
