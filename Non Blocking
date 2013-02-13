@@ -1,5 +1,15 @@
 
- -0- Green threads
+
+ -0- Asyncore 
+------------------
+  > multiple asynchronouz connections
+  > in the same OS thread
+
+
+
+
+
+-0- Green threads
 -------------------
   > Emulate multi-threaded environments 
   > NO relying on native OS capabilities, 
