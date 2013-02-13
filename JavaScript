@@ -1,21 +1,28 @@
 
-
  -0- Deep Copy
-  
+--------------------  
   > Most of the time, you want to do a 'deep copy' so that an entirely new array is formed, 
     This is done by adding 'true, {}' as the first two arguments:
 
   > $.extend(true, {}, cloudstack.someObject, { a: 1, b: 2 })
 
 
+ -0- Transform Contents
+-------------------------  
+  > $.map(array, function(item) {
+      return { fieldA: item.fieldA, fieldB: item.fieldB };
+    });
+
+  > Used to transform the contents of array items
+
 
 -0-0- Issues in JS -0-0-
 ----------------------------
-+ Global Variables
-+ Lacks support for classes
-+ Hard to make inheritance
-+ Automatic type conversion between string & number
-+ NaM is not a number, however it is a number
+  > Global Variables
+  > Lacks support for classes
+  > Hard to make inheritance
+  > Automatic type conversion between string & number
+  > NaM is not a number, however it is a number
 
 
 -0- Values & Defaults -0-0-
