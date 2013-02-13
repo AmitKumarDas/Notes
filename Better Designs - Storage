@@ -1,5 +1,35 @@
 
-Data Transfer can be done in any of three modes:
+-0- Cloudstack
+  
+  > composed of 2 parts
+  > management server & server resource
+  > management server - business logic
+  > server resource - translation layer to talk to hardware
+
+-0- Cloudstack & 2 parts
+  
+> JSON - API glue between management & server layer
+  > Server Resource can be in any language .. not necessarily in Java
+  > Server resource can be remotely deployed from management server
+  > Server resource doesnot have access to management datastore
+  > Server resource resides in a Agent Container when deployed remotely
+
+-0- Cloudstack Agent Container
+
+  > deploys Server Resource
+  > handle protocol issues
+    > communicating via firewall
+    > serializing/ deserializing
+    > security
+
+-0- CLoudstack REST API
+  > synchronous, asynchronous & asynchronous create
+  > broken into 2 APIs: End User API & OAM&P API
+  > OAM&P - Ops, Admin, Maintainence & Provisioning = Admin API
+
+
+
+-0-  FTP Data Transfer can be done in any of three modes:
    
 > Stream mode: Data is sent as a continuous stream, 
           Relieving FTP from doing any processing. 
