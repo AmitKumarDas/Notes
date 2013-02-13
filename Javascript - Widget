@@ -1,0 +1,14 @@
+
+ -0- Design Base Widget
+   
+    > Action Handling - delegate to modularized JS blocks
+    > extend base widget via HOOKs
+    > separate data handling
+    > 
+
+ -0- Widget & Data handling
+
+    > Separate module for AJAX etc data handling
+    > separate module for context handling
+    > separate module for creating response object
+
