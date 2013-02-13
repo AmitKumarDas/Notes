@@ -36,4 +36,13 @@ Reference
 Join
   > seems to be a cool string util method
 
+Native Python Library vs C Library
+  > try c library first if available
+  > else use python
+  > try: ... except:
+
+
+
+
+
 
