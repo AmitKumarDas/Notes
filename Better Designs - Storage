@@ -1,4 +1,3 @@
-
 -0- Cloudstack
   
   > composed of 2 parts
@@ -23,7 +22,7 @@
     > security
 
 -0- CLoudstack REST API
-  > synchronous, asynchronous & asynchronous create
+  > categorized as -> synchronous, asynchronous & asynchronous create
   > broken into 2 APIs: End User API & OAM&P API
   > OAM&P - Ops, Admin, Maintainence & Provisioning = Admin API
 
