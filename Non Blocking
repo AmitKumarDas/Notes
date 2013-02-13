@@ -1,18 +1,52 @@
 
-
  -0- Green threads
+-------------------
   > Emulate multi-threaded environments 
   > NO relying on native OS capabilities, 
   > and they are managed in user space instead of kernel space, 
   > enabling them to work in environments that do not have native thread support.
+
+ -0- Green Threads
+---------------------
   > known as Space Threads or Fibers
   > manage concurrency in a COOPERATIVE than PRE-EMPTIVE WAY
 
  -0- Python's threads
+----------------------
   > are implemented as pthreads (kernel threads) 
   > and because of the Global Interpreter Lock (GIL), 
   > A python process only runs ONE THREAD at a time.
 
+
+ -0- Green Threads && Evented IO
+------------------------------------
+  > focussed on multi-tasking
+  > no overhead of OS based multi-tasking
+  
+ -0-  Evented IO
+---------------------
+  > lets the server to continue work
+  > it waits for the IO ops
+  > deals with the IO events
+  
+
+ -0- Green Threads vs CoRoutines 
+----------------------------------
+  > green threads resemble coroutines
+  > HOW ?
+  > both start & stop @ arbitary, programmer specified points
+
+
+ -0- Bluelet 
+----------------
+  > pure python
+  > implements Green Threads as native coroutines
+  > simple evented socket IO support via native coroutine
+
+ -0- Bluelet vs Greenlet
+------------------------
+  > Greenlet - more powerful
+  > relies on C extension to the Python interpreter
 
 
 
