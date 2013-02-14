@@ -5,7 +5,15 @@
   > management server - business logic
   > server resource - translation layer to talk to hardware
 
--0- Cloudstack & 2 parts
+-0- Cloudstack & Management Server
+----------------------------------
+  > Business Logic
+  >> Service Offering,
+  >> Account
+  >> acl
+  >> usage
+
+-0- Cloudstack & GLUE to 2 parts
   
 > JSON - API glue between management & server layer
   > Server Resource can be in any language .. not necessarily in Java
