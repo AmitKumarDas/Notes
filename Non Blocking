@@ -68,8 +68,13 @@
 ----------------------------
   > Who takes cares of serialization
   > Just reading from Input Stream
-  > & then dump into Object
+  > & then dump/load into Object
   > Which Object ? How Serialization & DeSerialization is taken care?
+
+ -0 Stream Serialization & DeSerialization
+---------------------------------------------
+  > input stream is verified against a particular object
+  > i/p stream is typecasted to a particular object
 
 
 0-0 Scripts Block Downloads 0-0-0
