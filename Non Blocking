@@ -1,5 +1,4 @@
 
-
  -0- Asyncore 
 ------------------
   > multiple asynchronouz connections
@@ -60,6 +59,13 @@
 
 
 
+ -0 extract from InputStream
+--------------------------------
+  > URL can open an input stream
+  > FileInputStream is an input stream
+  > You read from input stream & dump into some native object
+
+ 
 
 
 0-0 Scripts Block Downloads 0-0-0
