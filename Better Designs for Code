@@ -1,31 +1,51 @@
--0- Hypermedia APIs vs old styled APIs -0-
-+ common design pattern for APIs
-> RPC style design pattern
-> accept parameter & return objects
+-0- Hypermedia APIs vs old styled APIs
+  + common design pattern for APIs
+  > RPC style design pattern
+  > accept parameter & return objects
+
 + Hypermedia style APIs
-> interactions will be based on links & forms
+  > interactions will be based on links & forms
 
--0- Hypermedia API vs RPC API -0-
-> Hypermedia - use of a shared message model
-> Hypermedia - usually use a registered media type -
+-0- Hypermedia API vs RPC API
+  > Hypermedia - use of a shared message model
+  > Hypermedia - usually use a registered media type -
 
--0- Registered Media Type -0-
->> HTML, Atom, HAL, Collection-JSON
->> this message model will be used regardless of the object or collection being passed
+-0- Registered Media Type
+  >> HTML, Atom, HAL, Collection-JSON
+  >> this message model will be used regardless of the object or collection being passed
 
--0- Marshalling Objects vs. Representing State -0-
-+ H Apis - focussed on representing state of the app
->> Not focussed on functions that affect the state
+-0- Marshalling Objects vs. Representing State
+  + H Apis - focussed on representing state of the app
+  >> Not focussed on functions that affect the state
 
--0- Marshall Objects -0-
-+ Representing state of app as an object
->> seems good for local source code 
->> not great for WWW
->> most cases the shared message represent the shared understanding between apps
+-0- Marshall Objects
+  + Representing state of app as an object
+  >> seems good for local source code 
+  >> not great for WWW
+  >> most cases the shared message represent the shared understanding between apps
 
--0- More than just DATA -0-
-+ data plus control
-+ control that represents the next steps
+-0- More than just DATA H-API
+  + data plus control
+  + control that represents the next steps
+
+
+ -0- Annotation Usage
+---------------------
+  > A Command JavaBean
+  > This bean uses annotation with all its properties
+  > This annotation has details like: type, default, required, description
+
+
+ -0 Commands & Events
+-----------------------
+  > Commands are persisted as Events  
+  > Command may be async
+  > Persistence logic inside Command class
+  > Command execution -> store response as as property in this Command class itself
+  > Represents a Job type - async/syv - further ENUM type within sync or async
+
+
+
 
 
  -0- Architecture Style @ cloudstack
