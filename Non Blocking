@@ -38,11 +38,25 @@
   > deals with the IO events
   
 
- -0- Green Threads vs CoRoutines 
+ -0- Green Threads via CoRoutines 
 ----------------------------------
   > green threads resemble coroutines
   > HOW ?
   > both start & stop @ arbitary, programmer specified points
+
+
+ -0 Coroutines
+-------------------
+  > used 2 express Simulations, Games, Async I/O, Event Driven Programming, co-operative multitasking
+  > 
+
+ -0 Python Generators
+------------------------
+  > differ from coroutine
+  > donot pass values on resuming
+  > donot pass execption on resuming
+  > Just pause execution to produce a value
+  > No clean up coz pause cannot be within try block
 
 
  -0- Bluelet 
