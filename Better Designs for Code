@@ -28,6 +28,25 @@
 + control that represents the next steps
 
 
+ -0- Architecture Style @ cloudstack
+----------------------------
+  > Some Wrapper Engine >> Specific Engine
+  > Specific Engine -- Will have a lifecycle 
+  > Specific Engine > Host of Specific Services
+  > Specific Service > Some Provider Manager > Provider > Provider Driver
+
+ -0- Storage Lifecycle @ cloudstack
+--------------------------------------
+  > Register -> Initialized -> Ready --UnManaged-> Maintenance
+  > Maintenance -> Detached -> Removed
+  > Detached -attach-> Ready
+  > Maintenance --managed-> Ready
+
+
+
+
+
+
 
 
 
