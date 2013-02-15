@@ -118,7 +118,14 @@
   > + Abstract Classes + Interfaces
   > 
 
-
+-0 Cache - An Sample Design
+---------------------
+  > Public Cache class
+  > nested private CacheItem<T> class
+  > CacheItem = value & createTime
+  > Methods - removeOldest, 
+  > HashMap of <String,CacheItem<XXX>>
+  > ref - https://github.com/bitwave/jlambda/blob/develop/src/jlambda/codegen/Cache.java
 
 
 
