@@ -54,9 +54,26 @@
 ------------------------
   > differ from coroutine
   > donot pass values on resuming
-  > donot pass execption on resuming
+  > donot pass exception on resuming
   > Just pause execution to produce a value
   > No clean up coz pause cannot be within try block
+
+
+ -0 Python Generator - OLD REFERENCE
+------------------------
+  > yield to its immediate caller
+  > cannot put out as a separate function
+  > else the called function itself becomes a generator
+
+
+ -0 Python Generator - New
+------------------------------
+  > yield from <expr>
+  > <expr> ~ Iterable
+  > value that the iterator yeilds is passed to the caller
+  > value sent to the delegating generator passed directly to the Iterator
+  > send() used to pass value to Iterator
+  > 
 
 
  -0- Bluelet 
