@@ -1,4 +1,3 @@
-
 Developers guide to SAML Workings 0-0-0-
 
 0-0-0 SAML Specs 0-0-0
@@ -32,3 +31,20 @@ Developers guide to SAML Workings 0-0-0-
 + Name Identifier Management
 + Identity Provider Discovery
 + 
+
+ -0 Code Wise Understanding SAML
+--------------------------------------
+  > When request are intercepted, it follows the below flow:
+  > Creation of a Profile
+  > Profiles are created from Access Policies
+  > Profiles can be categorized into Profile Bindings
+  > If the Profile level Binding is ARTIFACT then
+  >> then the transport level binding i.e. SOAP or REDIRECT can be used
+ 
+
+
+
+
+
+
+
