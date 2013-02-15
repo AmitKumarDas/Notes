@@ -44,6 +44,15 @@
   > Command execution -> store response as as property in this Command class itself
   > Represents a Job type - async/syv - further ENUM type within sync or async
 
+ -0 Callbacks & Template & Utils
+-----------------------------------
+  > Define callbacks
+  > Define templates
+  > Define callback util
+  > Define template util
+  > Use Generics, filter, predicate, transform, classify patterns
+  > callbacks should return a state of ENUM type
+
 
 
 
