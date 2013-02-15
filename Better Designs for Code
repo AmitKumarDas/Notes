@@ -72,6 +72,16 @@
   > Maintenance --managed-> Ready
 
 
+ -0 Cloudstack - API 
+-------------------------
+  > Every operation or UseCase is a command
+  > command is described via annotations
+  > each command property is described via annotation
+  > command has a response property
+  > command talks to service to CRUD ops on datastore
+
+
+
 
 
 
