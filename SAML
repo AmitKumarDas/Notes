@@ -41,6 +41,24 @@ Developers guide to SAML Workings 0-0-0-
   > If the Profile level Binding is ARTIFACT then
   >> then the transport level binding i.e. SOAP or REDIRECT can be used
  
+ -0 On POST Binding
+-------------------------
+  > dont require a direct communication between IDP & 3rd party
+  > data communicated via end user's browser
+  > workstation should be able to access IDP & 3rd party app
+  > fits well to existing network security well
+
+
+
+
+ -0 Understanding Mutual SSL Types
+----------------------------------
+  > mutual SSL through Proxy without a tunnel may be good
+  > mutual SSL via a tunnel may not be clean
+
+
+
+
 
 
 
