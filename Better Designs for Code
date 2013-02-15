@@ -72,13 +72,61 @@
   > Maintenance --managed-> Ready
 
 
- -0 Cloudstack - API 
+ -0 Cloudstack - Command API 
 -------------------------
   > Every operation or UseCase is a command
+  > Command is interpreted as an Entity 
   > command is described via annotations
   > each command property is described via annotation
   > command has a response property
-  > command talks to service to CRUD ops on datastore
+  > command talks to service to one of the CRUD ops on datastore
+  > A command corresponds to either C, R, U, or D.
+  > seems bit DDD - Domain Driven Design - coz each Command's property has some metadata set into it
+
+ -0 Command 
+------------------------
+  > Packaged as Admin & User
+
+
+ -0 Command & Response = API
+--------------------------
+  > Response represents the reverse flow of Command
+  > Response is pure java bean with annotations
+
+ -0 GSon + SerializedName
+-------------------------------
+  > good way to represent the serialized information
+  > even if code uses the same property with different name
+  > annotate with gson's SerializedName to serialize into a different name
+  > use constants with @SerializedName annotation
+  > or better use Spring Expression Language with these annotations
+  > Spring EL brings in the advantage of declarative configuration
+  > Declarative configuration can be used to treat various naming conventions per deployment/vendor/driver
+
+ -0 Injection vs Others
+----------------------------
+  > javax.inject package
+  > better than constructors, factories, service locators (i.e. JNDI)
+  > Better UNIT Testing
+  > Factories - lot of unnecessary boilerplate code, adding noise, complexity & error-pronesess
+
+
+ -0 API ==
+----------------------
+  > Command + Response 
+  > + Annotation definition + Enum + Exception + BaseCommands
+  > + Abstract Classes + Interfaces
+  > 
+
+
+
+
+
+
+
+
+
+ 
 
 
 
