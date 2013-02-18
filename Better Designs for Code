@@ -128,7 +128,7 @@
   > ref - https://github.com/bitwave/jlambda/blob/develop/src/jlambda/codegen/Cache.java
 
 
- -0 Interface Design 
+ -0 Interface Design - I
 -------------------------
   > Mostly in the BASE package
   > extending other ineterfaces
@@ -169,6 +169,23 @@
   > Behavior type Interface
   > These interface will have very minimal public methods
 
+
+ -0 Enum Design - I
+-----------------------
+  > May be defined within a Entity type Interafce
+
+ -0 Enum Design - II
+------------------------------
+  > ENUM may have A STATE MACHINE representation.
+  > The State Machine may use the properties of its own ENUM & 
+  >> also map it with properties of other ENUM 
+  > both the ENUMs will be present in the Entity type Interface
+
+ -0 State Machine - I
+---------------------------
+  > Defines transition
+  > Mostly defines transition from one ENUM state to another ENUM state
+  > Uses the EVENT enum property as an validatory property for above transition to be successful
 
 
  
