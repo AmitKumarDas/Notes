@@ -146,7 +146,22 @@
   > enum StoragePoolType, 
   > enum StorageResourceType
 
- -0 
+ -0 Interface Example Design - II
+------------------------------------
+  > Above talked of Interfaces representing Entitys
+  > There will be Interafecs representing Managers
+  > These manager type Interfaces will extend some other Interface
+  > These Interface is not direclty related to Services
+  > Service will be yet another type of Interface
+
+ -0 Interface Example Design - III
+-----------------------------------
+  > Service Type Interfaces
+  > The interface here may not extend other Interfaces
+  > The interface methods may have below arguments
+  >> Long xxxID, XXXCommand
+  > Will return some Entity type Interface
+
 
  
 
