@@ -187,8 +187,33 @@
   > Mostly defines transition from one ENUM state to another ENUM state
   > Uses the EVENT enum property as an validatory property for above transition to be successful
 
+ -0 State Machine - II
+------------------------------
+  > Event is normally processed in a State Machine
+  > The event is consumed in the State Machine based on some strategy
+  > State Machine process events that might fire transitions between states
 
- 
+ -0 State Machine vis-a-vis THREADs- III
+---------------------------------------------
+  > Designed to protect ciritical sections in a complex event driven environment
+  > Only 1 THREAD can execute a transition @ a time
+  > Any manipulation of sensitive info should be done via a transition
+  > During Transition the lock of the object is acquired
+  > The locks are not released till transition is Complete
+  > This may cause deadlocks, so be a good programmer
+
+ -0 StateMachine, Transition & Thread Lock - IV
+--------------------------------------------------
+  > Locks guarantee no other thread will be in that critical section
+  > What about the same THREAD
+  > It might be possible to process an EVENT while processing another EVENT
+  > We might avoid that due to inconsistencies
+  > define a flag allowsReentrantTransition to false
+
+
+
+
+
 
 
 
