@@ -128,10 +128,25 @@
   > ref - https://github.com/bitwave/jlambda/blob/develop/src/jlambda/codegen/Cache.java
 
 
+ -0 Interface Design 
+-------------------------
+  > Mostly in the BASE package
+  > extending other ineterfaces
+  > sometime a list of interfaces
+  > different ENUMs are defined here
+  > enum TYPE, enum State, enum Event
+  > Entity type interfaces will have lots of public methods
 
+ -0 Interface Example - Storage - @ref Cloudstack
+-------------------------------------------------
+  > Storgae >>
+  > enum ImageFormat, 
+  > enum FileSystem, 
+  > enum TemplateType, 
+  > enum StoragePoolType, 
+  > enum StorageResourceType
 
-
-
+ -0 
 
  
 
