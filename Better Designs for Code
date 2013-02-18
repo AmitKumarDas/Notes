@@ -162,6 +162,11 @@
   >> Long xxxID, XXXCommand
   > Will return some Entity type Interface
 
+ -0 Interface Example Design - IV
+---------------------------------------
+  > Behavior type Interface
+  > These interface will have very minimal public methods
+
 
  
 
