@@ -136,6 +136,8 @@
   > different ENUMs are defined here
   > enum TYPE, enum State, enum Event
   > Entity type interfaces will have lots of public methods
+  > Need not reuse ENUM over interfaces   > Have ENUM defined in each interface separately
+  > Need not reuse EVENT over interfaces  > Have EVENT defined in each interface separately
 
  -0 Interface Example - Storage - @ref Cloudstack
 -------------------------------------------------
@@ -166,6 +168,7 @@
 ---------------------------------------
   > Behavior type Interface
   > These interface will have very minimal public methods
+
 
 
  
