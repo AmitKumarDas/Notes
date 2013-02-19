@@ -220,6 +220,24 @@
   > Step 1 : Exit Phase; Step 2 : Transition Phase; Step 3 : Enter State
 
 
+ -0 Non-ReEntrant Stratgey & Enqueuing - I
+----------------------------------------
+  > Queuing is required for non-reentrant execution
+  > Strategies can be implemented as Rentrant, NonReEntrant & ReEntrantEnQueueStrategy
+
+
+ -0 Non-ReEntrant & Enqueuing - II
+----------------------------------------
+  > May use LinkedBlockingQueue<SomeContext>
+  > Create & start a Runnable in the Strategy's constructor
+  > This Runnable will accept a LinkedBlockingQueue all in the constructor itself
+  > Strategy's process method will simply add to the blocking queue
+  > Need to create a private inner class that will have the Context info
+  > This context info will be used when doing the actual processing within the run method of the Runnable
+  > Runnable will be a constantly running thread .. i.e. while(true) {..}
+
+
+
 
 
 
