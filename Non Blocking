@@ -45,10 +45,23 @@
   > both start & stop @ arbitary, programmer specified points
 
 
- -0 Coroutines
+ -0 Coroutines - I
 -------------------
   > used 2 express Simulations, Games, Async I/O, Event Driven Programming, co-operative multitasking
   > 
+
+ -0 CoRoutine - II
+------------------------
+  > allow control transfer thats beyond if else or goto
+  > entry point = coroutine
+  > while executing this coroutine, you can suspend your code & return to the coroutine call
+  > comparable to stack unwinding of exceptions
+  > without coroutine, you require thread or a hand written state machine
+
+ -0 CoRoutine - III
+------------------------
+  > 
+
 
  -0 Python Generators
 ------------------------
