@@ -45,23 +45,7 @@
   > both start & stop @ arbitary, programmer specified points
 
 
- -0 Coroutines - I
--------------------
-  > used 2 express Simulations, Games, Async I/O, Event Driven Programming, co-operative multitasking
-  > 
-
- -0 CoRoutine - II
-------------------------
-  > allow control transfer thats beyond if else or goto
-  > entry point = coroutine
-  > while executing this coroutine, you can suspend your code & return to the coroutine call
-  > comparable to stack unwinding of exceptions
-  > without coroutine, you require thread or a hand written state machine
-
- -0 CoRoutine - III
-------------------------
-  > 
-
+ 
 
  -0 Generator
 ------------------------
@@ -69,7 +53,7 @@
   > via yield statement
   > any function that has a yield statement becomes a Generator func
   > function is not auto executed
-  > func only executes on next() or send()
+  > func only executes on next()
   > yield produces a value, but suspends the function
 
  -0 Generator as Processing Pipelines
@@ -77,33 +61,88 @@
   > similar to Shell pipes in Unix
   > stack a series of generator funcs together into a pipe & pull items
  
+ -0 More than generate Values > Generator ++
+----------------------------------
+  > More than just generation
+  > When generator can consume value
+  > so you have to send the value to be consumed
+  > sent values are returned by yield
+  > so yield needs to be used as an EXPRESSION
+  > i.e. R.H.S of an assignment
+  > coroutine generally consume value
+
+
+ -0 Coroutine Priming
+-----------------------
+  > must be primed by first calling next() 
+  > OR
+  > calling send(none)
+
+ -0 Coroutine Priming - Wrapper/Decorator
+--------------------------------------------
+  > priming is easy to forget
+  > built a decorator .. python snippet
+
+def coroutine(func):
+  def start(*args, **kwargs)
+    cr = func(*args, **kwargs)
+    cr.next
+    return cr
+  return start
+
+//usage
+@coroutine
+def grep(pattern)
+  ...
+
+ -0 Closing a coroutine
+----------------------------
+  > use .close() to shut it down
+  > ref Python
+  > close() can be caught as if its an Exception
+  > use try ... except GeneratorExit
+
+ -0 Keep it Straight
+---------------------
+  > Generator produces VALUE
+  > Generator produce data for iteration
+  > Coroutines are consumers of data
+  > Dont mix together
+  > Coroutines are not related to ITERATION
+
+
+ -0 Coroutine - Using as Pipelines
+-----------------------------
+  > chain coroutines together
+  > push data through pipe with send() operations
+  > the pipeline needs an initial source - a producer
+  > pipeline must have an end point - a sink
+  > pipeline - Filter or Transformation
+
+ -0 Piplines w.r.t Generator & Coroutine
+------------------------------------------
+  > Generator PULL data through the pipe with iteration
+  > Coroutines PUSH data into the pipeline with send()
+
+ -0 Coroutine & Branching
+-------------------------
+  > send data to multiple destinations
+  > example - Broadcasting
+  > broadcast can take in multiple target with each target having an ability to send
+
+ -0 Coroutine & Event Dispatching
+----------------------------------------
 
 
 
- -0 Python Generators
-------------------------
-  > differ from coroutine
-  > donot pass values on resuming
-  > donot pass exception on resuming
-  > Just pause execution to produce a value
-  > No clean up coz pause cannot be within try block
 
 
- -0 Python Generator - OLD REFERENCE
-------------------------
-  > yield to its immediate caller
-  > cannot put out as a separate function
-  > else the called function itself becomes a generator
+-0 Coroutines - Usage
+-------------------
+  > used 2 express Simulations, 
+  >> Games, Async I/O, Event Driven Programming, co-operative multitasking
 
 
- -0 Python Generator - New
-------------------------------
-  > yield from <expr>
-  > <expr> ~ Iterable
-  > value that the iterator yeilds is passed to the caller
-  > value sent to the delegating generator passed directly to the Iterator
-  > send() used to pass value to Iterator
-  > 
 
 
  -0- Bluelet 
