@@ -132,7 +132,10 @@ def grep(pattern)
 
  -0 Coroutine & Event Dispatching
 ----------------------------------------
-
+  > SAX is an event driven approach to XML parsing
+  > SAX is good for large files, where large memory foot print is avoided
+  > now u can dispatch SAX events into coroutines
+  > SAX parser -- events --> Handler --send() --> event,value
 
 
 
@@ -258,6 +261,7 @@ because significant numbers of those are not non-blocking implementations.
  -0 ASM 4 
 -------------
   > Event driven approach to manipulate byte code
+  > Can manipulate via in-memory too
   > 
 
 
