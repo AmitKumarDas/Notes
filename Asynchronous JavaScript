@@ -25,28 +25,34 @@ I have tried to give due references of the Authors but might have missed others.
   > is A local approach
 
 
--0-0 Async Funcs & Serial invocation -0-0
-+ If invoked in a loop i.e. serially
-> will execute parallely
-> Can you collect the aggregate results in such a case ?
-> No. The solution is to invoke the async funcs Recursively.
-> Coz Iteration will not give you results.
+ -0 Async Funcs & Serial invocation
+----------------------------------------
+ + If invoked in a loop i.e. serially
+  > will execute parallely
+  > Can you get the Aggregate results in such a case ?
+  > No. The solution is to invoke the async funcs Recursively.
+  > Coz Iteration will not give you results.
 
--0-0 Recursion & Async -0-0
-+ Recursive function should invoke Async Func
-+ 
+ -0 Recursion & Async
+--------------------------
+  > Recursive function should invoke Async Func
 
--0-0 Recursive + Async + Functional -0-0-
+ -0 Recursive + Async + Functional
+-------------------------------------
+  > Define a for each function for async calls
+
 asyncForEach(array,iterator,then){
  function loop(i){
   if(i < array.length) 
-   iterator(array[i], function(){loop(i+1)};); //defined the iterator cb's signature // aliter- invoke iterator
+   iterator(array[i], function(){loop(i+1)};); // Invoke iterator
   else 
-   then(); //defined the then cb signature //aliter- invoke then
+   then(); //aliter- invoke then
  }
  loop(0);
 }
 
+  > Invoke the for each function
+  > Iterator takes the current item & also has the function that has to be invoked next
 
 asyncForEach(array, function(item, next) {
   // body of iterator
@@ -64,10 +70,11 @@ asyncForEach(array, function(item, next) {
 
 
 
-0-0- Callbacks & Templates II 0-0-
+ 0- Callbacks & Templates II
+---------------------------------------
 + function template(abc, options, callback){
   otherFunc(abc, function(err,data){
-   if(err) return callback(err); // CB signature defined // && Invoked CB
+   if(err) return callback(err); // Invoked CB
  
    callback.counter +=1;         // A CB property defined & Assigned
 
@@ -76,18 +83,6 @@ asyncForEach(array, function(item, next) {
   });
 
 }
-
--0- Templates & Callbacks III -0-0
-+ Dont think of RETURNING result
-+ Try to pass the results to CB && Invoke CB
-
-
-
-
-
-
-+ Now usign all the above definition of callback
-+ Implement the callback
 
 
 0-0-0- Using callbacks -0-0-
