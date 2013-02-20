@@ -85,12 +85,13 @@ asyncForEach(array, function(item, next) {
 }
 
 
-0-0-0- Using callbacks -0-0-
+  -0- Using callbacks 
 -------------------------------
-+ My exp in Spiffy tells that single callback will not suffice.
-+ Read further to understand
+  + My exp in Spiffy tells that single callback will not suffice.
+  + Read further to understand
 
-0-0-0 Callbacks + Wrong way 0-0-0-0-0-0-0-0
+ -0 Callbacks + Wrong way
+-----------------------------
 
 function fetch() {
   var result = 'snap!';
@@ -100,10 +101,11 @@ function fetch() {
   return result;
 }
 
-document.write(fetch());​
+document.write(fetch());​ //will print snap always, actual result has not yet arrived
 
 
--0-0 Realistic Callback Usage -0-0-0-0-0
+ -0 Realistic Callback Usage
+---------------------------------
 
 function fetch(receiver) {
     $.getJSON("blah...", function(data) { //inside 1st cb
@@ -113,10 +115,10 @@ function fetch(receiver) {
 
 fetch(function(result) { document.write(result); });
 
--0-0 Cleaner Callbacks Usage -0-0-0-0-0-0-
-
-+ Generators can be used to make asynchronous code a lot more linear in style.
-+ Not standardized
+ -0 Cleaner Callbacks - Generator
+----------------------------------
+  > Generators can be used to make asynchronous code a lot more linear in style.
+  > Not standardized
 
 
 
