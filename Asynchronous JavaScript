@@ -118,11 +118,115 @@ fetch(function(result) { document.write(result); });
  -0 Cleaner Callbacks - Generator
 ----------------------------------
   > Generators can be used to make asynchronous code a lot more linear in style.
-  > Not standardized
+  > Not standardized till JavaScript 1.7
+
+ -0 No Callbacks - I
+-----------------------
+  > JavaScript 1.7 - Firefox introduces yield
+  > yield can be used for implementing generators & coroutines
+  > coroutines can be used to implement event loops as an alternative to callback
+
+
+ -0 Coroutine Example
+---------------------------
+function test() {
+    console.log('Hello!');
+    var x = yield;
+    console.log('First I got: ' + x);
+    var y = yield;
+    console.log('Then I got: ' + y);
+}
+
+var tester = test();
+tester.send(); // prints 'Hello!'
+tester.send('a cat'); // prints 'First I got: a cat'
+tester.send('a dog'); // prints 'Then I got: a dog'
+
+ -0 Coroutine Wrapper function
+---------------------------------
+function coroutine(f) {
+    var o = f(); // instantiate the coroutine
+    o.send(); // execute until the first yield
+    return function(x) {
+        o.send(x);
+    }
+}
+
+var test = coroutine(function() {
+    console.log('Hello!');
+    var x = yield;
+    console.log('First I got: ' + x);
+    var y = yield;
+    console.log('Then I got: ' + y);
+});
+// prints 'Hello!'
+
+test('a dog'); // prints 'First I got: a dog'
+test('a cat'); // prints 'Then I got: a cat'
+
+
+ -0 Coroutine that never ends
+----------------------------------
+var clock = coroutine(function() {
+    while (true) {
+        yield;
+        console.log('Tick!');
+        yield;
+        console.log('Tock!');
+    }
+});
+
+clock(); // prints 'Tick!'
+clock(); // prints 'Tock!'
+clock(); // prints 'Tick!'
+
+setInterval(clock, 1000); //Tick Tock every 1 second
+
+
+ -0 CoRoutine Event loop
+-------------------------
+  > use coroutines as callbacks for event
+  > the event object will be sent to the running coroutine
+  > this will be a form of infinite loop
+
+var loop = coroutine(function() {
+    var event;
+    while (event = yield) { // wait for a mousedown
+        if (event.type == 'mousedown') {
+            while (event = yield) { // process mousemoves until a mouseup
+                if (event.type == 'mousemove') move(event);
+                if (event.type == 'mouseup') break;
+            }
+        }
+    }
+});
+
+$('#box').mousedown(loop);
+$(window).mousemove(loop)
+  .mouseup(loop);
+
+ -0 CoRoutine as State Machine
+---------------------------------
+  > corotuine never explicitly stores any state
+  > coroutine add a new form of state to the language, namely the state where the coroutine is currently suspended
+  > this implicit coroutine state => consistency is guaranteed
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 References -
 http://bjouhier.wordpress.com/
 http://stackoverflow.com/questions/2222847/asynchronous-programming-in-javascript-without-messy-callbacks
-
+http://syzygy.st/javascript-coroutines/
