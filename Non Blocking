@@ -63,6 +63,23 @@
   > 
 
 
+ -0 Generator
+------------------------
+  > produce a sequence of results
+  > via yield statement
+  > any function that has a yield statement becomes a Generator func
+  > function is not auto executed
+  > func only executes on next() or send()
+  > yield produces a value, but suspends the function
+
+ -0 Generator as Processing Pipelines
+-------------------------------------
+  > similar to Shell pipes in Unix
+  > stack a series of generator funcs together into a pipe & pull items
+ 
+
+
+
  -0 Python Generators
 ------------------------
   > differ from coroutine
