@@ -255,6 +255,11 @@ because significant numbers of those are not non-blocking implementations.
 - Do we do the same things as we’ve done in Groovy which is passing closures or Scala functions or can we use actors?
 
 
+ -0 ASM 4 
+-------------
+  > Event driven approach to manipulate byte code
+  > 
+
 
 References:
 1. http://yuiblog.com/blog/2008/07/22/non-blocking-scripts/
