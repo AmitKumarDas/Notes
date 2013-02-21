@@ -1,3 +1,6 @@
+ -0 STICKY
+----------------
+
 def  <=> function
 self <=> this
 All about indentations
@@ -9,6 +12,14 @@ self <=> prefix to variable & it becomes a instance variable
 self <=> as an argument in a method then it becomes an instance method
 self <=> not present in argument then it becomes a static method
 __ <=> double underscore for data members are private
+
+
+ -0 About *
+-------------------
+def print_everything(*args):
+        for count, thing in enumerate(args):
+...         print '{0}. {1}'.format(count, thing)
+
 
 Tuples 
  > are immutable
