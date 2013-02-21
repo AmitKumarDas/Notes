@@ -14,37 +14,91 @@ self <=> not present in argument then it becomes a static method
 __ <=> double underscore for data members are private
 
 
- -0 About *
--------------------
+ -0 *args = varargs
+-----------------------------
 def print_everything(*args):
         for count, thing in enumerate(args):
-...         print '{0}. {1}'.format(count, thing)
+           print '{0}. {1}'.format(count, thing)
+
+  > print_everything('apple', 'banana', 'cabbage')
+  > see the usage of count & thing ... implicit
+
+ -0 **kwargs = named varargs
+-----------------------------
+def table_things(**kwargs):
+       for name, value in kwargs.items():
+           print '{0} = {1}'.format(name, value)
+
+  > table_things(apple = 'fruit', cabbage = 'vegetable')
+  > name & value - implicit
 
 
-Tuples 
+ -0 *list
+-------------------------
+def print_three_things(a, b, c):
+     print 'a = {0}, b = {1}, c = {2}'.format(a,b,c)
+
+
+  > mylist = ['aardvark', 'baboon', 'cat']
+  > print_three_things(*mylist)
+
+
+ -0 *args && **kwargs - Decorator
+-----------------------------------
+def mydecorator( f ):
+   @functools.wraps( f )
+   def wrapper( *args, **kwargs ):
+      print "Calling f", args, kwargs
+      v = f( *args, **kwargs )
+      print "f returned", v
+      return v
+   return wrapper
+
+
+
+
+
+
+
+
+
+
+
+ -0 Tuples 
+--------------------
  > are immutable
  > hold multiple objects
  > tuple within a tuple doesnot lose its identity
  > access item using SQUARE bracket
  > constructed using ()
 
-Dictionary
+
+ -0 Dictionary
+--------------------
  > constructed via {}
  > use SQUARE bracket
 
-List
+
+ -0 List
+---------------------------
  > constructed using []
  > use SQUARE bracket
 
-Sequences
+
+ -0 Sequences
+------------------------
  > full slice or copy => [:]
  > last item          => [-1]
- 
-Reference
+
+
+ -0 Reference
+-----------------------------
  > only reference & not copies
  > use full slice to get a copy
 
-Join
+
+ -0 Join
+----------------------------------
   > seems to be a cool string util method
 
 Native Python Library vs C Library
