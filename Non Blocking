@@ -137,6 +137,12 @@ def grep(pattern)
   > now u can dispatch SAX events into coroutines
   > SAX parser -- events --> Handler --send() --> event,value
 
+ -0 send() of coroutine
+-----------------------------
+  > send() - should be properly synchronized
+  > if send() is called on already executing coroutine, your program will crash
+  > e.g. Multiple Threads sending data into the same target coroutine
+
 
 
 
