@@ -55,7 +55,79 @@ def mydecorator( f ):
    return wrapper
 
 
+ -0 Package Coroutine inside Thread
+-----------------------------------
+@coroutine
+def threaded(target):
+    messages = Queue()
+    def run_target():
+        while True:
+            item = messages.get()
+            if item is GeneratorExit:
+                target.close()
+                return
+            else:
+                target.send(item)
+    Thread(target=run_target).start()
+    try:
+        while True:
+            item = (yield)
+            messages.put(item)
+    except GeneratorExit:
+        messages.put(GeneratorExit)
 
+
+ -0 Parsing XML to Dictionary
+-------------------------------------
+@coroutine
+def buses_to_dicts(target):
+    while True:
+        event, value = (yield)
+        # Look for the start of a <bus> element
+        if event == 'start' and value[0] == 'bus':
+            busdict = { }
+            fragments = []
+            # Capture text of inner elements in a dict
+            while True:
+                event, value = (yield)
+                if event == 'start':   fragments = []
+                elif event == 'text':  fragments.append(value)
+                elif event == 'end':
+                    if value != 'bus': 
+                        busdict[value] = "".join(fragments)
+                    else:
+                        target.send(busdict)
+                        break
+
+ -0 Check particular element & value
+-----------------------------------------
+@coroutine
+def filter_on_field(fieldname,value,target):
+    while True:
+        d = (yield)
+        if d.get(fieldname) == value:
+            target.send(d)
+
+
+ -0 Sink
+-----------------------------------------------------
+@coroutine
+def bus_locations():
+    while True:
+        bus = (yield)
+        print "%(route)s,%(id)s,\"%(direction)s\","\
+              "%(latitude)s,%(longitude)s" % bus 
+
+
+ -0 Finale Usage
+---------------------------------------------------
+xml.sax.parse("allroutes.xml", EventHandler(
+     buses_to_dicts(
+     threaded(
+        filter_on_field("route","22",
+        filter_on_field("direction","North Bound",
+        bus_locations()))
+     ))))
 
 
 
