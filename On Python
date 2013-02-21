@@ -129,7 +129,7 @@ xml.sax.parse("allroutes.xml", EventHandler(
         bus_locations()))
      ))))
 
-
+ >> CAUTION - ADDING THREADS MAKE THIS EXAMPLE RUN SLOWER ...
 
 
 
@@ -232,4 +232,4 @@ Worker Pool Manager
 
 
 
-
+Ref - http://www.dabeaz.com/coroutines/Coroutines.pdf
