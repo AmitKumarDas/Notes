@@ -137,12 +137,38 @@ def grep(pattern)
   > now u can dispatch SAX events into coroutines
   > SAX parser -- events --> Handler --send() --> event,value
 
- -0 send() of coroutine
+ -0 send() & Synchronization
 -----------------------------
   > send() - should be properly synchronized
   > if send() is called on already executing coroutine, your program will crash
   > e.g. Multiple Threads sending data into the same target coroutine
 
+ -0 data targets
+---------------------
+  > data send to coroutines
+  > data send to Threads via Q
+  > data send to Processes via messages
+  > hence, problems will be common across corotuine, thread & process
+
+ -0 Limitations & Coroutines
+--------------------------------
+  > no loops or cycles
+  > coz - stacked sends build up a kinda call-stack 
+  > remember - send doesnot return until the target yields
+  > calling a coroutine thats already in process of sending you'll get ERROR
+  > send doesnot suspend coroutine execution
+
+
+-0 Coroutine as Task
+----------------------
+  > localized variable
+  > own control flow
+  > can communicate to other coroutines
+  > yield suspends execution
+  > send resumes execution
+  > close terminates execution
+  >> Hence, coroutine are tasks
+  >> So can we use the coroutine directly for Multitasking
 
 
 
@@ -185,7 +211,37 @@ def grep(pattern)
   > libraries will do that internally
 
 
- 
+ -0 Task Concept
+----------------------
+  > sub divide problem into TASK
+  > has independent control flow
+  > has internal state
+  > can be scheduled (resumed/suspended)
+  > can communicate with other tasks
+
+ -0 CPU  & Multitasking
+-----------------------
+  > CPUs dont know about multitasking
+  > application programs dont understand multitasking
+  > Its the OS which knows
+
+ -0 OS & Multitasking
+------------------------------
+  > OS allows > 1 processes to execute @ once
+  > rapid switch
+  > When CPU runs the program, it doesnot run the OS
+  > So how does OS switch between programs when its not running
+
+ -0 Interrupts & Traps
+----------------------------
+  > Interrupts - H/W related signal
+  > Traps      - S/W related signal
+  > CPU suspends its operation during either of above
+  > CPU must be suspending the program op & running OS code
+  > OS code now switches the task
+
+
+
 
 
 
