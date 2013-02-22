@@ -152,6 +152,43 @@ def grep(pattern)
   >> Games, Async I/O, Event Driven Programming, co-operative multitasking
 
 
+ -0 Paralleism
+--------------------
+  > make program run faster
+  > make use of multiple CPUs, GPUs
+  > use more hardware
+
+ -0 Concurrency
+----------------------
+  > program structured into multiple threads of control
+  > like threads or processes
+  > synchronize by lock
+  > synchronize by mutable shared variable
+  > synchronize by message parsing
+
+
+ -0 Concurrency & Parallelism
+--------------------------------
+  > both r orthogonal to each other
+  > both can be achieved at the same time
+
+ -0 Concurrency without parallelism
+------------------------------------
+  > old days without multiple cores
+  > multiple processes running on same core
+  > multiplexed
+
+ -0 Parallelism without Concurrency
+------------------------------------
+  > dont let the developers write concurrent programs
+  > hence developer do no mistake of locks, synchronization, etc stuff
+  > libraries will do that internally
+
+
+ 
+
+
+
 
 
  -0- Bluelet 
