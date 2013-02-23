@@ -54,6 +54,32 @@
   MyType(); //Error: Constructor cannot be called as a function
 
 
+ -0 Private Fields
+-------------------
+  > can be achieved with constructor closures
+  > variables defined within constructor function can be used as private fields
+  > cannot access these private fields from a prototype method
+  > need to create getter & setters of these private fields inside constructor for above
+
+ -0 Private vs Public
+------------------------------
+  > Its a var vs. this
+
+ -0 Private Methods
+------------------------
+  > also known as Nested or Inner functions
+  > well supported .. coz define a function sans this in any part of the outer function
+
+ -0 Inner Fucntion within a Constructor
+-------------------------------------------
+  > NOTE - instance variables of the outer function e.g. Constructor 
+  > cannot be accessed from inner function of the Constructor
+  > that = this; //remedy for above
+  > private variables can be accessed from inner function
+  > argument of outer function can be accessed from inner function
+
+
+
  -0 Instance Members
 ----------------------------
  > are created via
@@ -139,6 +165,8 @@ console.log(secondBook.getNumOfBooks()); // 2
 ---------------------------
   > will be required for common functionalities
   > However, mixin is a better fit... check again..
+  > Object Literal can have nested objects
+  > So check again for better fits
 
 (function(){
   
