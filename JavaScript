@@ -135,11 +135,87 @@ console.log(secondBook.getNumOfBooks()); // 2
 
 
 
+  -0 Abstract Types
+---------------------------
+  > will be required for common functionalities
+  > However, mixin is a better fit... check again..
+
+(function(){
   
+  var abstractCreateLock = false;
+  
+  // abstract type
+  function BaseForm(){
+   if(abstractCreateLock)
+    throw new Error(“Can’t instantiate BaseForm!”);
+  }
+
+  BaseForm.prototype = {};
+  BaseForm.prototype.post = function(){
+   throw new Error(“Not implemented!”);
+  }
+
+  function GridForm(){
+  }
+
+  GridForm.prototype = new BaseForm();
+  abstractCreateLock = true;
+  GridForm.prototype.post = function(){
+   // ...
+   return “Grid is posted.”;
+  }
+ 
+  window.BaseForm = BaseForm;
+  window.GridForm = GridForm;
+})();
+
+var myGrid = new GridForm();
+console.log(myGrid.post()); // Grid is posted.
+var myForm = new BaseForm(); // Error: Can’t instantiate BaseForm!
 
 
 
+ -0 Singleton Object
+----------------------
+  > Nothing to be done specifically
+  > Its so simple
+  > Just create a Object Literal
+  > or Just create a Function with all public static members
 
+
+ var Logger = {
+   enabled:true,
+   
+   log: function(logText){
+    if(!this.enabled)
+     return;
+    if(console && console.log)
+     console.log(logText);
+    else
+     alert(logText);
+   }
+ }
+
+Or
+
+ function Logger(){
+ }
+
+ Logger.enabled = true;
+ Logger.log = function(logText){
+  if(!Logger.enabled)
+    return;
+  if(console && console.log)
+    console.log(logText);
+  else
+    alert(logText);
+ };
+
+
+ -0 new operator
+---------------------
+  > new operator creates a new object
+  > then calls the constructor function while assigning the newly created object as 'this'
 
 
 
