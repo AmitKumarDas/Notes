@@ -58,8 +58,24 @@
 -------------------
   > can be achieved with constructor closures
   > variables defined within constructor function can be used as private fields
-  > cannot access these private fields from a prototype method
-  > need to create getter & setters of these private fields inside constructor for above
+  > CANNOT access these private fields from a prototype method
+
+
+ -0 Private Fields & Yet wanna Access
+--------------------------------------------
+  > need to create getter & setters of these private fields inside Constructor
+  > else create Priviledged Methods i.e. instance methods inside Constructor function
+  > Now Priviledged Methods can access private members
+
+ -0 Public Members & Priviledged methods wanna Access
+---------------------------------------------------------
+  > NOTE - Priviledged methods r inner functions of Consrtuctor & hence 
+  > that = this; //applies for accessing Instance members
+
+ -0 Shared
+--------------------
+  > Prototype fields, methods & objects are shared
+  > all the instances will reflect the change to prototypes
 
  -0 Private vs Public
 ------------------------------
@@ -246,10 +262,31 @@ Or
   > then calls the constructor function while assigning the newly created object as 'this'
 
 
+ -0 Inheritance
+-----------------
+ function Child(){
+   //Super Constructor is not called, we have to call it
+   //We need not instantiate the parent. Do we in Java. Nopes
+   //We have to set up the contract only
+   Parent.call(this);
+   
+   //Now do all the instance member creation
+   //This can call the Parent's instance methods too
+
+ }
+
+ //Aliter Way ...
+
+ //Just rechristine the Prototype object into the Parent Object
+ Child.prototype = new Parent();
+ //Re-point the constructor to its own Constructor
+ //As it might be pointing to the Parent's constructor
+ Child.prototype.constructor = Child;
+
+ //Huh!!! need to think so hard that we forget what inheritance is useful for !!!
 
 
-
-
+ 
 
 
 
