@@ -1,4 +1,3 @@
-
  -0- Deep Copy
 --------------------  
   > Most of the time, you want to do a 'deep copy' so that an entirely new array is formed, 
@@ -10,13 +9,16 @@
  -0- Transform Contents
 -------------------------  
   > $.map(array, function(item) {
-      return { fieldA: item.fieldA, fieldB: item.fieldB };
+      return {
+               fieldA: item.fieldA,
+               fieldB: item.fieldB 
+             };
     });
 
   > Used to transform the contents of array items
 
 
--0-0- Issues in JS -0-0-
+-0-0- Issues in JS
 ----------------------------
   > Global Variables
   > Lacks support for classes
@@ -25,40 +27,123 @@
   > NaM is not a number, however it is a number
 
 
--0- Values & Defaults -0-0-
-+ true/false
-> this.silent       = options.silent || options.silent !== true;
-+ object
-> this.target       = options.target || {};
-+ true/false again
-> this.hostnameOnly = options.hostnameOnly === true;
+-0- Values & Defaults
+--------------------------
+ + true/false
+   > this.silent       = options.silent || options.silent !== true;
+ + object
+   > this.target       = options.target || {};
+ + true/false again
+   > this.hostnameOnly = options.hostnameOnly === true;
 
 
--0-0- typeOf Checks -0-0-
-+ typeof options.router === 'string'
-+ typeof options.router === 'object'
-
--0- Node & File -0-0
-+ require('fs');
-+ read synchronous, 
-+ also watch file for changes & read again ..now in callback
-+ unwatch the file in a close function of self/this
-
--0- Node & events -0-
-+ ev = require('events')
-+ REGISTER with self 
-> ev.EventEmitter.call(this);
-
--0-0 Node & Util -0-0
-- require('util')
-- has inheritance stuff
-- 
+-0-0- typeOf Checks
+----------------------
+  + typeof options.router === 'string'
+  + typeof options.router === 'object'
 
 
+ -0 Object Type Definition
+---------------------------
+  function MyType(){
+    if(!(this instanceof MyType))
+       throw new Error("Constructor cannot be called as a function");
+  }
 
--0-0- Passing Configuration -0-0
-- pass options
-- inside, check for specific properties
+  var myInstance = new MyType(); //OK
+  MyType(); //Error: Constructor cannot be called as a function
+
+
+ -0 Instance Members
+----------------------------
+ > are created via
+  >> 'this' keyword
+  >> prototype
+  >> constructor closure
+  >> Object.defineProperty
+
+  function Cat(name){
+    var voice = "meow";
+    this.name = name;
+    this.say  = function (){
+        return voice;
+    }
+  }
+   
+  Cat.prototype.eat = function() {
+     return "Eating";
+  }
+
+  var cat = new Cat("Fluffy");
+
+  Object.defineProperty(cat, "numLegs", {value:4, writable:true, enumerable:true, configurable:true});
+
+ 
+ -0 Public Static Members
+-------------------
+  > no direct support for static members
+  > Constructor functions are used to create Static members
+  > cannot be accessed via this
+ 
+  function MyClass(){ }
+
+  //public static method
+  MyClass.getType = function() {
+    return "typeee";
+  }
+
+  //public static field
+  MyClass.version = "1.0";
+
+  MyClass.prototype.callMe = function(){
+    console.log(MyClass.version); //this.version will return undefined
+  }
+
+
+ -0 Private Static Members
+----------------------------
+
+var Book = (function () {
+  // private static field
+  var numOfBooks = 0;
+  // private static method
+  function checkIsbn(isbn) {
+    if (isbn.length != 10 && isbn.length != 13)
+    throw new Error(“isbn is not valid!”);
+  }
+
+  function Book(isbn, title) {
+    checkIsbn(isbn);
+    this.isbn = isbn;
+    this.title = title;
+    numOfBooks++;
+    this.getNumOfBooks = function () {
+      return numOfBooks;
+    }
+  }
+  
+  return Book;
+})();
+
+var firstBook = new Book(“0-943396-04-2”, “First Title”);
+console.log(firstBook.getNumOfBooks()); // 1
+var secondBook = new Book(“0-85131-041-9”, “Second Title”);
+console.log(firstBook.title); // First Title
+console.log(secondBook.title); // Second Title
+console.log(firstBook.getNumOfBooks()); // 2
+console.log(secondBook.getNumOfBooks()); // 2
+
+
+
+  
+
+
+
+
+
+
+
+
 
 
 
@@ -67,3 +152,4 @@
 
 References:
 1/ http://www.infoq.com/presentations/CoffeeScript-Introduction
+2/ DZone - Object Oriented JavaScript - By Ibrahim Levent
