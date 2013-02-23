@@ -12,6 +12,7 @@ self <=> prefix to variable & it becomes a instance variable
 self <=> as an argument in a method then it becomes an instance method
 self <=> not present in argument then it becomes a static method
 __ <=> double underscore for data members are private
+http://pythontutor.com/visualize.html#
 
 
  -0 *args = varargs
