@@ -188,6 +188,15 @@ asynchronous()
   > Non Deterministic Process Pool
   > Deterministic Gevent Pool
 
+ -0 Runtime Modification
+----------------------------
+  > python's runtime can modify most of the objects @ runtime
+  > modules, classes & even functions @ runtime
+  > similar to proxying
+  > useful for AOP concern
+  > convert blocking system calls to cooperative behavior
+
+
 
 
  -0 Tuples 
