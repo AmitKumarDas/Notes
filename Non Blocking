@@ -177,6 +177,27 @@ def grep(pattern)
   > used 2 express Simulations, 
   >> Games, Async I/O, Event Driven Programming, co-operative multitasking
 
+ -0 Greenlet
+-----------------------
+  > a lightweight coroutine provided to Python as a C extension module
+  > run inside the OS process
+  > only 1 greenlet is ever run at any time
+  > so there is no true PARALLELISM
+
+ -0 Greenlet vs Multiprocessing/Threading libraries
+----------------------------------------------------
+  > latter spin processes & POSIX threads which are scheduled by the OS & are truly parallel
+
+
+ -0 Idea behind Concurrency
+-----------------------------
+  > larger task broken into a collection of sub tasks
+  > each one is scheduled to run simultaneously or asynchronously
+  > they will not run one at a time or synchronously
+  > a switch between 2 sub tasks is known as a context switch
+
+
+
 
  -0 Paralleism
 --------------------
