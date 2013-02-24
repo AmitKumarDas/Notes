@@ -1,5 +1,13 @@
 
+PRACTICAL ---
+- gevent for python
+- zookeeper for Java
+- erlang-oauth for Erlang
+- python-oauth2 for Python
+- hoauth2 for Haskell
+- haskell-zookeeper-client
 
+THEORY --
 http://www.infoq.com/presentations/Asynchronous-Web-Programming
 http://www.drdobbs.com/open-source/concurrency-and-python/206103078?pgno=2
 http://onjava.com/pub/a/onjava/2002/09/04/nio.html
