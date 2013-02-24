@@ -189,6 +189,16 @@ def grep(pattern)
   > latter spin processes & POSIX threads which are scheduled by the OS & are truly parallel
 
 
+ -0 Deterministic behaviour
+------------------------------
+  > geevent is normally deterministic
+  > non-deterministic behavior can find their way in when dealing with sockets or files
+ 
+ -0 Why non-determinism
+---------------------------
+  > due to race condition
+
+
  -0 Idea behind Concurrency
 -----------------------------
   > larger task broken into a collection of sub tasks
@@ -388,3 +398,4 @@ because significant numbers of those are not non-blocking implementations.
 References:
 1. http://yuiblog.com/blog/2008/07/22/non-blocking-scripts/
 2. http://www.infoq.com/interviews/williams-vertx
+3. http://sdiehl.github.com/gevent-tutorial/
