@@ -152,6 +152,42 @@ def recvfrom(f,target):
     except EOFError:
         target.close()
 
+ -0 gevent
+-----------------------
+import gevent
+import random
+
+def task(pid):
+    """
+    Some non-deterministic task
+    """
+    gevent.sleep(random.randint(0,2)*0.001)
+    print('Task', pid, 'done')
+
+def synchronous():
+    for i in range(1,10):
+        task(i)
+
+def asynchronous():
+    threads = [gevent.spawn(task, i) for i in xrange(10)]
+    gevent.joinall(threads)
+
+print('Synchronous:')
+synchronous()
+
+print('Asynchronous:')
+asynchronous()
+
+  > In fact the maximum time for the synchronous case to complete is 
+  >> when each tasks pauses for 2 seconds resulting in a 20 seconds for the whole queue.
+  > In the async case the maximum runtime is roughly 2 seconds 
+  >> since none of the tasks block the execution of the others.
+
+ -0 Multiprocessing Pool vs Gevent Pool
+---------------------------------------
+  > Non Deterministic Process Pool
+  > Deterministic Gevent Pool
+
 
 
  -0 Tuples 
