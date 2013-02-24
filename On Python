@@ -15,6 +15,7 @@ __ <=> double underscore for data members are private
 http://pythontutor.com/visualize.html#
 
 
+
  -0 *args = varargs
 -----------------------------
 def print_everything(*args):
@@ -22,7 +23,7 @@ def print_everything(*args):
            print '{0}. {1}'.format(count, thing)
 
   > print_everything('apple', 'banana', 'cabbage')
-  > see the usage of count & thing ... implicit
+
 
  -0 **kwargs = named varargs
 -----------------------------
@@ -31,7 +32,6 @@ def table_things(**kwargs):
            print '{0} = {1}'.format(name, value)
 
   > table_things(apple = 'fruit', cabbage = 'vegetable')
-  > name & value - implicit
 
 
  -0 *list
@@ -44,16 +44,33 @@ def print_three_things(a, b, c):
   > print_three_things(*mylist)
 
 
- -0 *args && **kwargs - Decorator
+ -0 *args && **kwargs - Decorator && callback
 -----------------------------------
-def mydecorator( f ):
-   @functools.wraps( f )
-   def wrapper( *args, **kwargs ):
-      print "Calling f", args, kwargs
-      v = f( *args, **kwargs )
-      print "f returned", v
-      return v
-   return wrapper
+def __call__(self, *args, **kwargs):
+        # Make a copy in case the callback wants to remove itself from
+        # the list, since we can't iterate over a modified list.
+        callbacks = self._callbacks[:]
+        for callback in callbacks:
+            callback(*args, **kwargs)
+
+ -0 Functional
+-------------------
+def do_binary_op(op,x,y):
+       return op(x,y)
+
+
+ -0 Decorator
+-------------------
+  > defining a decorator is easy 
+  > u got the annotations too
+
+ -0 Lambda - Anonymous Functions
+----------------------------------
+  > declare short functions
+  > is_odd = lambda x: x % 2
+  > 
+
+
 
 
  -0 Package Coroutine inside Thread
