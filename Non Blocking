@@ -197,6 +197,9 @@ def grep(pattern)
  -0 Why non-determinism
 ---------------------------
   > due to race condition
+  > when 2 concurrent threads or processes depend on some shared resource 
+  > when 2 concurrent threads or processes try to modify value
+  > 
 
 
  -0 Idea behind Concurrency
