@@ -239,7 +239,11 @@
 
 
 
-
+ -0 Static Methods
+----------------------
+  > good to have them in import statements itself
+  > make the code short & easy to read
+  > 
 
 
 
