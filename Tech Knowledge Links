@@ -6,6 +6,8 @@ PRACTICAL ---
 - hoauth2 for Haskell
 - haskell-zookeeper-client
 - http://code.google.com/p/miniboa/ for Python
+- brubeck for Python
+
 
 THEORY --
 http://www.infoq.com/presentations/Asynchronous-Web-Programming
