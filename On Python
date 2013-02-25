@@ -112,6 +112,69 @@ def do_binary_op(op,x,y):
   > is_odd = lambda x: x % 2
   > 
 
+ -0 GIL 
+-------------------
+  > Global Interpreter Lock present in Python
+  > imposes restrictions on Threads
+  > you can not utilize multiple CPUs
+  > Only one python thread can execute in the interpreter at once
+  > threads hold the GIL when running
+  > they release it when blocking for I/O
+  > so any time a thread is forced to wait other ready threads get their chance 
+  > a kind of cooperative multitasking
+  
+
+ -0 CPU bound threads Only
+--------------------------
+  > that never do I/O 
+  > interpreter periodically performs a check
+  > every 100 interpreter 'ticks'
+  > check interval is independent of thread scheduling
+  > release & reacquire the GIL
+  > by briefly releasing the GIL other threads get a chance to run 
+
+ -0 ticks 
+-----------------
+  > are not time based
+  > are not interruptible
+
+ -0 Interlude : Signals
+------------------------
+  > Threaded Python programs can no longer be killed with keyboard interrupt
+  > i.e. Ctl + C
+  > open new window & use kill -9 
+  > if a signal arrives the main thread performs a check after the tick until the main thread runs
+  >> often the main thread is blocked on an uninterruptible thread-join or lock
+  > since, main thread is blocked, it never gets scheduled to run any kind of signal handler for it
+  > interpreter tries to thread switch after every tick
+
+ -0 Thread Scheduling
+------------------------
+  > Python doesnot have a thread scheduler
+  > no thread priorities, preemption, round robin scheduling
+  > all thread scheduling is left to HOST OS
+
+ -0 GIL Implementation
+-----------------------------
+  > GIL is not a simple mutex lock
+  > 
+
+
+
+
+
+
+ -0 Python Threads
+-----------------------
+  > are real system Threads
+  > POSIX threads or WINDOWS threads
+  > fully managed by host OS
+
+ -0 Thread Specific State
+---------------------------
+  > each thread has its own interpreter specific data structure
+  > a small C structure < 100 bytes
+
 
 -0 location of program - Py
 --------------------------
