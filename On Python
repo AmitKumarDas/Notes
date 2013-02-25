@@ -13,6 +13,16 @@ self <=> as an argument in a method then it becomes an instance method
 self <=> not present in argument then it becomes a static method
 __ <=> double underscore for data members are private
 http://pythontutor.com/visualize.html#
+[] <=> list
+() <=> Tuple
+{} <=> dictionary
+
+ -0 __init__
+-----------------
+def __init__(self, settings):
+        self.channel_name = settings['channel_name']
+        self.time_periods = settings['time_periods']
+
 
 
 
@@ -253,7 +263,8 @@ asynchronous()
 ----------------------------------
   > seems to be a cool string util method
 
-Native Python Library vs C Library
+ -0 Native Python Library vs C Library
+------------------------------------------
   > try c library first if available
   > else use python
   > try: ... except:
