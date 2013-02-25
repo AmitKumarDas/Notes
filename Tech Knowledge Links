@@ -1,4 +1,3 @@
-
 PRACTICAL ---
 - gevent for python
 - zookeeper for Java
@@ -6,6 +5,7 @@ PRACTICAL ---
 - python-oauth2 for Python
 - hoauth2 for Haskell
 - haskell-zookeeper-client
+- http://code.google.com/p/miniboa/ for Python
 
 THEORY --
 http://www.infoq.com/presentations/Asynchronous-Web-Programming
