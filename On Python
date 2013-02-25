@@ -38,10 +38,40 @@ http://pythontutor.com/visualize.html#
   > allows stdout from 1 program to be fed as stdio of another program
   > no need for temporary file
 
- -0 subprocess module in Py
------------------------------
+
+-0 location of program
+--------------------------
+  > whereis echo
+  >> echo: /bin/echo /usr/share/main/man/man1/echo.1.gz
+
+
+ -0 o/p to a PIPE
+--------------------
+   > process = subprocess.Popen(['echo', 'Hello World!'], shell=False, stdout=subprocess.PIPE)
+   > use communicate() method to read from PIPE
+   > print process.communicate()
+     ('Hello World!\n', None)
+
+ -0 collections
+------------------
+  > namedtuple
   > 
 
+-0 location of program - Py
+--------------------------
+
+  import os
+  def whereis(program):
+    for path in os.environ.get('PATH', '').split(':'):
+        if os.path.exists(os.path.join(path, program)) and \
+           not os.path.isdir(os.path.join(path, program)):
+            return os.path.join(path, program)
+    return None
+
+  > location = whereis('echo')
+  > if location is not None:
+     print location
+  > /bin/echo
 
  -0 __init__ & options/settings
 ----------------------------------
@@ -106,7 +136,42 @@ def do_binary_op(op,x,y):
   > is_odd = lambda x: x % 2
   > 
 
-
+ -0 fork & join & coroutines
+---------------------------------
+  class Broadcaster(object):
+  '''
+  Allows users to broadcast output of a coroutine to multiple callees and then
+  serialize results further down the call stream.
+  WARNING: This design assumes that coroutines have one (yield) and one send().
+  '''
+  def __init__(self):
+    self.serial = []
+  @coroutine
+  def fork(self, children, target):
+    '''
+    Copies output sent to this coroutine to all coroutines in children. 
+    Results subsequently sent to Broadcaster.join() will be serialized (as a 
+    list) and sent to target.
+    '''
+    self.nchildren = len(children)
+    self.target = target
+    while True:
+      item = (yield)
+      for c in children:
+        c.send(item)
+  @coroutine
+  def join(self):
+    '''
+    Results sent to this coroutine are stored. When all of the children passed 
+    to Broacaster.fork have sent results, a list of the results is sent to 
+    the target passed to Broadcaster.fork. 
+    '''
+    while True:
+      result = (yield)
+      self.serial.append(result)
+      if len(self.serial) == self.nchildren:
+        self.target.send(self.serial)
+        self.serial = []
 
 
  -0 Package Coroutine inside Thread
@@ -349,4 +414,6 @@ Worker Pool Manager
 
 
 
-Ref - http://www.dabeaz.com/coroutines/Coroutines.pdf
+References 
+1/ http://www.dabeaz.com/coroutines/Coroutines.pdf
+2/ http://www.cert.org/blogs/certcc/2012/12/forking_and_joining_python_cor.html
