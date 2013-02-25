@@ -17,8 +17,34 @@ http://pythontutor.com/visualize.html#
 () <=> Tuple
 {} <=> dictionary
 
- -0 __init__
------------------
+
+ -0 subprocess
+-----------------------
+
+ -0 subprocess - some gyan first
+------------------------------------
+  > when terminal is clicked
+  >> u load a program which in turn loads a shell
+  >> commands are not interpreted via Shell to the Kernel
+  > Command -> Terminal Program -> Shell -> Kernel
+ 
+  I/O Channel
+-------------------------------
+  >> I/O Channels = streams
+  >> stdio : 0, stdout = 1, stderr = 2
+  
+  PIPE
+-------------
+  > allows stdout from 1 program to be fed as stdio of another program
+  > no need for temporary file
+
+ -0 subprocess module in Py
+-----------------------------
+  > 
+
+
+ -0 __init__ & options/settings
+----------------------------------
 def __init__(self, settings):
         self.channel_name = settings['channel_name']
         self.time_periods = settings['time_periods']
