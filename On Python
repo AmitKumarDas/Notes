@@ -16,10 +16,14 @@ http://pythontutor.com/visualize.html#
 [] <=> list
 () <=> Tuple
 {} <=> dictionary
+list <=> optimized for fixed length ops
+Counter <=> similar to bags or multisets 
+deque <=> double ended queue, 
+deque <=> mimic tail filter in Unix
+deque <=> track transactions, recent activity of interest
+deque <=> better then list in insert & removal ops
 
 
- -0 subprocess
------------------------
 
  -0 subprocess - some gyan first
 ------------------------------------
@@ -45,40 +49,12 @@ http://pythontutor.com/visualize.html#
   >> echo: /bin/echo /usr/share/main/man/man1/echo.1.gz
 
 
- -0 o/p to a PIPE
---------------------
+ -0 o/p to a PIPE - subprocess
+------------------------------
    > process = subprocess.Popen(['echo', 'Hello World!'], shell=False, stdout=subprocess.PIPE)
    > use communicate() method to read from PIPE
    > print process.communicate()
      ('Hello World!\n', None)
-
- -0 collections
-------------------
-  > namedtuple
-  > 
-
--0 location of program - Py
---------------------------
-
-  import os
-  def whereis(program):
-    for path in os.environ.get('PATH', '').split(':'):
-        if os.path.exists(os.path.join(path, program)) and \
-           not os.path.isdir(os.path.join(path, program)):
-            return os.path.join(path, program)
-    return None
-
-  > location = whereis('echo')
-  > if location is not None:
-     print location
-  > /bin/echo
-
- -0 __init__ & options/settings
-----------------------------------
-def __init__(self, settings):
-        self.channel_name = settings['channel_name']
-        self.time_periods = settings['time_periods']
-
 
 
 
@@ -135,6 +111,24 @@ def do_binary_op(op,x,y):
   > declare short functions
   > is_odd = lambda x: x % 2
   > 
+
+
+-0 location of program - Py
+--------------------------
+
+  import os
+  def whereis(program):
+    for path in os.environ.get('PATH', '').split(':'):
+        if os.path.exists(os.path.join(path, program)) and \
+           not os.path.isdir(os.path.join(path, program)):
+            return os.path.join(path, program)
+    return None
+
+  > location = whereis('echo')
+  > if location is not None:
+     print location
+  > /bin/echo
+
 
  -0 fork & join & coroutines
 ---------------------------------
