@@ -19,6 +19,8 @@ PRACTICAL ---
 - casting - c -> lua 
 - roslua - lua & c
 - https://github.com/kachayev/fn.py - python - *
+- Octobot - Java
+- 
 
 THEORY --
 https://github.com/kaisellgren/Concurrency-concepts
