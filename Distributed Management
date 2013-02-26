@@ -1,0 +1,53 @@
+
+ -0 Performance Aspects
+---------------------------
+  > should perform in large distributed systems
+  > 
+
+ -0 Reliability Aspects
+---------------------------
+  > avoid single point of failure
+  > 
+
+ -0 Synchronization Aspects
+------------------------------
+  > support synchronous as well as sync
+  > support events
+  > support heartbeats
+  > 
+
+
+ -0 Monitoring Aspects
+-------------------------
+  > if Read request registers a watch that watch is tracked locally @ the server
+  > 
+
+ -0 In-Memory data
+---------------------------
+  > achive high throughput & low latency
+  > downside - size of database is limited by memory
+  > 
+
+ -0 Centralized Server
+--------------------------
+  > clients connect to a Single server
+  > if client to server connection breaks, client will connect to a different server
+  > session will get restablished in the new server
+
+ -0 Request Types
+---------------------------------------
+  > support multiple request types
+  > Read, Write, Sync
+  > Read requests are processed locally to which the client is connected
+  > Write requests are forwarded to other servers & go through a consensus before a response is generated
+  > Sync requests are forwarded to other servers but do not go through consesus
+  > throughput of read requests scales with no of servers
+  > throughput of write requests decrease with no of servers
+  > All updates are ordered
+
+ -0 Centralized Metadata Management
+----------------------------------------
+  > store coordinate data
+  > store status info
+  > location info
+
