@@ -24,6 +24,7 @@ PRACTICAL ---
 - tomcat-redis-session-manager - Java - *
 - jetty-nosql-memcached - Java - *
 - beaker_extensions - Python
+- dubbo - Java
 
 THEORY --
 https://github.com/kaisellgren/Concurrency-concepts
