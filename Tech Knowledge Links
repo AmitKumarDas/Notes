@@ -18,6 +18,7 @@ PRACTICAL ---
 - zorro - python -  *
 - casting - c -> lua 
 - roslua - lua & c
+- https://github.com/kachayev/fn.py - python - *
 
 THEORY --
 https://github.com/kaisellgren/Concurrency-concepts
