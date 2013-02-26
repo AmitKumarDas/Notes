@@ -21,6 +21,8 @@ PRACTICAL ---
 - https://github.com/kachayev/fn.py - python - *
 - Octobot - Java
 - shard-viz - JavaScript - *
+- tomcat-redis-session-manager - Java - *
+- 
 
 THEORY --
 https://github.com/kaisellgren/Concurrency-concepts
