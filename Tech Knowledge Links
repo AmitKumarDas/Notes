@@ -22,7 +22,8 @@ PRACTICAL ---
 - Octobot - Java
 - shard-viz - JavaScript - *
 - tomcat-redis-session-manager - Java - *
-- 
+- jetty-nosql-memcached - Java - *
+- beaker_extensions - Python
 
 THEORY --
 https://github.com/kaisellgren/Concurrency-concepts
