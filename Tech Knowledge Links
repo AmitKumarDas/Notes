@@ -25,6 +25,8 @@ PRACTICAL ---
 - jetty-nosql-memcached - Java - *
 - beaker_extensions - Python
 - dubbo - Java
+- Thoonk.py - Python - *
+- thoonk.js - JavaScript - *
 
 THEORY --
 https://github.com/kaisellgren/Concurrency-concepts
