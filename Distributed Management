@@ -1,4 +1,3 @@
-
  -0 Performance Aspects
 ---------------------------
   > should perform in large distributed systems
@@ -50,4 +49,13 @@
   > store coordinate data
   > store status info
   > location info
+
+ -0 Replication
+----------------------
+  > replicate on create
+  > replicate on faliure
+
+
+
+
 
