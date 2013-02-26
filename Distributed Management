@@ -24,7 +24,14 @@
  -0 In-Memory data
 ---------------------------
   > achive high throughput & low latency
+  > by avoiding disk I/O
   > downside - size of database is limited by memory
+
+ -0 Clustered In-memory data
+-----------------------------
+  > in a clustered environ, the db could be partitioned
+  > then replicated into segments
+  > & stored in main memory of several nodes
   > 
 
  -0 Centralized Server
