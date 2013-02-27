@@ -30,7 +30,7 @@ PRACTICAL ---
 - jeromq - Java - impl of Zeromq - *
 - rabbitmq-tutorials - *
 - metrics - java - *
-
+- pyzk-recipes - python & zookeeper - *
 
 THEORY --
 http://www.slideshare.net/YungLinHo/groupware-zookeeper-and-jgroups
