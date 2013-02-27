@@ -33,6 +33,9 @@ PRACTICAL ---
 - pyzk-recipes - python & zookeeper - *
 
 THEORY --
+StatsD - NodeJS Daemon - Listens for messages over a UDP port & extracts metrics. 
+  The extracted metrics are then dumped to Graphite for further processing & visualization.
+Monitoring with syslog & EventMachine
 http://www.slideshare.net/YungLinHo/groupware-zookeeper-and-jgroups
 http://aminsblog.wordpress.com/2010/10/16/jgroups-hopes-and-regrets/
 http://mattthinksso.wordpress.com/2011/01/29/cluster-management-and-task-distribution-zookeeper-vs-jgroups/
