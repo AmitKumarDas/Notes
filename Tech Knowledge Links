@@ -32,6 +32,7 @@ PRACTICAL ---
 
 
 THEORY --
+http://www.slideshare.net/YungLinHo/groupware-zookeeper-and-jgroups
 http://aminsblog.wordpress.com/2010/10/16/jgroups-hopes-and-regrets/
 http://mattthinksso.wordpress.com/2011/01/29/cluster-management-and-task-distribution-zookeeper-vs-jgroups/
 http://www.rabbitmq.com/blog/2010/09/22/broker-vs-brokerless/
