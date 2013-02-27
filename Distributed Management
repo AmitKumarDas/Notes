@@ -1,4 +1,43 @@
- -0 Performance Aspects
+
+
+ -0 Typical Session State size
+-------------------------------
+  > 3 to 200 KB
+  > 
+
+
+ -0 high availability
+----------------------
+  > requires a stateful-failover architecture
+
+ -0 Cost of Replicating Sessions
+------------------------------------
+  > if each session is mirrored across entire pool of app servers
+  > each server must use memory to store that session
+  > each mirrored session is going to consume resources on their respective app server
+  > however, app server has a limited amount of memory
+  > aliter - memory is required for various other purposes too
+  > this will reduce the memory for other important tasks
+  > hence, speed required to execute app logic will reduce
+  > Hence, more scalability, i.e. highly failover requirement, will push for more servers
+  > with each server addition, session memory consumption per server increases & 
+  > in turn more slower performance
+  > In short period of time, system wont be scalable further
+
+ -0 High Available Solution
+---------------------------------
+  > shared database in application along with load balancers
+  > server affinity i.e. sticky session based load balancers
+   >> however, above requires an assumption on session
+   >> can be any data in the HTTP headers
+   >> or any data in HTTP payload
+   >> but using the automatically generated session ids tend to be the most common implementation 
+
+ -0 What is the session state info provided to load balaancer ?
+----------------------------------------------------------------
+
+
+-0 Performance Aspects
 ---------------------------
   > should perform in large distributed systems
   > 
@@ -65,4 +104,8 @@
 
 
 
+References
+----------------
+1/ https://devcentral.f5.com/blogs/us/sessions-sessions-everywhere
+2/ 
 
