@@ -18,6 +18,20 @@
    >> Do we need all of these features provided by JGroups ?
    
 
+ -0 ZooKeeper
+----------------------
+  > highly available, scalable, distributed configuration, consensus, group membership, leader election
+  >> naming and coordination service
+
+ -0 Zookeeper Service
+------------------------
+  > all servers store a copy of the data in memory
+  > leader is elected @ startup
+  > all updates go through the leader
+  > responses are sent when a majority of servers have persisted the change
+
+
+
 
  -0 Typical Session State size
 -------------------------------
