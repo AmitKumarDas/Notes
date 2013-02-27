@@ -28,6 +28,8 @@ PRACTICAL ---
 - Thoonk.py - Python - *
 - thoonk.js - JavaScript - *
 - jeromq - Java - impl of Zeromq - *
+- rabbitmq-tutorials - *
+
 
 THEORY --
 http://www.warski.org/blog/2012/06/implementing-message-replication-in-elasticmq-with-jgroups/
