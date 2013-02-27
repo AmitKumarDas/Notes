@@ -31,6 +31,8 @@ PRACTICAL ---
 - rabbitmq-tutorials - *
 - metrics - java - *
 - pyzk-recipes - python & zookeeper - *
+- valve - non blocking http proxy server - java
+
 
 THEORY --
 StatsD - NodeJS Daemon - Listens for messages over a UDP port & extracts metrics. 
