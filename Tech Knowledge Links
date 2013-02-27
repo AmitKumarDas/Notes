@@ -32,6 +32,7 @@ PRACTICAL ---
 
 
 THEORY --
+http://mattthinksso.wordpress.com/2011/01/29/cluster-management-and-task-distribution-zookeeper-vs-jgroups/
 http://www.rabbitmq.com/blog/2010/09/22/broker-vs-brokerless/
 http://www.javacodegeeks.com/2012/06/ehcache-replication-rmi-vs-jgroups.html
 http://www.warski.org/blog/2012/06/implementing-message-replication-in-elasticmq-with-jgroups/
