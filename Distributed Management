@@ -61,6 +61,19 @@
   > all updates go through the leader
   > responses are sent when a majority of servers have persisted the change
 
+ -0 ZeroMQ
+--------------------
+  > push pull
+  > req-rep
+  > pub-sub (multicast, broadcast)
+  > workload distribution
+
+ -0 Kafka/Redis
+-----------------
+  > push-pull with persistence
+  > workload buffering & distribution
+
+
 
 
 
