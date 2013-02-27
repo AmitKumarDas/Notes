@@ -33,6 +33,16 @@ PRACTICAL ---
 - pyzk-recipes - python & zookeeper - *
 - valve - non blocking http proxy server - java
 - glossy - JS - *
+- python-log-parser - Py - * *
+- syslogtools - Py - *
+- netshed - Py - * *
+- gelfy - Py - *
+- Graylog2 - Java
+- logix - Py - *
+- Elastic Search - java - *
+
+
+
 
 THEORY --
 StatsD - NodeJS Daemon - Listens for messages over a UDP port & extracts metrics. 
