@@ -21,7 +21,8 @@
  -0 ZooKeeper
 ----------------------
   > highly available, scalable, distributed configuration, consensus, group membership, leader election
-  >> naming and coordination service
+  > a system for coordinating distributed processes
+  > In order to be useful Zookeeper must be highly reliable & available as systems will depend on former .. 
 
  -0 Zookeeper Service
 ------------------------
@@ -137,5 +138,5 @@
 References
 ----------------
 1/ https://devcentral.f5.com/blogs/us/sessions-sessions-everywhere
-2/ 
+2/ http://blog.cloudera.com/blog/2009/05/building-a-distributed-concurrent-queue-with-apache-zookeeper/
 
