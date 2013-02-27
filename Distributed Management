@@ -1,4 +1,3 @@
-
  -0 Suggested Solutions
 ------------------------
   > http://www.warski.org/blog/2012/06/implementing-message-replication-in-elasticmq-with-jgroups/
@@ -7,6 +6,11 @@
  -0 Questions
 --------------------
   > What is the session state info provided to load balaancer ?
+  > How is JGroups session replication done ? 
+   >> Is there any Message Queue layer for session replication/mirroring ?
+  > When is JGroups session replication done ? At session create, update & delete or only during failover ?
+  > Which usecases are dependent on JGroups clustering ?
+
 
  -0 Typical Session State size
 -------------------------------
