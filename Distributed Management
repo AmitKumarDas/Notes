@@ -24,6 +24,36 @@
   > a system for coordinating distributed processes
   > In order to be useful Zookeeper must be highly reliable & available as systems will depend on former .. 
 
+
+ -0 Zookeeper Recipes
+-------------------------
+  > Use Zk to implement below:
+  >> barriers
+  >> locks
+  >> queues
+  >> counter
+  >> 2 phase commit
+  >> leader election
+
+ -0 Zookeeper - a low level stuff
+--------------------------------------
+  > is a low level stuff
+  > need some libraries i.e. wrapper on top of Zk to prove Zk
+  > Netflix's Curator is one such
+
+ -0 Zookeeper - Recipe - Distributed bag
+-----------------------------------------
+  > allows processes to share a collection
+  > Any participant can post or remove data alerting all others
+  > useful for cases where processes need to share configuration determined @ runtime
+  > used as a part of Role Match
+  > provides event based subscriptions making implementation simpler
+  > 
+
+
+
+
+
  -0 Zookeeper Service
 ------------------------
   > all servers store a copy of the data in memory
