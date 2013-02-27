@@ -6,14 +6,17 @@
 
  -0 Questions
 --------------------
-  > What is the session state info (preferably size of session) provided to load balaancer ?
-  > How is JGroups session replication done ? 
-   >> What is the session state info (preferably size) mirrored across nodes via JGroups ?
+  > What is the session state info (preferably size of session) provided to load balaancer w.r.t MAG nodes ?
+  > What is the session state info (preferably size) mirrored across nodes via JGroups ?
+  > How is JGroups session replication done ?   
    >> Is there any Message Queue layer for session replication/mirroring ?
   > When is JGroups session replication done ? 
    >> At session create, update & delete or only during failover ?
-  > Which usecases are dependent on JGroups clustering ?
-   >> Is clustering via JGroups required ?
+  > Which usecases are dependent on JGroups ?
+   >> JGroups provides clustering, leader election, 
+   >> state transfer (to bootstrap a new node with a current picture of the task tree).
+   >> Do we need all of these features provided by JGroups ?
+   
 
 
  -0 Typical Session State size
