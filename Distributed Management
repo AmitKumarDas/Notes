@@ -1,4 +1,12 @@
 
+ -0 Suggested Solutions
+------------------------
+  > http://www.warski.org/blog/2012/06/implementing-message-replication-in-elasticmq-with-jgroups/
+
+
+ -0 Questions
+--------------------
+  > What is the session state info provided to load balaancer ?
 
  -0 Typical Session State size
 -------------------------------
@@ -32,9 +40,6 @@
    >> can be any data in the HTTP headers
    >> or any data in HTTP payload
    >> but using the automatically generated session ids tend to be the most common implementation 
-
- -0 What is the session state info provided to load balaancer ?
-----------------------------------------------------------------
 
 
 -0 Performance Aspects
