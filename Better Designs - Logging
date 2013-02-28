@@ -1,0 +1,14 @@
+
+ -0 StatsD - NodeJS Daemon
+------------------------
+  > Listens for messages over a UDP port & extracts metrics. 
+  > The extracted metrics are then dumped to Graphite for further processing & visualization.
+
+ -0 Monitoring with syslog & EventMachine
+----------------------------------------------
+  > Build syslog server via EventSource -UDP : 514 --> EventAggregator -> Dashboard
+  > or EventSource -> UDP : 514 --> Syslog -forward--> EventAggregator -> Dashboard
+  > Syslog Server = Listen on UDP or tail a log file -> rx & parse syslog message
+  > Rx & Parse syslog using EventMachine in ur custom Syslog server
+  > EventSource -> ServerSentEvent
+
