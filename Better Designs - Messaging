@@ -1,0 +1,26 @@
+
+ -0 What is Messaging
+--------------------------
+  > producers
+  > broker
+  > consumers
+
+ -0 Kafka
+------------------------
+  > high throughpur
+  > persistent
+  > pub-sub
+  > messaging
+
+ -0 Kafka - Recipes
+--------------------------
+  > tracking
+  > requests per second
+
+
+ -0 Recipe - kafaesque
+-------------------------
+  > multiple workers (push)
+  > single Q
+  > multiple fetchers (pull)
+
