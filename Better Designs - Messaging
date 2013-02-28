@@ -10,7 +10,33 @@
   > SCTP + JGroups = make arbitrary networks using 'brokerless' peers
   > SCTP - Messaginig
   > JGroups - pub sub
-  > 
+ 
+ -0 Why SCTP - Stream Control Transmission Protocol
+--------------
+  -0 Limitations of TCP
+-------------------------
+  > strict order of transmission delivery of data
+  > head-of-line blocking offered by TCP causes unnecessary delay
+  > Applications must add their own record marking to delineate their messages, 
+  >> and must make explicit use of the push facility to ensure that a complete message is transferred.
+  > The limited scope of TCP sockets complicates the task of providing highly-available data transfer 
+  >> capability using multi-homed hosts.
+  > TCP is relatively vulnerable to denial-of-service attacks, such as SYN attacks.
+
+  -0 Features woth SCTP
+--------------------------
+  > multi-homing support on both ends
+  >> multi-homing = consist of more than one IP address
+  >> enabling transparent failover between redundant network paths
+  > multi stream - delivery of chunks with independent streams
+  > validation & acknowledgement mechanisms protect against flooding attacks
+  > provide notification of duplicated or missing data chunks
+  > simpler packet structure than TCP
+  > Security - 4 way handshake to protect against SYN flooding
+  >> protect against large cookies for association verification & authenticity
+  > Not supported directly in Windows
+
+
 
 
 
