@@ -1,9 +1,9 @@
-
  -0 What is Messaging
 --------------------------
   > producers
   > broker
   > consumers
+  > can be without a broker - ref ZeroMQ
 
  -0 Kafka
 ------------------------
