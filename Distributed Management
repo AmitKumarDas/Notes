@@ -4,7 +4,24 @@
   > http://www.rabbitmq.com/blog/2010/09/22/broker-vs-brokerless/
   > http://puniverse.github.com/galaxy/about.html
   > start archiving inactive users's session  
-  >> will be done automicatlly if we have a LRU on IMDB & persist that on disk
+  >> will be done automicatlly if we have a LRU on an IMDB & persist that on disk
+  
+ -0 A real time Game App
+  > Batch the 'Intense but short lived sessions'
+   1/ to avoid HTTP overhead, batch the actions
+   >> 1 HTTP request = 6 actions
+  > Scale Out
+   1/ Distributing sessions across multiple servers   
+   >> simple algo = session_id % 2 -> 0 or 1 -> i.e. channel to 2 different nodes
+   >> this algorithm can be provided to load balancers routing logic
+   >> assumptions - session_id is incremented by 1 
+   >> during failover this rule should be avoided
+  > Concurrent Programming
+   1/ Threads
+   >> Tomcat :: 1 acceptor thread, 30 worker threads
+   >> Application :: 1 ticker thread - shuts down inactive sessions
+   >> Application :: 1 broadcast thread - tells other shards about updates
+ 
 
  -0 Questions
 --------------------
@@ -19,6 +36,12 @@
    >> state transfer (to bootstrap a new node with a current picture of the task tree).
    >> Do we need all of these features provided by JGroups ?
    
+
+ -0 State Management
+-------------------------
+  > most languages & runtimes donot have a safe solution for concurrent long lived session
+  > Erlang stands out
+
 
  -0 ZooKeeper
 ----------------------
@@ -185,3 +208,4 @@ References
 1/ https://devcentral.f5.com/blogs/us/sessions-sessions-everywhere
 2/ http://blog.cloudera.com/blog/2009/05/building-a-distributed-concurrent-queue-with-apache-zookeeper/
 3/ http://www.slideshare.net/wooga/how-to-handle-1000000-daily-users-without-using-a-cache-railswaycon-2012
+4/ http://www.slideshare.net/wooga/statefulapplicationserverrupy-2012brno
