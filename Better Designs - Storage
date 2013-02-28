@@ -1,3 +1,17 @@
+
+-0 MySQL
+-------------------
+  > Fast enough, disk based, robust
+  > Big & static data in MySQL
+
+ -0 Redis
+------------------
+  > Super fast
+  > RAM based
+  > fragile
+  > small & dynamic data into Redis
+
+
 -0- Cloudstack
   
   > composed of 2 parts
