@@ -59,3 +59,53 @@
   > single Q
   > multiple fetchers (pull)
 
+ -0 RabbitMQ
+------------------
+  > implements AQMP
+  > implements broker architecture
+  > advanced scenarios like routing, load balancing, or persistent message queuing
+  > less scalable & slower because the central node adds latency & messages envelopes are quite big
+  > an Enterprise Message Queue ..
+  >> persistence
+  >> support for transactions
+  > focusses on how messages r stored, filtered & monitored & failover
+
+
+ -0 ZeroMQ
+---------------
+  > lightweight message oriented socket implementation
+  > high throughput low latency
+  > mostly DIY
+  > acts as concurrency framework
+  > faster than TCP, for clustered products
+  > carries messages across inproc, IPC, TCP, & multicast
+  >> i.e. suitable for in process asynchronous programming
+  >> mostly a message oriented IPC library
+  > Connect N-to-N via fanout, pubsub, pipeline, request reply
+  > Async IO for scalable multicore message passing apps
+  > focusses on how messages r transferred over the wire
+  > 
+
+
+
+
+ -0 ActiveMQ
+-----------------
+  > can be with broker or P2P topology
+  > like RabbitMQ, easier to implement advanced scenarios but @ the cost of raw performance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
