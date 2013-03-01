@@ -39,6 +39,9 @@
    >> Application :: 1 broadcast thread - tells other shards about updates
  
 
+
+
+
  -0 Clustering Connection
 ------------------------------
   > client shuld not hard code the node host names or IP addresses
