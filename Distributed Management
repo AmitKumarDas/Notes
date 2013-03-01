@@ -97,6 +97,16 @@
   > implements an event-driven, single-process - for concurrent connections @ high speeds
   > 
 
+ -0 HA Proxy & Sticky Session
+-----------------------------------
+  > You're looking for HAProxy's cookie directive, which will ensure that clients stick to the same backend.
+  > As far as avoiding overloading a given backend, 
+  > you'll be completely dependent on the initial load balancing -
+  > moving clients to a different server mid-session doesn't fit with session persistence
+  > being enforced from the load balancer. 
+  > Aliter:
+  > If the load issue is a big one, then maybe reconsider having HAProxy do session persistence, 
+  > keeping a centralized session state among the backends instead
 
  -0 State Management
 -------------------------
