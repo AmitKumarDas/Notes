@@ -108,6 +108,14 @@
   > If the load issue is a big one, then maybe reconsider having HAProxy do session persistence, 
   > keeping a centralized session state among the backends instead
 
+ -0 HAProxy & non browser
+-----------------------------
+  > cookie will not be useful coz web services does not interact with browsers & is sessionless
+  > using balance source in the defaults block along with option httpclose entries will work
+  > source - its a source based balancing algorithm
+
+
+
  -0 State Management
 -------------------------
   > most languages & runtimes donot have a safe solution for concurrent long lived session
