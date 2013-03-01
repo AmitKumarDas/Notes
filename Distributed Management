@@ -5,6 +5,22 @@
   > http://puniverse.github.com/galaxy/about.html
   > start archiving inactive users's session  
   >> will be done automicatlly if we have a LRU on an IMDB & persist that on disk
+  > https://github.com/jbrisbin/vcloud/tree/master/session-manager
+  >> provide session failover & cluster wide load balancing without relying on sticky sessions
+  > 
+
+
+ -0 Points to Remember
+---------------------------
+    - Value Add
+    - Who will buy
+    - Install and migration
+    - Extra support activity
+    - Risks
+    - Effort
+    - Stability
+    - Technological Acceptance 
+
   
  -0 A real time Game App
   > Batch the 'Intense but short lived sessions'
