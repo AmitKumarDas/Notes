@@ -46,6 +46,53 @@
   > or plain TCP load balancer
 
 
+ -0 RabbitMQ Clustered = Mirroring
+-------------------------
+  > Mirroring done on Qs
+  > one master & several slaves .. each on different node
+  > all actions other than publishing go only to the master
+  > master then broadcasts the effect of the actions to the slaves
+  > when a new node is added as a slave... this new slave will add new ops on master
+  > Mirroring can be configured to apply on specific nodes of a cluster
+  > On loss of the Master
+  >> any messages that the master was in the process of sending to the slaves either fail completely 
+  >> or succeed completely (this is really the atomic in atomic broadcast).
+  > all communication between the members of the mirror occurs in an async fashion
+
+
+ -0 RabbitMQ Clustering does only the below
+----------------------------------------------
+  > All data/state required for the operation of a RabbitMQ broker is replicated across all nodes, 
+  > for reliability and scaling, with full ACID properties. 
+  > An exception to this are message queues, which by default reside on the node that created them, 
+  > though they are visible and reachable from all nodes. 
+  
+
+ -0 RabbitMQ Load balancing
+--------------------------
+  > RabbitMQ cluster doesnot mean load balancing
+  > need to frontend with HAProxy
+  > Here HAProxy will balance the request only on ONE node, i.e. Server Affinity
+  >> If this node fails the request will be route to the other node. It’s simple as that.
+  > The use of HAProxy makes sense if you have implemented the mirrored queue
+
+
+ -0 RabbitMQ Failover
+---------------------------
+  > RabbitMQ cluster intention is to facilitate scalability
+  > not for availability
+  > i.e. not for HA(High Availability) clusters
+  > For high availability you need :: Active / Passive Cluster :: with below as common platform
+  >> 1/ DRBD - Distributed Replicated Block Device - GNU/Linux platform
+  >> 2/ Pacemaker - cluster resource manager for Linux platform - GPLv2
+  >> 3/ OpenAIS or CoroSync or Heartbeat
+
+
+ -0 HAProxy
+--------------------
+  > TCP/HTTP Load Balancer
+  > implements an event-driven, single-process - for concurrent connections @ high speeds
+  > 
 
 
  -0 State Management
