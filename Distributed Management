@@ -9,6 +9,48 @@
   >> provide session failover & cluster wide load balancing without relying on sticky sessions
   > 
 
+  > Issues with NAM
+--------------------------
+  > No Loadbalancing for non-browser clients
+  > Above increases the possibility for Proxying & hence performance degrades
+  > Improper failover by JGroups
+
+  > Solution for Proxying -
+  ----------------------------
+  > Maintaining server affinity even with non-browser user agents.
+  >> People who deal with cookie-incompatible clients generally use source address, 
+     because at least one of these two features works in general 
+     (eg: some payment terminals or webservice clients that do not support cookies will have a fixed address).
+  >> Use HAProxy
+  >> References:
+  1/ http://serverfault.com/questions/482149/making-a-client-sticky-without-initial-session-identifier-with-haproxy
+  2/ http://serverfault.com/questions/429090/configuring-haproxy-for-stick-sessions
+  3/ http://andykdocs.de/andykdocs/document/Enabling-Sticky-Mode-for-HAProxy
+  
+
+  > Solution for Improving JGroups communication
+  ------------------------------------------------
+  > Latest release of JGroups
+  > Latest release of JGroups with a MQ like 0MQ for message replication
+  > Referemces:
+  1/ http://www.warski.org/blog/2012/06/implementing-message-replication-in-elasticmq-with-jgroups/
+
+
+  > Solution for JGroups replacement
+  -----------------------------------
+  Note - In other words a better clustering, brokered, broadcasting, session replication solution
+  1/ Out of Box Tomcat Clustering
+  1.1/ synchronous, asynchronous, in-memory, external session replication, cluster segmentation, 
+  1.2/ mod_jk is the Apache HTTPD module to provide clustering, load balancing, & proxy capability
+  1.3/ mod_jk uses AJP protocol 4 communication between Tomcat servers & Apache Web Server that will receive client request
+  1.4/ The Objects to be saved into Session need to be Serializable
+  
+  2/ RabbitMQ Clustering
+  2.1/ http://blog.springsource.org/2011/04/01/routing-topologies-for-performance-and-scalability-with-rabbitmq/
+  2.2/ http://www.tomcatexpert.com/tags/rabbitmq
+  2.3/ http://tomcat.10.n6.nabble.com/RabbitMQ-based-vcloud-session-clustering-td2053995.html
+  
+
 
  -0 Points to Remember
 ---------------------------
