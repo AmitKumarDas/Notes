@@ -7,7 +7,9 @@
   >> will be done automicatlly if we have a LRU on an IMDB & persist that on disk
   > https://github.com/jbrisbin/vcloud/tree/master/session-manager
   >> provide session failover & cluster wide load balancing without relying on sticky sessions
-  > 
+  > http://pycon-2012-notes.readthedocs.org/en/latest/dotcloud_zerorpc.html
+
+ 
 
   > Issues with NAM
 --------------------------
@@ -52,6 +54,11 @@
   2.3/ http://tomcat.10.n6.nabble.com/RabbitMQ-based-vcloud-session-clustering-td2053995.html
   2.4/ http://www.infoq.com/news/2010/09/introduction-zero-mq
 
+  3/ Around 0MQ  
+  ---------------
+  > http://www.slideshare.net/rubentan/distributed-app-development-with-nodejs-and-zeromq
+  > http://pycon-2012-notes.readthedocs.org/en/latest/dotcloud_zerorpc.html
+  > 
 
  -0 Points to Remember
 ---------------------------
