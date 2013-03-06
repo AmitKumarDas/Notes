@@ -57,6 +57,12 @@ deque <=> better then list in insert & removal ops
      ('Hello World!\n', None)
 
 
+ -0 multi processing
+------------------------
+  > spawn multiple process
+  > side step GIL
+  > 
+
 
  -0 *args = varargs
 -----------------------------
