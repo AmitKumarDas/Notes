@@ -61,7 +61,15 @@ deque <=> better then list in insert & removal ops
 ------------------------
   > spawn multiple process
   > side step GIL
-  > 
+ 
+ -0 Snippet on Parent Process
+-----------------------
+    if hasattr(os, 'getppid'):  # only available on Unix
+        print 'parent process:', os.getppid()
+    print 'process id:', os.getpid()
+
+
+
 
 
  -0 *args = varargs
