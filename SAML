@@ -1,5 +1,13 @@
 Developers guide to SAML Workings 0-0-0-
 
+ -0 SASL
+----------------
+  > Security Assertion Markup Language
+  > usedfor Web SSO
+  > an app frameowrk to generalize authentication
+  > SASL is used by app protocols like IMAP, POP & XMPP
+  > effect is to modularize authentication, s.t. newer authentication mechanisms can be added as needed
+
 0-0-0 SAML Specs 0-0-0
 + Assertions - tokens to tranfer user identity info in the messages
 + Protocols  - Types of Request & Response messages
