@@ -69,6 +69,25 @@ deque <=> better then list in insert & removal ops
     print 'process id:', os.getpid()
 
 
+ -0 Synchronization between processes
+-------------------------------------
+  def f(l, i):
+    l.acquire()
+    print 'hello world', i
+    l.release()
+
+if __name__ == '__main__':
+    lock = Lock()
+
+    for num in range(10):
+        Process(target=f, args=(lock, num)).start()
+
+ -0 Shared Memory that are Process & Thread Safe > 
+------------------------------------------
+  > Value & Array are safe
+  > for more flexibility use multiprocessing.sharedctypes
+  >> supports the creation of arbitrary ctypes objects allocated from shared memory
+
 
 
 
