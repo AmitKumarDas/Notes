@@ -1,4 +1,3 @@
-
  -0- Design Base Widget
    
     > Action Handling - delegate to modularized JS blocks
@@ -11,4 +10,57 @@
     > Separate module for AJAX etc data handling
     > separate module for context handling
     > separate module for creating response object
+
+ -0- Web Component - Future
+--------------------------------
+  > While W3C specs continues on Web Components
+  > below is a commonly used pattern to bind JS objects to DOM objects
+  > NOTE ::
+  >> Collect behaviors
+  >> Manage their lifecycles
+
+ -00- Define JS Component
+ -----------------------------------
+ function InputTextNumberComponent(domElement){
+  this.initialize(domElement);
+ }
+
+ InputTextNumberComponent.prototype.initialize =
+    function(domElement){
+       domElement.onchange = function(){
+       //just a format
+       domElement.value = “-” + domElement.value + “-”;
+     };
+
+    domElement.jsComponent = this; //Expando property
+    this.domElement = domElement;
+  };
+
+ InputTextNumberComponent.prototype.resetValue = function(){
+    this.domElement.value = “”;
+ };
+
+ -00- Define CSS Element
+---------------------------
+  <style type=”text/css”>
+   .inputTextNumber { text-align:right; }
+  </style>
+
+ -00- HTML element
+----------------------
+  <input type=”text” class=”inputTextNumber” name=”NumberField”
+   size=”10” value=”Click me!” onClick=”this.jsComponent.resetValue()”>
+
+ -00- When DOM ready - create component
+------------------------------------------
+  window.onload = function(){
+    var inputTextNumbers = document.getElementsByClassName(“inputTextNumber”);
+    for(var i = 0; i < inputTextNumbers.length; i++){
+      var myComp = new InputTextNumberComponent(inputTextNumbers.item(i));
+    }
+  };
+
+
+
+
 
