@@ -1,4 +1,18 @@
- -0- Deep Copy
+
+ -0 Headless Browser testing
+---------------------------------
+  > PhantomJS
+  > browser testing without a GUI
+  > good 4 automating
+
+ -0 Remote Browser Automation
+------------------------------
+  > Selenium
+
+
+
+
+-0- Deep Copy
 --------------------  
   > Most of the time, you want to do a 'deep copy' so that an entirely new array is formed, 
     This is done by adding 'true, {}' as the first two arguments:
