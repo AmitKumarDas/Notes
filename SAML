@@ -12,7 +12,7 @@ Developers guide to SAML Workings 0-0-0-
 + Assertions - tokens to tranfer user identity info in the messages
 + Protocols  - Types of Request & Response messages
 + Bindings   - COmmunication method to transport the messages
-
++ not relevant to Web Services communication
 
 
 0-0-0 Protocols 0-0-0
@@ -23,6 +23,7 @@ Developers guide to SAML Workings 0-0-0-
 
 
 0-0-0 Binding 0-0-0
++ how SAML messages are transmitted from one system entity to another
 + can be HTTP
 > HTTP Redirect
 > HTTP POST
@@ -31,6 +32,7 @@ Developers guide to SAML Workings 0-0-0-
 + 
 
 0-0-0 Profiles 0-0-0
++ define the usecases for for Web SSO
 + Combination of protocols, assertions & bindings that are used to create a federation
 + Browser Artifact - SOAP based - known as SOAP Back Channel
 + Browser POST
@@ -38,24 +40,7 @@ Developers guide to SAML Workings 0-0-0-
 + Single Logout
 + Name Identifier Management
 + Identity Provider Discovery
-+ 
-
- -0 Code Wise Understanding SAML
---------------------------------------
-  > When request are intercepted, it follows the below flow:
-  > Creation of a Profile
-  > Profiles are created from Access Policies
-  > Profiles can be categorized into Profile Bindings
-  > If the Profile level Binding is ARTIFACT then
-  >> then the transport level binding i.e. SOAP or REDIRECT can be used
  
- -0 On POST Binding
--------------------------
-  > dont require a direct communication between IDP & 3rd party
-  > data communicated via end user's browser
-  > workstation should be able to access IDP & 3rd party app
-  > fits well to existing network security well
-
 
 
 
