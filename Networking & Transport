@@ -1,4 +1,3 @@
-
  -0- Http & isAlive
 -------------------------
   > must reply < 400 if host is alive
@@ -14,3 +13,8 @@
 -----------------------
   > Connection Acquire Fail Max Tries - max no of tries to acquire a connection if all hosts are down
   > 
+
+ -0- Http + Ensure only one use
+--------------------------------
+  > may try making an adapter of HttpConnection
+  > may try lock etc
