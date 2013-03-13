@@ -14,7 +14,14 @@
   > Connection Acquire Fail Max Tries - max no of tries to acquire a connection if all hosts are down
   > 
 
- -0- Http + Ensure only one use
---------------------------------
+ -0- Http + Ensure only one use @ a time
+--------------------------------------------
   > may try making an adapter of HttpConnection
-  > may try lock etc
+  > OR may try lock etc
+
+
+ -0- Http & Monitoring & Failover
+--------------------------------------
+  > Extend the HttpConnectionManager
+  > Find a connection given its configuration
+  > 
