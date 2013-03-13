@@ -397,8 +397,33 @@ because significant numbers of those are not non-blocking implementations.
   > Can manipulate via in-memory too
   > 
 
+ -0- Thread & Pool & Shutdown
+----------------------------
+
+public void startMonitoring(int nthreads) {
+        int delay = 1000 / manager.hosts.size() * nthreads;
+        for (int i = 0; i < nthreads; i++) {
+            PoolMonitoringThread pmt = new PoolMonitoringThread();
+            pmt.loopDelay = delay;
+            pmt.pool = manager;
+            pmt.start();
+            threads.add(pmt);
+        }
+    }
+
+
+public void shutdown() {
+        for (PoolMonitoringThread pmt : threads) {
+            try { pmt.join();} catch (InterruptedException e) {}
+        }
+        manager.shutdown();
+    }
+
+
+
 
 References:
 1. http://yuiblog.com/blog/2008/07/22/non-blocking-scripts/
 2. http://www.infoq.com/interviews/williams-vertx
 3. http://sdiehl.github.com/gevent-tutorial/
+4. https://github.com/exalead/commons-httpclient-failover/
