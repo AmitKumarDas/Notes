@@ -32,7 +32,7 @@ Developers guide to SAML Workings 0-0-0-
 + 
 
 0-0-0 Profiles 0-0-0
-+ define the usecases for for Web SSO
++ define the UseCases for for Web SSO
 + Combination of protocols, assertions & bindings that are used to create a federation
 + Browser Artifact - SOAP based - known as SOAP Back Channel
 + Browser POST
@@ -41,6 +41,50 @@ Developers guide to SAML Workings 0-0-0-
 + Name Identifier Management
 + Identity Provider Discovery
  
+
+-0- STS & SAML Assertion
+-------------------------
+  > SAMLAssertion's Subject's confirmation methods can be correlated with STS
+  > subject confirmation methods are not defined in SAML core
+  > SAML Profile specs define the below 3 subject confirmation methods
+  > > Holder Of Key (HOK)
+  > > Bearer
+  > > Send Vouches (SV)
+
+-0- SAML & Web Services
+--------------------------
+  > standardized in the context of SAML token profile
+  > https://www.oasis-open.org/committees/download.php/16768/wss-v1.1-spec-os-SAMLTokenProfile.pdf
+  
+-0- WS Security Policy UseCases
+----------------------------------
+  > http://docs.oasis-open.org/ws-sx/security-policy/examples/ws-sp-usecases-examples.html
+
+-0- WS-Trust STS
+---------------------
+  > introduces a runtime component called STS
+  > STS will act as an intermediary between SP & IDP
+  > this has advantages to the direct trust relationship between SP & IDP
+  > STS can issue tokens based on requirements from IDP &/or SP
+  > > requirements of IDP are specified in a WS-Policy or out of band agreement
+
+-0- STS & Web Service Consumer
+--------------------------
+  > consumer need not know various types of token required by IDP
+  > web service consumer sends request to STS providing the requirements of the client as well as IDP
+  > once consumer receives token from STS, it attaches the same to outgoing SOAP message meant for IDP
+
+-0- STS jargon - TokenType
+---------------------
+  > 
+
+
+
+
+
+
+
+
 
 
 
@@ -59,3 +103,5 @@ Developers guide to SAML Workings 0-0-0-
 
 
 
+Reference:
+1/ http://owulff.blogspot.in/2012/02/saml-tokens-and-ws-trust-security-token.html
