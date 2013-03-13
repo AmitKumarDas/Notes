@@ -1,0 +1,16 @@
+
+ -0- Http & isAlive
+-------------------------
+  > must reply < 400 if host is alive
+  > must reply > 500 if host is down
+
+ -0- Http & Timeouts
+---------------------------
+  > Connect Timeout - timeout for establishing connection
+  > Connection Acquire Fail Timeout - max time to acquire a connection if all hosts are down
+  > Is Alive Timeout - timeout for isAlive service to answer  
+
+ -0- Http & Tries
+-----------------------
+  > Connection Acquire Fail Max Tries - max no of tries to acquire a connection if all hosts are down
+  > 
