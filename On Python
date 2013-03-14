@@ -22,6 +22,124 @@ deque <=> double ended queue,
 deque <=> mimic tail filter in Unix
 deque <=> track transactions, recent activity of interest
 deque <=> better then list in insert & removal ops
+time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())
+time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
+
+
+ -0- Condition & loop & Arrays & str
+------------------------------------
+def set_nameidformat(self, value):
+    validNameIDFormats = ["urn:oasis:names:tc:SAML:1.0:nameid-format:unspecified",
+                          "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+                          "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName",
+                          "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName"]
+
+    # Double check to see if the person entered a valid nameid-format                      
+    if value not in validNameIDFormats:
+      logging.warning("The nameidformat supplied is not valid. Valid formats are: " + str(validNameIDFormats))
+    
+    # Set the nameid format anyway for flexibility
+    self._nameidformat = value
+
+
+ -0- Instance Variable
+-----------------------
+nameidformat = property(get_nameidformat, set_nameidformat, del_nameidformat,
+                          "This is the urn:oasis:names:tc:SAML:1.0:nameid-format property")
+
+
+-0- UUID
+---------------
+  > self.assertionUUID = str(uuid.uuid4())
+
+
+-0- Public key in Element
+------------------------------------------------------
+  > Signature > KeyInfo > X509Data > X509certificate
+  > KeyInfo will contain below public cert details
+  
+  # Parse the certificate text into an M2Crypto X509 certificate object    
+    x509CertObject = M2Crypto.X509.load_cert_string(self.certificate)
+    
+    # Remove the "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----"
+    # and clean up any leading and trailing whitespace
+    certificatePEM = x509CertObject.as_pem()
+    certificatePEM = certificatePEM.replace("-----BEGIN CERTIFICATE-----","")
+    certificatePEM = certificatePEM.replace("-----END CERTIFICATE-----","")
+    certificatePEM = certificatePEM.strip()
+
+
+-0- Sign the SAML Response
+--------------------------
+  > Do the usual steps of XML building that will represent the Signing Element
+  > e.g. -> Signature, SignedInfo, CanonicalizationMethod, Algorithm, SignatureMethod, Algorithm 2nd time, 
+  > > Transforms, Transform, Algorithm 3rd time, DigestMethod, Algorithm 4th time,
+  > > DigestValue, SignatureValue
+  
+
+  > DigestValue -> hashing
+----------------------------------------------
+  > > digestValueElement = doc.createElement("DigestValue")
+  > > hash = hashlib.sha1()
+  > > hash.update(unsignedSAMLResponse.toxml())
+  > > digestValue = doc.createTextNode(base64.b64encode(hash.digest()))
+  > > digestValueElement.appendChild(digestValue)
+
+  > SignatureValue -> sign above hash
+------------------------------------------------
+  > > signatureValueElement = doc.createElement("SignatureValue")
+  > >  m = M2Crypto.RSA.load_key_string(self.privatekey)
+  > >  signature = m.sign(hash.digest(),"sha1")    
+  > >  signatureValueText = doc.createTextNode(base64.b64encode(signature))
+  > >  signatureValueElement.appendChild(signatureValueText)
+
+-0- Signing - just append to unsigned
+-----------------------------------------
+  > A signature will have 2 main elements
+  > SignedInfo & SignatureValue
+  > SignedInfo = hash
+  > SignatureValue = sign(hash)
+  > But this is just appended to the unsigned document/element
+
+-0- log
+----------------------
+def log(loglevel, logfilename):
+  logging.basicConfig(level=loglevel, format='%(asctime)s %(levelname)s %(message)s',filename=logfilename,filemode='w')
+
+
+
+ -0- XML
+---------------------
+subjectConfirmationElement = doc.createElement("SubjectConfirmation")
+    
+    # Go through the list of confirmation methods
+    for confirmationMethod in self.confirmationMethods:
+      confirmationMethodElement = doc.createElement("ConfirmationMethod")
+      confirmationMethod = doc.createTextNode(confirmationMethod)
+      confirmationMethodElement.appendChild(confirmationMethod)
+      subjectConfirmationElement.appendChild(confirmationMethodElement)
+
+
+ -0- Class
+-------------------------
+  > cool & precise & generics
+  > class XXX(Object)
+  > create all the related classes in one file
+
+ -0- __init__
+-----------------------
+  > def __init__(self, var1=val1, var2=val2):
+  >   ...
+  > def __init__(self, name, nameidformat,confirmationMethods=[]):
+
+ -0- __str__ 
+-----------------------
+  > def __str__(self):
+  > is the toString stuff
+
+
+
+
 
 
 
