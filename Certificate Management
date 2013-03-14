@@ -47,3 +47,51 @@
 >> import the .pfx output file from the command above into Internet Explorer, 
 >> and then export it from IE with the private key and all of the CA certificates in the certification chain. 
 >> The resulting exported .pfx from IE would then successfully import into the Certificate Store.
+
+-0- Public key in Element
+------------------------------------------------------
+  > Signature > KeyInfo > X509Data > X509certificate
+  > KeyInfo will contain below public cert details
+  
+  # Parse the certificate text into an M2Crypto X509 certificate object    
+    x509CertObject = M2Crypto.X509.load_cert_string(self.certificate)
+    
+    # Remove the "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----"
+    # and clean up any leading and trailing whitespace
+    certificatePEM = x509CertObject.as_pem()
+    certificatePEM = certificatePEM.replace("-----BEGIN CERTIFICATE-----","")
+    certificatePEM = certificatePEM.replace("-----END CERTIFICATE-----","")
+    certificatePEM = certificatePEM.strip()
+
+
+-0- Sign the SAML Response
+--------------------------
+  > Do the usual steps of XML building that will represent the Signing Element
+  > e.g. -> Signature, SignedInfo, CanonicalizationMethod, Algorithm, SignatureMethod, Algorithm 2nd time, 
+  > > Transforms, Transform, Algorithm 3rd time, DigestMethod, Algorithm 4th time,
+  > > DigestValue, SignatureValue
+  
+
+  > DigestValue -> hashing
+----------------------------------------------
+  > > digestValueElement = doc.createElement("DigestValue")
+  > > hash = hashlib.sha1()
+  > > hash.update(unsignedSAMLResponse.toxml())
+  > > digestValue = doc.createTextNode(base64.b64encode(hash.digest()))
+  > > digestValueElement.appendChild(digestValue)
+
+  > SignatureValue -> sign above hash
+------------------------------------------------
+  > > signatureValueElement = doc.createElement("SignatureValue")
+  > >  m = M2Crypto.RSA.load_key_string(self.privatekey)
+  > >  signature = m.sign(hash.digest(),"sha1")    
+  > >  signatureValueText = doc.createTextNode(base64.b64encode(signature))
+  > >  signatureValueElement.appendChild(signatureValueText)
+
+-0- Signing - just append to unsigned
+-----------------------------------------
+  > A signature will have 2 main elements
+  > SignedInfo & SignatureValue
+  > SignedInfo = hash
+  > SignatureValue = sign(hash)
+  > But this is just appended to the unsigned document/element
