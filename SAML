@@ -76,7 +76,71 @@ Developers guide to SAML Workings 0-0-0-
 
 -0- STS jargon - TokenType
 ---------------------
-  > 
+  > type of security token requested
+  > security token can be SAML 1.1, 2.0, X.509, etc
+  > URIs are defined for all standard security tokens
+
+-0- STS jargon - KeyType
+---------------------------
+  > Public, Symmetric, Bearer
+  > each has a URI defined
+  > PK & SK are good even if SAML token is in possession of wrong hands
+  > Bearer is not good for above case i.e. man-in-the-middle
+  > Combine Bearer with HTTPS
+
+-0- STS jargon - Claims
+-----------------------------
+  > specifies required & optional claims
+  > claim can be
+  > > email address, role, information, country, etc
+
+-0- STS jargon - Applies To
+------------------------------
+  > specifies the scope for which the token is required
+  > can be the URL of the SP - Service Provider
+
+-0- STS jargon - Lifetime
+------------------------------
+  > specifies the creation & expiration of token
+
+-0- STS jargon - Claims
+------------------------
+  > maps to a SAML attribute statement
+
+-0- STS & IDP - Trust
+---------------------------
+  > via certificate
+ 
+-0- STS & KeyType <=> ConfirmationMethod
+-----------------------------------------
+  > PK or SK <=> HOK
+  > Bearer <=> Bearer
+
+-0- STS & ConfirmationMethod
+---------------------------------
+  > Bearer & HOK widely used in all STS usecases
+  > Bearer & HOK widely used in WS FED Passive Requestor Profile
+  > Bearer & HOK widely used in SAML Post Profile
+
+-0- 
+
+
+
+
+
+
+
+-0- STS - Claims encoded as SAML Attribute Statement
+------------------------------------------------------
+  > http://docs.oasis-open.org/imi/identity/v1.0/identity.html
+
+
+
+
+
+
+
+
 
 
 
