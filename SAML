@@ -122,7 +122,89 @@ Developers guide to SAML Workings 0-0-0-
   > Bearer & HOK widely used in WS FED Passive Requestor Profile
   > Bearer & HOK widely used in SAML Post Profile
 
--0- 
+-0- STS & WS-Trust
+--------------------
+  > STS refers to a WS-Trust endpoint
+
+-0- Identity Provider Security Token Service
+--------------------------------------------
+  > IP/STS - STS run by an IDP to issue tokens
+
+-0- RP/STS
+--------------
+  > STS run by an RP to accept & issue tokens
+
+
+-0- Brokered Authentication & STS - An UseCase
+------------------------------------
+  > brokered auth using STS
+  > allow Web Services to authenticate clients in a heterogenous environment
+  > broker issues signed security tokens for authentication
+  > allows additional cotrols such as authorization & auditing
+  > custom STS using Web Services Enhancements (WSE) 3.0
+  > use STS to negotiate a session key between client app & a service
+  > session key can be used as a basis for XML signature & encryption between client & service
+  > WSE 3.0 - custom policy assertion - to encrypt & sign messages
+  > encrypt & sign messages using symmetric key contained in SAML token
+  > WSE 3.0 - custom security token manager - validate token
+  > WSE 3.0 - Security Bindings - to secure client to STS communication
+  > Participants
+  > > client - provides user credentials
+  > > client - obtains SAML token from STS
+  > > STS - authenticates client from latter's credentials
+  > > STS - issues Security Token to client
+  > > Service - requires a security token prior to authorizing the client
+  > Flow
+  > > client ------ RST -----> STS
+  > > STS  ----- RSTR -----> client
+  > > client  ----- Request -----> Service
+  > > Service ----- Response -----> client
+  > Operation Modes
+  > > Implicit Mode - SamlPolicyAssertion - handles communication between client & STS
+  > > Explicit Mode - client has to do above manually - normally client need not deal with Token
+  > Caching
+  > > STS determines whether or not SAML token can be cached
+  > > if caching possible, client will cache in its SOAP Session Context
+  > Username Token
+  > > with SendPlainText password
+  > > communication to be secured either @ transport layer (SSL) or @ message layer using WSE 3.0
+  > Message Layer Security
+  > > derived key token in the RST 
+  > > key is encrypted with a wrapped symmetric encryption key
+  > > wrapped symmetric encryption key is encrypted with the target Service's X.509 cert public key
+  > STS decrypts encrypted parts of RST
+  > 
+  > STS generates Symmetric Key
+  > > a high entropy symmetric key is generated
+  > > used as a proof of possesion to confirm the subject's identity
+  > > used by client & service to sign & encrypt messages
+  > > symmetric key = hash computation of(STS generated entropy value && entropy value provided by client in RST)
+  > > encrypts the symmetric key with target service's X.509 public key
+  > > this encrypted key is included as a claim in SAML token
+  > > Note - STS maintains a list of target service & their public keys
+  > STS signs SAML token
+  > > with its own private key
+  > STS sends RSTR to client
+  > > Requested Service Token Response
+  > > RSTR has SAML token & prrof token
+  > > proof token is a copy of the encryption key added as a claim in the SAML token 
+  > > proof token is not encrypted like the one present in the claim 
+  > > proof token is plain text
+  > > the communication is secured as discussed above ?? 
+  > > client caches proof token to derive 1/encryption & 2/signing keys for securing messages exchanged with service
+  > Client Sends Request to Service
+  > > client initializes a request message
+  > > client signs the request message
+  > > client encrypts the request message
+  > > client sends the request message to the service
+  > Client signs the Request Message to Service
+  > > signing key is derived from the proof token
+  > > signing key = fn(proof token, label, nonce)
+  > > derivation negates the chances of successful offline analysis by attackers
+  > Client encrypts the Request Msg to Service
+  > > same as signing
+  > > encryption key is derived
+  > > 
 
 
 
@@ -169,3 +251,4 @@ Developers guide to SAML Workings 0-0-0-
 
 Reference:
 1/ http://owulff.blogspot.in/2012/02/saml-tokens-and-ws-trust-security-token.html
+2/ http://www.willydev.net/descargas/PartnerAndPractices/WillyDev_ImplementingMessageLayerSecuritywithaSTSinWSE3.0.pdf
