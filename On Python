@@ -71,12 +71,7 @@ nameidformat = property(get_nameidformat, set_nameidformat, del_nameidformat,
 
 -0- Sign the SAML Response
 --------------------------
-  > Do the usual steps of XML building that will represent the Signing Element
-  > e.g. -> Signature, SignedInfo, CanonicalizationMethod, Algorithm, SignatureMethod, Algorithm 2nd time, 
-  > > Transforms, Transform, Algorithm 3rd time, DigestMethod, Algorithm 4th time,
-  > > DigestValue, SignatureValue
   
-
   > DigestValue -> hashing
 ----------------------------------------------
   > > digestValueElement = doc.createElement("DigestValue")
