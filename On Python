@@ -26,6 +26,44 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())
 time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
 
 
+-0- Http + Proxy + POST SAML Assertion
+---------------------------------------
+values = {"TARGET" : "http://www.example.com/secure/",
+        "SAMLResponse" : base64.b64encode(response.getXML())}
+
+proxy_url = 'http://localhost:8888'
+proxy_support = urllib2.ProxyHandler({'http': proxy_url})
+opener = urllib2.build_opener(proxy_support, urllib2.HTTPHandler)
+urllib2.install_opener(opener)
+        
+data = urllib.urlencode(values)
+req = urllib2.Request("http://www.sp.demo/affwebservices/public/samlcc", data)
+
+print urllib2.urlopen(req).read()
+
+
+-0- Open Private Key & Public Cert
+----------------------------------
+privateKeyFile = open("../sharedfiles/InternetWidgitsCAPrivateKey.pem","r")
+privatekey = privateKeyFile.read()
+
+certificateFile = open("../sharedfiles/InternetWidgitsCertificate.pem","r")
+certificate = certificateFile.read()
+
+
+-0- Test Suite
+------------------
+  class subjectTest(unittest.TestCase):
+
+if __name__ == '__main__':
+  suite = unittest.TestLoader().loadTestsFromTestCase(subjectTests)
+  unittest.TextTestRunner().run(suite)
+
+
+
+
+
+
  -0- Condition & loop & Arrays & str
 ------------------------------------
 def set_nameidformat(self, value):
