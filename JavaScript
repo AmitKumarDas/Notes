@@ -1,13 +1,4 @@
 
- -0 Headless Browser testing
----------------------------------
-  > PhantomJS
-  > browser testing without a GUI
-  > good 4 automating
-
- -0 Remote Browser Automation
-------------------------------
-  > Selenium
 
 
 
