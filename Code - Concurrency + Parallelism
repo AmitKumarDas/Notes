@@ -1,0 +1,35 @@
+
+-0- concurrent.ThreadFactory
+--------------------------------
+  > look @ codahale/metrics
+  > NamedThreadFactory extends ThreadFactory
+
+-0- PollingReporter
+----------------------
+  > look @ codahale/metrics
+  > SingleThreadScheduledExecutor.scheduleAtFixedRate
+  
+-0- current time in Epoch Nanoseconds
+-----------------------------------------------
+    public static class UserTimeClock extends Clock {
+        @Override
+        public long getTick() {
+            return System.nanoTime();
+        }
+    }
+
+
+  > Clock is a abstract class with public methods
+
+-0- Current Thread's CPU time
+------------------------------
+public static class CpuTimeClock extends Clock {
+        private static final ThreadMXBean THREAD_MX_BEAN = ManagementFactory.getThreadMXBean();
+
+        @Override
+        public long getTick() {
+            return THREAD_MX_BEAN.getCurrentThreadCpuTime();
+        }
+    }
+
+
