@@ -1,0 +1,54 @@
+
+
+-0- Try to summarize the below CasperJS code
+----------------------------------------------
+
+var casper = require('casper').create();
+
+casper.start('http://www.iproperty.com.my/', function() {
+  this.test.assertExists(
+    'select#s_searchBoxState',
+    'State dropdown is found'
+  );
+  this.test.assertExists(
+    'select#s_searchBoxState option[value="SE"]',
+    'Selangor option is found'
+  );
+  this.fill(
+    'form[name="frmSaleSearchbox"]',
+    {'searchBoxState': 'SE'},
+    false
+  );
+  this.click('#s_imgBtnSearch');
+});
+
+casper.then(function() {
+  this.test.assertTitle(
+    'All Residential For Sale In All Cities, Selangor for RM0 to RM999,999,999',
+    'Search results title is ok'
+  );
+});
+
+casper.thenOpen('http://www.iproperty.com.my/useracc/Login.aspx', function(){
+  this.test.assertExists('form#frm', 'Login form is found');
+  this.fill('form[id="frm"]', {
+    txtEmail: 'andy@andykelk.net',
+    txtPassword: 'xxxxx'
+  }, true);
+});
+
+casper.then(function() {
+  this.test.assertTitle('My Account', 'Login title is ok');
+  this.test.assertEquals(
+    this.evaluate(function() {
+      return __utils__.findOne('span.sidebar-text5').innerText}
+    ),
+    'Andy',
+    'Account name is retrieved ok'
+  );
+});
+
+casper.run(function() {
+  this.test.done(6);
+  this.test.renderResults(true);
+});
