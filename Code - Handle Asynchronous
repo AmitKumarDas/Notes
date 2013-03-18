@@ -1,5 +1,3 @@
-This note is a collage of blogs & writeups of various Authors on JavaScript w.r.t asynchronous behavior.
-I have tried to give due references of the Authors but might have missed others.
 
  -0- Node JS - radical approach
 ----------------------------------
@@ -9,86 +7,9 @@ I have tried to give due references of the Authors but might have missed others.
 -0  2 styles to do async stuff 
 ----------------------------------
 
-  > 1/ event based
-  > 2/ callback based
+  > 1/ event based - non local approach
+  > 2/ callback based - local approach
 
--0 Event style - A non-local approach 
---------------------------------------
- 
-  > Event style - emit @ some point & have listeners & act thereupon
-  > Event Style - works well with Http client & server
-  > Can U have event style for handling Biz logic
-  > i.e. NON LOCAL BIZ LOGIC
-
--0- Callback based 
----------------------
-  > is A local approach
-
-
- -0 Async Funcs & Serial invocation
-----------------------------------------
- + If invoked in a loop i.e. serially
-  > will execute parallely
-  > Can you get the Aggregate results in such a case ?
-  > No. The solution is to invoke the async funcs Recursively.
-  > Coz Iteration will not give you results.
-
- -0 Recursion & Async
---------------------------
-  > Recursive function should invoke Async Func
-
- -0 Recursive + Async + Functional
--------------------------------------
-  > Define a for each function for async calls
-
-asyncForEach(array,iterator,then){
- function loop(i){
-  if(i < array.length) 
-   iterator(array[i], function(){loop(i+1)};); // Invoke iterator
-  else 
-   then(); //aliter- invoke then
- }
- loop(0);
-}
-
-  > Invoke the for each function
-  > Iterator takes the current item & also has the function that has to be invoked next
-
-asyncForEach(array, function(item, next) {
-  // body of iterator
-  somethingAsync(function(err, result) {
-    if (err) {callback(err); return; } 
-
-    // do something with item and result
-
-    next(); // don't forget me at the end of every code path
-
-  });
-}, function() {
-  // body of then
-});
-
-
-
- 0- Callbacks & Templates II
----------------------------------------
-+ function template(abc, options, callback){
-  otherFunc(abc, function(err,data){
-   if(err) return callback(err); // Invoked CB
- 
-   callback.counter +=1;         // A CB property defined & Assigned
-
-   if(done) callback(null, callback.files); // CB signature defined // && Invoked CB
-
-  });
-
-}
-
-
-  -0- Using callbacks 
--------------------------------
-  + My exp in Spiffy tells that single callback will not suffice.
-  + Read further to understand
 
  -0 Callbacks + Wrong way
 -----------------------------
@@ -115,16 +36,78 @@ function fetch(receiver) {
 
 fetch(function(result) { document.write(result); });
 
+
+
+
+
+ -0 Async Funcs & Serial invocation
+----------------------------------------
+ + If invoked in a loop i.e. serially
+  > will execute parallely
+  > Can you get the Aggregate results in such a case ?
+  > No. The solution is to invoke the async funcs Recursively.
+  > Coz Iteration will not give you results.
+
+ 
+ -0 Recursive + Async + Functional
+-------------------------------------
+  > Define a for each function for async calls
+
+asyncForEach(array,iterator,then){
+ function loop(i){
+  if(i < array.length) 
+   iterator(array[i], function(){loop(i+1)};); // Invoke iterator
+  else 
+   then(); 
+ }
+ loop(0);
+}
+
+  > Invoke the for each function
+  > Iterator takes the current item & also has the function that has to be invoked next
+
+asyncForEach(array, function(item, next) {
+  // body of iterator
+  somethingAsync(function(err, result) {
+    if (err) {callback(err); return; } 
+
+    // do something with item and result
+
+    next(); // don't forget me at the end of every code path
+
+  });
+}, function() {
+  // body of then
+});
+
+
+
+------------------------------------------------------
+ -0 Avoid Callback pyramid
+-------------------------------------------------------
+ > Use a promise library
+ > https://github.com/kriskowal/q
+ > callback - inversion of control
+ > promise - un-invert the inversion
+ > promise - separates the input arguments from control flow arguments
+ > so just forget the callbacks & 
+ > > modularize these into separate methods to be designed via a promise library
+ > 
+
+
+-------------------------------------------------------- 
+-0 No Callbacks - I
+--------------------------------------------------------
+  > JavaScript 1.7 - Firefox introduces yield
+  > yield can be used for implementing generators & coroutines
+  > coroutines can be used to implement event loops as an alternative to callback
+
+
+
  -0 Cleaner Callbacks - Generator
 ----------------------------------
   > Generators can be used to make asynchronous code a lot more linear in style.
   > Not standardized till JavaScript 1.7
-
- -0 No Callbacks - I
------------------------
-  > JavaScript 1.7 - Firefox introduces yield
-  > yield can be used for implementing generators & coroutines
-  > coroutines can be used to implement event loops as an alternative to callback
 
 
  -0 Coroutine Example
