@@ -46,10 +46,9 @@ fetch(function(result) { document.write(result); });
   > Coz Iteration will not give you results.
 
 
-------------------------------------------------------
- -0 Avoid Callback pyramid - PROMISE
+ -0 PROMISE library
 -------------------------------------------------------
- > Use a promise library
+ > Use a promise library to avoid callback pyramid
  > https://github.com/kriskowal/q
  > callback - inversion of control
  > promise - un-invert the inversion
@@ -58,16 +57,25 @@ fetch(function(result) { document.write(result); });
  > > modularize these into separate methods to be designed via a promise library
 
 
+ -0 queue - flow
+-------------------
+  > 
 
 
--------------------------------------------------------- 
--0 No Callbacks - I
---------------------------------------------------------
+
+-0 No Callbacks = Generators
+---------------------------------
   > JavaScript 1.7 - Firefox introduces yield
   > yield can be used for implementing generators & coroutines
   > coroutines can be used to implement event loops as an alternative to callback
 
+ -0 Task.js
+-------------------
 
+  > Get a comparision of callback way versus 'Task' way
+  > write non-blocking I/O in a synchronous way
+  > however, the calls will be asynchronous actually
+  > can use Task when Generators is supported in your JS runtime
 
  -0 Cleaner Callbacks - Generator
 ----------------------------------
@@ -158,6 +166,7 @@ $(window).mousemove(loop)
   > corotuine never explicitly stores any state
   > coroutine add a new form of state to the language, namely the state where the coroutine is currently suspended
   > this implicit coroutine state => consistency is guaranteed
+
 
 
 
