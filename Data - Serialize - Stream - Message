@@ -1,8 +1,46 @@
- -0 What is Messaging
+
+
+
+
+ -0 XMLStreamWriter -
+-----------------------
+  > enable writing of XML programmatically
+  > check if proper escaping is enabled/disabled
+  > i.e. < > etc special chars should be in place inside the XML
+
+ -0 Write events to DISK
+----------------------------
+  > use XMLStreamWriter
+  > use FileWriter to open up a file on disk
+
+ -0 Write XML to System.out
+-----------------------------
+  > use XMLStreamWriter
+  > use System.out
+
+ -0 Convert XML from library A's type into library B's type
+-------------------------------------------------
+  > serialize library A's object into outputstream via XMLStreamWriter
+  > feed a inputstream from above output stream
+  > create library B's object from inputstream via some parser library
+
+ -0 org.w3c.dom.Document + Generate
+------------------------------------
+  > use javax.xml.parsers.DocumentBuilder
+  > parse the inputstream using DocumentBuilder
+
+
+ -0 Serialize java object to OutputStream
+--------------------------------------------
+  > serialize to ByteArrayOutputStream
+  > serialize may be implemented by the java object
+  > e.g. serialize using XMLStreamWriter
+  > > more formatting via decorators etc
+  
+
+-0 What is Messaging
 --------------------------
-  > producers
-  > broker
-  > consumers
+  > producers  +  broker +  consumers
   > can be without a broker - ref ZeroMQ
 
  -0 ZeroMQ Compared With
