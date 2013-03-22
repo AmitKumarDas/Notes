@@ -1,0 +1,114 @@
+
+ -0 fork & join & coroutines
+---------------------------------
+  class Broadcaster(object):
+  '''
+  Allows users to broadcast output of a coroutine to multiple callees and then
+  serialize results further down the call stream.
+  WARNING: This design assumes that coroutines have one (yield) and one send().
+  '''
+  def __init__(self):
+    self.serial = []
+  @coroutine
+  def fork(self, children, target):
+    '''
+    Copies output sent to this coroutine to all coroutines in children. 
+    Results subsequently sent to Broadcaster.join() will be serialized (as a 
+    list) and sent to target.
+    '''
+    self.nchildren = len(children)
+    self.target = target
+    while True:
+      item = (yield)
+      for c in children:
+        c.send(item)
+  @coroutine
+  def join(self):
+    '''
+    Results sent to this coroutine are stored. When all of the children passed 
+    to Broacaster.fork have sent results, a list of the results is sent to 
+    the target passed to Broadcaster.fork. 
+    '''
+    while True:
+      result = (yield)
+      self.serial.append(result)
+      if len(self.serial) == self.nchildren:
+        self.target.send(self.serial)
+        self.serial = []
+
+
+ -0 Package Coroutine inside Thread
+-----------------------------------
+@coroutine
+def threaded(target):
+    messages = Queue()
+    def run_target():
+        while True:
+            item = messages.get()
+            if item is GeneratorExit:
+                target.close()
+                return
+            else:
+                target.send(item)
+    Thread(target=run_target).start()
+    try:
+        while True:
+            item = (yield)
+            messages.put(item)
+    except GeneratorExit:
+        messages.put(GeneratorExit)
+
+
+ -0 Parsing XML to Dictionary
+-------------------------------------
+@coroutine
+def buses_to_dicts(target):
+    while True:
+        event, value = (yield)
+        # Look for the start of a <bus> element
+        if event == 'start' and value[0] == 'bus':
+            busdict = { }
+            fragments = []
+            # Capture text of inner elements in a dict
+            while True:
+                event, value = (yield)
+                if event == 'start':   fragments = []
+                elif event == 'text':  fragments.append(value)
+                elif event == 'end':
+                    if value != 'bus': 
+                        busdict[value] = "".join(fragments)
+                    else:
+                        target.send(busdict)
+                        break
+
+ -0 Check particular element & value
+-----------------------------------------
+@coroutine
+def filter_on_field(fieldname,value,target):
+    while True:
+        d = (yield)
+        if d.get(fieldname) == value:
+            target.send(d)
+
+
+ -0 Sink
+-----------------------------------------------------
+@coroutine
+def bus_locations():
+    while True:
+        bus = (yield)
+        print "%(route)s,%(id)s,\"%(direction)s\","\
+              "%(latitude)s,%(longitude)s" % bus 
+
+
+ -0 Finale Usage
+---------------------------------------------------
+xml.sax.parse("allroutes.xml", EventHandler(
+     buses_to_dicts(
+     threaded(
+        filter_on_field("route","22",
+        filter_on_field("direction","North Bound",
+        bus_locations()))
+     ))))
+
+ >> CAUTION - ADDING THREADS MAKE THIS EXAMPLE RUN SLOWER ...
