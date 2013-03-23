@@ -44,6 +44,25 @@ PRACTICAL ---
 
 Links to Read --
 
+STS
+ > http://www.willydev.net/descargas/PartnerAndPractices/WillyDev_ImplementingMessageLayerSecuritywithaSTSinWSE3.0.pdf
+ > http://docs.oasis-open.org/imi/identity/v1.0/identity.html
+ > https://www.oasis-open.org/committees/download.php/16768/wss-v1.1-spec-os-SAMLTokenProfile.pdf
+ > http://docs.oasis-open.org/ws-sx/security-policy/examples/ws-sp-usecases-examples.html
+ > http://coheigea.blogspot.in/2012/04/batch-processing-in-apache-cxf-sts.html
+
+GIL
+ > http://www.dabeaz.com/python/GIL.pdf
+ > http://www.dabeaz.com/coroutines/
+ > http://www.dabeaz.com/coroutines/Coroutines.pdf
+ > http://scotdoyle.com/python-epoll-howto.html
+
+http://peadrop.com/blog/2007/06/18/pickle-an-interesting-stack-language/
+http://www.python.org/dev/peps/pep-0380/
+http://www.python.org/dev/peps/pep-0342/
+
+http://code.google.com/p/selenium/wiki/JsonWireProtocol
+http://code.google.com/p/selenium/wiki/WebDriverJs
 http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/
 http://www.slideshare.net/YungLinHo/groupware-zookeeper-and-jgroups
 http://aminsblog.wordpress.com/2010/10/16/jgroups-hopes-and-regrets/
