@@ -26,19 +26,15 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())
 time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
 
 
--0- Http + Proxy + POST SAML Assertion
+-0- Http + POST SAML Assertion
 ---------------------------------------
 values = {"TARGET" : "http://www.example.com/secure/",
         "SAMLResponse" : base64.b64encode(response.getXML())}
 
-proxy_url = 'http://localhost:8888'
-proxy_support = urllib2.ProxyHandler({'http': proxy_url})
-opener = urllib2.build_opener(proxy_support, urllib2.HTTPHandler)
-urllib2.install_opener(opener)
-        
+...
+
 data = urllib.urlencode(values)
 req = urllib2.Request("http://www.sp.demo/affwebservices/public/samlcc", data)
-
 print urllib2.urlopen(req).read()
 
 
@@ -58,10 +54,6 @@ certificate = certificateFile.read()
 if __name__ == '__main__':
   suite = unittest.TestLoader().loadTestsFromTestCase(subjectTests)
   unittest.TextTestRunner().run(suite)
-
-
-
-
 
 
  -0- Condition & loop & Arrays & str
@@ -96,8 +88,6 @@ nameidformat = property(get_nameidformat, set_nameidformat, del_nameidformat,
 def log(loglevel, logfilename):
   logging.basicConfig(level=loglevel, format='%(asctime)s %(levelname)s %(message)s',filename=logfilename,filemode='w')
 
-
-
  -0- XML
 ---------------------
 subjectConfirmationElement = doc.createElement("SubjectConfirmation")
@@ -127,18 +117,6 @@ subjectConfirmationElement = doc.createElement("SubjectConfirmation")
   > def __str__(self):
   > is the toString stuff
 
-
-
-
-
-
-
- -0 subprocess - some gyan first
-------------------------------------
-  > when terminal is clicked
-  >> u load a program which in turn loads a shell
-  >> commands are not interpreted via Shell to the Kernel
-  > Command -> Terminal Program -> Shell -> Kernel
  
   I/O Channel
 -------------------------------
