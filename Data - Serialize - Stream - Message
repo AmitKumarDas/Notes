@@ -1,5 +1,16 @@
 
 
+ 
+  I/O Channel
+-------------------------------
+  >> I/O Channels = streams
+  >> stdio : 0, stdout = 1, stderr = 2
+  
+  PIPE
+-------------
+  > allows stdout from 1 program to be fed as stdio of another program
+  > no need for temporary file
+
 
  -0 XMLStreamWriter -
 -----------------------
