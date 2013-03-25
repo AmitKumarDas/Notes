@@ -26,6 +26,24 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())
 time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
 
 
+-0- format
+------------------
+def client_name():
+    """ semi-unique client identifier string """
+    return "{0}@{1};{2}".format(
+        getpass.getuser(),        socket.gethostname(),        platform.system())
+
+-0- join sockets
+----------------------------------
+  > can implement a pipe method
+  > spawn eventlet processes to pipe both sockets
+  > data may flow from sockA to sockB & vice-versa
+  > ref - https://github.com/progrium/localtunnel/blob/master/localtunnel/util.py
+
+-0- 
+
+
+
 -0- Http + POST SAML Assertion
 ---------------------------------------
 values = {"TARGET" : "http://www.example.com/secure/",
