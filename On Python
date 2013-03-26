@@ -34,6 +34,8 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
 -0- lambda:0
 -----------------------
 
+-0- http://pymotw.com/2/articles/data_structures.html#article-data-structures
+-------------------------
 
 -0- struct - classes & objects
 -------------------------------------
