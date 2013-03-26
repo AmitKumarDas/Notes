@@ -26,6 +26,59 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())
 time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
 
 
+
+
+-0- contextlib
+----------------------------------------
+
+-0- lambda:0
+-----------------------
+
+
+-0- struct - classes & objects
+-------------------------------------
+  > classes r objects
+  > class instances r objects
+  > types r objects
+  > integers r objects
+  
+
+-0- struct - object
+---------------------
+  > object is infact a type like int & str
+  > calling object() is USELESS .. U GET NOTHING
+  
+-0- Python - struct module
+--------------------------
+  > pack specified data into string
+  > unpack from string to specified data
+  > specified data is is encoded using the native C library notionn of endianess
+
+-0- Why - Python - Struct module
+-----------------------------------
+  > high performance, sensitive situations 
+  > or passing data into & out of extension modules
+  > can also avoid allocation of new Buffers for each packed structs
+
+-0- How - View the PACKED data ?
+----------------------------------
+  > use binascii.hexlify()
+  > converts the packed value to a sequence of hex bytes
+  > & hence useful for printing
+  > binascii - produces ASCII representations of binary data
+
+
+
+
+
+
+
+
+
+
+
+
+
 -0- format
 ------------------
 def client_name():
