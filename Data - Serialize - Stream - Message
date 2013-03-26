@@ -1,5 +1,53 @@
 
 
+ C Structs
+---------------
+  > includes pad bytes to maintain alignment for C types involved
+  > C Types represented in machine's native format & byte order
+  
+  C Type  Byte Order
+-------------
+  > can be native / little-endian / big-endian / network (=big-endian)
+  > depends on host system
+
+
+  C Type Size
+--------------
+  > can be native or standard
+
+  C Type Alignment
+------------------
+  > can be native / none
+
+
+  JSON Stringify
+------------------
+  > When you prepare for a transmit the data is JSON Stringified
+
+  JSON Parse
+-----------------
+  > When you accept a transmitted data you parse the data
+
+   Receive Data + NODE JS Snippet
+--------------------------------
+  > JSON.parse the data
+  > if data is base64 encoded then decode 
+  > raw = new Buffer(base64decoded, 'binary')
+  > socket.write(raw)
+ 
+
+ Python Struct
+--------------
+  > provides conversion between Python values & C structs
+  > C structs represented as Python strings
+
+  Handle binary data
+--------------------------
+  > can be stored in files
+  > can be transferred in network
+  > Python struct module can be used to handle binary data
+
+
 
 
  
