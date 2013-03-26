@@ -1,6 +1,16 @@
 
+ -0 Eventize an Object - Usual Way
+----------------------------------------
+ AnObject.prototype.emit = function(event, param) {
+  if(typeof this._callbacks[event] === 'function')
+		this._callbacks[event].call(this, param);
+};
 
-
+ AnObject..prototype.on = function(event, callback) {
+  if(typeof callback === 'function')
+		this._callbacks[event] = callback;
+	return this;
+};
 
 
 -0- Deep Copy
