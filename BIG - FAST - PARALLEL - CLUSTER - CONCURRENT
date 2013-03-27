@@ -1,10 +1,51 @@
- -0- Asyncore 
+
+
+ Clustering vs Sharding
+-------------------------------
+ > ->-> Clustering
+ > - -  data distributed AUTOmatically
+ > - -  data can move
+ > - -  rebalances to distribute capacity
+ > - -  nodes communicate with each other
+
+ > ->-> Sharding
+ > - -  data distributed MANUALly
+ > - -  data does not move
+ > - -  split data to distribute load
+ > - -  nodes are not aware of each other
+
+ > ->-> DataStore Clustering -> Examples
+ > - - Cassandra, Membase, HBase
+ > - - Auto scale
+ > - - spatially distributed 
+ > - - HA & Load Balancing
+ > - - No SPOF - Single Point of Failure
+
+ > ->-> Why Sharding
+ > - - can split your datastore & add more capacity
+ > - - HA & LB
+ 
+ > ->-> Pre - Sharding -> Tasks
+ > - - remove all JOINs
+ > - - remove all Complex Queries
+ > - - Add Cache
+ > - - Funcationally shard as much as possible
+
+ > ->-> DataStore Design -> Transition
+ > - - 1 DB + FKs + Joins
+ > -> -> 1 DB + DeNormalized + Cache
+ > -> -> 1 DB + Read Slaves + Cache
+ > -> -> several functional sharded DBs + Read Slaves + Cache
+ > -> -> ID sharded DBs + Backup Slaves + Cache
+
+ 
+
+
+
+-0- Asyncore 
 ------------------
   > multiple asynchronouz connections
   > in the same OS thread
-
-
-
 
 
 -0- Green threads
