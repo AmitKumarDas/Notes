@@ -1,5 +1,4 @@
 
-
  Character - Hows & Whys
 -----------------
   > characters r represented in UNICODE by Numbers called code points/ scalar values
@@ -9,11 +8,28 @@
 
  UTF-8 ... WHY ?
 -------------------
-  > need for a GOOD BYTE STREAM ENCODING OF MULTI-BYTE CHARACTER SETs
-  
+  > need for a GOOD BYTE STREAM ENCODING OF MULTI-BYTE CHARACTER SETs  
   > backward compatibility with ASCII
   > avoid endianess & byte order marks in UTF-16 & UTF-32
-  
+  > efficient to encode using bit operations.
+  > no need of slow math ops like multiply or divide
+  > character boundaries are easily found when searching forwards or backwards
+  > if bytes are lost due to corruption or error, 
+  > -> one can locate the beginning of next character thus limiting the damage
+  > can be used for byte oriented string search algo  
+
+
+ UTF-8 -> Hows ?
+------------------------
+  > Get the character
+  > Get the Unicode code point for the character
+  > Convert to binary code point
+  > This will tell you the byte size
+  > Depending on byte size, append leading 1 'size' no of times to first byte, then append leading 0
+  > append 10 to other bytes
+  > Above is Binary UTF-8
+  > Converting to Hexadecimal UTF-8 etc is usual stuff
+
  UTF-8 -> Popularity
 ----------------------
   > default character ENCODING IN
@@ -25,7 +41,10 @@
   > > are encoded using single octet with same binary value as ASCII
   > > hence, a valid ASCII text is a valid UTF-8 encoded Unicode as well
 
-
+ UTF-8 -> Security
+------------------------
+  > invalid UTF-8 has been used to bypass security validations in IIS & Tomcat 
+  > Have stricter decoders
 
  C Structs
 ---------------
@@ -124,7 +143,7 @@
   > e.g. serialize using XMLStreamWriter
   > > more formatting via decorators etc
   
- -0 Write a Document to XXX
+ -0 Write a XML Document to XXX
 ------------------------------
   > write a org.w3c.dom.Document to String/file/writer/stream
   > write to stream via StreamResult & java.io.ByteArrayOutputStream & ToXMLStream & DOMSource
@@ -159,7 +178,7 @@
   >> capability using multi-homed hosts.
   > TCP is relatively vulnerable to denial-of-service attacks, such as SYN attacks.
 
-  -0 Features woth SCTP
+  -0 Features with SCTP
 --------------------------
   > multi-homing support on both ends
   >> multi-homing = consist of more than one IP address
@@ -171,73 +190,6 @@
   > Security - 4 way handshake to protect against SYN flooding
   >> protect against large cookies for association verification & authenticity
   > Not supported directly in Windows
-
-
-
-
-
- -0 Kafka
-------------------------
-  > high throughpur
-  > persistent
-  > pub-sub
-  > messaging
-
- -0 Kafka - Recipes
---------------------------
-  > tracking
-  > requests per second
-
-
- -0 Recipe - kafaesque
--------------------------
-  > multiple workers (push)
-  > single Q
-  > multiple fetchers (pull)
-
- -0 RabbitMQ
-------------------
-  > implements AQMP
-  > implements broker architecture
-  > advanced scenarios like routing, load balancing, or persistent message queuing
-  > less scalable & slower because the central node adds latency & messages envelopes are quite big
-  > an Enterprise Message Queue ..
-  >> persistence
-  >> support for transactions
-  > focusses on how messages r stored, filtered & monitored & failover
-
-
- -0 ZeroMQ
----------------
-  > lightweight message oriented socket implementation
-  > high throughput low latency
-  > mostly DIY
-  > acts as concurrency framework
-  > faster than TCP, for clustered products
-  > carries messages across inproc, IPC, TCP, & multicast
-  >> i.e. suitable for in process asynchronous programming
-  >> mostly a message oriented IPC library
-  > Connect N-to-N via fanout, pubsub, pipeline, request reply
-  > Async IO for scalable multicore message passing apps
-  > focusses on how messages r transferred over the wire
-  > 
-
-
-
-
- -0 ActiveMQ
------------------
-  > can be with broker or P2P topology
-  > like RabbitMQ, easier to implement advanced scenarios but @ the cost of raw performance
-
-
-
-
-
-
-
-
-
 
 
 
