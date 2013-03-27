@@ -1,21 +1,48 @@
 
 
+ Character - Hows & Whys
+-----------------
+  > characters r represented in UNICODE by Numbers called code points/ scalar values
+  > These nunbers can range from 0 up to 1,114,111
+  > each code point can be directly encoded with a 32 bit code unit
+
+
+ UTF-8 ... WHY ?
+-------------------
+  > need for a GOOD BYTE STREAM ENCODING OF MULTI-BYTE CHARACTER SETs
+  
+  > backward compatibility with ASCII
+  > avoid endianess & byte order marks in UTF-16 & UTF-32
+  
+ UTF-8 -> Popularity
+----------------------
+  > default character ENCODING IN
+  > OS, programming languages, APIs & s/w apps
+
+ UTF-8 & ASCII
+-------------------
+  > first 128 characters of UNICODE corrspond one-to-one with ASCII
+  > > are encoded using single octet with same binary value as ASCII
+  > > hence, a valid ASCII text is a valid UTF-8 encoded Unicode as well
+
+
+
  C Structs
 ---------------
   > includes pad bytes to maintain alignment for C types involved
   > C Types represented in machine's native format & byte order
   
-  C Type  Byte Order
+  C Type -> Byte Order
 -------------
   > can be native / little-endian / big-endian / network (=big-endian)
   > depends on host system
 
 
-  C Type Size
+  C Type  -> Size
 --------------
   > can be native or standard
 
-  C Type Alignment
+  C Type -> Alignment
 ------------------
   > can be native / none
 
@@ -41,8 +68,8 @@
   > provides conversion between Python values & C structs
   > C structs represented as Python strings
 
-  Handle binary data
---------------------------
+  When is handling binary data required ?
+-------------------------------------------
   > can be stored in files
   > can be transferred in network
   > Python struct module can be used to handle binary data
