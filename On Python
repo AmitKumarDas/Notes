@@ -26,6 +26,7 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
 
  > TO READ
 -------------
+ > http://brizzled.clapper.org/blog/2008/07/28/why-is-python-more-fun-than-java/
  > http://pymotw.com/2/pickle/index.html#module-pickle
  > http://peadrop.com/blog/2007/06/18/pickle-an-interesting-stack-language/
  > http://www.python.org/dev/peps/pep-0380/
