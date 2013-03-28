@@ -1,5 +1,14 @@
 Developers guide to SAML Workings 0-0-0-
 
+ TO READ
+-------------
+  > http://www.willydev.net/descargas/PartnerAndPractices/WillyDev_ImplementingMessageLayerSecuritywithaSTSinWSE3.0.pdf
+  > http://docs.oasis-open.org/imi/identity/v1.0/identity.html
+  > https://www.oasis-open.org/committees/download.php/16768/wss-v1.1-spec-os-SAMLTokenProfile.pdf
+  > http://docs.oasis-open.org/ws-sx/security-policy/examples/ws-sp-usecases-examples.html
+  > http://coheigea.blogspot.in/2012/04/batch-processing-in-apache-cxf-sts.html
+
+
  -0 SASL
 ----------------
   > Security Assertion Markup Language
