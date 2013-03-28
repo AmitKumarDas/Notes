@@ -1,5 +1,12 @@
 
- -0 Eventize an Object - Usual Way
+ > TO READ
+--------------
+ > http://code.google.com/p/selenium/wiki/JsonWireProtocol
+ > http://code.google.com/p/selenium/wiki/WebDriverJs
+
+
+
+-0 Eventize an Object - Usual Way
 ----------------------------------------
  AnObject.prototype.emit = function(event, param) {
   if(typeof this._callbacks[event] === 'function')
