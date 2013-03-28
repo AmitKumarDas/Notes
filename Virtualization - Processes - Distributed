@@ -1,4 +1,40 @@
- -0 Suggested Solutions
+
+
+  > TO READ
+-------------------
+  > http://blog.dotcloud.com/kernel-secrets-from-the-paas-garage-part-24-c
+  > http://aufs.sourceforge.net/aufs.html
+  > http://blog.dotcloud.com/under-the-hood-linux-kernels-on-dotcloud-part
+
+  > LXC (LinuX Containers)
+--------------------------------
+  > -> is an operating system-level virtualization method for running multiple isolated Linux systems (containers) 
+  > -> on a single control host.
+
+  > LXC -> Detailed
+----------------------
+  > LXC provides operating system-level virtualization NOT via a full blown virtual machine, 
+  > But rather provides a virtual environment 
+  > ->-> that has its own process and network space. 
+  > -> LXC relies on the Linux kernel cgroups functionality 
+  > ->-> that became available in version 2.6.24, developed as part of LXC.
+  > It also relies on other kinds of namespace-isolation functionality, 
+  > which were developed and integrated into the mainline Linux kernel.
+
+  > LXC -> Alternatives
+--------------------------
+  > OpenVZ
+  > Linux-VServer
+  > FreeBSD jails
+  > AIX Workload Partitions
+  > Solaris Containers
+
+
+
+
+
+
+-0 Suggested Solutions
 ------------------------
   > http://www.warski.org/blog/2012/06/implementing-message-replication-in-elasticmq-with-jgroups/
   > http://www.rabbitmq.com/blog/2010/09/22/broker-vs-brokerless/
