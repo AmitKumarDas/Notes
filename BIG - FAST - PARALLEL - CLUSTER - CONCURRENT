@@ -1,4 +1,17 @@
 
+ Scalable + Self-Organizing + Distributed Systems --> Principles
+---------------------------------------------------
+ > 1/ No SPOC
+ > 2/ Linear, incremental scalability
+ > 3/ Fault design & Dependable Failover
+ > 4/ Ability to balance load as it evolves
+ > 5/ Warm handoff - fewer dropped calls
+ > 6/ Fault Containment Strategy
+ > 7/ Operational Tooling + Visibility
+
+
+
+
 
  Clustering vs Sharding
 -------------------------------
