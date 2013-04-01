@@ -1,0 +1,21 @@
+
+
+ UseCases of Byte Modification
+----------------------------------
+  > in test env - force an app to generate dummy results
+  > in test env - force an app to simulate an error
+  > testing - simulation of machine crash
+  > possible to read & write protected & private fields & call protected or private data
+  > testing multi-threaded apps
+
+
+ java.lang.Instrumentation
+-----------------------------
+  > JVM class loaders provide agents with an opportunity to modify loaded bytecode 
+  > --> just prior to compilation
+  > 
+ 
+
+
+References:
+1/ Byteman
