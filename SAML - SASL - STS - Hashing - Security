@@ -9,6 +9,82 @@ Developers guide to SAML Workings 0-0-0-
   > http://coheigea.blogspot.in/2012/04/batch-processing-in-apache-cxf-sts.html
 
 
+ SASL Mechanism
+--------------------
+  > chosen @ creation time of SASL client
+  > or set later after a list of server-supported mechanisms have been discovered
+  > some mechanisms:
+  > --> DIGEST-MD5, GSSAPI
+
+ SASL Communication
+----------------------
+  > no direct communication bewtween client & server
+  > --> coz communication protocol differs from service to service
+  > relies on challenges from the server to be passed in & processed
+ 
+ SASL QoS
+-------------
+  > Quality Of Service
+  > Once the initial negotiation is complete
+  > --> communication between client & server may need to be processed
+  > --> QoS may call for signatures or encryption
+
+ SASL Authorization
+----------------------
+  > Supported if mechanism & protocol supports it
+
+ SASL QoP
+-------------
+  > Quality of Protection
+  > --> no protection; integrity protection; confidentiality protection
+
+ Mututal Auth --> Mechanisms
+-----------------------------
+  > DIGEST-MD5 & GSSAPI support mutual authentication
+ 
+ SASL + Plain Mechanism 
+----------------------------------------
+def process(self, challenge=None):
+
+        return b'\x00' + bytes(self.username) + b'\x00' + bytes(self.password)
+
+ SASL + CramMD5 Mechanism 
+-------------------------------------------
+def process(self, challenge=None):
+
+        if challenge is None:
+            return None
+        
+        mac = hmac.HMAC(key=bytes(self.password), digestmod=hashlib.md5)
+        mac.update(challenge)
+        return bytes(self.username) + b' ' + bytes(mac.hexdigest())
+
+
+ SASL + DigestMD5 Mechanism
+------------------------------
+def _MAC(self, seq, msg, key):
+
+        mac = hmac.HMAC(key=key, digestmod=hashlib.md5)
+        seqnum = num_to_bytes(seq)
+        mac.update(seqnum); mac.update(msg)
+        return mac.digest()[:10] + b'\x00\x01' + seqnum
+
+
+
+
+ Py + HMAC --> Key Hashing for Message Authentication
+-----------------------------------------------------
+  > HMAC object == hmac
+  > hmac.update(msg) --> updates the hmac with the string msg
+  > hmac.update(msg1); hmac.update(msg2) == hmac.update(msg1 + msg2);
+  > hmac.digest --> returns the digest of the strings passed to hmac so far
+  > digest --> may return non-ASCII characters including NUL bytes
+  > hexdigest --> returns a string twice the length containing only hex digits
+  > hexdigit --> used to exchange the value safely in email or other non-binary environs
+
+
+
+
  -0 SASL
 ----------------
   > Security Assertion Markup Language
