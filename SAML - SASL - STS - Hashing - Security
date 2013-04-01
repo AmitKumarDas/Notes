@@ -69,7 +69,12 @@ def _MAC(self, seq, msg, key):
         mac.update(seqnum); mac.update(msg)
         return mac.digest()[:10] + b'\x00\x01' + seqnum
 
-
+ SASL + Digest MD5 --> Buffer <--
+-----------------------------------
+  > Need to take care of buffer while
+  > --> HASHING the msg
+  > --> wrapping & un-wrapping the HASHED msg
+  > coz there is a max buffer limit specified by the Server
 
 
  Py + HMAC --> Key Hashing for Message Authentication
@@ -82,7 +87,13 @@ def _MAC(self, seq, msg, key):
   > hexdigest --> returns a string twice the length containing only hex digits
   > hexdigit --> used to exchange the value safely in email or other non-binary environs
 
-
+ Py --> hashlib --> pure Hashing
+------------------------------------
+  > interface to implementations of various secure hash & msg digest algos
+  > older Algos were called - DIGEST
+  > Modern term is - SECURE HASH
+  > additional Algos may be available depending on OpenSSL lib that Py uses on yout platform
+  > similar to HMAC functions but without any KEY
 
 
  -0 SASL
