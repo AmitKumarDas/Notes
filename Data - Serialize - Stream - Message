@@ -1,5 +1,15 @@
 
- Binary Data Vs. unicode-encoded Strings
+ unicode-encoded String
+---------------------------
+  > i.e. treating RAW data as String
+  > --> use charCodeAt() to read bytes from the data buffer
+
+ charCodeAt(index)
+------------------
+  > returns Numeric Unicode value of the character at the given index 
+
+
+Binary Data Vs. unicode-encoded Strings
 -------------------------------------------
   > not the same
   > may be ok in browser w.r.t unicode-encoded String
@@ -42,7 +52,19 @@
   > --> no of bytes vs. no of integers in Array
   > buffer.copy & buffer.slice
 
+ TypedArray Specs --> Buffer & View
+------------------------------
+  > Buffer via ArrayBuffer --> represents chunk of data
+  > Buffer --> no format, no mechanism to access its contents
+  > View --> provides context --> data type, offset, no of elements
+  > View --> via ArrayBufferView class
+ 
 
+
+ COmbining single buffer with multiple views
+-------------------------------------------------
+  > --> can interact with data objects containing multiple data types
+  > interact with WebGL, data files or C structures
 
 Character - Hows & Whys
 -----------------
