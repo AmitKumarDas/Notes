@@ -1,5 +1,50 @@
 
- Character - Hows & Whys
+ Binary Data Vs. unicode-encoded Strings
+-------------------------------------------
+  > not the same
+  > may be ok in browser w.r.t unicode-encoded String
+  > In Browser most data is in form of String
+  > Consider server side cases
+  > --> server has to handle TCP streams
+  > --> server has to read / write to files
+  > --> SO its necessary to deal with PURELY binary form of data
+
+ NodeJS --> Binary Strings Vs Buffers
+----------------------------------------
+  > Each Buffer  =  some raw memory allocated outside V8
+  > Buffer ~ similar to ~ Array of Integers
+  > The Integer in the Buffer ~ represent ~ a Byte
+  > SO Integer range ~ 0 to 255 (inclusive)
+  > --> NOTE - Contents of this ARRAY r integers representing BYTES
+
+ NodeJS --> Buffer --> Use
+------------------------------
+  > Initialize like an array
+  > write stuff in string
+  > NOTE - give the encoding type
+  > Encoding Type --> ascii, utf-8, ucs2, base64
+  > We can specify an OFFSET too i.e. INDEX of the buffer to start writing to
+
+ NODEJS --> Buffer --> toString
+--------------------------------
+  > Provides the actual string data we fed to the buffer
+  > If the Buffer was not filled completely, you will find bytes as o/p along with your string that was fed
+
+ NODEJS --> Buffer --> Individual Octects
+------------------------------------------
+  > Setting individual bits .. possible
+  > its easy - think like arrays
+
+ NODEJS --> Buffer --> More Stuff
+-------------------------------------------
+  > isBuffer & byteLength
+  > byteLength is different than length
+  > --> no of bytes vs. no of integers in Array
+  > buffer.copy & buffer.slice
+
+
+
+Character - Hows & Whys
 -----------------
   > characters r represented in UNICODE by Numbers called code points/ scalar values
   > These nunbers can range from 0 up to 1,114,111
