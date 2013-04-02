@@ -14,15 +14,8 @@ http://pythontutor.com/visualize.html#
 [] <=> list
 () <=> Tuple
 {} <=> dictionary
-list <=> optimized for fixed length ops
-Counter <=> similar to bags or multisets 
-deque <=> double ended queue, 
-deque <=> mimic tail filter in Unix
-deque <=> track transactions, recent activity of interest
-deque <=> better then list in insert & removal ops
-time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())
-time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
 
+Counter <=> similar to bags or multisets 
 
  > TO READ
 -------------
@@ -39,7 +32,6 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
 
 
 
-
 -0- contextlib
 ----------------------------------------
 
@@ -49,7 +41,18 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
 -0- http://pymotw.com/2/articles/data_structures.html#article-data-structures
 -------------------------
 
--0- struct - classes & objects
+deque 
+-----------
+  > double ended queue, 
+  > mimic tail filter in Unix
+  > track transactions, recent activity of interest
+  > better then list in insert & removal ops
+
+ [] --> list 
+---------------  
+  > optimized for fixed length ops 
+
+-0- classes & objects
 -------------------------------------
   > classes r objects
   > class instances r objects
@@ -57,7 +60,7 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
   > integers r objects
   
 
--0- struct - object
+-0- object
 ---------------------
   > object is infact a type like int & str
   > calling object() is USELESS .. U GET NOTHING
@@ -66,13 +69,14 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
 --------------------------
   > pack specified data into string
   > unpack from string to specified data
-  > specified data is is encoded using the native C library notionn of endianess
+  > specified data is is ENCODED using the native C library notionn of endianess
 
 -0- Why - Python - Struct module
 -----------------------------------
   > high performance, sensitive situations 
   > or passing data into & out of extension modules
   > can also avoid allocation of new Buffers for each packed structs
+  > --> above means reuse of Buffer
 
 -0- How - View the PACKED data ?
 ----------------------------------
@@ -80,17 +84,6 @@ time <=> time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(time.time() + 60))
   > converts the packed value to a sequence of hex bytes
   > & hence useful for printing
   > binascii - produces ASCII representations of binary data
-
-
-
-
-
-
-
-
-
-
-
 
 
 -0- format
@@ -107,29 +100,14 @@ def client_name():
   > data may flow from sockA to sockB & vice-versa
   > ref - https://github.com/progrium/localtunnel/blob/master/localtunnel/util.py
 
--0- 
-
-
-
--0- Http + POST SAML Assertion
----------------------------------------
-values = {"TARGET" : "http://www.example.com/secure/",
-        "SAMLResponse" : base64.b64encode(response.getXML())}
-
-...
-
-data = urllib.urlencode(values)
-req = urllib2.Request("http://www.sp.demo/affwebservices/public/samlcc", data)
-print urllib2.urlopen(req).read()
-
 
 -0- Open Private Key & Public Cert
 ----------------------------------
 privateKeyFile = open("../sharedfiles/InternetWidgitsCAPrivateKey.pem","r")
-privatekey = privateKeyFile.read()
+  privatekey = privateKeyFile.read()
 
 certificateFile = open("../sharedfiles/InternetWidgitsCertificate.pem","r")
-certificate = certificateFile.read()
+  certificate = certificateFile.read()
 
 
 -0- Test Suite
