@@ -1,5 +1,4 @@
 
-
  UseCases of Byte Modification
 ----------------------------------
   > in test env - force an app to generate dummy results
@@ -14,8 +13,76 @@
   > JVM class loaders provide agents with an opportunity to modify loaded bytecode 
   > --> just prior to compilation
   > 
- 
+
+
+ Sizing JVM
+------------
+  > VM Memory = Guest OS Memory + JVM Memory
+  > JVM Memory = Direct Native Memory + Non Direct Address Space
+  > Direct Native Memory = Java Stack + Other Memory + Perm Gen
+  > Non Direct Address Space = Heap Size
+
+ Java OPTS
+------------
+  > -Xss per Thread - Java Stack
+  > -XX:MaxPermSize - Perm Gen
+  > -Xmx            - Max Heap
+  > -Xms            - Initial Heap
+
+ JVM --> Heap
+-----------------
+  > Composed of OldGen & YoungGen
+  > OldGen --> Slower FULL GC
+  > YoungGen = Survivor Space 1 +  Survivor Space 2 + Eden Space
+  > YoungGen --> Eden Space --> Quick Minor GC
+
+
+ JVM Memory - Equation
+--------------------------
+  > JVM Memory = JVM Max Heap (-Xmx value) + 
+                 JVM Perm Size (-XX:MaxPermSize) +  
+                 NumberOfConcurrentThreads * (-Xss) + 
+                 "other Mem"
+
+ > Other Memory
+-----------------------
+  > NIO Buffers
+  > JIT Code Cache
+  > classloaders
+  > Socket Buffers (receive/send)
+  > JNI
+  > GC internal info
+
+ Sizing  JVM --> Numbers --> Example
+-------------------------------------
+  > VM Mem = JVM Mem + OS Mem
+  > --> 5088m  = 4588m   + 500m
+
+  > JVM Mem = -Xss per Thread + Other Mem + Max PermSize + Heap
+  > --> 4588m  = 256k*100 + 217m + 256m + 4096m
+
+  > JVM Max Heap (-Xmx) = OldGen + YoungGen (-Xmn)
+  > --> 4096m           = 27460m + 1350m
+  > Put Initial & Max Heap as same
+
+  > Max Heap Size ? Determine ?
+----------------------------------
+  > 3 to 4 times the Active Data
+  > Active Data = Data Alive after a FULL GC
+  > Then apply all of the relative sizing rules to other memory segments from this -Xmx
+  
+  GC Tuning
+---------------
+  > Measure Minor GC Duration & Frequency
+  > --> Now adjust -Xmn Young Gen size &/or ParallelGCThreads
+  > Measure major GC duration & frequency
+  > --> Now adjust heap space -Xmx
+  > Survivor Spaces Tuning
+  > --> Adjust -Xmn &/or SurvivorSpaces
+
+
 
 
 References:
 1/ Byteman
+2/ http://www.infoq.com/presentations/Virtualizing-Tuning-JVM
