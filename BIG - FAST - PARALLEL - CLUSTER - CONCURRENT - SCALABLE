@@ -1,5 +1,27 @@
 
- Scalable + Self-Organizing + Distributed Systems --> Principles
+
+ Scalable Development
+-----------------------
+ > communicaiton thru code/data/schema
+ > partition the problems
+ > RPC as a means of sanity
+
+ Efficient Python
+-------------------------
+ > avoid ORMs
+ > use OOP with restraint
+ 
+ Efficient Ideas
+--------------------
+  > leverage C++, Go
+  > simple network protocol ~ !HTTP
+  > sensible encodings
+  > --> self describing vs schema
+
+
+
+
+Scalable + Self-Organizing + Distributed Systems --> Principles
 ---------------------------------------------------
  > 1/ No SPOC
  > 2/ Linear, incremental scalability
@@ -481,3 +503,4 @@ References:
 2. http://www.infoq.com/interviews/williams-vertx
 3. http://sdiehl.github.com/gevent-tutorial/
 4. https://github.com/exalead/commons-httpclient-failover/
+5. http://www.infoq.com/presentations/YouTube-Scalability-Lessons
