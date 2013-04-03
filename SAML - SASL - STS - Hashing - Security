@@ -107,11 +107,15 @@ def _MAC(self, seq, msg, key):
  Federation Scenarios
 -------------------------
   > SOAP Based --> Active
+  > --> usecase - Windows clients & WCF services
   > Browser based --> Passive
+  > --> In WIF, its plain RST & RSTR
   
  Browser based Federation
 -----------------------------
-  > 
+  > rely on HTTP GET, POST, Browser Redirects, COOKIES
+
+
 
 
 0-0-0 SAML Specs 0-0-0
