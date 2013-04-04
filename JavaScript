@@ -1,8 +1,23 @@
-
  > TO READ
 --------------
  > http://code.google.com/p/selenium/wiki/JsonWireProtocol
  > http://code.google.com/p/selenium/wiki/WebDriverJs
+ > github.com/substack/stream-handbook
+
+ Node --> Stream 
+------------------
+  > fs.createReadStream better than fs.readFile
+  > --> use along with pipe
+  > Now Node need not buffer chunks into memory needlessly
+  > --> when remote client is on a slow conn
+
+ Node --> Stream --> Further
+-------------------------------
+  > go for filed module
+  > --> mime, etag, error handling, streaming API
+  > go for oppressor
+  > --> for browsers that support gzip/deflate
+
 
 
 
