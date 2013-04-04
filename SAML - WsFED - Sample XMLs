@@ -19,11 +19,12 @@
 			<ds:Reference URI="#idHi4JJMdFfyFGzxf.qankZHz.8Og">
 				<ds:Transforms>
 					<ds:Transform
-						Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+					Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
 					<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
 				</ds:Transforms>
 				<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-				<DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">oWsCX/Chlwnk3trzLPSaTH8zbbc=
+				<DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">
+					XXX
 				</DigestValue>
 			</ds:Reference>
 		</ds:SignedInfo>
@@ -64,11 +65,12 @@ IssueInstant="2013-02-21T09:22:21Z" Version="2.0">
 			<ds:Reference URI="#idGoRWdr6f3bm-zu52AHAxmViq4w4">
 				<ds:Transforms>
 					<ds:Transform
-						Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+					Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
 					<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
 				</ds:Transforms>
 				<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-				<DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">BpCiwvwjYM1zCsIS5FE+nteGETA=
+				<DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">
+					YYY
 				</DigestValue>
 			</ds:Reference>
 		</ds:SignedInfo>
@@ -86,7 +88,8 @@ IssueInstant="2013-02-21T09:22:21Z" Version="2.0">
 	<saml:Subject>
 		<saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
 			NameQualifier="https://Neeraj-Idp.labs.blr.com:8443/xidp/saml2/metadata"
-			SPNameQualifier="https://SB-test-nv001.labs.blr.com/Xidp/saml2/metadata">JFIS9WtZEy/P8YTSqPuL0K/4i9in84XbMjLO9w==
+			SPNameQualifier="https://SB-test-nv001.labs.blr.com/Xidp/saml2/metadata">
+				yyy
 		</saml:NameID>
 		<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
 			<saml:SubjectConfirmationData
@@ -113,38 +116,50 @@ IssueInstant="2013-02-21T09:22:21Z" Version="2.0">
 	<saml:AttributeStatement>
 		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FriendlyName="email"
-			Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-			<saml:AttributeValue xsi:type="xs:string">**
+			Name="urn:oid:0.9.2342.19200300.100.1.3" 
+			NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+			<saml:AttributeValue xsi:type="xs:string">
+				**
 			</saml:AttributeValue>
 		</saml:Attribute>
 		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="dk:gov:saml:attribute:SpecVer"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			Name="dk:gov:saml:attribute:SpecVer"
 			NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-			<saml:AttributeValue xsi:type="xs:string">**
+			<saml:AttributeValue xsi:type="xs:string">
+				**
 			</saml:AttributeValue>
 		</saml:Attribute>
 		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FriendlyName="Uid"
-			Name="urn:oid:0.9.2342.19200300.100.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-			<saml:AttributeValue xsi:type="xs:string">**
+			Name="urn:oid:0.9.2342.19200300.100.1.1" 
+			NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+			<saml:AttributeValue xsi:type="xs:string">
+				**
 			</saml:AttributeValue>
 		</saml:Attribute>
 		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FriendlyName="CommonName"
-			Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-			<saml:AttributeValue xsi:type="xs:string">**
+			Name="urn:oid:2.5.4.3" 
+			NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+			<saml:AttributeValue xsi:type="xs:string">
+				**
 			</saml:AttributeValue>
 		</saml:Attribute>
 		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="dk:gov:saml:attribute:AssuranceLevel"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			Name="dk:gov:saml:attribute:AssuranceLevel"
 			NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-			<saml:AttributeValue xsi:type="xs:string">**
+			<saml:AttributeValue xsi:type="xs:string">
+				**
 			</saml:AttributeValue>
 		</saml:Attribute>
 		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FriendlyName="surName"
-			Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-			<saml:AttributeValue xsi:type="xs:string">**
+			Name="urn:oid:2.5.4.4" 
+			NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+			<saml:AttributeValue xsi:type="xs:string">
+				**
 			</saml:AttributeValue>
 		</saml:Attribute>
 	</saml:AttributeStatement>
@@ -187,10 +202,12 @@ https://suse-87-129.blr.com:8443/xidp/wsfed/ep?
 				</saml:AudienceRestrictionCondition>
 			</saml:Conditions>
 			<saml:AuthenticationStatement
-				AuthenticationInstant="2013-03-19T06:46:58Z" AuthenticationMethod="name/password/uri">
+				AuthenticationInstant="2013-03-19T06:46:58Z" 
+				AuthenticationMethod="name/password/uri">
 				<saml:Subject>
 					<saml:NameIdentifier
-						Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">CEldONV5bBiXmu+5w5LnvsaQ7L/HnOyyW1tIrA==
+					Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">
+						yyy	
 					</saml:NameIdentifier>
 					<saml:SubjectConfirmation>
 						<saml:ConfirmationMethod>urn:oasis:names:tc:SAML:1.0:cm:bearer
@@ -201,7 +218,8 @@ https://suse-87-129.blr.com:8443/xidp/wsfed/ep?
 			<saml:AttributeStatement>
 				<saml:Subject>
 					<saml:NameIdentifier
-						Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">CEldONV5bBiXmu+5w5LnvsaQ7L/HnOyyW1tIrA==
+					Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">
+						xxx
 					</saml:NameIdentifier>
 					<saml:SubjectConfirmation>
 						<saml:ConfirmationMethod>urn:oasis:names:tc:SAML:1.0:cm:bearer
@@ -210,33 +228,37 @@ https://suse-87-129.blr.com:8443/xidp/wsfed/ep?
 				</saml:Subject>
 				<saml:Attribute AttributeName="UserAttribute"
 					AttributeNamespace="http://schemas.xmlsoap.org/claims">
-					<saml:AttributeValue>**</saml:AttributeValue>
+					<saml:AttributeValue>
+						**
+					</saml:AttributeValue>
 				</saml:Attribute>
 			</saml:AttributeStatement>
 			<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
 				<ds:SignedInfo>
 					<CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#"
 						Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
-					<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+					<ds:SignatureMethod 
+						Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
 					<ds:Reference URI="#idxd1ILpa5DVoKlVJoB84Cctomdes">
 						<ds:Transforms>
 							<ds:Transform
-								Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+							Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
 							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
 						</ds:Transforms>
 						<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-						<DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">fbFnF18nmtw34zMg58ujJzGH4n8=
+						<DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">
+							xxx
 						</DigestValue>
 					</ds:Reference>
 				</ds:SignedInfo>
 				<SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">
-          YYY
+          				YYY
 				</SignatureValue>
 				<ds:KeyInfo>
 					<ds:X509Data>
 						<ds:X509Certificate>
-              XXX
-            </ds:X509Certificate>
+              						XXX
+            					</ds:X509Certificate>
 					</ds:X509Data>
 				</ds:KeyInfo>
 			</ds:Signature>
