@@ -40,7 +40,117 @@
 	</ds:Signature>
 </saml:Assertion>
 
-------------
+
+<!-- SAML Response -->
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Consent="urn:oasis:names:tc:SAML:2.0:consent:obtained"
+Destination="https://SB-test-nv001.labs.blr.com/xidp/saml2/spassertion_consumer"
+ID="idg3.R9UdPNs0JnH4TazTWlkluGLI" InResponseTo="idgqN61TVKY502lS3IbsH.4nbIwhY"
+IssueInstant="2013-02-21T09:22:21Z" Version="2.0">
+<saml:Issuer>https://Neeraj-Idp.labs.blr.com:8443/xidp/saml2/metadata
+</saml:Issuer>
+<samlp:Status>
+	<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
+</samlp:Status>
+<saml:Assertion ID="idGoRWdr6f3bm-zu52AHAxmViq4w4"
+	IssueInstant="2013-02-21T09:22:21Z" Version="2.0">
+	<saml:Issuer>https://Neeraj-Idp.labs.blr.com:8443/xidp/saml2/metadata
+	</saml:Issuer>
+	<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+		<ds:SignedInfo>
+			<CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#"
+				Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+			<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+			<ds:Reference URI="#idGoRWdr6f3bm-zu52AHAxmViq4w4">
+				<ds:Transforms>
+					<ds:Transform
+						Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+					<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+				</ds:Transforms>
+				<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+				<DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">BpCiwvwjYM1zCsIS5FE+nteGETA=
+				</DigestValue>
+			</ds:Reference>
+		</ds:SignedInfo>
+		<SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">
+			YYY
+		</SignatureValue>
+		<ds:KeyInfo>
+			<ds:X509Data>
+				<ds:X509Certificate>
+					XXX
+				</ds:X509Certificate>
+			</ds:X509Data>
+		</ds:KeyInfo>
+	</ds:Signature>
+	<saml:Subject>
+		<saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+			NameQualifier="https://Neeraj-Idp.labs.blr.com:8443/xidp/saml2/metadata"
+			SPNameQualifier="https://SB-test-nv001.labs.blr.com/Xidp/saml2/metadata">JFIS9WtZEy/P8YTSqPuL0K/4i9in84XbMjLO9w==
+		</saml:NameID>
+		<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+			<saml:SubjectConfirmationData
+				InResponseTo="idgqN61TVKY502lS3IbsH.4nbIwhY" NotOnOrAfter="2013-02-21T09:27:21Z"
+				Recipient="https://SB-test-nv001.labs.blr.com/xidp/saml2/spassertion_consumer" />
+		</saml:SubjectConfirmation>
+	</saml:Subject>
+	<saml:Conditions NotBefore="2013-02-21T09:17:21Z"
+		NotOnOrAfter="2013-02-21T09:27:21Z">
+		<saml:AudienceRestriction>
+			<saml:Audience>https://SB-test-nv001.labs.blr.com/xidp/saml2/metadata
+			</saml:Audience>
+		</saml:AudienceRestriction>
+	</saml:Conditions>
+	<saml:AuthnStatement AuthnInstant="2013-02-21T09:22:21Z"
+		SessionIndex="idGoRWdr6f3bm-zu52AHAxmViq4w4">
+		<saml:AuthnContext>
+			<saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password
+			</saml:AuthnContextClassRef>
+			<saml:AuthnContextDeclRef>name/password/uri
+			</saml:AuthnContextDeclRef>
+		</saml:AuthnContext>
+	</saml:AuthnStatement>
+	<saml:AttributeStatement>
+		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FriendlyName="email"
+			Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+			<saml:AttributeValue xsi:type="xs:string">**
+			</saml:AttributeValue>
+		</saml:Attribute>
+		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="dk:gov:saml:attribute:SpecVer"
+			NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+			<saml:AttributeValue xsi:type="xs:string">**
+			</saml:AttributeValue>
+		</saml:Attribute>
+		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FriendlyName="Uid"
+			Name="urn:oid:0.9.2342.19200300.100.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+			<saml:AttributeValue xsi:type="xs:string">**
+			</saml:AttributeValue>
+		</saml:Attribute>
+		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FriendlyName="CommonName"
+			Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+			<saml:AttributeValue xsi:type="xs:string">**
+			</saml:AttributeValue>
+		</saml:Attribute>
+		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="dk:gov:saml:attribute:AssuranceLevel"
+			NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+			<saml:AttributeValue xsi:type="xs:string">**
+			</saml:AttributeValue>
+		</saml:Attribute>
+		<saml:Attribute xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FriendlyName="surName"
+			Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+			<saml:AttributeValue xsi:type="xs:string">**
+			</saml:AttributeValue>
+		</saml:Attribute>
+	</saml:AttributeStatement>
+</saml:Assertion>
+</samlp:Response>
+
 
 <!-- WSFederation RST -->
 
