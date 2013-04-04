@@ -7,6 +7,7 @@ Developers guide to SAML Workings 0-0-0-
   > https://www.oasis-open.org/committees/download.php/16768/wss-v1.1-spec-os-SAMLTokenProfile.pdf
   > http://docs.oasis-open.org/ws-sx/security-policy/examples/ws-sp-usecases-examples.html
   > http://coheigea.blogspot.in/2012/04/batch-processing-in-apache-cxf-sts.html
+  > http://msdn.microsoft.com/en-us/magazine/ff872350.aspx
 
 
  SASL Mechanism
