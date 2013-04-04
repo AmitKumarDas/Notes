@@ -1,0 +1,135 @@
+<!-- SAML Assertion -->
+
+<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:1.0:assertion"
+  AssertionID="idHi4JJMdFfyFGzxf.qankZHz.8Og" IssueInstant="2013-03-18T07:17:03Z"
+	Issuer="https://SB-test-nv001.labs.com/xidp/idff/metadata"
+	MajorVersion="1" MinorVersion="1">
+	<saml:Conditions NotOnOrAfter="2013-03-18T08:17:03Z" />
+	<saml:AuthenticationStatement
+		AuthenticationInstant="2013-03-18T07:17:03Z" AuthenticationMethod="urn:ietf:rfc:2246">
+		<saml:Subject>
+			<saml:NameIdentifier Format="#X509SubjectName">cn=admin,o=amit</saml:NameIdentifier>
+		</saml:Subject>
+	</saml:AuthenticationStatement>
+	<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+		<ds:SignedInfo>
+			<CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#"
+				Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+			<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+			<ds:Reference URI="#idHi4JJMdFfyFGzxf.qankZHz.8Og">
+				<ds:Transforms>
+					<ds:Transform
+						Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+					<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+				</ds:Transforms>
+				<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+				<DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">oWsCX/Chlwnk3trzLPSaTH8zbbc=
+				</DigestValue>
+			</ds:Reference>
+		</ds:SignedInfo>
+		<SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">
+			YYY
+</SignatureValue>
+		<ds:KeyInfo>
+			<ds:X509Data>
+				<ds:X509Certificate>
+					XXX
+				</ds:X509Certificate>
+			</ds:X509Data>
+		</ds:KeyInfo>
+	</ds:Signature>
+</saml:Assertion>
+
+------------
+
+<!-- WSFederation RST -->
+
+https://suse-87-129.blr.com:8443/xidp/wsfed/ep?
+    wa=wsignin1.0&wctx=0&
+    wtrealm=https://SB-test-nv001.labs.blr.com/xidp/wsfed/&
+    wreply=https://SB-test-nv001.labs.blr.com/xidp/wsfed/spassertion_consumer&
+    wreq=
+<wst:RequestSecurityToken xmlns:wst="http://schemas.xmlsoap.org/ws/2005/02/trust">
+  <wst:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV1.1</wst:TokenType>
+	<wst:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</wst:RequestType>
+	<wst:Claims>
+		<wsid:ClaimType xmlns:wsid="http://schemas.xmlsoap.org/claims"
+			Uri="Specify emailAddress" />
+	</wst:Claims>
+</wst:RequestSecurityToken>
+
+
+<!-- RSTR -->
+
+<wst:RequestSecurityTokenResponse
+  xmlns:wst="http://schemas.xmlsoap.org/ws/2005/02/trust">
+	<wst:RequestedSecurityToken
+		xmlns:wst="http://schemas.xmlsoap.org/ws/2005/02/trust">
+		<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:1.0:assertion"
+			AssertionID="idxd1ILpa5DVoKlVJoB84Cctomdes" IssueInstant="2013-03-19T06:46:58Z"
+			Issuer="http://suse-87-129.blr.com:8080/xidp/wsfed/"
+			MajorVersion="1" MinorVersion="1">
+			<saml:Conditions NotBefore="2013-03-19T06:31:58Z"
+				NotOnOrAfter="2013-03-19T07:01:58Z">
+				<saml:AudienceRestrictionCondition>
+					<saml:Audience>https://SB-test-nv001.labs.blr.com/xidp/wsfed/
+					</saml:Audience>
+				</saml:AudienceRestrictionCondition>
+			</saml:Conditions>
+			<saml:AuthenticationStatement
+				AuthenticationInstant="2013-03-19T06:46:58Z" AuthenticationMethod="name/password/uri">
+				<saml:Subject>
+					<saml:NameIdentifier
+						Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">CEldONV5bBiXmu+5w5LnvsaQ7L/HnOyyW1tIrA==
+					</saml:NameIdentifier>
+					<saml:SubjectConfirmation>
+						<saml:ConfirmationMethod>urn:oasis:names:tc:SAML:1.0:cm:bearer
+						</saml:ConfirmationMethod>
+					</saml:SubjectConfirmation>
+				</saml:Subject>
+			</saml:AuthenticationStatement>
+			<saml:AttributeStatement>
+				<saml:Subject>
+					<saml:NameIdentifier
+						Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">CEldONV5bBiXmu+5w5LnvsaQ7L/HnOyyW1tIrA==
+					</saml:NameIdentifier>
+					<saml:SubjectConfirmation>
+						<saml:ConfirmationMethod>urn:oasis:names:tc:SAML:1.0:cm:bearer
+						</saml:ConfirmationMethod>
+					</saml:SubjectConfirmation>
+				</saml:Subject>
+				<saml:Attribute AttributeName="UserAttribute"
+					AttributeNamespace="http://schemas.xmlsoap.org/claims">
+					<saml:AttributeValue>**</saml:AttributeValue>
+				</saml:Attribute>
+			</saml:AttributeStatement>
+			<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:SignedInfo>
+					<CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#"
+						Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+					<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+					<ds:Reference URI="#idxd1ILpa5DVoKlVJoB84Cctomdes">
+						<ds:Transforms>
+							<ds:Transform
+								Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+						<DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">fbFnF18nmtw34zMg58ujJzGH4n8=
+						</DigestValue>
+					</ds:Reference>
+				</ds:SignedInfo>
+				<SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">
+          YYY
+				</SignatureValue>
+				<ds:KeyInfo>
+					<ds:X509Data>
+						<ds:X509Certificate>
+              XXX
+            </ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</ds:Signature>
+		</saml:Assertion>
+	</wst:RequestedSecurityToken>
+</wst:RequestSecurityTokenResponse>
