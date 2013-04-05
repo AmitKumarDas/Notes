@@ -10,6 +10,11 @@ Developers guide to SAML Workings 0-0-0-
   > http://msdn.microsoft.com/en-us/magazine/ff872350.aspx
   > coheigea.blogspot.in/2012/02/ws-trust-spnego-support-in-apache-cxf.html
   > http://www.cloudidentity.com/blog/2010/05/26/your-fedauth-cookies-on-a-diet-issessionmode-true/
+  > https://developers.google.com/+/web/signin/server-side-flow
+  > https://developers.google.com/+/web/signin/#using_the_client-side_flow
+  > http://nat.sakimura.org/2011/05/15/dummys-guide-for-the-difference-between-oauth-authentication-and-openid/
+
+
 
  Real Good Security Site
 -----------------------------
