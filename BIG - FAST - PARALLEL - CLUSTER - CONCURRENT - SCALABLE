@@ -6,6 +6,19 @@
  > http://www.info.ucl.ac.be/~pvr/VanRoyChapter.pdf
 
 
+ Determinism
+------------
+  > Determinism has strong limitations!
+   --> Any concurrent execution always gives the same results
+   --> Even a simple client/server can’t be written
+  > But determinism has big advantages too
+   --> Race conditions are impossible by design
+   --> With determinism as default, we can reduce the need for nondeterminism (in the 
+      client/server: it’s needed only at the point where the server accepts requests)
+   --> Any functional program can be made concurrent without changing the result
+
+
+
  Scalable Development
 -----------------------
  > communicaiton thru code/data/schema
