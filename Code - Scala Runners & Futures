@@ -1,0 +1,35 @@
+
+--- Current Style ----
+
+val x = future(1)
+val y = future(2)
+val z = future(x() + y())
+println(z())
+
+ >--> Issues
+ > need to write x()
+ > this is blocking. Uses 4 OS threads on its own, but blocking most of the time
+
+
+--- SIP 14 ----
+
+
+val xFut = future(1)
+val yFut = future(2)
+val zFut = for {
+  x <- xFut
+  y <- yFut
+} yield {
+  x + y
+}
+zFut onSuccess {
+println(_)
+}
+
+  > solves blocking issue
+  > forces programmer to think asynchronously
+
+
+References:
+1/ http://www.infoq.com/presentations/Ozma
+2/ http://www.info.ucl.ac.be/~pvr/MemoireSebastienDoeraene.pdf
