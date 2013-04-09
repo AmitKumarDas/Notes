@@ -1,4 +1,3 @@
-
 -0- concurrent.ThreadFactory
 --------------------------------
   > look @ codahale/metrics
@@ -32,4 +31,109 @@ public static class CpuTimeClock extends Clock {
         }
     }
 
+
+-0- Old Vs. New ways
+------------------------
+
+private final TestMonitors self = this;
+private boolean xDone = false;
+private int xValue = 0;
+private boolean yDone = false;
+private int yValue = 0;
+private boolean zDone = false;
+private int zValue = 0;
+private void run()
+      throws InterruptedException {
+  new ComputeX().start();
+new ComputeY().start();
+new ComputeZ().start();
+final int z;
+synchronized (this) {
+    while (!zDone)
+      wait();
+    z = zValue;
+  }
+System.out.println(z);
+}
+private class ComputeX extends Thread {
+  public void run() {
+    final int x = 1;
+synchronized (self) {
+      xValue = x;
+xDone = true;
+self.notifyAll();
+    }
+  }
+}
+private class ComputeY extends Thread {
+  public void run() {
+    final int y = 2;
+synchronized (self) {
+      yValue = y;
+yDone = true;
+self.notifyAll();
+    }
+  }
+}
+private class ComputeZ extends Thread {
+  public void run() {
+    try {
+      final int x, y;
+synchronized (self) {
+        while (!xDone || !yDone)
+          wait();
+        x = xValue;
+y = yValue;
+      }
+final int z = x + y;
+synchronized (self) {
+        zValue = z;
+zDone = true;
+self.notifyAll();
+      }
+    } catch (InterruptedException error) {
+      // arg... what do I do now?
+    }
+  }
+}
+
+ -- Now the New way ----
+
+private void run() throws Exception {
+  ExecutorService executor =
+    Executors.newFixedThreadPool(4);
+Future<Integer> xFuture =
+executor.submit(new ComputeX());
+  Future<Integer> yFuture =
+    executor.submit(new ComputeY());
+  Future<Integer> zFuture =
+    executor.submit(new ComputeZ(
+      xFuture, yFuture));
+  System.out.println(zFuture.get());
+}
+private class ComputeX
+    implements Callable<Integer> {
+  public Integer call() {
+    return 1;
+  }
+}
+private class ComputeY
+    implements Callable<Integer> {
+  public Integer call() {
+    return 2;
+  }
+}
+private class ComputeZ
+    implements Callable<Integer> {
+  private final Future<Integer> xFuture;
+private final Future<Integer> yFuture;
+public ComputeZ(Future<Integer> xFuture,
+      Future<Integer> yFuture) {
+    this.xFuture = xFuture;
+this.yFuture = yFuture;
+  }
+public Integer call() throws Exception {
+    return xFuture.get() + yFuture.get();
+  }
+}
 
