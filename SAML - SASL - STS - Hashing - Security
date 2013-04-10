@@ -23,6 +23,37 @@ Developers guide to SAML Workings 0-0-0-
   > coheigea.blogspot.in
 
 
+ Private Key -> Discovery -- DOSETA Specs
+------------------------------------------
+  > The private key used to sign is discovered in the KeyRepository via an alias of
+  > --> (selector + ".")? + "_domainKey." + domain 
+
+ RestEasy -- Security
+-----------------------
+  > Uses Java annotations for Signing, Verification, Expiry, etc
+
+ Certificate from Byte or InputStream
+---------------------------------
+  > You need to extract the PrivateKey, X509Certificate, PublicKey from byte etc
+  > Need to use PKCS8EncodedKeySpec, X509EncodedKeySpec, CertificateFactory
+  > Need to load BouncyCastleProvider
+  > check RestEasy -> Security module
+
+ Certificate from Byte/Stream via Der/Pem
+-------------------------------------------
+  > The byte info can be in Pem or in Der format
+  > So have a utility to convert from pem to der
+  > then Have methods to use der type stream/byte to generate PrivateKey, X509, PublicKey etc ..
+  > check RestEasy -> Security Module
+  > Pem --> is utf-8 encoded
+
+
+
+
+
+ 
+ 
+
  SASL Mechanism
 --------------------
   > chosen @ creation time of SASL client
