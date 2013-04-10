@@ -173,6 +173,16 @@ Character - Hows & Whys
   > allows stdout from 1 program to be fed as stdio of another program
   > no need for temporary file
 
+ Java - Custom ObjectInputStream - If AtAll
+-----------------------------------
+  > very basic steps to handle Java primitive type  
+  > check for primitive types & return its Class
+  > else get the classloader & get the Class
+
+ Java -- DataOutputStream & ObjectOutputStream
+-------------------------------------------
+  > DataInput/Output - simpler - read/write primitive types & Strings
+  > ObjectInput/Output - less efficient - read/write complex data
 
  Java -- ObjectOutputStream
 ----------------------
