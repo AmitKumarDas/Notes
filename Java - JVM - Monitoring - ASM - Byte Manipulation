@@ -137,6 +137,18 @@
   > a ConcurrentHashMap<String, WeakReference<E>>
   > use of ObjectOutputStream
 
+  Java -- Resolve Class
+---------------------------
+  String classname = objectStreamClass.getName();
+  
+  .. do basic string comparison with Java Primitives first ..
+ 
+  ClassLoader loader = Thread.currentThread().getContextClassLoader();
+  if (loader == null) {
+    loader = ClassLoadingObjectInputStream.class.getClassLoader();
+  }
+  clazz = Class.forName(classname, false, loader);
+
 
  
 
