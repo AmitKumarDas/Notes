@@ -126,6 +126,12 @@
   > coz if a Thread goes into waiting
     > --> then another thread is requried to wake it up
 
+  Java -- AccessController
+----------------------------
+  > java.security.AccessController
+  > to give code priviledges that code earlier doesnot have
+
+
 
 
 
