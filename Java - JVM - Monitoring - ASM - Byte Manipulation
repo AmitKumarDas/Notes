@@ -131,6 +131,11 @@
   > java.security.AccessController
   > to give code priviledges that code earlier doesnot have
 
+  Java -- Cache @ JVM
+-------------------------
+  > faster than JDBC or memcache etc
+  > a ConcurrentHashMap<String, WeakReference<E>>
+
 
 
 
