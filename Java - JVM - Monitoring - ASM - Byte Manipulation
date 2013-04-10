@@ -135,9 +135,10 @@
 -------------------------
   > faster than JDBC or memcache etc
   > a ConcurrentHashMap<String, WeakReference<E>>
+  > use of ObjectOutputStream
 
 
-
+ 
 
 
 
