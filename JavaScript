@@ -4,6 +4,7 @@
  > http://code.google.com/p/selenium/wiki/WebDriverJs
  > github.com/substack/stream-handbook
  > http://css.dzone.com/articles/why-asmjs-big-deal-game
+ > http://asmjs.org/spec/latest/
 
  Node --> Stream 
 ------------------
