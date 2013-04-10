@@ -1,4 +1,3 @@
-
  unicode-encoded String
 ---------------------------
   > i.e. treating RAW data as String
@@ -174,6 +173,12 @@ Character - Hows & Whys
   > allows stdout from 1 program to be fed as stdio of another program
   > no need for temporary file
 
+
+ Java -- ObjectOutputStream
+----------------------
+  > write Java objects to OutputStream
+  > so not just bytes... but Java Bytes
+  > Java object need to implement Serializable
 
  -0 XMLStreamWriter -
 -----------------------
