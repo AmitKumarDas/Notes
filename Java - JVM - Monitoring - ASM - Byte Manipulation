@@ -1,4 +1,3 @@
-
  UseCases of Byte Modification
 ----------------------------------
   > in test env - force an app to generate dummy results
@@ -79,6 +78,61 @@
   > --> Now adjust heap space -Xmx
   > Survivor Spaces Tuning
   > --> Adjust -Xmn &/or SurvivorSpaces
+
+
+  Java -- InetAddress
+------------------------
+  > get local host
+  > learn more on loopback & array of inet address
+
+  Java -- InetAddress + Cache
+--------------------------------
+  > Have a look at Caching for IP resolution
+  > Use of private Cache,CacheEntry related to InetAddress
+
+  Java -- InetAddress + Enum
+----------------------------
+  > Simple usage of enum in Cache
+  > Cache is tuned w.r.t InetAddress
+
+  Java - HashMap + Synchronized
+---------------------------------
+  > Peek into InetAddress for using HashMap in a threadsafe manner
+
+  Java - Wait X Notify
+------------------------
+  > About grabbing the monitor
+  > put inside synchronized
+  > notifyAll .. wakes up all Threads .. but only 1 grabs the Monitor
+
+  Java - Wait vs Sleep
+--------------------------
+  > Wait on Object itself
+  > --> Wait to grab the Object's Monitor
+  > --> wait belongs to Object class
+  > Sleep on Thread 
+  > --> Sleep belongs to Thread class
+
+  Java - Lock & Wait & Sleep
+-----------------------------------
+  > wait releases the lock on the Monitor
+  > --> & goes to a waiting state
+  > --> to be waked up by notify
+  > Sleep locks the Thread
+
+  Java - Inter-Thread Comm
+---------------------------
+  > Wait is used for inter-thread communication or synchronization
+  > coz if a Thread goes into waiting
+    > --> then another thread is requried to wake it up
+
+
+
+
+
+
+
+
 
 
 
