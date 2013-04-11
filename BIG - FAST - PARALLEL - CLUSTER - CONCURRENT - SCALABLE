@@ -9,6 +9,23 @@
  > http://www.infoq.com/articles/Joe-Duffy-Safe-Parallelism
 
 
+ JDK Concurrency API vs STM & Actors
+---------------------------------------
+  > Programming with the JDK concurrency API is quite difficult, 
+  > --> there are way too many opportunities to go wrong. 
+  > In a way, we can view it as a low level API
+
+  STM & Actors
+------------------
+  > Provides higher levels of abstraction and convenience.   
+  > These two take quite a different approaches. 
+  > STM provides Managed Mutable Variables - can be modified only within a controlled setting called transactions. 
+  > The actors, Isolate Mutable Variables - so they're accessed by no more than one thread at a time. 
+  > Even though these two approaches are quite different, 
+  > they share one thing in common, both eliminate the need to explicitly synchronize. 
+  > By removing the explicit locks, they remove so much burden from the programmers' shoulders ...
+
+
  Determinism
 ------------
   > Determinism has strong limitations!
