@@ -1,4 +1,23 @@
- unicode-encoded String
+
+
+
+ Access this C structure via TypedArray
+-----------------------------------------
+struct someStruct {
+  unsigned long id;
+  char username[16];
+  float amountDue;
+};
+You can access a buffer containing data in this format like this:
+
+var buffer = new ArrayBuffer(24);
+// ... read the data into the buffer ...
+var idView = new Uint32Array(buffer, 0, 1);
+var usernameView = new Uint8Array(buffer, 4, 16);
+var amountDueView = new Float32Array(buffer, 20, 1);
+
+
+unicode-encoded String
 ---------------------------
   > i.e. treating RAW data as String
   > --> use charCodeAt() to read bytes from the data buffer
@@ -163,16 +182,6 @@ Character - Hows & Whys
 
 
  
-  I/O Channel
--------------------------------
-  >> I/O Channels = streams
-  >> stdio : 0, stdout = 1, stderr = 2
-  
-  PIPE
--------------
-  > allows stdout from 1 program to be fed as stdio of another program
-  > no need for temporary file
-
  Java - Custom ObjectInputStream - If AtAll
 -----------------------------------
   > very basic steps to handle Java primitive type  
@@ -235,22 +244,7 @@ Character - Hows & Whys
   > ToXMLStream  = org.apache.xml.serializer.ToXMLStream
   > DOMSource    = javax.xml.transform.dom.DOMSource
 
-
-
--0 What is Messaging
---------------------------
-  > producers  +  broker +  consumers
-  > can be without a broker - ref ZeroMQ
-
- -0 ZeroMQ Compared With
---------------------------
-  > SCTP + JGroups = make arbitrary networks using 'brokerless' peers
-  > SCTP - Messaging
-  > JGroups - pub sub
- 
- -0 Why SCTP - Stream Control Transmission Protocol
---------------
-  -0 Limitations of TCP
+ -0 Limitations of TCP
 -------------------------
   > strict order of transmission delivery of data
   > head-of-line blocking offered by TCP causes unnecessary delay
