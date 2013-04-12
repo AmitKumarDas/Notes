@@ -1,9 +1,22 @@
-
  To Read
 -------------
   > http://java.dzone.com/articles/detecting-java-threads
 
 
+ Detect Java Deadlock Threads
+---------------------------------
+  > ThreadMXBean
+  
+ Attach API
+------------
+  > A Sun Microsystems extension that provides a mechanism to attach to JVM
+  > JConsole & VisualVM use the Attach API to attach to a target JVM
+  > thread, OS, Runtime, Heap/Non-Heap memory can be extracted from JVM
+  > can attach & detach as well
+
+  Attach API located at
+------------------------
+  > ${JAVA_HOME}\lib\tools.jar or %JAVA_HOME\lib\tools.jar
  
 
 
