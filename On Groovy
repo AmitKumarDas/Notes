@@ -1,0 +1,72 @@
+
+ - XML Parse -
+--------------
+  > XmlSlurper
+
+ - XML Builder -
+-------------------
+  > MarkupBuilder
+  > build XML via JSON struct
+
+ - [] -
+----------------
+  > Have a comma separated list
+  > Also have a key:value then comma separated list
+  > list can be nos or strings
+  > --> Use Utilities like
+  > --> .join, .each, .find, .findAll, .collect
+
+ - println 2.0D - 1.1D
+-------------------------
+  > Java
+  >--> system.out.println(new BigDecimal("2.0").subtract(new BigDecimal("1.1")));
+  > Groovy
+  >--> println "2.0 - 1.1 = ${2.0 - 1.1}" 
+  >--> println "2.2 / 5 = ${2.2 / 5}"
+
+ - No more \n\t etc.. -
+-------------------------
+  > def message = """
+    Dear ${some def variable}
+    ...Some blank lines...
+    Done ${xyz}
+    """
+
+ - Cool String Ops -
+-------------------------
+  > ${somestr[0]}
+  > ${somestr[-1]}
+  > somestr[0..2]
+  > somestr[3..1]
+
+ - Immutable Class too if desired -
+---------------------------
+  > @Immutable at class definition
+  > import groovy.transform.Immutable
+
+
+ - Gradle -
+-----------------
+
+
+
+ - Gpars -
+------------------
+  > Parallel processing for Groovy
+  > Actors library making full use of closures
+  > 
+
+
+
+
+
+
+
+
+
+
+
+
+References:
+----------------
+1/ http://www.infoq.com/presentations/Groovy-Grails-Spring
