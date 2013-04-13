@@ -9,6 +9,28 @@
  > http://www.infoq.com/articles/Joe-Duffy-Safe-Parallelism
 
 
+ Groovy -> Gpars -> Dataflow
+------------------------------
+  > task - run parallel
+  > Dataflow - a variable - a channel
+  > task use Dataflow to exhange variable
+  > Dataflow - channel to safely & reliably transfer data from producers to consumers
+ 
+ Groovy -> Gpars -> Task
+----------------------------
+  > not necessarily mapped to physical threads
+  > represent Green Threads / Logical Threads
+  > They r mapped under the covers to any no of physical threads
+  
+ Groovy -> GPars -> Dataflow Concurrency
+--------------------------------------------
+  > No race conditions
+  > No live-locks
+  > Deterministic deadlocks
+  > Completely deterministic programs
+  > Beautiful code
+
+
  JDK Concurrency API vs STM & Actors
 ---------------------------------------
   > Programming with the JDK concurrency API is quite difficult, 
