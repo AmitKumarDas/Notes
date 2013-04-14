@@ -9,6 +9,12 @@
  > http://www.infoq.com/articles/Joe-Duffy-Safe-Parallelism
 
 
+ GPars -> Dataflow
+-------------------
+  > Dataflow - a black box - with explicitly defined inputs & outputs
+  > Dataflow run as soon as the inputs become valid
+  > Not the usual way - a program encountering it will not execute Df  
+
  Groovy -> Gpars -> Dataflow
 ------------------------------
   > task - run parallel
