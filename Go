@@ -1,0 +1,29 @@
+
+  Name before Syntax
+-----------------------
+  > var fn func([]int) int
+  > type T struct { a,b int }
+
+  Export Syntax
+------------------
+  > upper case initial - visible to clients of package
+  > Name is visible to clients of package
+  > name or _Name is not visible to clients of package
+
+  Concurrency
+---------------
+  > a variant of CSP with first class channels
+  
+ Garbage Collection
+----------------------
+  > in Java - uncontrollable cost, too much tuning
+  > in Go   - limits allocation by controlling memory layout
+  > e.g. 
+    type X struct {
+      a, b, c int
+      buf [256]byte
+    }
+  > parallel mark-and-sweep
+
+
+
