@@ -23,7 +23,22 @@
 ------------------------
   > works good for observer pattern for a list of listeners
   > where we need to access listeners in a sequential order
+  
+ ArrayList --> Insertions
+---------------------------
+  > In Java its a pure Array
+  > [2][3][4][5][][][][][]
+  > insertions at end - fast
+  > [2][3][4][5][6][][][][]
+  > insertions @ first index or in between - slow  
+  > when insert @ first etc, the entire values needs to be copied to their next slot
+  > [6][2][3][4][5][][][][][]
+  > Hence, expensive operation
+
+ GapList --> optimized for get, set, add, remove
+---------------------------------------------------
   > 
+
 
 
  Detect Java Deadlock Threads
