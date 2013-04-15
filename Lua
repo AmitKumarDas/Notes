@@ -1,0 +1,21 @@
+
+  Tables
+-----------
+  > associative array
+  > can be indexed with nos as well as strings
+  > only data structuring mechanism in Lua
+  > are objects... not variables or values  
+  > when a prog has no references to the table, Lua mem management will delete that mem & reuse its memory  
+
+  Packages
+-------------
+  > Lua uses Tables to represent Packages
+  > io.read -> 'read' key from 'io' table
+  
+  Constructor Expression
+--------------------------
+  > {}
+  > You cannot declare a table
+  > you can only create one via {}
+
+
