@@ -3,6 +3,29 @@
   > http://java.dzone.com/articles/detecting-java-threads
 
 
+ Map --> Algorithms
+----------------
+  > Preserve insertion order - LinkedHashMap
+  > Order by key - TreeMap
+  > synchronized key value - HashTable
+  > HOWEVER, ALL ABOVE DEPENDS ON HOW, KEY OBJECT'S HASHCODE & EQUALS IS IMPLEMENTED
+  > FURTHER, FOR ORDERING, THE KEY OBJECT SHOULD EXTEND FROM COMPARABLE interface
+
+ List --> Alogorithms
+------------------------
+  > resiable array - ArrayList
+  > more add & remove ops - LinkedList
+  > get & set ops - ArrayList
+  > minize cost of resize in ArrayList - set a higher initial capacity
+  > synchornize the list - Vector
+
+ LinkedList --> Usage
+------------------------
+  > works good for observer pattern for a list of listeners
+  > where we need to access listeners in a sequential order
+  > 
+
+
  Detect Java Deadlock Threads
 ---------------------------------
   > ThreadMXBean
