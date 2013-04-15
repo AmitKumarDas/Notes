@@ -37,8 +37,15 @@
 
  GapList --> optimized for get, set, add, remove
 ---------------------------------------------------
-  > 
-
+  > use Array as a rotating buffer
+  > Insert @ first = Starts inserts @ the end
+  > [6][2][3][4][5][][][][][1]
+  > Next insert to first = Inserts last but one @ the end
+  > [6][2][3][4][5][][][][2][1]
+  > removal at beginning & at end, without recopying effort
+  > Gaps are created if needed
+  
+ 
 
 
  Detect Java Deadlock Threads
