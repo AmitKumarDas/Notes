@@ -3,6 +3,13 @@
   > http://java.dzone.com/articles/detecting-java-threads
 
 
+ Java Collections & Primitive Types
+-----------------------------------
+  > normally not supported
+  > check out latest or external libraries
+
+
+
  Map --> Algorithms
 ----------------
   > Preserve insertion order - LinkedHashMap
