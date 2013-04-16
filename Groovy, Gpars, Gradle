@@ -1,4 +1,29 @@
 
+ 
+
+
+ AST Transformations
+-----------------------
+  > hook into the compilation process to transform the code
+  > add new methods, imports etc 
+  > Test methods etc too can be added during compilation
+
+ Intercept
+---------------
+  > Use GroovyInterceptable 
+  > Good for simulating a component by removing its dependencies
+
+ Add Methods & Properties @ runtime
+-------------------------------------
+  > Expando
+  > Add & Remove Testing stuff @ runtime
+  > Add & Remove Monitoring stuff @ runtime
+  > Add & Remove Managing stuff @ runtime
+  > e.g. Delete inactive sessions, etc.
+  > Add & Remove Log stuff @ runtime
+  > Basically avoid re-compiling the existing code & avoid re-deployments
+  > Hot deployments should be only for these extra stuff
+ 
 
  List Classes on Groovy Classpath
 ------------------------------------
