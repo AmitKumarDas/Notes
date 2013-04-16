@@ -1,4 +1,4 @@
- To Read
+ To Read & references
 -------------
   > http://java.dzone.com/articles/detecting-java-threads
   > http://jonasboner.com/publications/AOSD_2007_Final.pdf
@@ -6,7 +6,36 @@
 
  JVM --> Clustering
 ---------------------
+  > hub-and-spoke
+  > 1 central & various clients
+  > central - tracks which node holds the lock
+  > central - tracks which nodes reference which part of shared state
+  > central - tracks which objects have not been used for a specific period & can be paged out
+  > central - serves as a dedicated state database
+  > central - itself is culsterable via a SAN-based failover mechanism
+  > hub-and-spoke - no need to multicast like peer-to-peer
   
+ JVM --> Clustering --> state sharing & thread coordination
+-------------------------------------------------------------
+  > State Sharing
+  > > Which parts of Java heap has changed
+  > > Track the change set in a UOW
+  > > Replicate the UOW to parts of the distributed env that need it
+  > > Merge the change set into Java heap on other nodes
+  > Thread Coordination
+  > > maintain semantics of JMM 
+  
+ Java Clustering - Traditional Way
+--------------------------------
+  > use of Java Serialization to transfer data between different JVMs
+  > Issues with Serialization
+  > --- Creates Deep Copies ---
+  > > Hence, breaks pass-by-reference semantics
+  > > Hence, developers need to maintain the relational references between objects themselves
+  > --- Coarse Grained ---
+  > > no way to detect which parts of the Java heap has changed
+  > > 
+
 
 
  Java Collections & Primitive Types
