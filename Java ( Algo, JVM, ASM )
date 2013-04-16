@@ -4,6 +4,20 @@
   > http://jonasboner.com/publications/AOSD_2007_Final.pdf
   > http://jonasboner.com/publications/JVM_AOP_AOSD2006.pdf
 
+ Java AOP --> Traditional
+----------------------------
+  > either use a framework to modify byte-code of our own classes
+  > or
+  > create a proxy for our own classes (JDK Dynamic Proxies or CGLib)
+
+ Groovy AOP --> MOP
+---------------------
+  > Metaobject-Protocol 
+  > can intercept every single call to our objects without 
+  > > the need for a proxy or byte-code manipulation
+
+
+
  JVM --> Clustering
 ---------------------
   > hub-and-spoke
