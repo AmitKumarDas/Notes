@@ -33,8 +33,11 @@
   > > Hence, breaks pass-by-reference semantics
   > > Hence, developers need to maintain the relational references between objects themselves
   > --- Coarse Grained ---
-  > > no way to detect which parts of the Java heap has changed
-  > > 
+  > > No way to detect which parts of the Java heap has changed
+  > > converts not only data but also java class structs, into network transportable format
+  > > forces use of coarse grained locking mechanism
+
+
 
 
 
