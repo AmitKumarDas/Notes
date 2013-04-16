@@ -1,0 +1,27 @@
+
+A simple example referred from the article - http://jonasboner.com/publications/AOSD_2007_Final.pdf
+
+This example shows the usage of wait/notify & synchronized blocks to ensure thread coordination.
+This is not the recommended approach in modern days of Dataflows, STM & other channel based models.
+However, just for old times sake, a simple example.
+
+public class Counter {
+  public final static Counter soleInstance = new Counter();
+  private int value = 0;
+  public void increment() {
+    synchronized(this) {
+      this.value++;
+      notifyAll();
+    }
+  }
+
+  public void waitFor(int expected) {
+    synchronized(this) {
+      while(this.value < expected) {
+        try {
+          wait();
+        } catch(InterruptedException ex) {  }
+      }
+    }
+  }
+}
