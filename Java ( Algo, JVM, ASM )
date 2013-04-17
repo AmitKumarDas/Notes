@@ -4,6 +4,13 @@
   > http://jonasboner.com/publications/AOSD_2007_Final.pdf
   > http://jonasboner.com/publications/JVM_AOP_AOSD2006.pdf
 
+ Fault Injection
+----------------------
+  > http://youdebug.kenai.com/
+  > http://theholyjava.wordpress.com/2012/02/25/cool-tools-fault-injection-into-unit-tests-with-jboss-byteman-easier-testing-of-error-handling/
+  > https://community.jboss.org/wiki/FaultInjectionTestingWithByteman
+
+
  Java AOP --> Traditional
 ----------------------------
   > either use a framework to modify byte-code of our own classes
