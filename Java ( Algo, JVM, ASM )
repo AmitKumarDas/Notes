@@ -4,6 +4,13 @@
   > http://jonasboner.com/publications/AOSD_2007_Final.pdf
   > http://jonasboner.com/publications/JVM_AOP_AOSD2006.pdf
 
+
+ Groovy --> AOP 
+--------------------
+  > ProxyMetaClass - change behavior of already loaded classes
+  > GroovyInterceptable - implement this interface - override invokeMethod()
+  > 
+
  Fault Injection
 ----------------------
   > http://youdebug.kenai.com/
