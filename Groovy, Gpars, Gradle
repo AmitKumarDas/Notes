@@ -1,32 +1,3 @@
-
- 
- Customer Site Debugging & Analysis
---------------------------------------
-  > http://youdebug.kenai.com/
-  > Analyze w.r.t Byteman
-
-
- AST Transformations
------------------------
-  > hook into the compilation process to transform the code
-  > add new methods, imports etc 
-  > Test methods etc too can be added during compilation
-
- Intercept
----------------
-  > Use GroovyInterceptable 
-  > Good for simulating a component by removing its dependencies
-
- Add Methods & Properties @ runtime
--------------------------------------
-  > Expando
-  > Add & Remove Testing stuff @ runtime
-  > Add & Remove Monitoring stuff @ runtime
-  > Add & Remove Managing stuff @ runtime
-  > e.g. Delete inactive sessions, etc.
-  > Add & Remove Log stuff @ runtime
-  > Basically avoid re-compiling the existing code & avoid re-deployments
-  > Hot deployments should be only for these extra stuff
  
 
  List Classes on Groovy Classpath
@@ -34,7 +5,21 @@
   #!/usr/bin/env groovy  
   this.class.classLoader.rootLoader.URLs.each{ println it } 
 
+ Syntax --> String Ops
+----------------------------
 
+@Aspect
+class UpdateReporter {
+    Logger log = Logger.getLogger(UpdateReporter.class.name)
+     
+    @Before("execution(void set*(*))")
+    void reportOnSet(JoinPoint jp) {
+        String method = jp.signature.name
+        String property = (method - 'set').toLowerCase()
+        def current = jp.target."$property"
+        log.info "About to change $property from $current to ${jp.args[0]}"
+    }
+}
 
 
  - XML Parse -
