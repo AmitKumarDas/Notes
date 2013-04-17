@@ -5,11 +5,60 @@
   > http://jonasboner.com/publications/JVM_AOP_AOSD2006.pdf
 
 
+ Byteman - JRE or JDK
+----------
+  > anyone
+  > JDK when dynamic loading required
+
+ Byteman - Run
+-----------------
+  > java -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:appmain.btm org.my.AppMain foo bar baz
+  > start executing Byteman scripts during JVM startup
+
+ Byteman --> $0, $1, ...
+--------------------------
+  > $0 --> refers to the target i.e. join point
+  > $1, $2 --> arguments of the point cuts of the target
+
+ Byteman & Bootstrap class loader
+--------------------------------
+  > Class which gets loaded by the bootstrap classloader
+  > Needs extra options for aspecting via Byteman
+  > i.e. use of boot:...
+
+ Byteman & Aspecting java.lang.*
+-------------------------------------
+  > Need to define system property for this
+  > org.jboss.byteman.transform.all
+
+ Byteman --> Simplified
+--------------------------
+  > Look running the bmjava.sh
+
+
+
+
+
+
  Groovy --> AOP 
 --------------------
   > ProxyMetaClass - change behavior of already loaded classes
   > GroovyInterceptable - implement this interface - override invokeMethod()
-  > 
+
+
+ Customer Site Debugging & Analysis
+--------------------------------------
+  > http://youdebug.kenai.com/
+  > Analyze w.r.t Byteman
+
+
+  Groovy --> AST Transformations
+-----------------------
+  > hook into the compilation process to transform the code
+  > add new methods, imports etc 
+  > Test methods etc too can be added during compilation
+
+
 
  Fault Injection
 ----------------------
