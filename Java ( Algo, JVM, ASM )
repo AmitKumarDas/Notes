@@ -5,6 +5,29 @@
   > http://jonasboner.com/publications/JVM_AOP_AOSD2006.pdf
   > cglib vs java agent ?
 
+ Threading & Non-deterministic Behavior
+-------------------------------------------
+  > Why ?
+  > else Threads will accidentally share data & override each other data
+
+ Thread + ReEntrantLock
+---------------------------
+  > lock blocks & wait till lock is ready
+  > use of try finally to unlock
+  > no synchronized block
+
+ Thread + CountDownLatch
+---------------------------
+  > wait till countdown latch goes to 0
+  > other thread need to call countDown()
+
+ Thread + Semaphore
+-----------------------
+  > Can be binary if 1 permit
+  > wait till the semaphore is available
+  > same thread or other thread can release the semaphore .. no owner
+  > no synchronized block
+
 
  When Annotations
 ---------------------
