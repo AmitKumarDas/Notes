@@ -23,6 +23,8 @@
   > dynamic languages need to resolve types, symbols & invocation targets
   > 
 
+ 
+
 
 
  Threading & Non-deterministic Behavior
@@ -345,6 +347,19 @@
   > --> Now adjust heap space -Xmx
   > Survivor Spaces Tuning
   > --> Adjust -Xmn &/or SurvivorSpaces
+
+
+ Eden -to- ToSurvivor
+---------------------
+  > Retention / aging of young objects during minor GCs
+
+ ToSurvivor -to- OldGeneration
+---------------------------------
+  > promotion of longer lived objects during minor GCs
+ 
+ GCs love which Objects ?
+------------------------------
+
 
 
   Java -- InetAddress
