@@ -6,8 +6,23 @@
   > cglib vs java agent ?
   > Annotation on types - JSR 308
   > Meta Object Protocol - JDK 9
-  > 
+  
+
+  JVM + 4 opcodes
+-------------------
+  > invokestatic - for static methods
+  > invokevirtual - based on the receiver type - i.e. public or protected methods
+  > invokespecial - for private methods & constructors
+  > invokeinterface - dispatch method to the instance implementing the interface
+  > Now invokeDynamic - 5th opcode
  
+ invokeDynamic
+----------------
+  > similar to invokevirtual or invokeinterface
+  > i.e. method dispatch is performed @ runtime
+  > dynamic languages need to resolve types, symbols & invocation targets
+  > 
+
 
 
  Threading & Non-deterministic Behavior
