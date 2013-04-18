@@ -21,9 +21,45 @@
   > similar to invokevirtual or invokeinterface
   > i.e. method dispatch is performed @ runtime
   > dynamic languages need to resolve types, symbols & invocation targets
-  > 
 
- 
+	Generating Method-Call bytecodes
+---------------------------------------
+  > provide method name, target class name, precise parameter list
+
+	Does InvokeDynamic do this ?
+--------------------------------------
+  > with invokeDynamic, we defer this compile time magic to VM
+  > VM in turn would look at params, & name & select an appropriate method from the receiving obj
+
+ Java is static type
+------------------------
+  > All types should be mentioned for compilation to work
+	> cannot just delegate to runtime intelligence
+
+	Bit of bytecode
+-----------------------
+	> load - retrieve a local value & push to stack
+	> store - pop off a value from stack & store into local variable
+	> keep an eye on prefix - [a - reference, i - integer, f - float ..]
+  > other r the 4 METHOD opcodes starting with invokeXXX
+  > new opcode is invokeDynamic
+	
+	Prior to invokeDynamic - The Issues
+---------------------------------------
+	> invocations r statically typed i.e. method invocation signature must match
+	> invocations must be against Java methods on Java types
+	> traditional solution - java.lang.reflect package
+	>	-->	reflect.Method accepts Object as Receiver, Return type & Arguments
+	>	--> this has relative performance impact
+	> JRuby solution - custom invoker classes for each method - that generates short bytecode opcodes
+	> --> Generates many classes with similar bytecodes
+	> --> But this Bytecode or JITed native code will be stored in Permgen
+	> --> Permgen is never garbage collected
+	
+	java.dyn.AnonymousClassLoader
+----------------------------------
+	> 
+
 
 
 
