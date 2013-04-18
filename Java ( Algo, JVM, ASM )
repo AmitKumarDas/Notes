@@ -357,8 +357,28 @@
 ---------------------------------
   > promotion of longer lived objects during minor GCs
  
- GCs love which Objects ?
+ GCs love ?
 ------------------------------
+  > small immutable objects
+  > short lived objects
+  > these seldom survive a minor GC
+
+ GC -- Lifecycle
+------------------
+ - More frequent allocations means more frequent GCs
+ - frequent GCs means faster object ageing
+	- which in turn means faster promotions
+	- which in turn means more old generation collection
+	- or old generation compaction (i.e full GC)
+
+ Free Resources Explicitly
+----------------------------
+ - Use ReferenceObjects as an alternative
+ - See DirectByteBuffer.java
+
+
+
+
 
 
 
