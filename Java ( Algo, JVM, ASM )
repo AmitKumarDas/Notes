@@ -5,6 +5,12 @@
   > http://jonasboner.com/publications/JVM_AOP_AOSD2006.pdf
 
 
+ Byteman --> Run Faster
+-----------------------
+  > tell Byteman to translate rule into bytecode
+  > system property - org.jboss.byteman.compile.to.bytecode
+
+
  Byteman - JRE or JDK
 ----------
   > anyone
