@@ -11,6 +11,35 @@
 	> JSR 299/318 - Interceptors
 
 
+	Java Bytecode vs Java
+--------------------------
+	> though BC was designed keeping Java in mind
+	> still BC is a general purpose bytecode
+	> BC is infact more expressive than Java
+	> this has been widely explioted in apps like obfuscation
+	
+	invokedynamic vs invokeinterface & invokevirtual
+-----------------------------------------------------
+	> indy is very soimilar to invokevirtual & invokeinterface
+	> invokevirtual - based on receiver type i.e. overridden stuff
+	> invokeinterface - based on the receiver type i.e. the one implementing the interface
+	> so indy, invi & inin are all similiar w.r.t method dispatch is performed @ runtime
+	> virtual & interface require receiver type
+	> indy relazes this further - closer to function pointer semantics
+	
+	Bootstrap Instructions
+	-----------------------
+	> bind the Callsite with target to handle invocations
+	> java.lang.invoke defined 2 new types
+	> CallSite & MethodHandle
+
+
+
+
+	CGLIB 
+---------------------------------
+	- built on top of ASM
+
 
   ASM - A Bytecode Framework
 ------------
@@ -58,15 +87,13 @@
 ---------------------------------------
 	> MH provides currying
 	> i.e. adapting a method	
+	> either a direct reference to a class method or field
+	> or refer to a chain of method handles called combinators
 
-	CallSite
---------------
+	CallSite - A IMP piece of INDY
+----------------------------
 	> has info - where in the original code the dynamic invocation came from
-
-
-	
-
-
+	> is the return value of the bootstrap process
 
 
 
