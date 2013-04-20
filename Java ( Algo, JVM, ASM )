@@ -10,6 +10,29 @@
 	> JSR 299 - Decorators
 	> JSR 299/318 - Interceptors
 
+  MethodHandles.Lookup
+-------------------------
+  > a factory for creating method handles
+  > .findStatic -> creates a static method handle for the xxx method
+
+  CallSite && Bootstrap method
+-------------------------------
+  > A dynamic callsite is linked to a method by a bootstrap method
+  > A dynamic callsite's bootstrap method is a method SPECIFIED by the COMPILER
+  > 4 the dynamically-typed language that is called once by the JVM 
+
+  INdy Flow
+----------------
+  > JVM encounters the indy instruction
+  > JVM calls the bootstrap method
+  > Bootstrap links the name of the indy instruction with the target method i.e. a method handle
+  > last 2 steps are done once only
+  > next time when JVM encounters the same indy instruction, it executes the linked method handle
+  
+
+
+
+
 
 	Java Bytecode vs Java
 --------------------------
