@@ -8,12 +8,38 @@
 	> http://www.myexpospace.com/JavaOne2012/SessionFiles/CON5251_PDF_5251_0001.pdf
 	> JSR 269 - Annotation Processing
 
+
+  ASM - A Bytecode Framework
+------------
+  > approach to generate bytecode 
+  > transform existing classes
+  > so for developers they just need to code in Java
+  > core package - read, write & transform bc
+  > tree package - in-memory representation of bc
+  > analysis pack - data-flow analysis ^ type-checking algo
+  > commons pack - commonly used transformations & adapters
+  > Util pack - helpers & verifiers for development & testing
+  > XML pack - to & from <-> bytecode struct & XML <-> use of XSLT to define bytecode transformations
+  > use of Chain of Responsibility - to affect/transform a particular flow
+  
+  InvokeDynamic vs BootstrapDynamic
+------------------------------------------
+  > InvokeDynamic to JVM
+  > Bootstrap Dynamic - Bootstrap method performs dynamic linkage
+  > ... dynamic linkage between calling class & receiving class
+  > Bootstrap Method returns a Methodhandle that targets the receiving class
+  > The MethodHandle is cached for repetitive invocations of xxx method
+
+
+
+
+
+
+
  Java Instrumentation
 --------------------------
   > Transformer
   > MBean Servlet 
-
-
 
   JVM + 4 opcodes
 -------------------
@@ -507,7 +533,16 @@
   clazz = Class.forName(classname, false, loader);
 
 
- 
+  Design behind XML parsing
+------------------------------
+  > Visitor Design Pattern
+  > used in SAX API
+  > Used in ASM to navigate byte structure
+  > Then you got producers or consumers
+  > producers to read
+  > consumers to write
+
+
 
 
 
