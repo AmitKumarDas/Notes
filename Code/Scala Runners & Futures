@@ -1,4 +1,3 @@
-
 --- Current Style ----
 
 val x = future(1)
