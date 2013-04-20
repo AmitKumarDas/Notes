@@ -10,6 +10,15 @@
 	> JSR 299 - Decorators
 	> JSR 299/318 - Interceptors
 
+ Bytecode Generation
+------------------------
+	> ASM
+	> CGLIB --> top of --> ASM
+	> BiteScript --> top of --> ASM
+	> JiteScript --> top of --> ASM
+
+
+
   MethodHandles.Lookup
 -------------------------
   > a factory for creating method handles
