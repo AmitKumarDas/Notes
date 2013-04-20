@@ -1,4 +1,3 @@
-
 A simple example referred from the article - http://jonasboner.com/publications/AOSD_2007_Final.pdf
 
 This example shows the usage of wait/notify & synchronized blocks to ensure thread coordination.
