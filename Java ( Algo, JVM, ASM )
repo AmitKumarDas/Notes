@@ -10,6 +10,21 @@
 	> JSR 299 - Decorators
 	> JSR 299/318 - Interceptors
 
+
+JSR 269 -- Annotation Processing --
+ Dagger - A DI not using Reflection
+---------- ---------------------------------
+	> One of the innovative things that Dagger does is instead of using reflection at runtime,
+	> it uses code generation instead, so it actually generates the code that wires all your code together, 
+	> which makes it a little easier to start up because loading classes tends to be faster 
+	> and doesn’t require so much work in the Java space. 
+	>  It provides a JSR 269 based annotation processor which is used at compile time to create an adapter class
+	> for each managed type. 
+	> These adapter classes contain all the logic required at run time to set up the object graph
+	> by invoking constructors and populating references to other objects, without making use of reflection.
+
+
+
  Bytecode Generation
 ------------------------
 	> ASM
@@ -18,14 +33,7 @@
 	> JiteScript --> top of --> ASM
 
 
- Dagger
-----------
-	> One of the innovative things that Dagger does is instead of using reflection at runtime,
-	> it uses code generation instead, so it actually generates the code that wires all your code together, 
-	> which makes it a little easier to start up because loading classes tends to be faster 
-	> and doesn’t require so much work in the Java space. 
-
-
+ 
   MethodHandles.Lookup
 -------------------------
   > a factory for creating method handles
