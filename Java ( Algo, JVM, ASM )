@@ -23,7 +23,14 @@ JSR 269 -- Annotation Processing --
 	> These adapter classes contain all the logic required at run time to set up the object graph
 	> by invoking constructors and populating references to other objects, without making use of reflection.
 
-
+	JSR 269 - Annotation Processing
+-------------------------------------
+	> Java 6
+	> Pluggable Annotation Processing API
+	> extends the java compiler with a plugin mechanism
+	> Now write custom annotation processors that can be plugged in to the compilation process
+	> java.lang.model.*
+	> java.annotation.processing.*
 
  Bytecode Generation
 ------------------------
