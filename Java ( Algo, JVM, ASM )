@@ -552,6 +552,28 @@ JSR 269 -- Annotation Processing --
 	- which in turn means more old generation collection
 	- or old generation compaction (i.e full GC)
 
+	A imp GC JAVA_OPTS
+-------------------------
+	-verbose:gc --> get gc output
+	-Xloggc:<pathtofile>  --> path to log file
+	
+	Why GC log File ?
+-------------------------
+	> log file can be post processed
+	> has more info than MXBeans
+	> Runtime MX Beans impact the running app
+
+	GC log format
+--------------------
+	from->to(totalsize)
+	e.g. 12121K->22K(132121K)
+
+	occupany(size)
+	e.g. 32322K(87878K)
+
+
+
+
  Free Resources Explicitly
 ----------------------------
  - Use ReferenceObjects as an alternative
