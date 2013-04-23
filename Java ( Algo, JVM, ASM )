@@ -587,6 +587,16 @@ JSR 269 -- Annotation Processing --
 	- If we increase heap size, then this next Full GC will increase the Stop-The-World pause time period
 	
 
+	Dev or Prod... What should be our GC params
+---------------------------------------------------
+	.. should have atleast below flags
+
+	-verbose:gc //print GC logs
+	-Xloggc:	//more GC logging
+	-XX:+PrintGCDetails	//detailed o/p
+	-XX:+PrintTenuringDistribution	//displays tenuring thresholds 
+
+
  Free Resources Explicitly
 ----------------------------
  - Use ReferenceObjects as an alternative
