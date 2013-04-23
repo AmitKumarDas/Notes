@@ -348,6 +348,7 @@ JSR 269 -- Annotation Processing --
   > > the need for a proxy or byte-code manipulation
 
 
+=====================Clustering========================================
 
  JVM --> Clustering
 ---------------------
@@ -359,32 +360,47 @@ JSR 269 -- Annotation Processing --
   > central - serves as a dedicated state database
   > central - itself is culsterable via a SAN-based failover mechanism
   > hub-and-spoke - no need to multicast like peer-to-peer
+
+	Peer-2-Peer
+---------------
+	> Need to Multicast
+
   
  JVM --> Clustering --> state sharing & thread coordination
 -------------------------------------------------------------
   > State Sharing
+------------------
   > > Which parts of Java heap has changed
   > > Track the change set in a UOW
   > > Replicate the UOW to parts of the distributed env that need it
   > > Merge the change set into Java heap on other nodes
   > Thread Coordination
+-----------------------
   > > maintain semantics of JMM 
   
  Java Clustering - Traditional Way
 --------------------------------
   > use of Java Serialization to transfer data between different JVMs
-  > Issues with Serialization
-  > --- Creates Deep Copies ---
+
+	Issues with Serialization in Clustering
+--------------------------------
+  > Issue A --- Creates Deep Copies ---
   > > Hence, breaks pass-by-reference semantics
   > > Hence, developers need to maintain the relational references between objects themselves
-  > --- Coarse Grained ---
+
+  > Issue B --- Coarse Grained ---
   > > No way to detect which parts of the Java heap has changed
   > > converts not only data but also java class structs, into network transportable format
   > > forces use of coarse grained locking mechanism
 
 
+======================AOP============================
 
 
+
+
+
+===================================================================
 
  Java Collections & Primitive Types
 -----------------------------------
