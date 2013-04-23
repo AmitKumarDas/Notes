@@ -578,8 +578,14 @@ JSR 269 -- Annotation Processing --
 	occupany(size)
 	e.g. 32322K(87878K)
 
-
-
+	Increase Heap Size to solve your problem. Is it ?
+--------------------------------------------
+	- If the app produces a lot of objects with a short lifespan of 2 to 3 seconds
+	- If allocation rate is high then GC could occur so rapidly that these objects r promoted into tenured generation
+	- Tenured = old generation
+	- Once in tenured, the objects die almost immediately, but will be collected until next full GC
+	- If we increase heap size, then this next Full GC will increase the Stop-The-World pause time period
+	
 
  Free Resources Explicitly
 ----------------------------
