@@ -1,97 +1,14 @@
-PRACTICAL ---
-- gevent for python
-- zookeeper for Java
-- erlang-oauth for Erlang
-- python-oauth2 for Python
-- hoauth2 for Haskell
-- haskell-zookeeper-client
-- http://code.google.com/p/miniboa/ for Python
-- brubeck for Python
-- watchdog for Python
-- logster for Python
-- ra-mutex for Python
-- zklock for Python
-- Python-synchronization for Python
-- asyncoro for Python
-- lupa - python wrapped around LuaJIT - *
-- zenqueue - python - *
-- zorro - python -  *
-- casting - c -> lua 
-- roslua - lua & c
-- https://github.com/kachayev/fn.py - python - *
-- Octobot - Java
-- shard-viz - JavaScript - *
-- tomcat-redis-session-manager - Java - *
-- jetty-nosql-memcached - Java - *
-- beaker_extensions - Python
-- dubbo - Java
-- Thoonk.py - Python - *
-- thoonk.js - JavaScript - *
-- jeromq - Java - impl of Zeromq - *
-- rabbitmq-tutorials - *
-- metrics - java - *
-- pyzk-recipes - python & zookeeper - *
-- valve - non blocking http proxy server - java
-- glossy - JS - *
-- python-log-parser - Py - * *
-- syslogtools - Py - *
-- netshed - Py - * *
-- gelfy - Py - *
-- Graylog2 - Java
-- logix - Py - *
-- Elastic Search - java - *
-- vcloud - multi cloud offerings - via RabbitMQ - *
 
-Links to Read --
+InvokeDynamic
+-----------------
+- Clustering using AOP - pdf
+- jooflux pdf
+- Bitescript n Jitescript
+- ASM pdf
+- Dyn.js
+- method Dispatching using indy -
+http://www.ec-spride.tu-darmstadt.de/media/ec_spride/secure_software_engineering/theses_1/kamil_erhard_master_thesis.pdf
 
-Functional
- > www.haskell.org/haskellwiki/Monda_tutorials_timeline
- > 
-
-STS
- > http://www.willydev.net/descargas/PartnerAndPractices/WillyDev_ImplementingMessageLayerSecuritywithaSTSinWSE3.0.pdf
- > http://docs.oasis-open.org/imi/identity/v1.0/identity.html
- > https://www.oasis-open.org/committees/download.php/16768/wss-v1.1-spec-os-SAMLTokenProfile.pdf
- > http://docs.oasis-open.org/ws-sx/security-policy/examples/ws-sp-usecases-examples.html
- > http://coheigea.blogspot.in/2012/04/batch-processing-in-apache-cxf-sts.html
-
-GIL
- > http://www.dabeaz.com/python/GIL.pdf
- > http://www.dabeaz.com/coroutines/
- > http://www.dabeaz.com/coroutines/Coroutines.pdf
- > http://scotdoyle.com/python-epoll-howto.html
-
-http://peadrop.com/blog/2007/06/18/pickle-an-interesting-stack-language/
-http://www.python.org/dev/peps/pep-0380/
-http://www.python.org/dev/peps/pep-0342/
-
-http://code.google.com/p/selenium/wiki/JsonWireProtocol
-http://code.google.com/p/selenium/wiki/WebDriverJs
-http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/
-http://www.slideshare.net/YungLinHo/groupware-zookeeper-and-jgroups
-http://aminsblog.wordpress.com/2010/10/16/jgroups-hopes-and-regrets/
-http://mattthinksso.wordpress.com/2011/01/29/cluster-management-and-task-distribution-zookeeper-vs-jgroups/
-http://www.rabbitmq.com/blog/2010/09/22/broker-vs-brokerless/
-http://www.javacodegeeks.com/2012/06/ehcache-replication-rmi-vs-jgroups.html
-http://www.warski.org/blog/2012/06/implementing-message-replication-in-elasticmq-with-jgroups/
-http://www.jgroups.org/tutorial/html_single/index.html
-http://www.colinhowe.co.uk/2011/02/23/mongodb-performance-for-data-bigger-than-memor/
-http://snmaynard.com/2012/10/17/things-i-wish-i-knew-about-mongodb-a-year-ago/
-https://github.com/kaisellgren/Concurrency-concepts
-http://www.infoq.com/presentations/Asynchronous-Web-Programming
-http://www.drdobbs.com/open-source/concurrency-and-python/206103078?pgno=2
-http://onjava.com/pub/a/onjava/2002/09/04/nio.html
-http://www.infoq.com/articles/hypermedia-api-tutorial-part-one
-http://www.databasejournal.com/features/mysql/article.php/3891126/An-Introduction-to-Multi-Master-MySQL.htm
-http://www.infoq.com/articles/hypermedia-api-tutorial-part-two
-http://www.infoq.com/interviews/coutts-haskell
-http://www.infoq.com/presentations/Scaling-Facebook-Engineering
-http://www.infoq.com/presentations/Transactions-Misunderstood
-http://www.infoq.com/presentations/Spring-Data-GemFire
-http://www.infoq.com/presentations/Wakanda - batteries included - advantages of an end to end javascript stack
-http://www.infoq.com/presentations/Apache-Cassandra-Anti-Patterns
-http://www.infoq.com/presentations/JavaScript-Performance-Patterns
-http://www.infoq.com/presentations/JSR-352-Java-Batch
-http://www.infoq.com/interviews/williams-vertx
-http://heather.cs.ucdavis.edu/~matloff/158/PLN/ParProcBook.pdf
-http://sdiehl.github.com/coroutine-tutorial/
+Annotation Processing
+----------------------
+- Dagger DI
