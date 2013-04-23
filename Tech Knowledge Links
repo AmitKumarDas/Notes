@@ -1,4 +1,3 @@
-
 InvokeDynamic
 -----------------
 - Clustering using AOP - pdf
@@ -8,6 +7,8 @@ InvokeDynamic
 - Dyn.js
 - method Dispatching using indy -
 http://www.ec-spride.tu-darmstadt.de/media/ec_spride/secure_software_engineering/theses_1/kamil_erhard_master_thesis.pdf
+- http://www.bodden.de/pubs/bodden12invokedynamic.pdf
+
 
 Annotation Processing
 ----------------------
