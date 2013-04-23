@@ -1,7 +1,5 @@
 InvokeDynamic
 -----------------
-- Clustering & JVM - http://jonasboner.com/publications/AOSD_2007_Final.pdf
-- JVM & AOP - http://jonasboner.com/publications/JVM_AOP_AOSD2006.pdf
 - jooflux - http://arxiv.org/pdf/1210.1039.pdf
 - Bitescript n Jitescript
 - ASM pdf
@@ -16,3 +14,20 @@ http://www.ec-spride.tu-darmstadt.de/media/ec_spride/secure_software_engineering
 Annotation Processing
 ----------------------
 - Dagger DI
+
+
+AOP
+----------
+- http://docs.oracle.com/javase/6/docs/api/java/lang/instrument/package-summary.html
+- http://jonasboner.com/publications/JVM_AOP_AOSD2006.pdf
+- Clustering & JVM - http://jonasboner.com/publications/AOSD_2007_Final.pdf
+- http://java.dzone.com/news/socket-monitoring-now-using
+
+
+Caching
+---------
+- The weak references are good for caching purposes as they are eligible for collecting by GC
+- - despite the fact they are still accessible from the map instance.
+- Note that the WeakHashMap wouldn’t be a good candidate for this purpose 
+- - as it makes a weak references to the map keys, not values in which we’re interested in.
+- https://weblogs.java.net/blog/2006/05/04/understanding-weak-references
