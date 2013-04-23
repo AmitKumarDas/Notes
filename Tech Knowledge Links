@@ -23,6 +23,7 @@ AOP
 - Clustering & JVM - http://jonasboner.com/publications/AOSD_2007_Final.pdf
 - http://java.dzone.com/news/socket-monitoring-now-using
 - http://java.dzone.com/articles/implementing-build-time
+- https://github.com/oblac/jodd/tree/master/jodd-proxetta
 
 
 Caching
