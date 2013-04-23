@@ -1,13 +1,16 @@
 InvokeDynamic
 -----------------
-- Clustering using AOP - pdf
-- jooflux pdf
+- Clustering & JVM - http://jonasboner.com/publications/AOSD_2007_Final.pdf
+- JVM & AOP - http://jonasboner.com/publications/JVM_AOP_AOSD2006.pdf
+- jooflux - http://arxiv.org/pdf/1210.1039.pdf
 - Bitescript n Jitescript
 - ASM pdf
 - Dyn.js
 - method Dispatching using indy -
 http://www.ec-spride.tu-darmstadt.de/media/ec_spride/secure_software_engineering/theses_1/kamil_erhard_master_thesis.pdf
 - http://www.bodden.de/pubs/bodden12invokedynamic.pdf
+- http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html
+- golo
 
 
 Annotation Processing
