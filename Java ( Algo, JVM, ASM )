@@ -396,8 +396,45 @@ JSR 269 -- Annotation Processing --
 
 ======================AOP============================
 
+ AOP & java.lang.reflect
+--------------------------
+	> cannot query a Java type reflectively without loading this class
+	> & when u load this class, weaving will be triggered
+	> so reflection wont help in weaving
 
+	Changing bytecode @ runtime
+------------------------------
+	> HotSwap API
+	> as part of JVMTI specs
+	> It involves CPU overhead & memory overhead
+	
+	Weaving the Reflective calls
+-------------------------------
+	> weaver only see calls to java.lang.reflect
+	> no way for the weaver to see the reflective calls
+	
+	Can JVM help in BC Weaving
+------------------------
+	> [a]
+	> when class gets loaded, 
+	> JVM reads the bytecode to build up the data needed to serve java.lang.reflect.* API
+	> [b]
+	> method dispatching
+	> JVM compile the bytecode of methods or code blocks 
+	> to more advanced & efficient constructs & execution flows
 
+	> Answer ---
+----------------
+	> As JVM has so much info on execution flow, it can dispatch to an Advice
+	> without changing the bytecode
+	> without startup costs
+	> implicit support to add & remove advices @ any place @ any time @ linera cost
+	
+
+	JVM & its BC weaving techniques
+----------------------------------
+	> JRockit JVM AOP support exposes a Java API
+	> 
 
 
 ===================================================================
