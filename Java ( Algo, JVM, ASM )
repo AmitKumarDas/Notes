@@ -11,6 +11,8 @@
 	> JSR 299/318 - Interceptors
 
 
+
+
 JSR 269 -- Annotation Processing --
  Dagger - A DI not using Reflection
 ---------- ---------------------------------
@@ -31,6 +33,21 @@ JSR 269 -- Annotation Processing --
 	> Now write custom annotation processors that can be plugged in to the compilation process
 	> java.lang.model.*
 	> java.annotation.processing.*
+
+
+ Indy - JSR 292
+-----------------
+	> call method by name
+	> no need to know the implementation of the method
+	> decribes a new bytecode, indy, & a series of new constant-pool entries
+
+
+	Soot 
+----------
+	> static analysis & transformation of Java programs
+
+
+
 
  Bytecode Generation
 ------------------------
@@ -148,7 +165,20 @@ JSR 269 -- Annotation Processing --
 ----------------------------
 	> has info - where in the original code the dynamic invocation came from
 	> is the return value of the bootstrap process
+	> callsite().getTarget() -> MethodHandle
+	> callsite may be constant
+	> callsite may be mutable
+	> CS may not return the same method handle on each call
+	
+	Indy Method Names
+-------------------
+	> can only be Utf8 strings
 
+	Indy -> Lookup obj
+-------------------------
+	> Bootstrap method retrieves appropriate method defns using a lookup obj
+	> lookup obj is passed implicitly by JVM
+	> lookup - has the calling context with its lookup rules
 
 
  Java Instrumentation
