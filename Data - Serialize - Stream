@@ -1,4 +1,3 @@
-
  JS --> Access this C structure via TypedArray
 -----------------------------------------
 struct someStruct {
@@ -233,12 +232,24 @@ UTF-8 & Search Char
   > e.g. serialize using XMLStreamWriter
   > > more formatting via decorators etc
   
- -0 Write a XML Document to XXX
+ -0 Transform/Persist XML Document to XXX
 ------------------------------
   > write a org.w3c.dom.Document to String/file/writer/stream
-  > write to stream via StreamResult & java.io.ByteArrayOutputStream & ToXMLStream & DOMSource
-  > write to file via StreamResult & java.io.FileWriter & ToXMLStream & DOMSource
-  > write to Writer via StreamResult & java.io.Writer & ToXMLStream & DOMSource
+
+ XML Doc to Stream - [@ Code]
+------------------------  
+  > use StreamResult, java.io.ByteArrayOutputStream, ToXMLStream, DOMSource
+
+XML Doc to File - [@ Code]
+---------------------
+  > use StreamResult, java.io.FileWriter, ToXMLStream, DOMSource
+
+XML Doc to Writer  [@ Code]
+---------------------
+  > use StreamResult, java.io.Writer, ToXMLStream, DOMSource
+
+Helpful Stream APIs [@ Code]
+------------------------
   > StreamResult = javax.xml.transform.stream.StreamResult
   > ToXMLStream  = org.apache.xml.serializer.ToXMLStream
   > DOMSource    = javax.xml.transform.dom.DOMSource
