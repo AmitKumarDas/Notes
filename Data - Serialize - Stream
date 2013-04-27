@@ -1,5 +1,4 @@
 
-
  JS --> Access this C structure via TypedArray
 -----------------------------------------
 struct someStruct {
@@ -175,17 +174,14 @@ UTF-8 & Search Char
   > provides conversion between Python values & C structs
   > C structs represented as Python strings
 
-  When is handling binary data required ?
+  Binary data Why ?
 -------------------------------------------
   > can be stored in files
   > can be transferred in network
   > Python struct module can be used to handle binary data
 
 
-
-
- 
- Java - Custom ObjectInputStream - If AtAll
+ Java - Custom ObjectInputStream - If AtAll [@ Design]
 -----------------------------------
   > very basic steps to handle Java primitive type  
   > check for primitive types & return its Class
@@ -202,35 +198,35 @@ UTF-8 & Search Char
   > so not just bytes... but Java Bytes
   > Java object need to implement Serializable
 
- -0 XMLStreamWriter -
+ -0 XMLStreamWriter - [@ Code]
 -----------------------
   > enable writing of XML programmatically
   > check if proper escaping is enabled/disabled
   > i.e. < > etc special chars should be in place inside the XML
 
- -0 Write events to DISK
+ -0 Write XML to DISK [@ Code]
 ----------------------------
   > use XMLStreamWriter
   > use FileWriter to open up a file on disk
 
- -0 Write XML to System.out
+ -0 Write XML to System.out [@ Code]
 -----------------------------
   > use XMLStreamWriter
   > use System.out
 
- -0 Convert XML from library A's type into library B's type
+ -0 Convert XML from library A's type into library B's type [@ Code]
 -------------------------------------------------
   > serialize library A's object into outputstream via XMLStreamWriter
   > feed a inputstream from above output stream
   > create library B's object from inputstream via some parser library
 
- -0 org.w3c.dom.Document + Generate
+ -0 org.w3c.dom.Document + Generate [@ Code]
 ------------------------------------
   > use javax.xml.parsers.DocumentBuilder
   > parse the inputstream using DocumentBuilder
 
 
- -0 Serialize java object to OutputStream
+ -0 Serialize java object to OutputStream [@ Code]
 --------------------------------------------
   > serialize to ByteArrayOutputStream
   > serialize may be implemented by the java object
