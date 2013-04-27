@@ -1,55 +1,59 @@
 
 
-
- Access this C structure via TypedArray
+ JS --> Access this C structure via TypedArray
 -----------------------------------------
 struct someStruct {
   unsigned long id;
   char username[16];
   float amountDue;
 };
-You can access a buffer containing data in this format like this:
 
-var buffer = new ArrayBuffer(24);
-// ... read the data into the buffer ...
-var idView = new Uint32Array(buffer, 0, 1);
-var usernameView = new Uint8Array(buffer, 4, 16);
-var amountDueView = new Float32Array(buffer, 20, 1);
+You can access a Buffer containing data in this format like this:
+ 
+ - Set size of byte via ArrayBuffer
+ - Compose ArrayBuffer ... into views like
+ - Uint32Array , Uint8Array, Float32Array
 
 
-unicode-encoded String
----------------------------
-  > i.e. treating RAW data as String
-  > --> use charCodeAt() to read bytes from the data buffer
+ Read Bytes from data buffer
+--------------------------- 
+  > use charCodeAt()  
 
  charCodeAt(index)
 ------------------
   > returns Numeric Unicode value of the character at the given index 
 
 
-Binary Data Vs. unicode-encoded Strings
+ Browser Ok With  Strings
 -------------------------------------------
-  > not the same
-  > may be ok in browser w.r.t unicode-encoded String
+  > Unicode-encoded Strings
+  > May be ok in Browser w.r.t unicode-encoded String
   > In Browser most data is in form of String
-  > Consider server side cases
-  > --> server has to handle TCP streams
-  > --> server has to read / write to files
-  > --> SO its necessary to deal with PURELY binary form of data
 
- NodeJS --> Binary Strings Vs Buffers
+ Server Side Requires Binary
+----------------------------------  
+  > server has to handle TCP streams
+  > server has to read / write to files
+  > SO its necessary to deal with PURELY binary form of data
+
+
+ TIP - 'Unicode String' vs 'Binary String' vs 'Buffer & View'
+
+ NodeJS --> Buffers --> Outside V8
 ----------------------------------------
   > Each Buffer  =  some raw memory allocated outside V8
-  > Buffer ~ similar to ~ Array of Integers
+
+
+ JS --> Buffer --> ArrayBuffer
+-----------------------------------
+  > is actually an Array of Integers
   > The Integer in the Buffer ~ represent ~ a Byte
   > SO Integer range ~ 0 to 255 (inclusive)
   > --> NOTE - Contents of this ARRAY r integers representing BYTES
 
  NodeJS --> Buffer --> Use
 ------------------------------
-  > Initialize like an array
-  > write stuff in string
-  > NOTE - give the encoding type
+  > write stuff in string ... & give encoding type
   > Encoding Type --> ascii, utf-8, ucs2, base64
   > We can specify an OFFSET too i.e. INDEX of the buffer to start writing to
 
@@ -70,16 +74,14 @@ Binary Data Vs. unicode-encoded Strings
   > --> no of bytes vs. no of integers in Array
   > buffer.copy & buffer.slice
 
- TypedArray Specs --> Buffer & View
+ TypedArray Specs --> Buffer & View  [@ DESIGN]
 ------------------------------
   > Buffer via ArrayBuffer --> represents chunk of data
   > Buffer --> no format, no mechanism to access its contents
   > View --> provides context --> data type, offset, no of elements
   > View --> via ArrayBufferView class
  
-
-
- COmbining single buffer with multiple views
+ Single buffer with multiple views
 -------------------------------------------------
   > --> can interact with data objects containing multiple data types
   > interact with WebGL, data files or C structures
@@ -91,13 +93,19 @@ Character - Hows & Whys
   > each code point can be directly encoded with a 32 bit code unit
 
 
- UTF-8 ... WHY ?
+ UTF-8 -for- Byte Stream
 -------------------
   > need for a GOOD BYTE STREAM ENCODING OF MULTI-BYTE CHARACTER SETs  
   > backward compatibility with ASCII
   > avoid endianess & byte order marks in UTF-16 & UTF-32
+
+UTF-8 & Bit ops
+--------------------
   > efficient to encode using bit operations.
   > no need of slow math ops like multiply or divide
+
+UTF-8 & Search Char
+------------------------
   > character boundaries are easily found when searching forwards or backwards
   > if bytes are lost due to corruption or error, 
   > -> one can locate the beginning of next character thus limiting the damage
@@ -109,11 +117,7 @@ Character - Hows & Whys
   > Get the character
   > Get the Unicode code point for the character
   > Convert to binary code point
-  > This will tell you the byte size
-  > Depending on byte size, append leading 1 'size' no of times to first byte, then append leading 0
-  > append 10 to other bytes
-  > Above is Binary UTF-8
-  > Converting to Hexadecimal UTF-8 etc is usual stuff
+
 
  UTF-8 -> Popularity
 ----------------------
@@ -141,7 +145,6 @@ Character - Hows & Whys
   > can be native / little-endian / big-endian / network (=big-endian)
   > depends on host system
 
-
   C Type  -> Size
 --------------
   > can be native or standard
@@ -159,8 +162,8 @@ Character - Hows & Whys
 -----------------
   > When you accept a transmitted data you parse the data
 
-   Receive Data + NODE JS Snippet
---------------------------------
+   JS--> Data + Socket + Base64 + Binary String
+-----------------------------------------
   > JSON.parse the data
   > if data is base64 encoded then decode 
   > raw = new Buffer(base64decoded, 'binary')
