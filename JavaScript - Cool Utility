@@ -6,23 +6,7 @@
  > http://css.dzone.com/articles/why-asmjs-big-deal-game
  > http://asmjs.org/spec/latest/
 
- Node --> Stream 
-------------------
-  > fs.createReadStream better than fs.readFile
-  > --> use along with pipe
-  > Now Node need not buffer chunks into memory needlessly
-  > --> when remote client is on a slow conn
-
- Node --> Stream --> Further
--------------------------------
-  > go for filed module
-  > --> mime, etag, error handling, streaming API
-  > go for oppressor
-  > --> for browsers that support gzip/deflate
-
-
-
-
+ 
 -0 Eventize an Object - Usual Way
 ----------------------------------------
  AnObject.prototype.emit = function(event, param) {
@@ -30,7 +14,7 @@
 		this._callbacks[event].call(this, param);
 };
 
- AnObject..prototype.on = function(event, callback) {
+ AnObject.prototype.on = function(event, callback) {
   if(typeof callback === 'function')
 		this._callbacks[event] = callback;
 	return this;
@@ -125,7 +109,7 @@
   > also known as Nested or Inner functions
   > well supported .. coz define a function sans this in any part of the outer function
 
- -0 Inner Fucntion within a Constructor
+ -0 Inner Function within a Constructor
 -------------------------------------------
   > NOTE - instance variables of the outer function e.g. Constructor 
   > cannot be accessed from inner function of the Constructor
