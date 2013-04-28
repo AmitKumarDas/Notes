@@ -1,0 +1,17 @@
+
+  Lamdba Expressions
+------------------------
+  > static & dynamic expressions
+  > defer the selection of translation strategy intil runtime
+  
+  Desugar
+----------
+  > Desugar the lambda body into a method
+
+  Desugar 2 what ?
+---------------
+  > static method or instance method ?
+  > in what class should this desugared methd go ?
+  > etc ?
+
+
