@@ -37,3 +37,13 @@ Caching
 - Note that the WeakHashMap wouldn’t be a good candidate for this purpose 
 - - as it makes a weak references to the map keys, not values in which we’re interested in.
 - https://weblogs.java.net/blog/2006/05/04/understanding-weak-references
+
+  JavaScript
+------------------
+ > http://code.google.com/p/selenium/wiki/JsonWireProtocol
+ > http://code.google.com/p/selenium/wiki/WebDriverJs
+ > github.com/substack/stream-handbook
+ > http://css.dzone.com/articles/why-asmjs-big-deal-game
+ > http://asmjs.org/spec/latest/
+
+
