@@ -1,5 +1,16 @@
 
- 
+	Force the Context
+-----------------------
+	> via apply or call
+
+	Context i.e. this
+------------------------
+	> Implicit or Explicit
+	> 'call' & 'apply' are explicit
+	> within a method is implicit
+	> via new operator is implicit
+
+
 -0 Eventize an Object - Usual Way
 ----------------------------------------
  AnObject.prototype.emit = function(event, param) {
