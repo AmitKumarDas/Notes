@@ -1,0 +1,44 @@
+
+  Via CACHING
+
+var asRectangle = (function() {
+  function area() {
+    return this.length * this.width;
+  }
+  function grow() {
+    this.length++, this.width++;
+  }
+  function shrink() {
+    this.length--, this.width--;
+  }
+  return function() {
+    this.area = area;
+    this.grow = grow;
+    this.shrink = shrink;
+    return this; //optional ; only to chain
+  };
+})();
+
+//The Constructor
+var RectangularButton = function(length, width, label, action) {
+  this.length = length;
+  this.width = width;
+  this.label = label;
+  this.action = action;
+}
+
+
+//No need 4 NoOp as RectangularButton is already a function
+//The this inside the MIXIN will be set with <Function>.prototype
+//Alternative was RectangularButton.prototype.xxxMethod
+ 
+asRectangle.call(RectangularButton.prototype);
+
+//We instantiate here
+var button3 = 
+  new RectangularButton(4, 2, 'delete', function() {return 'deleted'});
+
+button3.area(); //8
+button3.grow();
+button3.area(); //15
+button3.fire(); //'deleted'
