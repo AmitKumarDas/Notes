@@ -45,5 +45,31 @@ Caching
  > github.com/substack/stream-handbook
  > http://css.dzone.com/articles/why-asmjs-big-deal-game
  > http://asmjs.org/spec/latest/
+  
+  > Object.observe
+  > ES.Next classes
+  > ES.Next modules
+
+
+
+  Taming Callbacks
+----------------------
+  > Promises
+  > narrative.js
+  > stratified.js
+  > streamline.js
+  
+  Threads & Now Green Threads
+-----------------------------
+  > Er.js, Fibers, Threads.js, 
+  
+
+
+
+
+
+
+
+
 
 
