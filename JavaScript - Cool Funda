@@ -1,5 +1,18 @@
 
-	Force the Context
+
+  - A CUSTOM EACH FUNCTION THAT RELIES ON APPLY
+-------------------------------------------------
+  each: function(array, callback) {
+    for (var i = 0; i < array.length; i++) {
+      var value = array[i];
+
+      //Apply callback by BINDING the current value
+      callback.apply(value, [i, value]);
+    }
+  }
+
+
+  Force the Context
 -----------------------
 	> via apply or call
 
@@ -121,22 +134,6 @@
   >> prototype
   >> constructor closure
   >> Object.defineProperty
-
-  function Cat(name){
-    var voice = "meow";
-    this.name = name;
-    this.say  = function (){
-        return voice;
-    }
-  }
-   
-  Cat.prototype.eat = function() {
-     return "Eating";
-  }
-
-  var cat = new Cat("Fluffy");
-
-  Object.defineProperty(cat, "numLegs", {value:4, writable:true, enumerable:true, configurable:true});
 
  
  -0 Public Static Members
