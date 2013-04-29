@@ -25,3 +25,16 @@
   > Extend the HttpConnectionManager
   > Find a connection given its configuration
   > 
+
+ EventSource vs WebSocket
+----------------------------
+ > EventSource is easier to setup on server (uses http), lighter and most of the times - that's what you acually need.
+
+ Event Source vs Server Sent Events
+--------------------------------------
+
+
+
+
+
+
