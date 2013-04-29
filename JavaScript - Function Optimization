@@ -1,6 +1,7 @@
-
   Via CACHING
 
+
+//The Behavior also known as Mixin
 var asRectangle = (function() {
   function area() {
     return this.length * this.width;
