@@ -1,5 +1,17 @@
 
 
+	++ Underscore template ++
+---------------------------------
+	- compiles JS templates into function that can be evaluated for rendering
+	- useful for rendering complicated bits of HTML from JSON data sources. EXAMPLE ??
+	- can use Mustache style templating or any other stuff easily
+	- precompiling - big help during debugging
+	- precompiled templates provide line nos. & stacktrace
+	- this is not possible when compiling templates on client
+
+
+
+
   - A CUSTOM EACH FUNCTION THAT RELIES ON APPLY
 -------------------------------------------------
   each: function(array, callback) {
