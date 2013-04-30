@@ -18,3 +18,59 @@ Example
 ----------------
 CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of information. 
 
+  Collectors
+------------
+  > Concurrent Collector  - GC with app execution
+  > parallel Collector - uses multiple CPUs for GC
+  > Stop The World Collector - performs GC while app is stopped completely
+  > Incremental Collector - performs GC as a series of small ops with longer gaps in between
+  
+   GC Safepoint
+---------------------------
+  > point where the collector can identify all the references in that thread's execution stack
+
+
+   Oldgen & CMS
+-------------------------
+  > Mark Sweep Compact - common for OldGen
+
+  YoungGen & CC
+---------------------
+  > Copying Collector - common for YoungGen
+
+  Mark
+-----------
+  > all reachable objs marked live
+  > all NON reachable objs marked DEAD
+
+  Sweep
+-----------
+  > Scan the heap
+  > Identify DEAD objects
+  
+  Compact
+------------
+  > Defragments the heap
+
+  Compact
+-----------------
+  > Move LIVE objects together to reclaim CONTIGUOUS empty space
+  > above is Relocate
+  > obj references need to be corrected to these new locations - remap
+  > Remap scan
+
+  Copy
+-----------
+  > moves all lives objects
+  
+
+
+
+
+
+
+
+
+
+  
+  
