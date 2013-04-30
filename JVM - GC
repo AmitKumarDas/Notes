@@ -1,5 +1,6 @@
-
   Its such a big topic ... need to learn this !!
+
+
 
 Example
 --------------
@@ -11,4 +12,9 @@ Example
 
   > 84.35 ~ timestamp ~ no of seconds after JVM startup
   > 2010-04-16T12:11:18.979+0200: ~ datestamp ~ enabled via -XX:+PrintGCDateStamps
+
+
+  Settings
+----------------
+CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of information. 
 
