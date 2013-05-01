@@ -44,6 +44,12 @@
   > tenured generation pool - a good one to monitor
 
 
+  Memory usage Notification
+--------------------------------
+  > When it crosses the limit
+  > do a Thread.getAllStackTraces()
+  > coz you wont be able to do above operation after a OOME
+
 
 
   
