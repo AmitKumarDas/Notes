@@ -63,7 +63,19 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
 -----------
   > moves all lives objects
   
+ OOME
+-----------
+  > There is little that you can do about it, except to exit the program, change the -Xmx value, and restart the JVM.
+  > Is -Xmx is too large, you slow down the application
+  > Out Of Memory Exception can happen in any thread
+  > This thread dies
 
+  OOME & its Stack Trace
+---------------------------
+  > often there is not enough memory to build the stack trace for the OOME
+
+
+  
 
 
 
