@@ -1,4 +1,3 @@
-
   JMXMP vs RMI
 ------------------
   > Use JMXMP over RMI
@@ -34,9 +33,20 @@
   java.lang.management.*
 -----------------------------
   > Lots of MBeans are available
+  > good one is MemoryMXBean
+  
+  MBean & Notification
+--------------------------
+  > See usage of NotificationEmitter & Notification etc
+
+  Memory Pool
+---------------------
+  > tenured generation pool - a good one to monitor
 
 
 
+
+  
 
 
 
