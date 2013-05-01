@@ -13,6 +13,11 @@ http://www.ec-spride.tu-darmstadt.de/media/ec_spride/secure_software_engineering
 - http://www.bodden.de/pubs/bodden12invokedynamic.pdf
 - https://github.com/melix/groovy-bytecode-ast/wiki
 
+ GC
+--------
+- https://blogs.oracle.com/jonthecollector/entry/the_second_most_important_gc
+- https://weblogs.java.net/blog/emcmanus/archive/2006/11/a_real_example.html
+
 
 Annotation Processing
 ----------------------
@@ -28,7 +33,7 @@ AOP
 - http://java.dzone.com/articles/implementing-build-time
 - https://github.com/oblac/jodd/tree/master/jodd-proxetta
 - http://theholyjava.wordpress.com/2011/09/07/practical-introduction-into-code-injection-with-aspectj-javassist-and-java-proxy/
-
+- http://kamranzafar.org/weblog/2009/04/03/regex-based-spring-aop-auto-proxy-creator/
 
 Caching
 ---------
