@@ -75,6 +75,24 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   > often there is not enough memory to build the stack trace for the OOME
 
 
+  Tenured Generation Pool
+-----------------------------
+  > objs surviving the young generation migrate to tenured
+  > -Xmx - the max memory to be used in Tenured Generation
+
+  Young Gen
+---------------
+  > lots & lots of garbage in it
+  > normally a copy collector
+
+  Tenured Gen
+-----------------
+  > longer lived objs
+  > normally mark & sweep collector
+
+
+
+
   
 
 
