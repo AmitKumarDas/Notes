@@ -1,0 +1,43 @@
+
+  JMXMP vs RMI
+------------------
+  > Use JMXMP over RMI
+
+  Container & MBeanServer
+---------------------------
+  > Container may not provide a MBeanServer
+  > We can have a Spring Container to provide a MBeanServer
+
+  <bean class="org.springframework.jmx.support.MBeanServerFactoryBean"/>
+
+  Spring never used in App...
+------------------------------
+  > The statistics & monitoring classes can be exposed via Spring Exporter
+  > Most probably these class will be singleton in nature
+  > We shall make use of Spring bean's factory-instance attribute
+
+  Spring Container & Remote JMX Access
+-------------------------------------------
+  > <bean class="org.springframework.jmx.support.ConnectorServerFactoryBean" />
+  > By default above bean uses JMX Messaging Protocol
+  > must include jmxremote_optional.jar in classpath in BOTH  MBean server & Mbean Client
+
+  Platform MBeans
+--------------------
+  > provide info about JVM 
+  > heap usage, GC etc
+
+  Expose Platform MBeans
+-----------------------------
+  > java.lang.management.ManagementFactory
+  
+  java.lang.management.*
+-----------------------------
+  > Lots of MBeans are available
+
+
+
+
+
+
+
