@@ -143,6 +143,39 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   > do a Thread.getAllStackTraces()
   > coz you wont be able to do above operation after a OOME
 
+  Live Set
+------------
+  > Amt of Live Set - propotional to - Copy Collector
+  > Amt of Live Set - proportional to - Mark/Compact Collector
+  > Increase Empty Memory - Mark/Compact or Copy Collector efficieny increases
+  
+  Empty Memory
+-----------------
+  > controls the frequency of pauses
+  > doesnot control the pause times
+  > iff the collector performs STW operation
+  > In Mark/Sweep/Compact collectors dat pause for sweeping, more empty memory means
+  > > less frquent pause
+  > > but Larger pause times
+
+  Often Thought Tuning Approach
+---------------------------------
+  > get empty space
+  > 
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
 
 
 References
