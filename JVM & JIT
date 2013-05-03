@@ -1,0 +1,62 @@
+
+  JIT Compilation
+--------------------
+  > transforms code
+  > code actually executed can be different than the code you write
+
+  Compiler Tricks - Reads can be cached
+----------------------------------------
+  int distanceRatio(Object a) {
+    int distanceTo = a.getX() - start;
+    int distanceAfter = end - a.getX();
+    return distanceTo/distanceAfter;
+}
+
+  Is same as 
+
+  int distanceRatio(Object a) {
+    int x = a.getX(); 
+    int distanceTo = x - start; 
+    int distanceAfter = end - x;
+    return distanceTo/distanceAfter;
+}
+
+   - Compiler Tricks - Reads can be cached
+----------------------------------------
+  void loopUntilFlagSet(Object a) {
+    while (!a.ﬂagIsSet()) {
+    loopcount++;
+  }
+}
+
+  Is same as:
+
+  void loopUntilFlagSet(Object a) {
+    boolean ﬂagIsSet = a.ﬂagIsSet();
+    while (!ﬂagIsSet) {
+      loopcount++;
+  }
+}
+
+
+  Compiler Tricks 
+-----------------------------------------------
+  - Writes can be eliminated
+  - Inlining
+
+  public class Thing {
+    private int x;
+    public ﬁnal int getX() { return x };
+  }
+  ...
+  myX = thing.getX();
+
+  Is same as 
+
+  Class Thing {
+    int x;
+  }
+  ...
+  myX = thing.x;
+
+
