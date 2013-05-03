@@ -1,4 +1,3 @@
-
   JIT Compilation
 --------------------
   > transforms code
@@ -58,5 +57,24 @@
   }
   ...
   myX = thing.x;
+
+
+  JIT can do CHA
+------------------
+  > Class Hierarchy Analysis
+  
+  Adapting to Adaptive JIT
+------------------------------
+  > Trading system wants to have the first trade be fast
+  > so run 20,000 fake messages thru the system to warm up
+  > just make it real enough with proper source & sink
+
+  
+  
+
+
+References
+---------------
+1/ http://www.infoq.com/presentations/JVM-Mechanics
 
 
