@@ -109,6 +109,44 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   > However, all the next collections will be Major GCs only
   > increasing the NewRatio might help
 
+ Increasing NewRatio
+-----------------------
+  > Will increase the TenuredGen Size & decrease Young Gen
+  > Lets say if its 5
+  > Then TenuredGen = 5/6 & YoungGen = 1/6 ; of total Heap Space
+  > Will be ok for overflowing & mostly filled Tenured Gen apps
+
+  App with Higher Threads
+--------------------------
+  > Might be allocating with higher rate
+  > so a large Young Gen may be appropriate
+  > NewSize & MaxNewSize will give precise control over Young Gen
+
+  Default NewRatio Values
+--------------------------
+  > is platform & runtime compiler (JIT) dependent
+
+  CMS Initial Mark & Concurrent Mark
+---------------------------------------
+  > initial mark completes then concurrent mark starts
+  > concurrent mark can be interrupted by Young Gen collections .. remember thread & concurrency
+  > Initial mark is a Stop The World phase
+  > CMS concurrent YIELDs to Young Gen collection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
