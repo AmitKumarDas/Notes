@@ -143,15 +143,11 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   > do a Thread.getAllStackTraces()
   > coz you wont be able to do above operation after a OOME
 
-  JIT Compilation
---------------------
-  > transforms code
-  > code actually executed can be different than the code you write
 
-  Compiler Tricks
---------------------
-  > Reads can be cached
-  > 
+
+References
+1/ http://www.infoq.com/presentations/JVM-Mechanics
+
 
 
 
