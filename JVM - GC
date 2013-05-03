@@ -133,36 +133,7 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   > Initial mark is a Stop The World phase
   > CMS concurrent YIELDs to Young Gen collection
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
 
 
 
-
-
-
-
-
-  
-  
