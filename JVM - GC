@@ -91,6 +91,30 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   > normally mark & sweep collector
 
 
+  NewRatio
+---------------
+  > a ratio of 2 means
+  > = Tenured Generation Size is 2/3 of Total heap size
+  > = Young Generation Size is 1/3 of Total heap size
+
+  Aliter of Newratio
+-------------------------
+  > NewSize & MaxNewSize refers to Young Gen sizes
+
+  If Young & Tenured Gen is FULL
+-----------------------------------
+  > lets say young & tenured gen is over flowing with long lived data
+  > So, Minor GC cannot be done successfully
+  > Hence, a Major GC will be done
+  > However, all the next collections will be Major GCs only
+  > increasing the NewRatio might help
+
+
+
+
+
+
+
 
 
   
