@@ -133,7 +133,25 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   > Initial mark is a Stop The World phase
   > CMS concurrent YIELDs to Young Gen collection
 
-  
+  Memory Pool
+---------------------
+  > tenured generation pool - a good one to monitor
+
+  Memory usage Notification
+--------------------------------
+  > When it crosses the limit
+  > do a Thread.getAllStackTraces()
+  > coz you wont be able to do above operation after a OOME
+
+  JIT Compilation
+--------------------
+  > transforms code
+  > code actually executed can be different than the code you write
+
+  Compiler Tricks
+--------------------
+  > Reads can be cached
+  > 
 
 
 
