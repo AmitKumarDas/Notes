@@ -1,0 +1,65 @@
+  Lamdba Expressions
+------------------------
+  > static & dynamic expressions
+  > defer the selection of translation strategy intil runtime
+  
+  Desugar
+----------
+  > Desugar the lambda body into a method
+
+  Desugar 2 what ?
+---------------
+  > static method or instance method ?
+  > in what class should this desugared methd go ?
+  > etc ?
+
+ MethodHandle -4- String.replaceALL(String, String)
+----------------------------------------------------------------
+  > UseCase - Replace %20 with " "
+  
+  public static MethodHandle replaceSpaces(Lookup lookup) throws Throwable {
+    return insertArguments(lookup.findVirtual(String.class, "replaceAll",
+      methodType(String.class, String.class, String.class)), 1, "%20", " ");
+  }
+
+  public static void main(String... args) throws Throwable {
+    MethodHandle mh = replaceSpaces(lookup());
+    System.out.println((String) mh.invokeExact("A%20B%20C%20"));
+  }
+
+
+  Indy OpCode <-LINK-> Bootstrap Method
+------------------------------------------
+  > Opcode is linked to bootstrap method
+  > via invoking a static method
+  > this static method obtains a method handle
+  > the Method Handle matches the call site
+  > Finally, a CallSite is instantiated & returned
+
+  MethodHandle vs Reflection Method
+-------------------------------------
+  > Method Handles are type-checked only at creation time
+  > Reflection objects need to perform checking for each invocation
+  
+  JooFlux - What it is not ?
+--------------
+  > does not add new instructions into the transformed bytecode
+  > doesnot require reloading classes as new advices are being injected
+  > doesnot require reloading classes as method implementations r replaced
+
+  JooFlux - What it does ?
+----------------------------
+  > Relies on 2 method handle combinators found in java.lang.invoke.MethodHandle
+  > > filterArguments
+  > > filterReturnValue
+  > Keeps the method handle chain almost intact, it protects JIT optimizations
+
+
+
+
+
+
+References
+---------------
+1/ http://arxiv.org/pdf/1210.1039.pdf
+2/ 
