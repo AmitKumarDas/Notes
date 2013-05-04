@@ -161,7 +161,18 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   Often Thought Tuning Approach
 ---------------------------------
   > get empty space
-  > 
+  
+  Tuning Approach - 2
+--------------------------
+  > Kyun ki (Becoz) most ojects die young
+  > So collect young objects only, as much as possible
+  > & then HOPE for STW
+  
+  Tuning Approach - 3
+------------------------
+  > Most dead space can be reclaimed without moving it
+  > CMS track dead space in lists & reuse it in place
+  > But eventually space gets fragmented & needs to be moved.
 
 
 
