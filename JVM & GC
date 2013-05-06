@@ -133,6 +133,32 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   > Initial mark is a Stop The World phase
   > CMS concurrent YIELDs to Young Gen collection
 
+
+  Example
+-------------
+[GC [1 CMS-initial-mark: 463236K(515960K)] 464178K(522488K), 0.0018216 secs] [Times: user=0.01 sys=0.00, real=0.00 secs]
+Explained Below
+[GC [1 CMS-initial-mark: oc--OG(tot-OG)]  oc-Y+OG(tot-Y+OG), dur-MarkInit] [Times: user=0.01 sys=0.00, real=0.00 secs]
+
+  > oc - occupied
+  > tot - total
+  > dur - duration
+  > Initial mark is a STW
+
+  Example
+-------------
+[GC[ParNew: 6528K->702K(6528K), 0.0130227 secs] 469764K->465500K(522488K), 0.0130578 secs] [Times: user=0.05 sys=0.00, real=0.01 secs]
+[GC[ParNew: oc-YG->oc-YG(tot-YG), pause duration] oc-Y&OG->oc-Y&OG(tot-HS), dur-ParNew] [Times: user=0.05 sys=0.00, real=0.01 secs]
+
+  > ratio - usr/real = 0.05/0.01 = spped up u r getting from ParNew collection
+  > sys time - system activity indicator - that is slowing down the collection
+  > If paging is happening - sys will be high
+  > HS - Heap Space
+
+
+
+
+
   Memory Pool
 ---------------------
   > tenured generation pool - a good one to monitor
@@ -177,7 +203,9 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   jHiccup
 ---------------
   > tool 4 capturing & displaying platform hiccups
-  > 
+
+
+
 
 
 
