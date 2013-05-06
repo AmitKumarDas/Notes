@@ -779,6 +779,12 @@ JSR 269 -- Annotation Processing --
   > consumers to write
 
 
+  Commons Pool
+--------------------
+ - org.apache.commons.pool.KeyedObjectPool;
+ - org.apache.commons.pool.impl.GenericKeyedObjectPool;
+ - With modern JVM object creation is cheap
+ - With JVM > 1.4 pooling is no more needed for optimization of memory management 
 
 
 
