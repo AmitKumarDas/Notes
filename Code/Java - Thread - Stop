@@ -1,0 +1,45 @@
+
+ - Stop a thread
+ - was deprecated - coz many resources will be in a hanging state
+ - it was pushed back to the implementation of the program
+ - yet we can have a flag in the custom Thread class to do this task
+
+ - should this flag be volatile
+ - yes if other threads will want to change the flag value
+ - In other words Runner will be able to see the update.
+
+
+ - Actual Reasons
+ - Cannot kill a thread if the thread owns some locks
+ - in other words, in the middle of synchronized block & u try to kill it
+ - those locks wont be released & the program is left in a state where it will certainly deadlock
+ - Threads in a JVM work on the Interrupted model
+ 
+ - A practical example
+ - Any thread can request any other thread to shutdown by calling the interrupt method on other thread
+ - This sets the interrupt flag on the thread
+ - Now when the thread enters a blocking call or tries to lock like Thread.sleep() or Object.wait()
+ - an InterruptedException is thrown
+ 
+try {
+ while( !Thread.currentThread().isInterrupted() ) {
+  // do your business here
+ }
+} catch( InterruptedException ex ) {
+ logger.info("Thread shutting down requested.");
+ } finally {
+ // clean up any mess here.
+ // exit the run block via a flag etc.
+}
+
+ - Understand the InterruptedException, else even using the Executor framework wont handle otherwise
+
+ - Using Executor service to stop thread
+-----------------------------------------
+ - does the thread management stuff
+ - shutdown() method stop Executors which will stop all running thread on pool
+ - can also query if an Executor has been terminated or still shutting down
+ - also, Executor Service returns the handle to each thread in terms of Future.
+ - Future.cancel(true) can stop the running thread
+
+
