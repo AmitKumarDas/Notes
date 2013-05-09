@@ -1,0 +1,17 @@
+
+ - Simplifies the wait & notify mechanism
+ 
+ - Use Case - Various services are started in separate thread. 
+   > You want to print a message iff all the services start successfully.
+
+ - Solution - Create a CountDownLatch passing a value equal to the number of services to be monitored
+   > Create Threads for each Service
+   > Pass this latch during service creation, etc
+   > Start the Threads which in turn will start the Services
+   > Once each service has started successfully, countdown the latch
+   > In your main thread do an await() 
+   > Once the main thread code comes out of await() it means all services have started successfully
+
+- Disadvantage of CountdownLatch
+   > Cannot reuse the latch once the count == 0
+   > Try CyclicBarrier for such requirements
