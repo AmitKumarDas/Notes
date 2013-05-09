@@ -1,2 +1,4 @@
+ - volatile -> prevent compiler or JVM optimization in terms of caching or reordering.
 
-- volatile -> prevent compiler or JVM optimization in terms of caching or reordering.
+ - compiler doesnot reorganize reads or writes on volatile variables
+ - 
