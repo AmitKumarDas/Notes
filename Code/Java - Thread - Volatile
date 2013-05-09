@@ -1,0 +1,2 @@
+
+- volatile -> prevent compiler or JVM optimization in terms of caching or reordering.
