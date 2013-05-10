@@ -20,7 +20,34 @@
  - - I.E. read & write concurrently
 
 
+ - Without Volatile
+--------------------------
+ - Java cannot guarantee which writes get seen by other threads
+ - or even the order in which they get seen
+
+ - Double Checked Locking
+----------------------------
+ class Foo {
+  private volatile Helper helper = null;
+  public Helper getHelper() {
+    if (helper == null) { // avoid synchronization if it can be
+      synchronized(this) {
+        if (helper == null) {
+          helper = new Helper();
+        }
+      }
+    }
+  return helper;
+}
+
+ - Above solves 2 things
+ - avoid synchronization if it can be
+ - make other threads able to view the null or not-null object
+
+
+
 
 References:
 -------------
 1. http://stackoverflow.com/questions/6668597/fence-instruction-insertion-by-jvm-jit
+2. http://jeremymanson.blogspot.in/2008/11/what-volatile-means-in-java.html
