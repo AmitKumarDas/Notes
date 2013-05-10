@@ -77,6 +77,23 @@
  - when reading/writing volatile variables, acquiring or releasing the monitors on objects etc.
 
   
+ Memory Barriers/Fencing
+---------------------------
+ - set of processor instructions
+ - to apply ordering limitations on memory ops
+ 
+ Memory Barriers & Determinism of multi-threaded programs
+------------------------------------------------------------
+ - A main memory operation costs hundreds of clock cycles on commodity hardware. 
+ - Processors use caching to decrease the costs of memory latency by orders of magnitude. 
+ - These caches re-order pending memory operations for the sake of performance. 
+ - In other words, the reads and writes of a program are not necessarily performed in the order 
+ - - in which they are given to the processor. 
+ - When data is immutable and/or confined to the scope of one thread these optimizations are harmless.
+
+
+
+
 
 
 References
