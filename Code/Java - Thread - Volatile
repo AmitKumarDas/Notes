@@ -1,4 +1,26 @@
  - volatile -> prevent compiler or JVM optimization in terms of caching or reordering.
 
  - compiler doesnot reorganize reads or writes on volatile variables
- - 
+
+ - Concurrent Class
+ - rely on JMM
+ - Specifically, this is the revised Java memory model from Java 5, 
+ - - where the happen-before relationships between reads and writes of volatile variables, was specified accurately.
+ - The ConcurrentXXX classes in the java.util.concurrent package, 
+ - - relies heavily on this promised behavior of volatile reads to ensure race-free behavior.
+
+ - JMM
+-----------
+ - Under the Java memory model, 
+ - - a write to a volatile variable is guaranteed to happen before a read, if that is the program order;
+ - i.e. , the volatile read will always retrieve the most accurate version of data in the variable.
+ - The concurrent classes utilize this to ensure that the data structures 
+ - - can be updated by a single thread, 
+ - - WHILE being read by multiple other threads (in any other scenario, there would be race conditions).
+ - - I.E. read & write concurrently
+
+
+
+References:
+-------------
+1. http://stackoverflow.com/questions/6668597/fence-instruction-insertion-by-jvm-jit
