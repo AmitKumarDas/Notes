@@ -44,6 +44,16 @@
  - avoid synchronization if it can be
  - make other threads able to view the null or not-null object
 
+ - Volatile vs Static Global
+---------------------------------
+ - If volatile is just for communicating the value of global variable for other threads 
+ - why can't I use a static global varible.
+ - Any updates made to static variable will be reflected in other threads if they hold different instances even.
+ - NOPES
+ - Other threads may or may not see updates to static variables. 
+ - Communicating updates between threads requires synchronization
+ - (in the case of this post, "synchronization" takes the form of reads of and writes to volatile fields).
+ - If you don't use synchronization, then there is no guarantee that other threads will see the writes you perform.
 
 
 
