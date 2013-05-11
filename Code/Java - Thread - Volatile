@@ -42,6 +42,7 @@
 
  - Above solves 2 things
  - avoid synchronization if it can be
+ - but need synchronization
  - make other threads able to view the null or not-null object
 
  - Volatile vs Static Global
@@ -54,6 +55,20 @@
  - Communicating updates between threads requires synchronization
  - (in the case of this post, "synchronization" takes the form of reads of and writes to volatile fields).
  - If you don't use synchronization, then there is no guarantee that other threads will see the writes you perform.
+
+
+ - Volatile Integer & ++
+-----------------------------
+ - 3 separate ops
+ - read vola to a local variable
+ - incremenet the local variable
+ - write local back to the volatile
+ - LOCAL comes into picture
+ - there is no synchronization in this
+ 
+ - If you want atomic increment or atomic decrement, need to use
+ - java.util.concurrent.atomic classes
+
 
 
 
