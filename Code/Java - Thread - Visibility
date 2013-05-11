@@ -1,0 +1,32 @@
+
+ Happens Before
+--------------------
+ - JLS defines the happens-before relation
+ - on memory ops such as reads & writes of shared variables
+ - The results of a write by one thread are guaranteed to be visible to a read by another thread 
+ - - only if the write operation happens-before the read operation. 
+ - The synchronized and volatile constructs, 
+ - - as well as the Thread.start() and Thread.join() methods, can form happens-before relationships.
+
+ Volatile vs Synchronized
+----------------------------
+ - A write to a volatile field happens-before every subsequent read of that same field. 
+ - Writes and reads of volatile fields have similar memory consistency effects as entering and exiting monitors, 
+ - but do NOT entail mutual exclusion locking.
+
+ Join & Happens Before
+-------------------------
+ - All actions in a thread happen-before any other thread successfully returns from a join on that thread.
+
+ Future & Happens Before
+----------------------------
+ - Actions taken by the asynchronous computation represented by a Future happen-before actions subsequent 
+ - to the retrieval of the result via Future.get() in another thread.
+
+ Synchronizer Methods & Happens Before
+----------------------------------------
+ - Actions prior to "releasing" synchronizer methods such as Lock.unlock, Semaphore.release, and
+ - CountDownLatch.countDown happen-before actions subsequent to a 
+ - successful "acquiring" method such as Lock.lock, Semaphore.acquire, Condition.await, and CountDownLatch.await 
+ - on the same synchronizer object in another thread.
+
