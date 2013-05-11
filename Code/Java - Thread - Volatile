@@ -69,7 +69,30 @@
  - If you want atomic increment or atomic decrement, need to use
  - java.util.concurrent.atomic classes
 
+ Visibility Example
+--------------------------
+class LoopMayNeverEnd { 
+  boolean done = false; 
 
+  void work() { 
+    while (!done) { 
+      // do work 
+    } 
+  } 
+ 
+  void stopWork() { 
+    done = true; 
+  } 
+} 
+
+ - In practice, this may happen if the compiler detects that no writes are performed to done in the first thread; 
+ - the compiler may decide that the program only has to read done once, transforming it into an infinite loop.
+ 
+ - use a mechanism that provides synchronization between the two threads. 
+ - In LoopMayNeverEnd, if you want to do this, you can declare done to be volatile. 
+ - Conceptually, all actions on volatiles happen in a single order, 
+ - where each read sees the last write in that order. 
+ - In other words, the compiler can't prevent a read of a volatile from seeing a write performed by another thread.
 
 
 References:
