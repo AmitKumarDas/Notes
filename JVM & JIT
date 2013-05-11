@@ -1,4 +1,18 @@
-  JIT Compilation
+
+
+ - JIT & Code Ordering
+---------------------------
+ - Compilers have a lot of freedom to reorder code in the absence of synchronization; 
+ - they could either reorder the writes in threadOne or the reads in threadTwo freely. 
+
+
+ - Be Careful about
+-----------------------
+ 1/ Atomicity
+ 2/ Visibility
+ 3/ Ordering
+
+ JIT Compilation
 --------------------
   > transforms code
   > code actually executed can be different than the code you write
@@ -94,7 +108,8 @@
  - Memory Barriers & JVM
 --------------------------
  - MBs r not exposed by JVM
- - 
+ - JVM injects instructions to enable fencing
+
 
 
 
