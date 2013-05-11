@@ -1,0 +1,12 @@
+
+ Atomic Variables & VM
+-------------------------
+ - VM replaces the atomic objects with plain numbers
+ - Then it uses atomic machine instructions to manipulate
+
+ Guaranteed Atomicity
+----------------------
+ - Is only guaranteed when all the threads use synchronization correctly. 
+ - If someone comes along and decides to read a value without acquiring a lock, 
+ - it can end up with all sorts of confusing results.
+
