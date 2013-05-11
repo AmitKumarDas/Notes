@@ -1,0 +1,31 @@
+
+
+ Visibility Issue
+-------------------
+class LoopMayNeverEnd { 
+  boolean done = false; 
+
+  void work() { 
+    while (!done) { 
+      // do work 
+    } 
+  } 
+ 
+  void stopWork() { 
+    done = true; 
+  } 
+} 
+
+ - We talked of how JIT may remove the while(!done) code line for optimization
+ - We also talked how volatile will stop the JIT from doing this optimization
+ - Also volatile ensures visibility, due to JMM modificatins done after Java 5
+
+ - We still have ISSUES !!!
+------------------------------
+ - We ensured visibility guarantees
+ - But not scheduling guarantees
+ - A thread might execute work without giving up the CPU & allowing other threads to execute
+ - This is called Cooperative Multithreading
+ - Oracle VM might have Scheduling Issues with above code even after having volatile done
+
+
