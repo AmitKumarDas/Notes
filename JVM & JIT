@@ -1,9 +1,22 @@
 
-
  - JIT & Code Ordering
 ---------------------------
  - Compilers have a lot of freedom to reorder code in the absence of synchronization; 
  - they could either reorder the writes in threadOne or the reads in threadTwo freely. 
+
+
+ Large Methods & Code Inlining
+---------------------------------
+ - JIT won't inline if the method gets too large. 
+ - Introducing sampling into the methods changes the size, and therefore affects inlining decisions, 
+ - - changing the performance characteristics of your code.
+
+ Location of SafePoints
+---------------------------
+ - Safe points are places in the code that the VM knows it can do a whole host of things -
+ - - like initiate garbage collection - safely. 
+ - The location of these safe points is determined by the JIT. 
+ - system-wide stack trace sampling happens for any given thread when it is at a safe point. 
 
 
  - Be Careful about
