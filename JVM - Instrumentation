@@ -43,6 +43,47 @@
  - the Java stack could be in a corrupt state, or GC could be running, or any number of other things.
 
 
+ Unix & Signals
+------------------
+ - There are 32 signals. 
+ - If you want to see the full list in a glibc system, see the header file /usr/include/bits/signum.h. 
+ - They each map to a number; SIGKILL, for example, is number 9. 
+ - You can use the command line program "kill" to send a signal to any process. 
+ - If you send a SIGKILL to a program using "kill -9 ",
+ - it will take the default action of terminating that process, unless it has registered a signal handler.
+
+ - SIGPROF - used for profiling
+
+ Signal Handling
+-------------------
+ - Signal is handled in process
+ - So which thread actually handles it
+ - In Linux 2.4 and earlier, each thread was a separate process. 
+ - Because of this, you need to set up a separate timer for every thread that you want to be profiled. 
+ - In other words, it is more-or-less completely unusable unless you have a very tightly controlled environment.
+ - In Linux 2.6, a randomly chosen, currently executing thread is picked to execute the signal handler. 
+ - This is what we want...
+
+
+ Signal Handling & Lock
+---------------------------
+ - In C code, you can't really grab an arbitrary lock in a signal handler, 
+ - because the thread executing might already have that lock; 
+ - because most C lock implementation aren't reentrant, this can cause serious problems.
+
+ Signal Handing -> Disabled
+-----------------------------
+ - pthread_sigmask()
+ - sigprocmask()
+
+
+
+
+
+
+
+
+
 
 
 
