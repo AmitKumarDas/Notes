@@ -1,4 +1,3 @@
-
  - http://asm.ow2.org/current/asm-transformations.pdf
  - http://asm.ow2.org/current/asm-eng.pdf
  - http://code.google.com/p/java-allocation-instrumenter/
@@ -13,6 +12,15 @@
 
  - Remember - A Running Thread, not any other scheduled thread etc
  - A scheduled thread i.e. a thread that has exited the blocking calls are not running
+
+ Profiler -sans- JIT decisions
+---------------------------------
+ - profiling that doesnot interfere JIT decisons
+ - AsyncGetCallTrace does exactly this
+ - - you dont call it from your code
+ - - it doesnot wait for a safepoint
+ - - it doesnot change your code
+ - - JIT doesnot care
 
 
 
