@@ -2,6 +2,7 @@
  - http://asm.ow2.org/current/asm-eng.pdf
  - http://code.google.com/p/java-allocation-instrumenter/
  - http://mchr3k.github.io/org.inmemprofiler/
+ - http://www.inf.usi.ch/faculty/hauswirth/publications/pldi10.pdf
 
  Profiling with Signals
 ------------------------------------
@@ -77,6 +78,25 @@
  - sigprocmask()
 
 
+ Identifying Hot Methods
+-----------------------------
+ - If wrongly identified, a programmer will analyze a cold method for optimizing
+ - 
+
+ Various Ways 2 get Stack Trace
+----------------------------------
+ - Thread.dumpStack()
+ - new Throwable().getStackTrace()
+ - ThreadMXBean.getThreadInfo
+ - JVMTI's GetStackTrace or GetAllStackTraces
+ - If you send a system-dependent signal to your JVM process, it
+ - - will spit out a stack dump of every currently live thread. 
+ - - On Solaris and Linux, the signal is a SIGQUIT, which you can get by using kill -3 on the JVM PID
+ - - (or the PID of the parent JVM process under Linux 2.4), or hitting Control-\. 
+ - - On Windows, you can achieve the same effect by hitting Ctrl-Break on Windows.
+
+ - However, above wont tell you about the currentl running thread
+ - Above tells about the Runnable thread
 
 
 
