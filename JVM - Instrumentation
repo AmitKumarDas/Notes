@@ -23,6 +23,39 @@
  - - JIT doesnot care
 
 
+ SIGPROF 
+-----------
+ - is a POSIX signal. 
+ - The way it is set up under Linux is that you can set a timer that goes off at intervals, 
+ - and, whenever the timer expires, the SIGPROF signal is sent to the application. 
+ - The idea is that you can then collect profiling information at fixed intervals.
+ - The signal is caught and handled by a random running thread. 
+ - That thread will be doing some task related to running the Java application 
+ -- whether that is executing user code, running garbage collection, or doing internal VM maintenance.
+
+ Issues with SIGPROF
+------------------------
+ - The problem is that there is no officially documented JVMTI hook that allows the user to find out exactly
+ - what the currently running thread is doing that is safe to run in a signal handler. 
+ - The official way of getting a stack trace for the currently executing thread, 
+ - the GetStackTrace function, isn't safe to be called in an asynchronous way 
+ -- if you try to read the stack when a timer expires, 
+ - the Java stack could be in a corrupt state, or GC could be running, or any number of other things.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
