@@ -1,0 +1,6 @@
+
+ Reflection based invokeStatic & invoke
+-------------------------------------------
+ - https://github.com/pidster-dot-org/java-agent-bootstrap/
+ - - blob/master/src/main/java/org/pidster/java/lang/instrument/Reflector.java
+
