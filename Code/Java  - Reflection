@@ -1,6 +1,31 @@
-
  Reflection based invokeStatic & invoke
 -------------------------------------------
  - https://github.com/pidster-dot-org/java-agent-bootstrap/
  - - blob/master/src/main/java/org/pidster/java/lang/instrument/Reflector.java
 
+
+ 
+  Thread or Runnable 
+ -----------------------
+  Thread t;
+  Class<?> c = cl.loadClass(threadClass);
+  
+ if (Thread.class.isAssignableFrom(c)) {
+   Class<? extends Thread> tc = c.asSubclass(Thread.class);
+   t = tc.newInstance();
+ }
+ 
+ if (Runnable.class.isAssignableFrom(c)) {
+  Class<? extends Runnable> rc = c.asSubclass(Runnable.class);
+  Runnable r = rc.newInstance();
+  t = new Thread(r);
+ }
+ 
+ 
+ - xx.class.isAssignableFrom
+ - c.asSubclass
+ - newInstance
+ 
+ 
+ 
+ 
