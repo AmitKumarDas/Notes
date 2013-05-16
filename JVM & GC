@@ -334,7 +334,24 @@ Explained Below
   - Look at CMS abortable preclean phase
   
   
-  
+ CMS fragmentation & Slab Allocators
+ ------------------------------------
+ - CMS doesnot compact, so it's prone to fragmentation
+ - This will lead to longer STW
+ - Apache Cassandra uses a slab allocator internally
+ - 2 MB slab sizes
+ - copy byte[] into them using compare-and-set
+ - however, slab allocator have a limited usage & have constraints
+
+ 
+ Soft References & GC
+ -------------------------
+ - by definition throughput collector always clears them
+ - Soft Reference clearing is based on the amount of free memory available 
+ - - when GC encounters the reference
+ - need 2 GC cycles to get rid of referenced objects
+ 
+ 
  
  
  
