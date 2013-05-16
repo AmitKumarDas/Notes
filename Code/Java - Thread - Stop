@@ -1,4 +1,3 @@
-
  - Stop a thread
  - was deprecated - coz many resources will be in a hanging state
  - it was pushed back to the implementation of the program
@@ -42,4 +41,20 @@ try {
  - also, Executor Service returns the handle to each thread in terms of Future.
  - Future.cancel(true) can stop the running thread
 
-
+ - Good Example of Stop
+ -----------------------
+ public void run() {
+         while (!shutdown ) { //shutdown is volatile
+	            try {
+	                XXXMsg wu = q.poll(100, TimeUnit.MILLISECONDS);
+	                if (wu != null) doAction(wu);
+	            } catch (InterruptedException e) {
+	                shutdown = true;
+	            }
+	        }
+	    }
+ 
+ 
+ 
+ 
+ 
