@@ -270,6 +270,75 @@ Explained Below
  - Everything else: try throughput collector with adaptive sizing policy. 
  - If it didn’t work, use concurrent mark-and-sweep (CMS).
  
+ Hotspot - Tuning - Start with - YoungGen
+ ------------------------------
+ - tuning young gen
+ - have a look first via below options
+ - PrintGCDetails
+ - PrintHeapAtGC
+ 
+ 
+ Hotspot - Tenuring Distribution
+ -------------------------------
+ - PrintTenuringDistribution
+ - Need to determine the desired survivor size **
+ - Need to tune the Tenuring threshold to tenure long lived objects faster **
+- look for below
+  - No of ages
+  - Size distribution in ages
+  - should be declining
+  - example
+ 
+ Desired survivor size 262144000 bytes, new threshold 4 (max 4)
+- age   1:  137474336 bytes,  137474336 total
+- age   2:   37725496 bytes,  175199832 total
+- age   3:   23551752 bytes,  198751584 total
+- age   4:   14772272 bytes,  213523856 total
+ 
+ 
+ Tuning CMS
+ -------------
+ - Give the app as much memory as possible
+ - try using CMS without tuning
+ - use verbosegc & PrintGCDetails
+ - If you dont get Full GC messages then you are DONE
+ - Else tune the young gen first
+ 
+ 
+ Tuning CMS / Old Gen
+ ---------------------
+ - keep fragmentation low
+ - avoid full GC stops
+ - find the MIN & MAX i.e. Full GC numbers under a particular load
+ - overprovision the numbers by 25-33%
+  - this enables the CMS to concurrently clean memory as it's used
+ - look at InitiatingOccupancyFraction - equal to overprovisioned heap ratio
+ 
+ Further tuning Old Gen
+ ----------------------
+ - If still not responsive
+ - i.e. lower transaction success under heavy load
+ 
+ Reason -
+ - IF Too many live objects during young gen GC
+  - reduce NewSize, 
+  - reduce SurvivorSpace
+  - reduce Tenuring Threshold
+ 
+ - IF too many threads
+  - find minimal concurrency level
+  - split the service into several JVMs
+  
+  Responsiveness still not GOOD
+  -----------------------------
+  - Look at CMS abortable preclean phase
+  
+  
+  
+ 
+ 
+ 
+ 
  
  
  
