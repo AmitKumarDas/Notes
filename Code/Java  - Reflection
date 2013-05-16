@@ -3,7 +3,22 @@
  - https://github.com/pidster-dot-org/java-agent-bootstrap/
  - - blob/master/src/main/java/org/pidster/java/lang/instrument/Reflector.java
 
-
+ - Instantiating via ClassName, ClassLoader & Constructor Args
+ --------------------------------------------------------------
+ - look @ above Reflector @ java-agent-bootstrap/
+ 
+ 
+ - Invoking via Target, MethodName & Method Args
+ --------------------------------------------------
+ - look @ above Reflector @ java-agent-bootstrap/
+ 
+ 
+ - Invoking via ClassName, ClassLoader, MethodName, Method Args
+ -------------------------------------------------------------
+ - look @ above Reflector @ java-agent-bootstrap/
+ - this shows how invokeStatic is done via reflection
+ 
+ 
  
   Thread or Runnable 
  -----------------------
