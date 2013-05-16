@@ -24,3 +24,20 @@ public class Counter {
     }
   }
 }
+
+ Thread Coordination Optimization
+ ---------------------------------
+ - Need not go for synchronized
+ - Synchronization is a read barrier on entry & write barrier on exit
+ - Sometimes you need only a half-barrier
+ - Volatiles can be used as half-barrier
+ 
+ Thread Coordination Optimization
+ ----------------------------------
+ - Check if Atomic Integer,Long or Reference can be used ?
+ 
+ 
+ 
+ 
+ 
+ 
