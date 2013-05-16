@@ -205,7 +205,80 @@ Explained Below
   > tool 4 capturing & displaying platform hiccups
 
 
+ OOM Error
+ ---------------
+ - too much data
+ - data representation is fat
+ - a genuine memory leak
+ 
+ FUll GC
+ -------------
+ - run with -verbosegc
+ - Observe numbers in “Full GC” messages
+[Full GC $before->$after($total), $time secs]
 
+ Delay Full GC
+ ----------------
+ - Give JVM more memory
+ - do u need all that data in memory
+  > can u have LRU cache
+  > can u have soft references
+  
+ Thread Locals
+--------------
+ - they r problematic in thread pools 
+ - 200 Threads using 50 connections
+ --> end up with 10 000 connection buffers
+ - consider using synchronized objects or
+ - just create new objects all the time
+ 
+ HotSpot :: Eden -> Survivor -> Old
+ -----------------------------------
+ - new alloc in eden
+ - when eden fills, STW copy-collection into survivor
+ - dead objects cost zero to collect
+ - after several collections, survivors get tenured into old gen
+ 
+ Hotspot :: Ideal Young Gen
+ ----------------------------
+ - big enough to hold mroe than a set of concurrent req-res cycle objects
+ - each survivor space = big enough to hold active request objects + tenuring ones
+ - tenuring threshold s.t. long-lived objects tenure fast
+ 
+ Hotspot :: Olg Gen Collectors
+ ------------------------------
+ - Throughput Collectors
+  - UseSerialGC
+  - UseParallelGC
+  - UseParallelOldGC
+ 
+ - Low Pause Collector
+  - UseConcMarkSweepGC
+  - UseG1GC
+  
+
+ Hotspot - Throughput Olg Gen Collector
+ ----------------------------------------
+ - auto tuning feature
+ - UseAdaptiveSizePolicy
+ - MaxGCPauseMillis
+ - GCTimeRatio
+ 
+ Hotspot - Choosing a collector
+ --------------------------------
+ - Bulk service: throughput collector, no adaptive sizing policy.
+ - Everything else: try throughput collector with adaptive sizing policy. 
+ - If it didn’t work, use concurrent mark-and-sweep (CMS).
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
 
 
 
@@ -223,7 +296,7 @@ Explained Below
 
 References
 1/ http://www.infoq.com/presentations/JVM-Mechanics
-
+2/ http://www.infoq.com/presentations/JVM-Performance-Tuning-twitter?utm_source=infoq&utm_medium=related_content_link&utm_campaign=relatedContent_articles_clk
 
 
 
