@@ -9,10 +9,6 @@
  - eden space is full again
  - 2nd GC -> copy all the survivors from eden & survivor into 2nd survivor
  - Its more about eliminating fragmentation !!
- 
- 
-
-
 
 Example
 --------------
@@ -364,6 +360,27 @@ Explained Below
  - need 2 GC cycles to get rid of referenced objects
  
  
+ Young Gen Size - Increase
+ --------------------------
+ - allows more garbage to be generated
+ - decreases the frequency of young gen
+ - will increase the young gen collection time to increase
+ 
+ Survivor Age - Increase
+ ------------------------
+ - More objs die before being promoted
+ - reduces promotion rate
+ - reduce freq of old gen collections
+ - reduce old gen buffer size
+ 
+ Survivor Death Ratio
+ -----------------------
+ - if it hits 50% u want to start promoting to old gen
+ 
+ Do u want to tune AT ALL ?
+ ----------------------------
+ - If pause times & frequencies are not a problem, dont tune
+ - If allocation or survivor death rates are a problem, check your code to avoid unnecessary memory allocations
  
  
  
