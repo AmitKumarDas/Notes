@@ -1,6 +1,18 @@
   Its such a big topic ... need to learn this !!
 
 
+ Why Eden & Survivor ?
+ ----------------------
+ - In HotSpot, not just 1 but 2 survivors
+ - New objs into eden
+ - when eden is full, GC to kill stale obs & move live ones to survivor
+ - eden space is full again
+ - 2nd GC -> copy all the survivors from eden & survivor into 2nd survivor
+ - Its more about eliminating fragmentation !!
+ 
+ 
+
+
 
 Example
 --------------
