@@ -1,0 +1,46 @@
+
+
+ - Management APIs -
+ -----------------------
+ import javax.management.MBeanServerConnection;
+ import javax.management.ObjectName;
+ import javax.management.openmbean.CompositeData;
+
+ - dump of threads -
+ ------------------------
+
+
+
+ ObjectName bean = new ObjectName("java.lang:type=Threading");
+ CompositeData[] ti = (CompositeData[]) mserver.invoke(
+                            bean,
+                            "dumpAllThreads",
+                            new Object[]{Boolean.TRUE, Boolean.TRUE},
+                            new String[]{"boolean", "boolean"});
+                            
+ - thread cpu time -
+ ----------------------
+ ObjectName bean = new ObjectName("java.lang:type=Threading");
+ long time = (Long) mserver.invoke(bean, "getThreadCpuTime", new Object[]{tid}, new String[]{"long"});
+ 
+ 
+ - thread user time -
+ ---------------------
+ ObjectName bean = new ObjectName("java.lang:type=Threading");
+ long time = (Long) mserver.invoke(bean, "getThreadUserTime", new Object[]{tid}, new String[]{"long"});
+ 
+ 
+ - Process CPU time -
+ ---------------------
+ ObjectName bean = new ObjectName("java.lang:type=OperatingSystem");
+ return (Long) mserver.getAttribute(bean, "ProcessCpuTime");
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
