@@ -1,0 +1,19 @@
+
+ - Designing Parser -
+ ---------------------
+ - Think of Event 
+ - enum Event
+ - Interface parser & enum Event
+ 
+ 
+ - What parser means ?
+ ---------------------
+ - Get value
+ - Get String or Integer or BigDecimal etc
+ 
+ 
+ - Parser & Concerns
+ ---------------------
+ - Think of Event
+ - Think of Closeable
+ - 
