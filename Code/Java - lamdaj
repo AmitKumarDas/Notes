@@ -1,0 +1,85 @@
+
+ What is it
+ --------------
+ - Manipulate collections without loops
+ 
+ As List
+ ----------
+ List<Person> personInFamily = asList(new Person("Domenico"), new Person("Mario"), new Person("Irma"));
+ 
+ For Each
+ ----------
+ forEach(personInFamily).setLastName("Fusco");
+ 
+ For Each - Explained
+ ----------------------
+ - returns a proxy
+ - proxy implements the Iterable interfaces & all the methods of the orig object
+ 
+ On Method - Utility
+ -------------------
+ - List<Person> sortedByAgePersons = sort(persons, on(Person.class).getAge());
+ 
+ 
+ 
+ Closures - Why ?
+ --------------------
+ - solution for 99% same loc but 1% differing loc
+ - solution for similar methods
+ - need not go for strategy, template pattern etc.
+ 
+ Closures
+ -----------
+ Unfriendly Way -->
+ 
+ public void printFile(String fileName) {
+    BufferedReader reader = null;
+    try {
+        InputStream stream = getClass().getClassLoader().getResourceAsStream(fileName);
+        reader = new BufferedReader(new InputStreamReader(stream));
+        for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+            System.out.println(line); // This is actually the only meaningful statement in this method
+        }
+    } catch (IOException ioe) {
+        throw new RuntimeException("Error while reading file " + fileName, ioe);
+    } finally {
+        try {
+            if (reader != null) reader.close();
+        } catch (IOException ioe) {
+            throw new RuntimeException("Error while closing file reader", ioe);
+        }
+    }
+}
+ 
+ 
+ - What if u need another method that does same but just counts the non-empty lines ?
+ - Solution - Modularize the actual logic into callbacks
+ - Solution - have private util method e.g. doFileOp(fileName,Callback)
+ - Solution - have public util methods - print(fileName), read(fileName), count(fileName) etc...
+ 
+ Actual Logic in Callbacks = Closures
+ -------------------------------------
+ -- print --
+ Closure1<String> lineReader = closure(String.class); { of(System.out).println(var(String.class)); }
+ -- count --
+ Closure1<String> lineReader = closure(String.class); { of(this).countNonEmptyLine(var(String.class)); }
+ -- read --
+ StringWriter sw = new StringWriter();
+ Closure1<String> lineReader = closure(String.class); { of(sw).write(var(String.class)); }
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
