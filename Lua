@@ -22,4 +22,11 @@
  - C extensions tie LUA interpreter to hardware & O/S commands
  - C extensions allow various levels of driver software to be tested
  
- \
+ 
+ Lua JIT
+ ----------
+ - runs on major OS
+ - will support more architectures
+ - bundles FFI which OVIATES
+ - - manual bindings with classic Lua/C API
+ 
