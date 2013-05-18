@@ -1,0 +1,23 @@
+
+ vector
+ ----------
+ - reading into a standard vector guarantees that u dont overflow arbitrary buffer
+ - reading into a array needs u to be an expert
+ - vector<double> v;
+ - v.size; v[i], v.push_back(..)
+ 
+ main()
+ ---------
+ - returns an int
+ - return 1 //error
+ - return 0 //success
+ 
+ iostream
+ -----------
+ - cin & cout
+ - while (cin >> d) v.push_back(d);
+ - cout << "read" << v.size << "elements\n"
+ 
+ 
+ 
+ 
