@@ -1,4 +1,3 @@
-
   Tables
 -----------
   > associative array
@@ -18,4 +17,9 @@
   > You cannot declare a table
   > you can only create one via {}
 
-
+ Lua Environment
+ -----------------
+ - C extensions tie LUA interpreter to hardware & O/S commands
+ - C extensions allow various levels of driver software to be tested
+ 
+ \
