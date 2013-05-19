@@ -1,4 +1,32 @@
-
+ 
+ Whats a JIT
+ --------------
+ - just-in-time (JIT) compiler is a program that turns Java bytecode
+ - - (a program that contains instructions that must be interpreted) 
+ - - into instructions that can be sent directly to the processor.
+ - Using the Java just-in-time compiler at the particular system platform compiles the bytecode into 
+ - - the particular system code (as though the program had been compiled initially on that platform).
+ - - Once the code has been (re-)compiled by the JIT compiler, it will usually run more quickly in the computer. 
+ - Sun Microsystems suggests that it's usually faster to select the JIT compiler option, 
+ - - especially if the method executable is repeatedly reused.
+ 
+ Running JIT
+ ---------------------
+ - JIT compiler achieves most of its speed improvements the second time it calls a method. 
+ - The JIT compiler does compile the whole method INSTEAD of interpreting it line by line 
+ - - which can also be a performance gain for when running an application with the JIT enabled.
+ 
+ 
+ View JIT compiled code
+ --------------------------
+ - check the JVM options
+ - first need to do a probably,
+ - - XX:+UnlockDiagnosticVMOptions
+ - - XX:+PrintAssembly
+ - need to have some debug binaries too
+ 
+ 
+ 
  - JIT & Code Ordering
 ---------------------------
  - Compilers have a lot of freedom to reorder code in the absence of synchronization; 
