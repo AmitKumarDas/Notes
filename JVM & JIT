@@ -25,6 +25,33 @@
  - - XX:+PrintAssembly
  - need to have some debug binaries too
  
+ 
+ -XX:+PrintCompilation
+ - print methods as they JIT
+ 
+ -XX:+UnlockDiagnosticVMOptions
+ -XX:+PrintInlining
+ - display hierarchy of inlined methods
+ - include reasons for not inlining
+ - better o/p on OpenJDK7
+ 
+ JIT & Intrinsic
+ -----------------
+ - dont inline bytecode
+ - do insert "best" native code
+ - e.g. kernel level memory optimization
+ - e.g. optimized sqrt in machine code
+ 
+ Common Intrinsics
+ -------------------
+ - String#equals
+ - Most math methods
+ - System.arrayCopy
+ - Object#hashCode
+ - Object#getClass
+ - syn.misc.Unsafe methods
+ 
+ 
  JIT & Lock Coarsening
  -----------------------
  public void needsLocks(){
