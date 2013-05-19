@@ -72,7 +72,16 @@ Caching
   > Er.js, Fibers, Threads.js, 
   
 
-
+ Storage Solutions
+ -----------------
+ - The candidate should consider expert in Linux development including user land and kernel space. 
+ - Special emphasis on storage stack including Linux IO stack, VFS, iSCSI implementations such as
+ - - LIO, iSCSI Enterprise and LVM.
+ - Clearly able to articulate DFS concepts and has demonstrable proficiency in one of the file systems; 
+ - - HDFS, FUSE, ZFS, JFS, log file systems, GlusterFS, Lustre.
+ - Linux device driver experience and the skill necessary to enhance any existing driver is a necessary.
+ - Distributed programming and experience with Apache zookeeper and dlm is a plus.
+ - Basic understanding of SR-IOV, RNIC, RDMA, IB and how they can be leveraged in building solutions
 
 
 
