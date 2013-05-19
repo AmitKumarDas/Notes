@@ -25,6 +25,46 @@
  - - XX:+PrintAssembly
  - need to have some debug binaries too
  
+ JIT & Lock Coarsening
+ -----------------------
+ public void needsLocks(){
+  for(option:options){
+   process(option);   //repeated locking
+  }
+ }
+ 
+ private synchronized String process(String option){
+   //some thread unsafe code
+ }
+ 
+ //JITed
+ 
+ public void needsLocks(){
+  synchronized(this){ //lock ONCE
+   for(option:options){
+     process(option);
+   }
+  }
+ }
+ 
+ JIT & Lock Eliding
+ -----------------------
+ public void overCautious(){
+  List l = new ArrayList();
+  synchronized(l){
+   for (option:options){
+     l.add(process(option);
+   }
+  } 
+ }
+ 
+ //JITed
+ public void overCautious(){
+  List l = new ArrayList(); // no need to lock 
+   for (option:options){
+     l.add(process(option);  
+  } 
+ }
  
  
  - JIT & Code Ordering
