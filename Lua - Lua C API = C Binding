@@ -1,0 +1,58 @@
+
+ Include LUA in your C project
+ ---------------------------------
+ wget http://www.lua.org/ftp/lua-5.2.1.tar.gz
+ tar -zxvf lua-5.2.1.tar.gz
+ 
+ Link against LUA
+ --------------------
+ - If main.c contains LUA code
+ - then
+ 
+ gcc main.c -o output -Ilua-5.2.1/include/ -Llua-5.2.1/lib/ -llua
+ 
+ 
+ .C file will include
+ --------------------
+ - lua.h
+ - lualib.h
+ - lauxlib.h
+ 
+ 
+ Calling Lua from C
+ ---------------
+ - include lua.h, lualib.h, lauxlib.h
+ - create new LUA state
+ - load Lua libs
+ - may load & run lua script
+ - may push lua func to Lua stack
+ - may assert if top of the Lua stack is a func
+ - may push args to the Lua stack
+ - may perform func call
+ - may retrieve func result from top of Lua stack
+ - close lua state
+ - return 0; // success
+ 
+ 
+ Calling C from Lua
+ ----------------------
+ - just call the C function as if it was a Lua func
+ 
+ - In .c file :(
+ - again include the lua libraries
+ 
+ - [1] static func that accepts a *lua_State
+ - this static function in turn invokes a C program
+ 
+ - [2] int main to expose above static func
+ - this main func will
+  - create a new Lua state
+  - load Lua libraries
+  - expose above static func to Lua
+  - load & run the lua file
+  - return 0; //success
+ 
+ 
+ 
+ 
+ 
