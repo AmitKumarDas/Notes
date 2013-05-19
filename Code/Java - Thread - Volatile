@@ -95,6 +95,17 @@ class LoopMayNeverEnd {
  - In other words, the compiler can't prevent a read of a volatile from seeing a write performed by another thread.
 
 
+ Volatile Again
+ ---------------
+ - Each CPU maintains a cache
+ --> Note: Each CPU. Multi-CPU is imp here.
+ - Caches may be out of sync
+ - Volatile forces synchronization of caches
+ --> across cores & to main memory
+ 
+ 
+
+
 References:
 -------------
 1. http://stackoverflow.com/questions/6668597/fence-instruction-insertion-by-jvm-jit
