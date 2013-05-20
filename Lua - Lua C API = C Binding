@@ -1,4 +1,3 @@
-
  Include LUA in your C project
  ---------------------------------
  wget http://www.lua.org/ftp/lua-5.2.1.tar.gz
@@ -52,6 +51,17 @@
   - load & run the lua file
   - return 0; //success
  
+ 
+ 
+ Syntax * &
+ --------------
+ - Define  * args in method
+ 
+ - Declare * variable 
+ - Then pass just variable into method
+ 
+ - Declar just variable
+ - Then pass & variable into method
  
  
  
