@@ -37,6 +37,10 @@
  - Also, the FFI library automatically detects stdcall functions, so you don't need to declare them as such. 
  
  
- 
+ Passing to arguments
+ --------------------
+ - Pass nil to pass a NULL pointer
+ - Pass numbers to number arguments
+ - pass pointers to pointer arguments
  
  
