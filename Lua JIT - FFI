@@ -1,4 +1,3 @@
-
  - Lua JIT FFI
  -----------------
  - The FFI library largely obviates the need to write tedious manual Lua/C bindings in C.
@@ -24,6 +23,18 @@
  -> So just declare the C DataStructurein Lua using FFI.
  -> This C DataStructure will have the minimal type e.g. uint8_t
  
+ Lua JIT - Coolness
+ ---------------------
+ - Stop learning C / CPP syntaxes
+ - Stop worrying memory leaks
+ - Look @ the C header files or the documentation provided by each C library or C compiler.
+ - That's it.
+ 
+ FFI - Inside Details
+ --------------------
+ - The FFI library provides the ffi.C default C library namespace, 
+ - which allows calling functions from the default set of libraries, like a C compiler would. 
+ - Also, the FFI library automatically detects stdcall functions, so you don't need to declare them as such. 
  
  
  
