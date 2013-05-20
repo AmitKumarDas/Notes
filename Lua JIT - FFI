@@ -1,0 +1,31 @@
+
+ - Lua JIT FFI
+ -----------------
+ - The FFI library largely obviates the need to write tedious manual Lua/C bindings in C.
+ - Calls to C functions can be inlined in JIT-compiled code, 
+ - - unlike calls to functions bound via the classic Lua/C API. 
+ 
+ Lua JIT FFI - How
+ ------------------
+ - Just load the ffi library in lua code
+ - define the C method
+ - execute the C method as if it were a Lua method
+ 
+ 
+ Lua JIT FFI - C DataStructures
+ ---------------------------------
+ - Lua is built upon high-level data types. 
+ - They are flexible, extensible and dynamic. That's why we all love Lua so much. 
+ - Alas, this can be inefficient for certain tasks, where you'd really want a low-level data type. 
+ - E.g. a large array of a fixed structure needs to be implemented 
+ - - with a big table holding lots of tiny tables. 
+ - This imposes both a substantial memory overhead as well as a performance overhead. 
+ 
+ -> So just declare the C DataStructurein Lua using FFI.
+ -> This C DataStructure will have the minimal type e.g. uint8_t
+ 
+ 
+ 
+ 
+ 
+ 
