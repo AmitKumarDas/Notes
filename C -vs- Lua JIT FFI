@@ -1,0 +1,50 @@
+
+
+  p - pointer - int *p
+  a - array   - int a[];
+  i - int     - int i;
+  s - struct/union - struct foo s;
+  sp - struct/union pointer - struct foo *sp;
+  
+
+
+   C Code                 Lua Code
+ ----------              -----------
+  x = *p;                 x = p[0]
+  *p = y;                 p[0] = y
+  
+  
+  x = p[i];               x = p[i]
+  p[i+1] = y;             p[i+1] = y
+  
+  
+  x = a[i];               x = z[i]
+  a[i+1] = y;             a[i+1] = y;
+  
+  
+  x = s.field;            x = s.field;                            //struct
+  s.field = y;            s.field = y;
+  
+   
+  x = sp->field;          x = sp.field;                           //struct pointer
+  sp->field = y;          sp.field = y;
+  
+     
+  x = p + i;              x = p + i;                              //Pointer Airthmetic
+  
+  
+  x = &a[i];              x = a + i;                              //array element pointer
+  
+  
+  x = (intptr_t)p;        x = tonumber(ffi.cast("intptr_t",p))    //cast pointer to address
+  
+  
+  printf("%g", 1.0);      printf("%g", 1)                         //varargs conversions   
+  printf("%d", 1);        printf("%d",ffi.new("int", 1))          //int printf(char *fmt, ...);
+  
+  
+  
+
+ References
+---------------
+ 1/ http://luajit.org/ext_ffi_tutorial.html
