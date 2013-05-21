@@ -1,0 +1,18 @@
+
+ Compression Lib
+ -------------------
+ - On POSIX systems it's named libz.so and usually comes pre-installed.
+ - On Windows it's named zlib1.dll
+ 
+ zlib
+ ------
+ - zlib API uses the long type for passing lengths and sizes around. 
+ - But all those zlib functions actually only deal with 32 bit values.
+ 
+ 
+ long
+ -------
+ - A long is a 64 bit type e.g. on POSIX/x64 systems, 
+ - but a 32 bit type on Windows/x64 and on 32 bit systems. 
+ - Thus a long result can be either a plain Lua number or a boxed 64 bit integer cdata object, 
+ - depending on the target system
