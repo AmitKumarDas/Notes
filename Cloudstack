@@ -1,0 +1,20 @@
+
+ - api/src/com/cloud/storage
+ ---------------------------
+ 
+  Volume
+ ---------
+ - Interface composed with State, Type & Event enums
+ - fsm for transitioning between events
+ - Attributes like
+ - path, pod, datacenter, pool, state, attached, device, disk offering, chain, recreatable
+ 
+ 
+ Volume API Service
+ ------------------
+ - An interface
+ - operations via Commands
+ - Command will wrap various stuff
+ - alloc, create, detach, resize, migrate, upload, delete, attachVolumeToVM, detachVolumeToVM
+ 
+ 
