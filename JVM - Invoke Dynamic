@@ -1,4 +1,15 @@
-  Lamdba Expressions
+
+ Read More 
+ --------------
+ - http://arxiv.org/pdf/1210.1039.pdf
+ - http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html
+ - http://jaxenter.com/404
+ - http://www.ec-spride.tu-darmstadt.de/media/ec_spride/secure_software_engineering/theses_1/kamil_erhard_master_thesis.pdf
+ - http://www.bodden.de/pubs/bodden12invokedynamic.pdf
+ - 
+
+
+ Lamdba Expressions
 ------------------------
   > static & dynamic expressions
   > defer the selection of translation strategy intil runtime
