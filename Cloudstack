@@ -1,4 +1,3 @@
-
  - api/src/com/cloud/storage
  ---------------------------
  
@@ -16,5 +15,35 @@
  - operations via Commands
  - Command will wrap various stuff
  - alloc, create, detach, resize, migrate, upload, delete, attachVolumeToVM, detachVolumeToVM
+ 
+ Snapshot
+ ----------
+ - Interface composed with Event, State & Type enums
+ 
+ Storage
+ -----------
+ - composed of ImageFormat, FileSystem, TemplateType, StoragePoolType, StorageResourceType
+ - Need to learn on these specifics !!!
+ 
+ Storage Pool
+ -------------
+ - name, type, datacenter id, capacityBytes, availableBytes, clusterID, hostAddress, path
+ - userCredentials, isShared, isLocal
+ 
+ Storage Service
+ ---------------
+ - createPool, deletePool, preparePrimaryStorageForMaintenance, 
+ - cancelPrimaryStorageForMaintenance, updateStoragePool
+ - getStoragePool
+ 
+ 
+ 
+ S3
+ ---
+ - an interface
+ - may refer while creating the plugin for Cloudbyte
+ - Attributes like
+ - - recurring type, account id, volume id, path, name, created, hypervisor type, snapshot type, state, 
+ 
  
  
