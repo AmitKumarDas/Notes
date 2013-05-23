@@ -44,3 +44,75 @@
  - pass pointers to pointer arguments
  
  
+ ffi.load + POSIX
+ ----------------
+ - lib may be prepended
+ - .so may be suffixed
+ - however above will happen if name doesnot have a dot notation
+ - so ffi.load("z") looks for libz.so
+ 
+ # NOTE - WHERE WILL IT SEARCH FOR LIB ?
+ --------------------------------------
+ - In the default shared library path
+ 
+ 
+ ffi.load + WINDOWS
+ ------------------
+ - if no dot in name then
+ - .dll is appended
+ - ffi.load("ws2_32") looks for ws2_32.dll
+ 
+ Note - WHERE ?
+ -----------------
+ - in the default DLL search area
+ 
+ 
+ ffi.C
+ -----------------
+ - note the capital C
+ - default C library NAMESPACE
+ - It BINDS to the default set of symbols
+ - It BINDS to the default set of libraries
+   - >   in the TARGET system 
+ 
+ ffi.C & POSIX
+ ---------------
+ - binds to symbols in the default or global NAMESPACE
+ - This includes at least 
+  > libc, 
+  > libm, 
+  > libdl (on Linux), 
+  > libgcc (if compiled with GCC),
+  > as well as any exported symbols from the Lua/C API provided by LuaJIT itself.
+  
+ ffi.C & WINDOWS
+ -------------------
+ - binds to symbols exported from the 
+  > *.exe
+  > lua51.dll 
+  > LuaJIT linked to 
+   - > (msvcrt*.dll), kernel32.dll, user32.dll and gdi32.dll
+   
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
