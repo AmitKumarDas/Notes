@@ -20,3 +20,65 @@ import java.nio.channels.ScatteringByteChannel;
 import java.nio.charset.Charset;
 
 Need to look at vertx eventbus impl
+
+
+ Different Kinds
+ -----------------
+ - native java int[] array
+ - nio heap buffer
+ - nio direct buffer
+ 
+ Buffer flip
+ --------------
+ - switch modes from read to write & vv
+ - once you have read the buffer, you have to clear the buffer for writing once again
+ 
+ clear
+ --------
+ - will clean up entirely
+ 
+ compact
+ ---------
+ - will clean up the stuff u have read
+ - unread data is moved to the beginning of the buffer 
+ 
+ 
+ Other Stuffs
+ -------------
+ - RandomAccessFile
+ - Channel
+ 
+ 
+ Write = Read Into Buffer
+ ---------------------------
+ - channel.read(buffer) // write into buffer
+ 
+ 
+ Read = get
+ ----------
+ - buf.get() // read 1 byte at a time
+ 
+ 
+ Conditions
+ --------------
+ - while(channel.read(buf) != -1)
+ - while(buf.hasRemaining())
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
