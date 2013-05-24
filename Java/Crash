@@ -1,0 +1,26 @@
+
+
+ - Crash
+ -------------
+ - provides interactions with the JVM
+ - Commands in Groovy
+ - can extend the shell
+ - build on top of Attach API
+
+
+ - Crash Standalone Mode 
+ ---------------------
+ - a standalone app, 
+ - controlling its own JVM
+ - = Attach Mode
+ 
+ 
+ - Crash Embedded Mode
+ --------------------------
+ - as a service embedded in a web app
+ - as a service embedded in a spring app,
+ - etc..
+ 
+ 
+ 
+ 
