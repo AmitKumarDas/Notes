@@ -1,0 +1,56 @@
+
+ - Advantages ?
+ --------------
+ - low level optimization without use of native code
+ 
+ Things that can be done ONLY in NIO
+ -------------------------------------
+ - asynchronous IO
+ - & Direct Buffers
+ 
+ Old IO
+ -------------
+ - is Stream IO
+ - movement of single bytes one at a time
+ - movement via an object called Stream
+ 
+ 
+ NIO
+ ----------
+ - is block IO
+ 
+ 
+ NIO is Speedy
+ -----------------
+ - coz it moves the time consuming acts to OS
+ - it moves the filling & draining aspects to OS
+ 
+ Streams vs Blocks
+ --------------------
+ - Stream - I/P Stream - Produces 1 byte
+ - Stream - O/P Stream - Consume 1 byte
+ - Stream - can apply a chain of filters
+ - Block - produce or consume 1 Block of data
+ - Block lacks elegance & simplicity present in Stream IO
+ 
+ NIO - Contains of
+ -------------------
+ - Channels & buffer
+ - Channel ~ PIPE
+ - Buffer  ~ Container Object
+ - Buffer ~ essentially an Array with more features
+ 
+ NIO - Parts
+ ---------
+ - Byte < Buffer < Channel
+ 
+ 
+ NIO - Reading a File
+ --------------------
+ - FileInputStream -> Channel -> Buffer -> Byte
+ 
+ 
+ 
+ 
+ 
+ 
