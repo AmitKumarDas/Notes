@@ -1,8 +1,12 @@
-
  Xmx & top 
  --------------
  - will differ for Java process
  - Xmx is only the max JVM heap
  - TOP command will display the Heap Perm etc.
+ 
+ 
+ jps
+ -----
+ - Since the jps command is itself a Java program, it shows up in the list, too.
  
  
