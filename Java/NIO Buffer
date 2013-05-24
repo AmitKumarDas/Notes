@@ -1,0 +1,169 @@
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import io.netty.util.CharsetUtil;
+
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+
+import io.netty.buffer.BufType;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufAllocator;
+import io.netty.buffer.ByteBufIndexFinder;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.channels.GatheringByteChannel;
+import java.nio.channels.ScatteringByteChannel;
+import java.nio.charset.Charset;
+
+Need to look at vertx eventbus impl
+
+
+ Different Kinds
+ -----------------
+ - native java int[] array
+ - nio heap buffer
+ - nio direct buffer
+ 
+ Buffer flip
+ --------------
+ - switch modes from read to write & vv
+ - once you have read the buffer, you have to clear the buffer for writing once again
+ 
+ clear
+ --------
+ - will clean up entirely
+ 
+ compact
+ ---------
+ - will clean up the stuff u have read
+ - unread data is moved to the beginning of the buffer 
+ 
+ 
+ Other Stuffs
+ -------------
+ - RandomAccessFile
+ - Channel
+ 
+ 
+ Write = Channel Read Into Buffer
+ ---------------------------
+ - channel.read(buffer) // write into buffer
+ 
+ 
+ Write = Put Into Buffer
+ -------------------------
+ - DIY ... use put method
+ - so many overloaded puts !
+ 
+ 
+ Read = get
+ ----------
+ - buf.get() // read 1 xxx at a time
+ - so may overloaded gets !
+ 
+ Read = Channel Write From Buffer
+ ----------------------------------
+ - int write2Channel = channel.write(buf);
+ 
+ 
+ Conditions
+ --------------
+ - while(channel.read(buf) != -1)
+ - while(buf.hasRemaining())
+ 
+ 
+ Buffer Properties
+ -------------------
+ - capacity, limit, & position
+ - position & limit differs in read vs write mode
+ 
+ Buffer Write & limit
+ ---------------------
+ - limit always at the end of the stack
+ 
+ Buffer Write & position
+ -------------------------
+ - position can be anywhere in the stack
+ 
+ 
+ Buffer Read & limit
+ --------------------
+ - limit can be anywhere in the stack
+ 
+ 
+ Buffer Read & position
+ -----------------------
+ - position is always at the top of the stack
+ 
+ # Note - capacity is always at the Bottom of the stack
+ 
+ 
+ Flip & Impacts
+ ----------------
+ - will change the position & limit
+ 
+ rewind
+ ----------
+ - rewind to top
+ - can reread once again from start
+ - limit remains untouched
+ 
+ clear - Ready to Write New
+ ------------------------
+ - position = 0 
+ - limit = max = capacity
+ - i.e. buffer is cleared
+ 
+ 
+ compact - Ready to Write Append
+ ----------------------------------
+ - position = after the last unread element
+ - limit = max = capacity
+ - so append & dont clear the unread data
+ - all read data are cleared
+ 
+ 
+ mark & reset
+ -------------
+ - mark - mark a position
+ - reset to the marked position
+ 
+ 
+ Java NIO - Buffer Types
+ -------------------------
+ - such a cool algorithm has so many types
+ - ByteBuffer, MappedByte... , Char..., Double..., Float..., Int..., Long..., Short...
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reference
+----------
+1/ http://tutorials.jenkov.com/java-nio/buffers.html
