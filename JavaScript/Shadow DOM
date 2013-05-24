@@ -1,0 +1,22 @@
+
+ - Shadow DOM subtrees
+ --------------------------
+ - Shadow DOM allows a single node to express three subtrees: 
+ - light DOM, 
+ - shadow DOM, and 
+ - composed DOM.
+ 
+ All DOMS
+ -------------
+ - A component user supplies the light DOM; 
+ - the node has a (hidden) shadow DOM; 
+ - and the composed DOM is what is actually rendered in the browser. 
+ - At render time, the light DOM is merged with the shadow DOM to produce the composed DOM.
+ 
+ 
+ 
+ 
+ 
+ References:
+ ----------------
+ 1/ http://www.polymer-project.org/platform/shadow-dom.html
