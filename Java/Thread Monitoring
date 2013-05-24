@@ -1,0 +1,42 @@
+
+ Instrumenting Thread Pooling
+ -------------------------------
+ - use aspects
+ - use ASM
+ - etc
+ 
+ Instrument Thread Pool
+ ---------------------------
+ - Custom Excutor that extends ThreadPoolExecutor
+ - Then expose the data using MXBean
+ 
+ What 2 Instrument
+ ------------------
+ - track interval between requests
+ - total service time
+ - total pool time
+ - no of requests
+ 
+ Average vs Running
+ --------------------
+ - If you have a tool for runtime analysis then provide running data
+ - If you want to display via text go for average
+ 
+ 
+ # However, it seems that runtime info (timestamp, data) over graphical tools is a good idea than
+ # putting down logic for mean median average etc !!!
+ 
+ 
+ Code try Out
+ ----------
+ - java.util.concurrent.RejectedExecutionHandler
+ - 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
