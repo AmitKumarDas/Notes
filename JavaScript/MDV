@@ -1,0 +1,27 @@
+
+ - Model Driven Views -
+---------------------------
+
+ - Note - Way to write dynamic HTML using HTML
+ 
+ <template>
+ -----------
+ - The HTML Template element is new and browsers are in the process of implementing it. 
+ - It allows you to declare fragments of HTML that may be used at some point. 
+
+ MDV & <template>
+ ----------------
+ - However, the MDV library teaches <template> some new tricks. 
+ - With MDV, <template> knows how to
+ - - Instruct DOM nodes to derive their value from JavaScript data by binding them to the data provided.
+ - - Maintain a fragment of DOM (or “instance fragment”) for each item in an array.
+ - - Conditionally stamp out one or more instance fragments, based on whether some data value is true or not.
+
+
+
+
+
+References
+-------------
+ 1/ http://www.polymer-project.org/platform/mdv.html
+ 
