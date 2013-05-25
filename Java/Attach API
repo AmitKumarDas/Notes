@@ -1,0 +1,93 @@
+ - Tools.jar
+ --------------
+ - contains Attach API
+ - attach to a target VM
+ - com.sun.tools.attach
+ - com.sun.tools.spi
+ - u never directly will need to use spi classes
+ 
+ VirtualMachine class
+ --------------------
+ - need to get the VirtualMachine instance
+ - via pid or
+ - via pid via name
+ 
+ VM via pid
+ -----------
+ VirtualMachine vm = VirtualMachine.attach (processid);
+ String agent = ...
+ vm.loadAgent(agent);
+ 
+ VM via pid via name
+ -----------------------
+ String name = ...
+ List vms = VirtualMachine.list();
+ for (VirtualMachineDescriptor vmd: vms) {
+    if (vmd.displayName().equals(name)) {
+        VirtualMachine vm = VirtualMachine.attach(vmd.id());
+        String agent = ...
+        vm.loadAgent(agent);
+        // ...
+    }
+ }
+
+
+ Attach What 2 What
+ ------------------
+ - A VM (an agent) to a target VM
+ 
+ 
+ # An agent can be Detach-ed too !!!
+
+ Agent
+ -------------
+ - JMX is also an agent
+ 
+ JMX Agent
+ -------------
+ - exists in management-agent.jar
+ - can start the target VM's MBean Server & get a MBeanServerConnection to that target Server
+ - Now do stuff like list threads or find deadlocked threads in the target VM
+ 
+ 
+ Using Attach API
+ ----------------------
+ - Get a class, etc or use CRaSH
+ - will need to be compiled by specifying the tools.jar in it classpath
+ - Will be run in similar manner
+
+ Creating custom Agents
+ -------------------------
+ - very similar to main method
+ - will use agentmain method
+ - package the compiled class into a .jar file
+ - specify Agent-Class in the manifest
+ - Agent-Class: <<nameof class>>
+ 
+ 
+ Target VM vs Agent Dependencies
+ ---------------------------------
+ - If agent depencies are not available in Target VM
+ - you will get NoClassDefFoundError
+ - Use Boot-Class-path attribute
+ - above requires space separated jar file names
+ 
+ 
+ Modifying Target VM's class file
+ -----------------------------------
+ - Agent will use Instrumentation API
+ - Agent will use ASM.jar or javassist.jar etc
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
