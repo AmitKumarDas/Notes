@@ -99,6 +99,13 @@
  - Above tells about the Runnable thread
 
 
+ Instrumentation Package - Offers
+ --------------------------------
+ - getAllLoadedClasses()
+ - Ca-Retransform-Classes:
+ - retransform by adding Transformer
+ - revove the transformer before detaching the Agent
+
 
 
 
