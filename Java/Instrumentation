@@ -1,17 +1,9 @@
- - http://asm.ow2.org/current/asm-transformations.pdf
- - http://asm.ow2.org/current/asm-eng.pdf
- - http://code.google.com/p/java-allocation-instrumenter/
- - http://mchr3k.github.io/org.inmemprofiler/
- - http://www.inf.usi.ch/faculty/hauswirth/publications/pldi10.pdf
 
 
  Identifying Hot Methods
 -----------------------------
  - If wrongly identified, a programmer will analyze a cold method for optimizing
- - 
-
  
-
 
  Instrumentation Package - Offers
  --------------------------------
@@ -24,6 +16,68 @@
  ---------------------------
  - deployed as a jar
  - attribute in the jar MANIFEST -> specifies which class will be loaded
+ 
+ Load an Agent
+ -----------------
+ - 2 ways
+ - command line
+ - attach api
+ 
+ premain method
+ ----------------
+ - invoked after JVM initialization
+ - public static void premain(String agentArgs, Instrumentation inst);
+ - public static void premain(String agentArgs);
+ - only one signature needs to be implemented
+ 
+ 
+ agentmain method
+ -----------------
+ - invoked sometimes after the JVM has started
+ - public static void agentmain(String agentArgs, Instrumentation inst);
+ - public static void agentmain(String agentArgs);
+ - only one signature needs to be implemented
+ 
+ Instrumentation of ByteCode
+ -------------------------------
+ - above shows how to set the Instrumentation obj
+ - Instrumentation obj has addTransformer method
+ - All future class definitions will be seen by the transformer, 
+ --> except definitions of classes upon which any registered transformer is dependent. 
+ 
+ Transformer
+ --------------
+ - class transformation i.e. bytecode manipulation
+ - invoked when classes are loaded, redefined, retransformed
+ 
+ 
+ Class --> Retransformed
+ ------------------------
+ - Transformer should be added along with canRetransform = true
+ 
+ 
+ ClassFileTransformer
+ -------------------------
+ - java.lang.instrument.ClassFileTransformer
+ - byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined,
+                 ProtectionDomain protectionDomain, byte[] classfileBuffer);
+ 
+ 
+ ClassFileTransformer & transform -> DIRECT
+ ---------------------------------------------
+ - Dont do it
+ 
+ 
+ ClassFileTransformer & transform ++ ASM
+ ----------------------------------------
+ - dont get hands dirty with bytecode manipulation directly
+ - use ASM etc jars
+ 
+ 
+ 
+ 
+ 
+ 
  
  
 
