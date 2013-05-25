@@ -1,9 +1,18 @@
 
-
  Identifying Hot Methods
 -----------------------------
  - If wrongly identified, a programmer will analyze a cold method for optimizing
+
+ Before Getting Into Instrumention
+ -------------------------------------
+ - Have a look if any easy option that fits the bill
+ - heard of JEE6 Interceptors
  
+ Before Getting Into Instrumentation
+ --------------------------------------
+ - think of resusing a Metrics library & transforming that as an Instrumentation Agent
+ - think of resuing a Metrics library & using it via some other means . i.e. JEE5 Interceptors
+
 
  Instrumentation Package - Offers
  --------------------------------
