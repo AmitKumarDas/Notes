@@ -1,0 +1,71 @@
+
+/**
+     * load the agent into this JVM if not already loaded. unfortunately this can only be done if we have
+     * the pid of the current process and we cannot get that in a portable way
+     */
+    private static synchronized void loadAgent() throws Exception
+    {
+        String[] properties = new String[0];
+        String id = null;
+
+        // if we can get a proper pid on Linux  we use it
+        int pid = getPid();
+        // uncomment to force lookup by name even on Linux
+        // pid = 0;
+
+        if (pid > 0) {
+            id = Integer.toString(pid);
+        } else {
+            /*
+            VMInfo[] vmInfo = Install.availableVMs();
+            // search for a JVM which looks like it is running a JUnit test
+            // and install the agent into that JVM
+            // it could be run from ant or maven or some other process!!
+            for (int i = 0; i < vmInfo.length; i++) {
+                String displayName = vmInfo[i].getDisplayName();
+                if (displayName.startsWith("org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner ")) {
+                    // a JUnit test forked by ant
+                    id = vmInfo[i].getId();
+                    break;
+                } else if (displayName.startsWith("org.apache.tools.ant.launch.Launcher ")) {
+                    // a JUnit test run directly by ant
+                    id = vmInfo[i].getId();
+                    break;
+                } else {
+                    // TODO -- identify a forked maven test and then a test run directly or any other mode of running
+                }
+                */
+            // alternative strategy which will  work everywhere
+            // set a unique system property and then check each available VM until we find it
+            String prop = "org.jboss.byteman.contrib.bmunit.agent.unique";
+            String unique = Long.toHexString(System.currentTimeMillis());
+            System.setProperty(prop, unique);
+            VMInfo[] vmInfo = Install.availableVMs();
+            for (int i = 0; i < vmInfo.length; i++) {
+                String nextId = vmInfo[i].getId();
+                String value = Install.getSystemProperty(nextId, prop);
+                if (unique.equals(value)) {
+                    id = nextId;
+                    break;
+                }
+            }
+            // make sure we found a process
+            if (id == null) {
+                throw new Exception("BMUnit : Unable to identify test JVM process during agent load");
+            }
+        }
+
+        try {
+            if (verbose) {
+                System.out.println("BMUNit : loading agent id = " + id);
+            }
+            Install.install(id, true, getHost(), getPort(), properties);
+        } catch (AgentInitializationException e) {
+            // this probably indicates that the agent is already installed
+        }
+    }
+    
+    
+ Reference
+ --------------
+ 1/ Byteman - BMUnit.java
