@@ -1,0 +1,48 @@
+
+
+    /**
+     * return the integer process id of the current  process. n.b. only works on Linux.
+     * @return
+     */
+    private static int getPid()
+    {
+        File file = new File("/proc/self/stat");
+        if (!file.exists()  || !file.canRead()) {
+            return 0;
+        }
+
+        FileInputStream fis = null;
+        int  pid = 0;
+
+        try {
+            fis = new FileInputStream(file);
+            byte[] bytes = new byte[10];
+            StringBuilder builder = new StringBuilder();
+            fis.read(bytes);
+            for (int i = 0; i < 10; i++) {
+                char c = (char)bytes[i];
+                if (Character.isDigit(c)) {
+                    builder.append(c);
+                } else {
+                    break;
+                }
+            }
+            pid = Integer.valueOf(builder.toString());            
+        } catch (Exception e) {
+            // ignore
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e1) {
+                    // ignore
+                }
+            }
+        }
+        return pid;
+    }
+
+
+ Reference
+ -------------
+ - Byteman's BMUnit.java
