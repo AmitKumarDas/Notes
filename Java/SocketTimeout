@@ -1,0 +1,21 @@
+
+ - Simulate
+ --------------
+ - via Byteman
+ 
+@RunWith(BMUnitRunner.class)
+public class BytemanJUnitTests {
+@Test(expected=MyServiceUnavailableException.class)
+   @BMRule(name="throw timeout at 1st call",
+   targetClass = "Socket",
+   targetMethod = "connect",
+   action = "throw new java.io.IOException()")
+   public void testErrorInPipeline() throws Exception {
+      // Invokes internally Socket.connect(..):
+      new MyHttpClient("http://example.com/data").read();
+   }
+}
+
+
+
+
