@@ -1,0 +1,7 @@
+
+GNOME Desktop Environment
+
+    A server seldomly needs a full-blown desktop environment. In case a graphical environment is needed, a more economical solution such as as icewm or fvwm may also be sufficient. 
+X Window System
+
+    When solely administrating the server and its applications via command line, consider to not install this pattern. However, keep in mind that it is needed to run GUI applications from a remote machine. If your application is managed by a GUI or if you prefer the GUI version of YaST, keep this pattern. 
