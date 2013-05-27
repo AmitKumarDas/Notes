@@ -22,6 +22,7 @@
  - Export to PATH
  --------------------
  - CRash/bin should be exported to enable standalone more
+ - export PATH=/home/damit/crash-1.2.5/crash/bin:$PATH
  
  
  
