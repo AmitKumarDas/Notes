@@ -1,5 +1,4 @@
 
-
  - Crash
  -------------
  - provides interactions with the JVM
@@ -21,6 +20,8 @@
  - as a service embedded in a spring app,
  - etc..
  
- 
+ - Export to PATH
+ --------------------
+ - CRash/bin should be exported to enable standalone more
  
  
