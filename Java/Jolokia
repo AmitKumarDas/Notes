@@ -1,0 +1,13 @@
+
+ - Jolokia
+ ----------------
+ - Access JMX Mbeans remotely
+ - Agent based approach
+ - JSON over HTTP for communication
+ 
+ - Why Jolokia
+ ------------------
+ - http://nurkiewicz.blogspot.in/2011/03/jolokia-highcharts-jmx-for-human-beings.html
+ 
+ 
+ 
