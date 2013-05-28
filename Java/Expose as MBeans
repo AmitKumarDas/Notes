@@ -1,0 +1,32 @@
+
+ - MBean via Annotation - Spring
+ ---------------------------
+ - Exporter will auto-detect the beans
+ - auto detection strategy is based on annotation based discovery
+ - add @ManagedResource to the bean that needs to be exposed
+ - add @ManagedAttribute to the getter/setter method
+ 
+ Aliter - MBean via Annotation
+ ------------------------------
+ - http://code.google.com/p/pojo-mbean/
+ - Guice
+ - jmxutils
+ - Groovy's JMXBuilder
+ 
+ 
+ - Registering Mbeans
+ -------------------------
+ - even with all the above annotations
+ - registration with MBean Server is required
+ 
+ 
+ 
+ JMX Discovery
+ -------------
+ - used to find the MbeanServerConnection
+ 
+ MBeans exposed over http
+ -------------------------
+ - http://code.google.com/p/jminix/
+ 
+ 
