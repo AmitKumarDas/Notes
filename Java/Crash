@@ -25,4 +25,14 @@
  - export PATH=/home/damit/crash-1.2.5/crash/bin:$PATH
  
  
+ - Crash Commands
+ -------------------
+ - Groovy based
+ - so can be class or script
+ - each command is a corresponding Groovy file that contains a command class
+ - files located in cmd for standalone distribution
+ 
+ - Commands as Class
+ ---------------------
+ - can declare options & arguments for the command
  
