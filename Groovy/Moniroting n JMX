@@ -1,0 +1,14 @@
+
+- http://groovy.codehaus.org/Groovy+and+JMX
+-------------------------------------------------
+- expose via POJOs via Spring annotation as MBeans
+- Access these MBeans as Groovy MBeans
+- Groovy scripts/class may be present in CRaSH cmd
+- CRaSH will then be attached to target JVM
+
+- Start/Stop MBean Server
+------------------------------
+- Can this be done remotely from Groovy CRaSH command ?
+
+
+
