@@ -1,4 +1,3 @@
-
 - http://groovy.codehaus.org/Groovy+and+JMX
 -------------------------------------------------
 - expose via POJOs via Spring annotation as MBeans
