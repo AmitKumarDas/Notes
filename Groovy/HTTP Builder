@@ -1,0 +1,13 @@
+
+http://blog.swwomm.com/2011/01/groovy-httpbuilder-cookies.html
+
+ Usage
+ ------------
+ - can use as a headless browser for simple tests
+ - tests which dont require click of buttons etc
+ 
+ Why not curl
+ -------------
+ - its simple...agreed.
+ - use where one time o/p is required 
+ - no need to capture the o/p & display etc...
