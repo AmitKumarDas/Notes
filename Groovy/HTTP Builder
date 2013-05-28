@@ -1,4 +1,3 @@
-
  - Web Scraping
  --------------------
  - http://blog.swwomm.com/2011/01/groovy-httpbuilder-cookies.html
@@ -13,3 +12,17 @@
  - its simple...agreed.
  - use where one time o/p is required 
  - no need to capture the o/p & display etc...
+
+ Auth
+ -----------
+ - http://groovy.codehaus.org/modules/http-builder/doc/auth.html
+ 
+ 
+ Redirects
+ --------------
+ - In cases where a response sends a redirect status code, 
+ - this is handled internally by Apache HttpClient, 
+ - which by default will simply follow the redirect by re-sending the request to the new URL. 
+ - You do not need to do anything special in order to follow 302 responses.
+ 
+ 
