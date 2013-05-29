@@ -1,0 +1,103 @@
+
+ Reference - CRaSH - https://github.com/crashub/crash/blob/master/cli/src/main/java/org/crsh/cli/type/ValueType.java
+
+  public abstract class ValueType<V> {
+  
+  protected final Class<V> type;
+    
+  protected ValueType(Class<V> type) throws NullPointerException {
+    if (type == null) {
+      throw new NullPointerException("No null value type accepted");
+    }
+   
+    this.type = type;
+  }
+  
+  public final V parse(String s) throws Exception {
+    return parse(type, s);
+  }
+
+  public abstract <S extends V> S parse(Class<S> type, String s) throws Exception;
+  
+  
+  
+  - STRING - 
+  ----------------
+  public static final ValueType<String> STRING = new ValueType<String>(String.class) {
+    @Override
+    public <S extends String> S parse(Class<S> type, String s) throws Exception {
+      return type.cast(s);
+    }
+  };
+
+  - INTEGER -
+  ---------------
+  public static final ValueType<Integer> INTEGER = new ValueType<Integer>(Integer.class) {
+    @Override
+    public <S extends Integer> S parse(Class<S> type, String s) throws Exception {
+      return type.cast(Integer.parseInt(s));
+    }
+  };
+  
+  - THREAD -
+  -------------
+  public static final ValueType<Thread> THREAD = new ValueType<Thread>(Thread.class, ThreadCompleter.class) {
+    @Override
+    public <S extends Thread> S parse(Class<S> type, String s) throws Exception {
+      long id = Long.parseLong(s);
+      for (Thread t : Thread.getAllStackTraces().keySet()) {
+        if (t.getId() == id) {
+          return type.cast(t);
+        }
+      }
+      throw new IllegalArgumentException("No thread " + s );
+    }
+  };
+  
+  
+  - ENUM-
+  -------------
+  public static final ValueType<Enum> ENUM = new ValueType<Enum>(Enum.class, EnumCompleter.class) {
+    @Override
+    public <S extends Enum> S parse(Class<S> type, String s) {
+      // We cannot express S extends Enum<S> type
+      // so we need this necessary cast to make the java compiler happy
+      S s1 = (S)Enum.valueOf(type, s);
+      return s1;
+    }
+  };
+  
+  
+  - javax.management.ObjectName -
+  ------------------------------------
+  public static final ValueType<ObjectName> OBJECT_NAME = new ValueType<ObjectName>(ObjectName.class) {
+    @Override
+    public <S extends ObjectName> S parse(Class<S> type, String s) throws Exception {
+      return type.cast(ObjectName.getInstance(s));
+    }
+  };
+  
+  
+  - PROPERTIES -
+  ----------------
+  public static final ValueType<Properties> PROPERTIES = new ValueType<Properties>(Properties.class) {
+    @Override
+    public <S extends Properties> S parse(Class<S> type, String s) throws Exception {
+      java.util.Properties props = new java.util.Properties();
+      StringTokenizer tokenizer = new StringTokenizer(s, ";", false);
+      while(tokenizer.hasMoreTokens()){
+        String token = tokenizer.nextToken();
+        if(token.contains("=")) {
+          String key = token.substring(0, token.indexOf('='));
+          String value = token.substring(token.indexOf('=') + 1, token.length());
+          props.put(key, value);
+        }
+      }
+      return type.cast(props);
+    }
+  };
+  
+  
+  
+  
+ 
