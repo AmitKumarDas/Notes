@@ -1,3 +1,43 @@
-
 - Http Builder
 - JMX Builder
+
+
+ - Why Builder -
+ -----------------
+ - Developers get stuck with creating Data Structures,
+ - stuck with domain classes
+ - stuck with creating XML
+ - stuck with creating Output Streams etc...
+ - remember using the DOM API to build XML docs... Its nasty
+ 
+ - XML - 
+ def builder = new groovy.xml.MarkupBuilder(writer)
+   builder.teacher (name: "Jones") {
+      student (name: "Bob") {}  
+      student (name: "Sue") {}
+   }
+ 
+ 
+ o/p
+ ---
+ 
+ <?xml version="1.0"?>
+  <teacher name = "Jones">
+    <student name = "Bob">
+    <student name = "Sue">
+  </teacher>
+
+ Implementing a Builder
+ -------------------------
+ - extend GroovyObjectSupport
+ - 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+   
+   
+   
