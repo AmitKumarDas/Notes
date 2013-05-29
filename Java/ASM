@@ -1,6 +1,42 @@
-
  - http://asm.ow2.org/current/asm-transformations.pdf
  - http://asm.ow2.org/current/asm-eng.pdf
  - http://code.google.com/p/java-allocation-instrumenter/
  - http://mchr3k.github.io/org.inmemprofiler/
  - http://www.inf.usi.ch/faculty/hauswirth/publications/pldi10.pdf
+
+ Class Creation
+ --------------------
+ - Instantiate a ClassNode
+ - add version, access, signature, name, supername
+
+ - Method Creation
+ ----------------------
+ - Instantitate a MethodNode
+ - keep adding instructions to methodNode
+ - add the method to the classNode
+ 
+ - Dump in memory class into File
+ -----------------------------------
+ - ClassWriter
+ - ClassNode
+ - DataOutputStream
+ 
+ - Reading class in Memory
+ -------------------------------
+ - ClassNode is a ClassVisitor
+ - Use ClassReader, FileInputStream, 
+ 
+ - Modifying class in Memory
+ ------------------------------
+ - use ClassReader & then ClassWriter
+ 
+ - Useful Methods 4 Annotation checks
+ ---------------------------------------
+ - MethodNode . visibleAnnotations -> returns a list of AnnotationNode
+ - AnnotationNode -> desc -> equals ('Lcom/org/asm/MyClass;')
+ - above checks if the annotation is of type MyClass
+ 
+ 
+ 
+ 
+ 
