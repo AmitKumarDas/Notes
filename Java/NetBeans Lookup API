@@ -1,0 +1,37 @@
+
+ - Usage
+ -----------
+ - mention the type
+ - get the instance
+ - What about Security ?
+ 
+ - Listener
+ ---------------
+ - Can add listeners for monitoring the changes
+ 
+ - Actual usage
+ -------------------
+ - Solution to communicating between components
+ - Designing the SPI & API parts
+ - Facilitate Modular development
+ - Facilitate independent modules
+ - How different components register to the system &
+ - how others parts can look them up
+ 
+ - Contemporary
+ --------------------
+ - JINI 
+ - development of distributed network services
+ 
+ - Older Way
+ --------------
+ - Class.forName(classname);
+ 
+ - Better Way
+ -----------------
+ - Put the external jar file which has the class that needs to be instantiated in new environment
+ - org.openide.util.Lookup
+ - XYZ obj = (XYZ)Lookup.getDefault().lookup(XYZ.class);
+ - the jar having XYZ class should be in the classpath
+ 
+ 
