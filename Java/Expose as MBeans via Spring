@@ -1,9 +1,65 @@
-
  - MBeanExporter
  ----------------------
  - Any beans that are exported through the MBeanExporter and are already valid MBeans 
  - & are registered as-is with the MBeanServer.
  - Without further intervention from Spring. 
  - MBeans can be automatically detected by the MBeanExporter by setting the autodetect property to true.
+ 
+ - Registration behavior
+ ----------------------------
+ - fail on existing
+ - ignore existing
+ - replace existing
+ 
+ MBeanInfoAssembler
+ -----------------------
+ - defines management interface
+ - of each bean that is being exposed
+ 
+ SimpleReflectiveMBeanInfoAssembler
+ -----------------------------------------
+ - exposes all public properties & methods
+ 
+ SourceLevelMetadata
+ ------------------------
+ - define management interface using Source Level Metadata
+ - this can be via Commons Attributes metadata approach
+ - or via JDK 5.0 annotations
+ 
+ @ManagedResource
+ ----------------------
+ - mark ALL instances of a Class as JMX managed resources
+ 
+ Server Side Connector
+ -------------------------
+ - JSR-160 JMXConnectorServer
+ - by default ... a JMXConnectorServer is created bound to service:jmx:jmxmp://localhost:9875
+ 
+ - <bean id="serverConnector" class="org.springframework.jmx.support.ConnectorServerFactoryBean"/>
+ - The serverConnector bean thus exposes the local MBeanServer to clients through the JMXMP protocol on localhost, port 9875.
+ 
+ RMI Server Side Connector
+ ---------------------------
+ - Need not use it
+ 
+ <bean id="serverConnector"
+      class="org.springframework.jmx.support.ConnectorServerFactoryBean">
+  <property name="objectName" value="connector:name=rmi"/>
+  <property name="serviceUrl" 
+            value="service:jmx:rmi://localhost/jndi/rmi://localhost:1099/myconnector"/>
+ </bean>
+ 
+ Client Side Connector
+ ---------------------------
+ - ConnectorServerFactoryBean
+ - use other providers or MX4J, you can take advantage of protocols like SOAP, Hessian, Burlap over simple HTTP or SSL
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
