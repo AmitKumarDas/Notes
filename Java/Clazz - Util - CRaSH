@@ -1,0 +1,51 @@
+
+  Reference - CRaSH - /cli/src/main/java/org/crsh/cli/type/ValueType.java
+
+  protected final Class<V> type;
+
+ - Distance -
+ -----------------
+
+ final int getDistance(Class<?> clazz) {
+    if (type == clazz) {
+      return 0;
+    } else if (type.isAssignableFrom(clazz)) {
+      int degree = 0;
+      for (Class<?> current = clazz;current != type;current = current.getSuperclass()) {
+        degree++;
+      }
+      return degree;
+    } else {
+      return -1;
+    }
+  }
+  
+  - Equals -
+  ----------------
+  @Override
+  public final boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    } else {
+      if (obj == this) {
+        return true;
+      } else {
+        if (obj.getClass() == ValueType.class) {
+          ValueType that = (ValueType)obj;
+          return type == that.type;
+        } else {
+          return false;
+        }
+      }
+    }
+  }
+  
+  
+  - hashcode -
+  -----------------------
+  @Override
+  public final int hashCode() {
+    return type.hashCode();
+  }
+  
+  
