@@ -1,0 +1,23 @@
+
+ - IOC / DI Framework
+ ------------------------
+ - Need not think of frameworks & libs
+ - Check if u can use java.util.ServiceLoader
+ 
+ 
+ ServiceLoader
+ -------------------
+ - java 6
+ - loads i.e. instantiates based on flat files in META-INF/services
+ - similar to NetBeans Lookup API though SL is a subset of Lookup
+ 
+ Use of SL
+ -------------
+ - query for a type by providing Class object
+ - get in return 0 or more instances which may be subclasses of that type
+ - However, SL creates instances !!! Oh No
+ 
+ 
+ 
+ 
+ 
