@@ -1,4 +1,3 @@
-
  - IOC / DI Framework
  ------------------------
  - Need not think of frameworks & libs
@@ -15,7 +14,16 @@
  -------------
  - query for a type by providing Class object
  - get in return 0 or more instances which may be subclasses of that type
- - However, SL creates instances !!! Oh No
+ - However, SL creates instances !!! 
+ - useful for DI related stuff.
+ - However for inspection related stuff, where we want to get existing instances, this is not suitable
+ 
+ 
+ Inspection Related
+ -----------------------
+ - If weare able to get the existing instances based on their type
+ - We can pass these instances to Groovy JMX Builder for transforming these instances to Groovy MBeans
+ 
  
  
  
