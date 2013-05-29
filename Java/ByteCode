@@ -1,0 +1,34 @@
+
+
+ -- Java ----
+public class zt.asm.deg.Items {
+  
+ public java.util.List<java.lang.Integer> ids;
+ 
+ public int getId(int);
+   Code:
+    0:  aload_0
+    1:  getfield         #4
+    4:  iload_1
+    5:  invokeinterface  #8,   2
+    10: checkcast        #9
+    13: invokevirtual    #10
+    16: ireturn
+    
+}
+
+ -- Groovy --
+ public class zt/asm/Items {
+   public Ljava/util/List; ids
+   
+   @groovyx.ast.bytecode.Bytecode
+   public int getId(int a){
+     aload 0
+     getfield zt.asm.Items.ids >> List
+     iload 1
+     invokeinterface List.get(int) >> Object
+     checkcast Integer
+     invokevirtual Integer.intValue() >> int
+     ireturn
+   }
+ }
