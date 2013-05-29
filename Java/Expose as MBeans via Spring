@@ -1,0 +1,9 @@
+
+ - MBeanExporter
+ ----------------------
+ - Any beans that are exported through the MBeanExporter and are already valid MBeans 
+ - & are registered as-is with the MBeanServer.
+ - Without further intervention from Spring. 
+ - MBeans can be automatically detected by the MBeanExporter by setting the autodetect property to true.
+ 
+ 
