@@ -1,4 +1,3 @@
-
  - Simplifies the wait & notify mechanism
  
  - Use Case - Various services are started in separate thread. 
