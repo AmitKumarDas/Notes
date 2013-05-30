@@ -1,0 +1,24 @@
+
+ https://github.com/crashub/crash/blob/master/shell/core/src/main/java/org/crsh/util/InterruptHandler.java
+ 
+ http://www.dclausen.net/javahacks/signal.html
+ 
+ 
+ Usage of sun.misc.Signal
+ ------- ------------- ---
+ - trap OS signals
+ - SIGINT, SIGTERM, SIGHUP
+ 
+ Possible UseCases
+ ------------------
+ - instead of exiting JVM, reload config files
+ - log them before passing to JVM's native handlers
+ 
+ 
+ POSIX Signals
+ ------------------
+ - send sginals to running process
+ 
+ Conventional Interrupt Handling
+ --------------------
+ - 
