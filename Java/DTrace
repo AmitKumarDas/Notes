@@ -1,2 +1,49 @@
  
  http://www.c0t0d0s0.org/archives/6632-Practical-DTracing.html
+
+
+ - Pinning
+ ------------------------
+ - Performance problems are caused when an interrupt "steals" a CPU from an application thread, 
+ - halting its process while the interrupt is serviced. 
+ - This is called pinning - the interrupt will pin an application thread if the interrupt was delivered to a CPU
+ - on which an application was executing at the time.
+ 
+ Pinning & DTrace probes
+ -------------------------
+ - interrupt-start
+ - interrupt-complete
+ 
+ Pinning & Dtrace Scripts
+ -----------------
+ - get it online
+ - they will give u below data
+ - Drivers & their Pinned Processes
+ - CPU consumption per process includes pinning per driver & time waiting on run queues
+ - Interrupt routine name for a specified driver
+ 
+ Resolving Pinning
+ ------------------------
+ - dedicate CPU to application that doesnot have high impact interrupts
+ - dedicate CPU to drivers delivering high impact interrupts
+ - better drivers.. drivers with worker threads, etc
+ 
+ Pinning Issues in MultiThreaded App
+ --------------------------------------
+ - if multi threaded app is being pinned
+ - check if any critical kernel or user lock r being held during pinning
+ - use pinning dtrace probes with lock probes
+ 
+ Locks & DTrace probes
+ ----------------------
+ - lockstat
+ - plockstat
+ 
+ 
+ 
+ 
+ 
+ 
+ References
+ --------------
+ 1/ https://blogs.oracle.com/timc/entry/analyzing_interrupt_activity_with_dtrace
