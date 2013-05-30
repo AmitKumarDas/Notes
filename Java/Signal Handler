@@ -1,4 +1,3 @@
-
  https://github.com/crashub/crash/blob/master/shell/core/src/main/java/org/crsh/util/InterruptHandler.java
  
  http://www.dclausen.net/javahacks/signal.html
@@ -21,4 +20,44 @@
  
  Conventional Interrupt Handling
  --------------------
- - 
+ - when interrupt occurs
+ - processor simply stops executing the code
+ - processor now jumps to an interrupt routine
+ - environ of the interrupted process is saved
+ - - CPU registers are saved
+ - - processor status register are saved
+ - This is known as Context Switch
+ 
+ Context Switch
+ --------------------
+ - some h/w implement full context switch
+ - if partial, then programmer needs to do the saving & restoration manually
+ 
+ 
+ Scenarios
+ -------------
+ - Interrupts are events delivered to CPUs, usually by external devices (e.g. FC, SCSI, Ethernet and Infiniband adapters). 
+ - Interrupts can cause performance and observability problems for applications.
+ 
+ Interrupts & Performance Issues
+ -----------------------------------
+ - Performance problems are caused when an interrupt "steals" a CPU from an application thread, 
+ - halting its process while the interrupt is serviced. 
+ - This is called pinning - the interrupt will pin an application thread 
+ - if the interrupt was delivered to a CPU on which an application was executing at the time.
+ - This can affect other threads or processes in the application if for example the pinned thread 
+ - - was holding one or more synchronization objects (locks, semaphores, etc.)
+ 
+ Observing the Interrupt/Context Switch Issue
+ -----------------------------------------------
+ - If we are trying to account for work the application is completing versus the CPU it is consuming. 
+ - During the time an interrupt has an application thread pinned, the CPU it consumes is charged to the application.
+ 
+ DTrace Probes
+ ------------------
+ - interrupt-start
+ - interrupt-complete
+ - Can get the dtrace scripts to access the effect of pinning
+ 
+ 
+ 
