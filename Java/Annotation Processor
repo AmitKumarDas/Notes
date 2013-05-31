@@ -1,0 +1,5 @@
+ 
+ Annotation Processor
+ -----------------------
+ - think of Compile Time than Reflection Processing
+ - http://docs.oracle.com/javase/6/docs/api/javax/annotation/processing/Processor.html
