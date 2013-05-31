@@ -36,8 +36,6 @@
  - cancelPrimaryStorageForMaintenance, updateStoragePool
  - getStoragePool
  
- 
- 
  S3
  ---
  - an interface
