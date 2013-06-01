@@ -1,0 +1,72 @@
+
+Reference - http://www.trifork.nl/en/home/products/custom-solutions.html
+
+Database on Scalability
+-------------------------
+- Dont expect Db to take care of scalability
+
+Axon
+----
+- Logical components separated using Service oriented approach
+- coupled via Async Event Bus
+- hence, components can be physically spread across servers
+
+
+
+- UseCase -
+------------------
+- Scaling Up 
+- DeCoupled Components
+- Multi Tenancy
+- Asynchronous UI
+
+
+Solution
+---------------
+Part I -
+- A browser, communicates with the backend using the Vert.x event bus. 
+- Creating a item is a message on the bus send to an endpoint. 
+- # Endpoint will be a web service endpoint exposed by the Event Bus.
+- # Event Bus should be capable of throttling, queuing, etc. the client requests.
+- # Service can be bought up w.r.t a specific tenant if needed.
+- # Clustered Services may cater to a single tenant if required.
+- The message is picked up by the Service Handler that listens to that endpoint. 
+- Service Handler transforms/maps the message into a Java Bean (POJO).
+- Service Handler raises an Event/Command.
+- - These event is consumed by the Event Listener.
+- # i.e. a DeCoupling Strategy within the Service component itself.
+- This Listener sends Persist Message to the vertx event bus.
+
+Part II - 
+- This Message will be consumed to persist the item.
+- # Persistence can be a separate component locally or remotely.
+- DB component can be bought up w.r.t a specific tenant if needed.
+- DB component should be clustered to a single tenant if requried.
+- DB will persist to the config store.
+- DB will send the response message back to Event Bus
+
+
+Part III - 
+- Listener (present in Service component) will consume DB response
+- Post Handling logic will be implemented by the Listener. 
+- Listener will raise an Event to A TOPIC in Event Bus.
+- This message may be consumed by Audit Server.
+- # Audit Server can be a custom component or 3rd party component.
+- # Audit Server can be local or remote component.
+- All clients(browser) listen to this message.
+- A JavaScript controller, registers Listener(s) for these Vert.x events and update the data model. 
+- These changes are automatically picked up by the view to change the view (We have to use shims for this auto effect)
+
+Assumptions:-
+- For the client side lets not go with a framework
+- For the client side lets go with micro frameworks that just suits our purpose
+- Micro Frameworks are analogous to modules in Apache. Plug the stuff that you want, forget the rest !!
+- Vert.x is kind of a platform on top of Java.
+- I will propose Vert.x for Clustering & HA too. Will propose its high level approach later.
+- We may want to go with RabbitMQ instead of Vert.x, if that suits our bill
+- We still need to think on storage of session information w.r.t service component.
+- Should it be stored in an in-memory DB for fast access & then to disk DB for session replication
+- I need to read more on Vert.x capability for tuning this approach further.
+- via Event Bus we may direct messages to particular components or clustered components & achieve multi tenancy with QOS
+
+
