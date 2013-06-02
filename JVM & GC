@@ -10,18 +10,6 @@
  - 2nd GC -> copy all the survivors from eden & survivor into 2nd survivor
  - Its more about eliminating fragmentation !!
 
-Example
---------------
-  2010-04-16T12:11:18.979+0200: 84.335: 
-        [GC 84.336: [ParNew: 273152K->858K(341376K), 0.0030008 secs] 
-                    273152K->858K(980352K), 0.0031183 secs] 
-        [Times: user=0.00 sys=0.00, real=0.00 secs]
-
-
-  > 84.35 ~ timestamp ~ no of seconds after JVM startup
-  > 2010-04-16T12:11:18.979+0200: ~ datestamp ~ enabled via -XX:+PrintGCDateStamps
-
-
   Settings
 ----------------
 CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of information. 
@@ -29,16 +17,16 @@ CMS GC with -XX:+PrintGCDetails and -XX:+PrintGCTimeStamps prints a lot of infor
   Collectors
 ------------
   > Concurrent Collector  - GC with app execution
-  > parallel Collector - uses multiple CPUs for GC
+  > Parallel Collector - uses multiple CPUs for GC
   > Stop The World Collector - performs GC while app is stopped completely
   > Incremental Collector - performs GC as a series of small ops with longer gaps in between
   
    GC Safepoint
 ---------------------------
-  > point where the collector can identify all the references in that thread's execution stack
+  > Point where the collector can identify all the references in that thread's execution stack
 
 
-   Oldgen & CMS
+  Oldgen & CMS
 -------------------------
   > Mark Sweep Compact - common for OldGen
 
@@ -384,6 +372,16 @@ Explained Below
  
  
  
+Example
+--------------
+  2010-04-16T12:11:18.979+0200: 84.335: 
+        [GC 84.336: [ParNew: 273152K->858K(341376K), 0.0030008 secs] 
+                    273152K->858K(980352K), 0.0031183 secs] 
+        [Times: user=0.00 sys=0.00, real=0.00 secs]
+
+
+  > 84.35 ~ timestamp ~ no of seconds after JVM startup
+  > 2010-04-16T12:11:18.979+0200: ~ datestamp ~ enabled via -XX:+PrintGCDateStamps
  
  
  
