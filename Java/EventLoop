@@ -1,0 +1,18 @@
+
+ RunLoop vs. EventLoop
+ --------------------------
+ - Its the same!!!
+ - A method for checking whether there is a new event in the infinite loop, 
+ - & calling an event handler when an event has been received. 
+ 
+ Exact Threading Requirement
+ -------------------------------
+ - For Example - File searching on the server disk. 
+ - In this case, it is better to create a separate thread for searching files. 
+ 
+ Vert.x handles both of above
+ ------------------------------
+ - Vert.x creates Run Loops (Event Loops) equaling the number of cores &
+ - provides thread pool-related function to handle tasks using server resources requiring long periods for event handling.
+ 
+ 
