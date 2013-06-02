@@ -33,5 +33,30 @@ http://docs.oracle.com/javase/6/docs/platform/jvmti/jvmti.html
  ----------------------
  - JVMTI functions is used via Interface Pointer
  - JVMTI interface pointer is called Environment Pointer
- - 
- - 
+ 
+ Obtain jvmtiEnv
+ --------------------
+ - from JNI Invocation API GetEnv
+ 
+ jvmtiEnv *jvmti;
+ ...
+ (*jvm)->GetEnv(jvm, &jvmti, JVMTI_VERSION_1_0);
+ 
+ - Each call to GetEnv creates a new JVMTI connection
+ - Each call to GetEnv returns a new JVMTI environment
+ 
+ 
+ jvmtiEnv *env & C
+ -----------------
+ - In C ~ env provides the context
+ - In C ~ env is the first argument
+ - In C ~ jvmtiError err = (*jvmti)->GetLoadedClasses(jvmti, &class_count, &classes);
+ 
+ In CPP
+ ------------
+ - env pointer is not required to be passed
+ - jvmtiError err = jvmti->GetLoadedClasses(&class_count, &classes);
+ 
+ 
+ 
+ 
