@@ -1,0 +1,58 @@
+
+
+Alive?
+-----------
+ ~ Not alive.
+  Q Why not alive?
+   -> New.
+   -> Terminated (JVMTI_THREAD_STATE_TERMINATED)
+   
+ ~ Alive (JVMTI_THREAD_STATE_ALIVE)
+  Q Suspended?
+   -> Suspended (JVMTI_THREAD_STATE_SUSPENDED)
+   -> Not suspended
+  
+  Q Interrupted?
+    ->Interrupted (JVMTI_THREAD_STATE_INTERRUPTED)
+    ->Not interrupted.
+    
+  Q In native?
+    -> In native code (JVMTI_THREAD_STATE_IN_NATIVE)
+    -> In Java programming language code
+  
+  Q What alive state?
+    -> Runnable (JVMTI_THREAD_STATE_RUNNABLE)
+    -> Blocked (JVMTI_THREAD_STATE_BLOCKED_ON_MONITOR_ENTER)
+    -> Waiting (JVMTI_THREAD_STATE_WAITING)
+    Q Timed wait?
+     -> Indefinite (JVMTI_THREAD_STATE_WAITING_INDEFINITELY
+     -> Timed (JVMTI_THREAD_STATE_WAITING_WITH_TIMEOUT)
+    Q Why waiting?
+     -> Object.wait (JVMTI_THREAD_STATE_IN_OBJECT_WAIT)
+     -> LockSupport.park (JVMTI_THREAD_STATE_PARKED)
+     -> Sleeping (JVMTI_THREAD_STATE_SLEEPING)
+     
+
+ jvmtiError GetCurrentThread(jvmtiEnv* env, jthread* thread_ptr)
+ --------------------------------------------------------------------
+ - Agent passes a pointer to a jthread. 
+ - On return, the jthread has been set. 
+ - The object returned by thread_ptr is a JNI local reference and must be managed.
+ 
+ jvmtiError GetAllThreads(jvmtiEnv* env, jint* threads_count_ptr, jthread** threads_ptr)
+ -----------------------------------------------------------------------------------------
+ - jint* ~ Agent passes a pointer to a jint. On return, the jint has been set.
+ - JTHREAD** ~ Agent passes a pointer to a jthread*. 
+          -> On return, the jthread* points to a newly allocated array of size *threads_count_ptr. 
+          -> The array should be freed with Deallocate. 
+          -> The objects returned by threads_ptr are JNI local references and must be managed.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
