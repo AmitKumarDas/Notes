@@ -1,2 +1,37 @@
-
 http://docs.oracle.com/javase/6/docs/platform/jvmti/jvmti.html
+
+
+ Multiple
+ ----------
+ - simultaneous agents can coexist
+ - each agent has its own environment
+ - JVMTI state differs from each agent
+ 
+ Separate Agents Use 1 Shared VM State
+ ---------------------------------------
+ - 1 shared state of VM
+ - used by separate Agents
+ - Agents can disturb reults of other Agents
+ 
+ Static Instrumentation
+ --------------------------
+ - maintain 2 different .class versions
+ 
+ Load-Time Instrumentation
+ ------------------------------
+ - ClassFileLoadHook event
+ 
+ Dynamic Instrumentation
+ ----------------------------
+ - ClassLoadFileHook event
+ - ReTransform Classes function
+ - Classes can be modified multiple times
+ - Classes can be returned to their original state
+ 
+ 
+ Environment Pointer - jvmtiEnv*
+ ----------------------
+ - JVMTI functions is used via Interface Pointer
+ - JVMTI interface pointer is called Environment Pointer
+ - 
+ - 
