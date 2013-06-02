@@ -1,4 +1,3 @@
-
  vector
  ----------
  - reading into a standard vector guarantees that u dont overflow arbitrary buffer
@@ -19,5 +18,14 @@
  - cout << "read" << v.size << "elements\n"
  
  
+jvmtiEnv *env & C
+ -----------------
+ - In C ~ env provides the context
+ - In C ~ env is the first argument
+ - In C ~ jvmtiError err = (*jvmti)->GetLoadedClasses(jvmti, &class_count, &classes);
  
+ jvmtiEnv *env & CPP
+ ------------
+ - env pointer is not required to be passed
+ - jvmtiError err = jvmti->GetLoadedClasses(&class_count, &classes); 
  
