@@ -58,5 +58,34 @@ http://docs.oracle.com/javase/6/docs/platform/jvmti/jvmti.html
  - jvmtiError err = jvmti->GetLoadedClasses(&class_count, &classes);
  
  
+ jvmti & memory
+ ----------------
+ - Our client code must recognize the functions that allocate memory
+ - i.e. JVMTI func allocate memory
+ - client code has to deallocate that
+ 
+ 
+ jvmti fun & error
+ -------------------
+ - an error occured if NOT JVMTI_ERROR_NONE
+ - JVMTI func never throw exception
+ - errors are communcated via function return value
+ 
+ 
+ Allocate
+ ----------
+ - allocates memory thru JVMTI allocator
+ - this func may be called from the callbacks to Heap iterations, 
+ - this func may be called from event handlers for 
+ -- GarbageCollectionStart, GarbageCollectionFinish, & ObjectFree events
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
