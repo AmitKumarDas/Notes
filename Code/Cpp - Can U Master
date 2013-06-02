@@ -1,3 +1,6 @@
+
+http://www.stroustrup.com/bs_faq2.html
+
  vector
  ----------
  - reading into a standard vector guarantees that u dont overflow arbitrary buffer
