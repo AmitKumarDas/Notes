@@ -1,0 +1,45 @@
+
+ Closure - What is it ?
+ -------------------------
+ - code block executed at a later time
+ - looks similar to Lambda in Java
+ 
+ - Example -
+ ---------------
+ 
+ def localMethod() {
+  def localVariable = new java.util.Date()
+  return { println localVariable }
+ }
+
+ def clos = localMethod()
+
+ println "Executing the Closure:"
+ clos() //prints the date when "localVariable" was defined
+ 
+ 
+ - Example -
+ ----------------
+ - this, delegate & owner
+ - delegate is same as owner but is changeable
+ 
+ class Class1 {
+  def closure = {
+    println this.class.name
+    println delegate.class.name
+    def nestedClos = {
+      println owner.class.name
+    }
+    nestedClos()
+  }
+ }
+
+ def clos = new Class1().closure
+ clos.delegate = this
+ clos()
+ /*  prints:
+  Class1
+  Script1
+  Class1$_closure1  */
+  
+ 
