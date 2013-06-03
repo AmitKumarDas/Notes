@@ -1,0 +1,30 @@
+
+ Create HTTP Server
+ ------------------------
+ - Create a cached thread pool for incoming connections
+ - Create a cached thread pool for processing IO
+ - Provide a Channel Factory
+ - Set up a Channel PipeLine Factory
+ - Put all together with Bootstrap
+ - Gather channels for future closing
+ - Close gathered channels
+ - release external resources
+ 
+ - set TCP keepAlive -
+ -------------------------
+ - prolongs each TCP connection
+ - makes NAT router happy
+ 
+ - set TCP noDelay -
+ ------------------------
+ - glues small TCP packets
+ - tries to reduce bandwidth
+ - increases latency
+ 
+ 
+ 
+ 
+ Writing Custom Handlers
+ ---------------------------
+ - Extend SimpleChannelUpstreamHandler
+ 
