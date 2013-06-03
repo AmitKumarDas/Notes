@@ -1,0 +1,42 @@
+
+ Whats asm.js
+ -----------------
+ - stripped down version
+ - a subset of JS
+ 
+ What asm does
+ ---------------
+ - converts the native code into above JavaScript
+ 
+ Is JS VM faster ?
+ ------------------
+ - V8 & Nitro suggests so
+ - achieve via the JIT
+ - V8 converts JS into pieces of executable code dat the CPU could run directly
+ 
+ How come fast ?
+ -------------------
+ - C/C++ the behavior of the program is baked in when the program is compiled
+ - so good for optimization & hence performance
+ - so ASM doesnot support JS' OO constructs
+ - ASM doesnot support JS dynamic capabilities
+ - asm.js programs manipulate a large array representing "memory" 
+ 
+ C++ Object & Memory
+ -----------------------
+ - In a C++ program, an object in memory is typically represented by the memory address of the class's v-table 
+ - A table of all the functions belonging to the object's class
+ - followed by the storage for the object's data.
+ 
+ ASM.js & Memory
+ -----------------
+ - So too in asm.js: the memory array would contain, in consecutive elements, 
+ - the array index of the v-table and
+ - then the object data.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
