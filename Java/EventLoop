@@ -1,4 +1,3 @@
-
  RunLoop vs. EventLoop
  --------------------------
  - Its the same!!!
@@ -14,5 +13,12 @@
  ------------------------------
  - Vert.x creates Run Loops (Event Loops) equaling the number of cores &
  - provides thread pool-related function to handle tasks using server resources requiring long periods for event handling.
+ 
+ Blocking vs Non Blocking
+ ----------------------------
+ - slect()/poll() - traditional POSIX poilling O(n)
+ - epoll() - event based polling O(1), Linux 2.5.44+
+ - kqueue  - FreeBSD, Mac OS X
+ - I/O Completion Ports - Windows NT 3.5+, Solaris 10+
  
  
