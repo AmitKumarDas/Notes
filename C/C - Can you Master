@@ -1,0 +1,78 @@
+
+ - Struct & Memory Padding -
+ -------------------------------
+ - Arrange struct attributes such that they are ascending or descending in size
+ - this ensures the overall struct sieze including padding is less
+ 
+ - Padding -
+ -------------
+ - variables of type int will be aligned at offset: 0,4,8,12
+ - variable of type char will be aligned at offset: 0,1,2,3,4
+ - variable of type pointer will be aligned at offset: 0,8,16,24,32 
+ 
+ - Avoid Memory Padding -
+ ----------------------------
+ - #pragma pack(1) //avoid
+ - #pragma pack(0) //enable
+ - will reduce memory but will slow down app
+ 
+ - New Line -
+ -----------------
+ - In windows its 2 bytes
+ - In Linux its 1 byte
+ 
+ - fopen -
+ ---------------
+ 
+ FILE *fopen(const char *path, const char *mode);
+ 
+ - In Windows, text-mode & binary-mode is differentiated
+ - e.g. r, rb, w, wb
+ - In Linux there is no text mode, always binary mode
+ 
+ - strncpy - 
+ -------------
+ 
+ char *strncpy(char *dest, const char *src, size_t n);
+ 
+ - char str[5];
+ - strncpy(str, "abc", 10) /* Will Crash: will copy 'abc' & 7 zeros into str */
+ 
+ - memset -
+ --------------
+ - use memset to initialize variables to ZERO
+ - Dont use memset for other fills
+ 
+ - fgets -
+ -------------
+ 
+ char *fgets(char *s, int size, FILE *stream);
+ 
+ - reads at most (size -1) chars from stream into s
+ - the last char is set as '\0'
+ 
+ - Include Guard -
+ ----------------------
+ - if two .h files contain #include "somelib.h"
+ - then somelib is opened twice -> compiler time increases 
+ - have below guard
+ 
+ #ifndef SOMELIB_H
+ #include "somelib.h"
+ #endif
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ References
+ ---------------
+ 1/ http://www.slideshare.net/noobyahoo/common-mistakes-in-c-programming
+ 
+ 
+ 
+ 
+ 
+ 
