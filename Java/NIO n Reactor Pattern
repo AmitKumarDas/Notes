@@ -1,4 +1,3 @@
-
  - Reactor -
  --------------
  - responds to IO events
@@ -29,13 +28,17 @@
  - Tips - Server Run -
  ----------------------
  - While Loop
+ - Check pending requests to server
+ - - Get the Key based on Selector
+ - - Change the Key interest based on pending request
  - Selector - select
  - Selectedkeys - Iterate
  - SelectedKey - Remove
  - Key - isValid ?
- - Key - isAcceptable ? or isReadable ?
- - Key - Accept Connection
- - Key - Read
+ - Key - isAcceptable ? or isReadable ? or isWritable?
+ - Key - Accept Connection OR
+ - Key - Read OR
+ - Key - Write
  
  - Tips - Accept Conn -
  ----------------------------
@@ -64,13 +67,26 @@
  - queue is notified
  - run method runs in a loop
  - run method handles the data
- - run method writes to the server on response
+ - run method makes a WRITE request to Server
  
- - Tips - Write Back to Server -
+ - Tips - Write Request to Server -
  -------------------------------
+ - list of change requests
+ - map of SocketChannel with List<Data>
+ - populate the above instances
+ - wake up the selector so that it not ONLY listens to accept & read but also write
+ 
+ - Tips - Write -
+ ---------------------
+ - get the data from the socketchannel
+ - iterate the data
+ - typecast to bytebuffer
+ - write the bytebuufer to socketchannel
+ - once all data written to socket, switch to OP_READ
+ 
+ - Tips - Build NIO Client -
+ --------------------------------
  - 
- 
- 
 
 
 References:
