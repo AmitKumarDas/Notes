@@ -1,4 +1,3 @@
-
  - Asynchronous -
  -----------------------
  - The mind shift comes in processing responses because there are none. 
@@ -10,6 +9,28 @@
  - A fundamental benefit of NIO is that Selectors can be used to delegate the notification of events we are interested in
  - to the underlying operating system and at the root of it all, to the hardware we're running on.
  
+ - Netty Channel -
+ --------------------
+ - abstraction over primitive byte arrays & NIO buffers
+ - Your app may need more than buffers & byte arrays
+ 
+ - Boss Threads -
+ ----------------------
+ - refer Reactor pattern
+ - Boss threads create and connect/bind sockets and then pass them off to the worker threads. 
+ - In the server, there is one boss thread allocated per listening socket. In the client, there is only one boss thread*
+ 
+ - Worker Thread -
+ -----------------------
+ - refer Reactor pattern
+ - perform all async IO ops
+ 
+ Channels & Connection Types
+ ---------------------------------
+ - TCP NIO Channel - async comm
+ - UDP NIO Channel - connection less
+ - TCP OIO Channel - sync comm
+ - UDP OIO Channel - async connection less
  
  
 
