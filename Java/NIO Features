@@ -1,0 +1,24 @@
+
+ - Multiple Selectors per Reactor -
+ ----------------------------------
+ - to bind different handlers to different IO events
+ - careful synchronization to coordinate
+ 
+ File Transfer
+ -----------------
+ - Automated file to net or reverse copying
+ 
+ Memory-Mapped Files
+ ------------------------
+ - Access files via buffers
+ 
+ Direct Buffers
+ ------------------
+ - can sometimes achieve zero-copy transfer
+ - have set-up & finalization overhead
+ - best for apps with long-lived connections
+ 
+ 
+ References:
+ ----------------
+ 1/ http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf
