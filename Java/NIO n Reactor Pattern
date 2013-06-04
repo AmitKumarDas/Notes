@@ -1,0 +1,80 @@
+
+ - Reactor -
+ --------------
+ - responds to IO events
+ - & dispatches to the appropriate handler
+ 
+ - Handlers - 
+ ------------------
+ - perform non-blockign actions
+ - these have to be bind to the events
+ 
+ - Reactor -to- NIO -
+ -----------------------
+ - Channel - support non blocking reads
+ - Buffers - can be read or written by Channels
+ - Selectors - tell which set of Channels have IO events
+ - SelectionKeys - maintain IO event status & bindings
+ 
+ - Tips - Build NIO Server -
+ ----------------------------
+ - ServerSocketChannel - on which we accept connections
+ - Selector - which will be monitored
+ - ByteBuffer - into which we'll read data when available
+ - Selector - create one via SelectorProvider
+ - ServerSocketChannel - open it
+ - ServerSocketChannel - open -> configure -> bind -> register with selector
+ - ServerSocketChannel - register selector with ACCEPT ing connection
+ 
+ - Tips - Server Run -
+ ----------------------
+ - While Loop
+ - Selector - select
+ - Selectedkeys - Iterate
+ - SelectedKey - Remove
+ - Key - isValid ?
+ - Key - isAcceptable ? or isReadable ?
+ - Key - Accept Connection
+ - Key - Read
+ 
+ - Tips - Accept Conn -
+ ----------------------------
+ - get Server Socket Channel
+ - get socket channel
+ - configure blocking to false
+ - register the selector with OP_READ
+ 
+ - Tips - read -
+ ----------------------
+ - get SocketChannel
+ - clear the read buffer
+ - read from socketchannel to readbuffer
+ - if properly read then close the channel
+ - if properly read then cancel the key
+ - if IOException then close the channel
+ - if IOException then cancel the key
+ - hand the read buffer to a worker thread
+ 
+ - Tips - Worker -
+ ---------------------
+ - A runnable
+ - uses a queue
+ - Accepts data, channel, nio server & count of data
+ - data is wrapped into an Event & pushed into the queue
+ - queue is notified
+ - run method runs in a loop
+ - run method handles the data
+ - run method writes to the server on response
+ 
+ - Tips - Write Back to Server -
+ -------------------------------
+ - 
+ 
+ 
+
+
+References:
+-------------
+1/ http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf
+2/ http://rox-xmlrpc.sourceforge.net/niotut/
+
