@@ -1,4 +1,18 @@
 
+ - Asynchronous -
+ -----------------------
+ - The mind shift comes in processing responses because there are none. 
+ - Almost every single method invocation of substance is asynchronous, which means that there is no return value
+ - The results (if there are any) will be delivered back in another thread.
+ 
+ - Async Netty -
+ -------------------
+ - A fundamental benefit of NIO is that Selectors can be used to delegate the notification of events we are interested in
+ - to the underlying operating system and at the root of it all, to the hardware we're running on.
+ 
+ 
+ 
+
  Create HTTP Server
  ------------------------
  - Create a cached thread pool for incoming connections
