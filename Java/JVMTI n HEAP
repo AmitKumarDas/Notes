@@ -1,0 +1,15 @@
+
+ - Object Tag -
+ -------------------
+ - A tag is a value associated with the Object
+ - tags are not visible to other JVMTI environments
+ - Tags are jlong values which can be used simply to mark an object or to store a pointer to more detailed information. 
+ - Objects which have not been tagged have a tag of zero. Setting a tag to zero makes the object untagged.
+ 
+ - Heap Callback Fn -
+ -------------------------
+ - Heap functions which iterate through the heap and recursively follow object references
+ - Use agent supplied callback functions to deliver the information.
+ - Must NOT use JNI funcs
+ - must NOT use JVMTI funcs except callback safe funs
+ - 
