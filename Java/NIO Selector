@@ -1,0 +1,119 @@
+
+- Selector & OS -
+-----------------
+- A fundamental benefit of NIO is that Selectors can be used to delegate the notification of events
+- Delegate to the underlying operating system and at the root of it all, to the hardware we're running on.
+- Being informed through callbacks from the OS that 16 bytes have been successfully written out across the network to a server,
+- or that 14 bytes were just read in from the same is obviously a very low level and granular way to work, 
+- but through a chain of abstractions, 
+- a developer can implement the Java NIO and Netty APIs to enable handling things at much less granular and abstracted level.
+
+- AbstractInterruptibleChannel -
+--------------------------------------
+- An abstract class
+- wraps the low level details to async closing & interruption of channels
+
+- Selectable Channel -
+---------------------------
+- extends AbstractInterruptibleChannel
+- This is an Abstract class
+- This represents a channel that can be multiplexed via a selector
+
+- Single Thread -
+---------------------
+
+    Thread
+      |
+   Selector
+      |
+ --------------
+ |             |
+Channel      Channel
+
+ - open a selector
+ - register a channel to the selector
+ - channel must be non-blocking mode
+ - so FileChannel cannot be used
+ - So SocketChannel can be used
+ - interested events should be listened to
+ 
+ - Multiple Threads -
+ ------------------------
+ - Have them if you are using multi core CPUs
+ 
+ - Interest Set -
+ --------------------
+ - interested events
+ 
+ - Attach Object -
+ --------------------
+ - attach object to SelectionKey
+ - i.e. provide more info to the channel
+ 
+ - Select Channel via a Selector -
+ ------------------------------------
+ - select, select(timeout) or selectNow
+ - blocking, block for timeout, return immediately
+ - If above returns some stuff, get the selectedKey set
+ - Eack Key represents the Channel-Selector registration
+ 
+ 
+ Set<SelectionKey> selectedKeys = selector.selectedKeys();
+
+Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
+
+while(keyIterator.hasNext()) {
+    
+    SelectionKey key = keyIterator.next();
+
+    if(key.isAcceptable()) {
+        // a connection was accepted by a ServerSocketChannel.
+
+    } else if (key.isConnectable()) {
+        // a connection was established with a remote server.
+
+    } else if (key.isReadable()) {
+        // a channel is ready for reading
+
+    } else if (key.isWritable()) {
+        // a channel is ready for writing
+    }
+
+    keyIterator.remove();
+}
+
+ - Key Removal -
+ --------------------
+ - The Selector does not remove the SelectionKey instances from the selected key set itself.
+ - You have to do this, when you are done processing the channel. 
+ - The next time the channel becomes "ready" the Selector will add it to the selected key set again.
+ 
+ - wakeUp -
+----------------
+ - A thread that has called the select() method which is blocked, can be made to leave the select() method, 
+ - This is done by having a different thread.
+ - Call the Selector.wakeup() method on the exact Selector registered with the channel.
+ - If a different thread calls wakeup() and no thread is currently blocked inside select(), 
+ - - the next thread that calls select() will "wake up" immediately.
+ 
+ - close -
+ ---------------
+ - When you are finished with the Selector you call its close() method.
+ - This closes the Selector and invalidates all SelectionKey instances registered with this Selector. 
+ - The channels themselves are not closed.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
