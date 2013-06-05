@@ -1,0 +1,29 @@
+
+
+ - Netty -
+ -------------
+ - HttpRequest, ChannelBufferInputStream, HttpResponse 
+ 
+ - Google Common -
+ ----------------------
+ - Preconditions, collect.Maps
+ 
+ - Finagle -
+ ------------------
+ - ServiceUtils
+ 
+ - RestEasy -
+ ------------------
+ - FormUrlEncodedProvider, spi.AsynchronousResponse, Encode, Dispatcher
+ 
+ - javax.ws.rs
+ -------------------
+ - HttpHeaders , MultiValueMap, UriInfo
+ 
+ - twitter -
+ ----------------
+ - util.Future, util.Promise
+ 
+ - javax.annotation -
+ ------------------------
+ - Nullable
