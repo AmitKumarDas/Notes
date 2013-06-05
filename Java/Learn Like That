@@ -29,9 +29,15 @@
  - java concurrency -
  ----------------------
  - ExecutorService, CompletionService, Executors
- - CachedThreadPool - reuse & remove
+ 
+ - Parallel n Sequential -
+ --------------------------
+ - CachedThreadPool - parallel, reuse & remove
  - SingleThreadExecutor - sequential
  - FixedThreadPool - wait in queue
+ 
+ - Schedule to Future - 
+ --------------------------
  - ScheduledThreadPool - schedule future task
  - SingleThreadScheduledPool - 1 thread to schedule future task
  
@@ -54,6 +60,22 @@
  - HA Web Framework & HTTP Server -
  -------------------------------------
  - xitrum
+ 
+ - Vert.x -> Clustering without Membership -
+ -------------------------------------
+ - via Distributed Cache using Hazelcast
+ - distributed cache + event listeners on cache
+ - distributed cache tracks the members of the cluster & caches the info locally
+ 
+ - Vert.x Clustering & Node Communication -
+ -------------------------------------
+ - vert.x uses its own protocol for node communication
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
