@@ -35,8 +35,25 @@
  - ScheduledThreadPool - schedule future task
  - SingleThreadScheduledPool - 1 thread to schedule future task
  
+ - Too much Futures -
+ -----------------------
+ - Try CompletionService
+ 
  - Webbit -
  -------------------------------
  - Single threaded non blocking server
+ 
+ - High Available -
+ ----------------------
+ - netty servers behind a load balancer
+ 
+ - Session Store Replication -
+ --------------------------------
+ - embed Hazelcast or infinispan
+ 
+ - HA Web Framework & HTTP Server -
+ -------------------------------------
+ - xitrum
+ 
  
  
