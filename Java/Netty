@@ -1,22 +1,24 @@
- - Asynchronous -
- -----------------------
- - The mind shift comes in processing responses because there are none. 
- - Almost every single method invocation of substance is asynchronous, which means that there is no return value
- - The results (if there are any) will be delivered back in another thread.
+
  
- - Async Netty -
- -------------------
- - A fundamental benefit of NIO is that Selectors can be used to delegate the notification of events we are interested in
- - to the underlying operating system and at the root of it all, to the hardware we're running on.
+ - Wrapper over Primitive Buffer -
+ ---------------------------
+ - Netty Channel Buffer
  
- - Netty Channel -
- --------------------
- - abstraction over primitive byte arrays & NIO buffers
- - Your app may need more than buffers & byte arrays
+ - Wrapper over NIO Buffer -
+ ---------------------------
+ - Netty Channel Buffer
+ 
+ - Byte Transporter -
+ ------------------------
+ - Netty Channel
+ 
+ - Byte Futures & Listeners -
+ --------------------------------
+ - Netty ChannelFuture & ChannelFutureListener
  
  - Boss Threads -
  ----------------------
- - refer Reactor pattern
+ - Refer Reactor pattern
  - Boss threads create and connect/bind sockets and then pass them off to the worker threads. 
  - In the server, there is one boss thread allocated per listening socket. In the client, there is only one boss thread*
  
@@ -25,25 +27,18 @@
  - refer Reactor pattern
  - perform all async IO ops
  
- Channels & Connection Types
- ---------------------------------
+ - Old & New Transporter -
+ -------------------------
  - TCP NIO Channel - async comm
  - UDP NIO Channel - connection less
  - TCP OIO Channel - sync comm
  - UDP OIO Channel - async connection less
  
- 
-
- Create HTTP Server
+ - Netty & Executors -
  ------------------------
  - Create a cached thread pool for incoming connections
  - Create a cached thread pool for processing IO
- - Provide a Channel Factory
- - Set up a Channel PipeLine Factory
- - Put all together with Bootstrap
- - Gather channels for future closing
- - Close gathered channels
- - release external resources
+ 
  
  - set TCP keepAlive -
  -------------------------
@@ -55,11 +50,42 @@
  - glues small TCP packets
  - tries to reduce bandwidth
  - increases latency
+  
+ - Netty & Interceptors -
+ -----------------------------
+ - Channel Handlers
+ - Channel Pipelines maintains the order of Handlers
+ 
+ - Netty & Encoding/Decoding -
+ ----------------------------------
+ - ChannelHandlers r the usual Encoders & Decoders
+ - transform ChannelBuffer to Other impls & vice-versa
+ 
+ - Netty & ObjectEncoder -
+ -----------------------------
+ - From java object -to- ChannelBuffer
+ 
+ - Netty & ObjectDecoder -
+ ------------------------------
+ - From ChannelBuffer -to- Java object
+ 
+ - Netty & Codecs -
+ -----------------------
+ - ObjectEncoder/Decoder
+ - Google Protobuf
+ - Compression
+ - Http Request/Response
+ - Base64
+ 
+ - Netty & Events -
+ --------------------
+ - ChannelEvent - wrap ChannelBuffer
  
  
  
  
- Writing Custom Handlers
- ---------------------------
- - Extend SimpleChannelUpstreamHandler
+ 
+ 
+ 
+ 
  
