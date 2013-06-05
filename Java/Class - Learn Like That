@@ -1,5 +1,4 @@
 
-
  - Netty -
  -------------
  - HttpRequest, ChannelBufferInputStream, HttpResponse 
@@ -27,3 +26,15 @@
  - javax.annotation -
  ------------------------
  - Nullable
+
+ - java concurrency -
+ ----------------------
+ - ExecutorService, CompletionService, Executors
+ - CachedThreadPool - reuse & remove
+ - SingleThreadExecutor - sequential
+ - FixedThreadPool - wait in queue
+ - ScheduledThreadPool - schedule future task
+ - SingleThreadScheduledPool - 1 thread to schedule future task
+ 
+ 
+ 
