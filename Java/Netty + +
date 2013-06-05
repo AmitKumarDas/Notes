@@ -1,0 +1,70 @@
+
+ 
+ - Netty -
+ -------------
+ - HttpRequest, ChannelBufferInputStream, HttpResponse 
+ 
+ - Google Common -
+ ----------------------
+ - Preconditions, collect.Maps
+ 
+ - Finagle -
+ ------------------
+ - ServiceUtils
+ 
+ - RestEasy -
+ ------------------
+ - FormUrlEncodedProvider, spi.AsynchronousResponse, Encode, Dispatcher
+ 
+ - javax.ws.rs
+ -------------------
+ - HttpHeaders , MultiValueMap, UriInfo
+ 
+ - twitter -
+ ----------------
+ - util.Future, util.Promise
+ 
+ 
+ - Transform HttpRequest - From Netty's to RestEasy's -
+ ---------------------------------------------------------- 
+  - class InboundServiceRequest implements org.jboss.resteasy.spi.HttpRequest
+  - adapt Netty request to javax & resteasy' http request
+  
+ - Adapt Netty Response to javax's MultiValueMap -
+ -----------------------------------------------------------
+  - class NettyHeaderWrapper implements MultivalueMap<String, Object>
+  - override MultivalueMap w.r.t methods of NettyResponse ..
+  
+   
+ - Adapt reasteasy's HttpResponse to Netty -
+ --------------------------------------------
+  - Implement resteasy's HttpResponse
+  - Compose Netty's HttpResponse
+  - Build Netty's HttpResponse
+  
+ - Finale Service -
+ ------------------------
+ - extends Finagle's Service
+ - Get the Netty request & return a Promise
+ - Use a Promise than a direct Http Response
+ - Use a worker thread that in turn uses resteasy's dispatcher
+ - Worker Thread will tranform netty to resteasy & viceversa w.r.t request & response
+ - Worker Thread sets the promise with a Netty response
+
+ - Exceptions to Response -
+ -------------------------------
+ - Construct a simple Netty Response based on any exception
+ - JAX-RS specifies a mechanism for this already
+ - Resteasy has a number of built-in renderings for common exception types
+ 
+ public class UnhandledErrorResponse extends DefaultHttpResponse {
+
+    public UnhandledErrorResponse(HttpVersion version, Exception error) {
+        super(version, new HttpResponseStatus(500, error.toString()));
+    }
+ }
+
+
+References:
+--------------
+1/ https://github.com/opower/finagle-resteasy
