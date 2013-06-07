@@ -71,7 +71,13 @@
  -------------------------------------
  - vert.x uses its own protocol for node communication
  
-
+ - https://code.google.com/p/json-path/ -
+----------------------------------------------
+ - same as xpath, this is for JSON
+ 
+ - Clustering SANS Master Node -
+ -----------------------------------
+ - ideas of Dynamo .. Gossip Protocol ... heartbeats .. 
  
  
  
