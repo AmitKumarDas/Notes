@@ -79,6 +79,34 @@
  -----------------------------------
  - ideas of Dynamo .. Gossip Protocol ... heartbeats .. 
  
+ - Invoke func of a Shared Library/DLL -
+ --------------------------------------
+ - JNA
+ 
+ - Windows Specific DLLs -
+ -------------------------------
+ - user32.dll, kernel32.dll
+ 
+ - JNA vs JNI vs LIBFFI -
+ -------------------------
+ - JNA uses JNI to access LIBFFI
+ 
+ - Ruby Native Extensions -
+ ----------------------------
+ - shared libs - loaded by Ruby process - can access Ruby interpreter
+ - e.g. can use above thoughts to determine code covergae for a test run
+ 
+ - JANerator -
+ -----------------
+ - generate Java mapping from C header files
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
