@@ -1,0 +1,41 @@
+
+- void (*foo)(int); -
+ ---------------------------
+ - It's as if you're declaring a function called "*foo", which takes an int and returns void
+ - If *foo is a function, 
+ - Then foo must be a pointer to a function
+ 
+ - int *x -
+ ----------------
+ - *x is an int, so x must be a pointer to an int
+ 
+ - void *(*foo)(int *); -
+ --------------------------
+ - notice that the innermost element of the expression is *foo,
+ - *foo should refer to a function that returns a void * and takes an int *
+ 
+ - Initialize a function pointer  - 
+ -----------------------------------
+ #include <stdio.h>
+  void my_int_func(int x)
+  {
+      printf( "%d\n", x );
+  }
+
+  int main()
+  {
+      void (*foo)(int);
+      /* the ampersand is actually optional */
+      foo = &my_int_func;
+  
+      return 0;
+  }
+
+
+ - Using a Func Pointer -
+ -----------------------------
+ /* call my_int_func (note that you do not need to write (*foo)(2) ) */
+    foo( 2 );
+ /* but if you want to, you may */
+    (*foo)( 2 );
+ 
