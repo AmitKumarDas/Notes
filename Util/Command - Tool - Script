@@ -14,4 +14,9 @@
  - You probably want to ensure that your environment variables will survive a logout/reboot. 
  - Be sure to update ~/.bashrc with the PATH and JAVA_HOME variables.
 
+ - Install -
+ --------------
+ - make
+ - make install
+ 
  
