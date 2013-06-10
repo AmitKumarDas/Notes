@@ -1,47 +1,23 @@
- - api/src/com/cloud/storage
- ---------------------------
+
+ - 3 different APIS -
+ ------------------------
+ - Platform API
+ - Agent API
+ - Plugin API
  
-  Volume
- ---------
- - Interface composed with State, Type & Event enums
- - fsm for transitioning between events
- - Attributes like
- - path, pod, datacenter, pool, state, attached, device, disk offering, chain, recreatable
+ - Platform API -
+ ---------------------
+ - End Users API
+ - && Admin API
  
+ - Agent API -
+ -------------------
+ - talk to server resources
+ - i.e. talk to H/W resource
+ - JSON based ... hence any client / language
  
- Volume API Service
- ------------------
- - An interface
- - operations via Commands
- - Command will wrap various stuff
- - alloc, create, detach, resize, migrate, upload, delete, attachVolumeToVM, detachVolumeToVM
- 
- Snapshot
- ----------
- - Interface composed with Event, State & Type enums
- 
- Storage
- -----------
- - composed of ImageFormat, FileSystem, TemplateType, StoragePoolType, StorageResourceType
- - Need to learn on these specifics !!!
- 
- Storage Pool
- -------------
- - name, type, datacenter id, capacityBytes, availableBytes, clusterID, hostAddress, path
- - userCredentials, isShared, isLocal
- 
- Storage Service
- ---------------
- - createPool, deletePool, preparePrimaryStorageForMaintenance, 
- - cancelPrimaryStorageForMaintenance, updateStoragePool
- - getStoragePool
- 
- S3
- ---
- - an interface
- - may refer while creating the plugin for Cloudbyte
- - Attributes like
- - - recurring type, account id, volume id, path, name, created, hypervisor type, snapshot type, state, 
- 
- 
- 
+ - Plugin API - 
+ -------------------
+ - add/modify cloudstack behavior
+ - can Insert code into Cloudstack deployment
+ - Inject via Adapter
