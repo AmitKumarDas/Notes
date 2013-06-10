@@ -28,3 +28,7 @@
  
  - Host Only Network - 
  http://www.vmware.com/support/ws55/doc/ws_net_configurations_hostonly.html
+ http://christophermaier.name/blog/2010/09/01/host-only-networking-with-virtualbox 
+ http://www.snapdba.com/2013/04/internet-and-ssh-access-to-virtualbox-vm-with-nat-and-host-only-adapters/
+ 
+ 
