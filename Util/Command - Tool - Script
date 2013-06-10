@@ -19,5 +19,9 @@
  - make
  - make install
  
+ - Trash Loc - 
+ ---------------
+ - cd /var/run/media/cbyte/...
+ 
  
  - Get Tomcat, Maven, Ant, Python, APT, YUM -
