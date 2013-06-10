@@ -1,4 +1,3 @@
-
  - 3 different APIS -
  ------------------------
  - Platform API
@@ -9,6 +8,7 @@
  ---------------------
  - End Users API
  - && Admin API
+ - REST based
  
  - Agent API -
  -------------------
@@ -20,4 +20,14 @@
  -------------------
  - add/modify cloudstack behavior
  - can Insert code into Cloudstack deployment
- - Inject via Adapter
+ - JAVA API - Inject via Adapter
+
+ - Adapter -
+ ----------------
+ - Kinda Strategy pattern
+ - Used by Managers
+ 
+ - Pluggable Service -
+ --------------------------
+ - Defines a set of Platform APIs to be inserted into Cloudstack
+ 
