@@ -158,7 +158,31 @@
  - Provider need to give the API Key & 
  - Client to provide its Secret Key to Provider
  
-
+ - REST API & Throttling -
+ ----------------------------
+ - refer to Cloudstack
+ 
+ - REST API & Max Pages to be Returned -
+ ------------------------------------------
+ - refer cloudstack
+ 
+ - REST API & Asynchronous -
+ ------------------------------
+ - refer cloudstack
+ 
+ - Scalable Apps -
+ ------------------------------------
+ - Spring Data Gemfire
+ 
+ - REST API & Billing/Usage -
+ --------------------------------
+ - refer cloudstack
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
