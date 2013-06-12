@@ -1,0 +1,28 @@
+
+ Advanced Packaging Tool - APT as in Ubuntu
+ 
+ sudo apt-get install git-core
+ 
+ sudo apt-get install maven
+ 
+ export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+ 
+ sudo apt-get install mysql-server-5.5
+ 
+ sudo apt-get install tomcat6
+ 
+ git clone https://git-wip-us.apache.org/repos/asf/cloudstack.git
+ 
+ mvn clean install
+ 
+ --- Deploying ---
+ 
+ - will wipe off existing db 
+ mvn -P developer -pl developer -Ddeploydb
+ 
+ - Debugging -
+ export MAVEN_OPTS="-Xmx1024 -Xdebug -Xrunjwdp:transport=dt_socket, address=8787,server=y,suspend=n"
+ 
+ mvn -pl :cloud-client-ui jetty-run
+ 
+ 
