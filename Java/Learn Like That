@@ -148,11 +148,17 @@
  -------------------
  - R2 of RestLi
  
+ - Making API Request -
+ -------------------------
+ - http://...?xyz=abc&apikey=.....&signature=....
+ - signature contains the signature hash to authenticate the user account executing the API command
  
+ - REST API - Security -
+ ---------------------------
+ - Provider need to give the API Key & 
+ - Client to provide its Secret Key to Provider
  
- 
- 
- 
+
  
  
  
