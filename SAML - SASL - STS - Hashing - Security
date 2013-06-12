@@ -22,12 +22,13 @@ Developers guide to SAML Workings 0-0-0-
   > owulff.blogspot.in
   > coheigea.blogspot.in
 
-  - Hashed Signature in URL -
+ - Hashed Signature in URL -
  --------------------------------------
  - May be a hashed signature of URL
+ - URL will have a expires timestamp query param
  - generated via Secret Key & HMAC SHA-1 hashing algo
  
- - Hashing & URL Query Param -
+ - Signature as a URL Query Param -
  -------------------------------
  - URL encode
  - Generate the hash using HMAC SHA-1 hash algo with the Secret Key
