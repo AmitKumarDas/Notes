@@ -99,6 +99,56 @@
  - JANerator -
  -----------------
  - generate Java mapping from C header files
+
+ - JEPs -
+ ----------
+ 101 Generalized Target-Type Inference
+ 104 Annotations on Java Types
+ 107 Bulk Data Operations for Collections
+ 109 Enhance Core Libraries with Lambda
+ 115 AEAD CipherSuites
+ 118 Access to Parameter Names at Runtime
+ 119 javax.lang.model Implementation Backed by Core Reflection
+ 120 Repeating Annotations
+ 123 Configurable Secure Random-Number Generation
+ 126 Lambda Expressions & Virtual Extension Methods
+ 161 Compact Profiles
+ 162 Prepare for Modularization
+ 171 Fence Intrinsics
+ 174 Nashorn JavaScript Engine
+ 176 Mechanical Checking of Caller-Sensitive Methods
+ 178 Statically-Linked JNI Libraries
+ 179 Document JDK API Support and Stability
+ 184 HTTP URL Permissions
+ 155 Concurrency Updates
+ 
+ - Security Issues in XML APIs -
+ ------------------------------------
+ 185 JAXP 1.5: Restrict Fetching of External Resources
+  
+ - Security Enhancements -
+ -----------------------------
+ JEP 140 Limited doPrivileged
+ JEP 180 Handle Frequent HashMap Collisions with Balanced Trees
+ 
+ - Dynamic Discovery -
+ -----------------------------------
+ - Zookeeper - registry - info about available services 
+ 
+ - R2 -
+ ---------
+ - REST transport layer in jAVA - over Netty 
+ 
+ 
+ - Dynamic Discovery -
+ ---------------------------
+ - D2 of RestLi
+ 
+ - REST & Netty's HTTP -
+ -------------------
+ - R2 of RestLi
+ 
+ 
  
  
  
