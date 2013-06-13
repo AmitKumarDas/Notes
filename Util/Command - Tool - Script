@@ -1,3 +1,5 @@
+ 
+ 
  Xmx & top 
  --------------
  - will differ for Java process
@@ -23,12 +25,20 @@
  ---------------
  - cd /var/run/media/cbyte/...
  
+ Getting Maven Installed in Linux
+ ------------------------------------
+ - # cd /usr/local/bin/
+   # tar xvfz /home/ralf/DOWNLOADS/apache-maven-2.2.1-bin.tar.gz   
+ - New folder is "/usr/local/bin/apache-maven-2.2.1" 
+ - Add above to PATH
+ - $ cd
+ - $ mkdir .m2
+ - $ cp /usr/local/bin/apache-maven-2.2.1/conf/settings.xml .m2/ 
  
- - Get Tomcat, Maven, Ant, Python, APT, YUM , git , .m2 repo -
- 
- - Host Only Network - 
- http://www.vmware.com/support/ws55/doc/ws_net_configurations_hostonly.html
- http://christophermaier.name/blog/2010/09/01/host-only-networking-with-virtualbox 
- http://www.snapdba.com/2013/04/internet-and-ssh-access-to-virtualbox-vm-with-nat-and-host-only-adapters/
+ - PATH -
+ ------------
+ - ~/.bash_profile -> affect only your user for bash. If file doesn't exist, create it.
+ - export PATH=$PATH:/usr/local/bin/apache-maven-3.0.5/bin
  
  
+   
