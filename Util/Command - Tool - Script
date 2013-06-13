@@ -53,6 +53,39 @@
  - x86_64 ===> 64 bit
  - i686   ===> 32 bit
  
+ - README -
+ ---------------
+ - will be present in tar ball
+ 
+ - Python Install -
+ -------------------------
+ tar xvfz Python-2.7.2.tgz
+ cd Python-2.7.2
+ ./configure --prefix=/opt/python2.7 --enable-shared
+ make
+ make altinstall
+ echo "/opt/python2.7/lib" >> /etc/ld.so.conf.d/opt-python2.7.conf
+ ldconfig
+ 
+ - Find installed loc of a package -
+ --------------------------------------
+ rpm -ql <pckgname>
+ 
+ - Find if a package is installed or not -
+ -----------------------------------------------
+ rpm -qa | grep -i <pkgname>
+ 
+ - rpm install in different location -
+ --------------------------------------
+ - rpm --prefix=/opt/abc1.1 abc1.1.rpm
+ 
+ - check if rpm can be installed onto diff loc -
+ ---------------------------------------------------
+ - rpm -qpi filename.rpm | grep Relocations
  
  
-   
+ 
+ 
+ 
+ 
+ 
