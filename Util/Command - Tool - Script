@@ -47,5 +47,12 @@
  - chmod +x xxx.bin
  - xxx.bin
  
+ - Get the Architecture Bit -
+ -------------------------------
+ - uname -m
+ - x86_64 ===> 64 bit
+ - i686   ===> 32 bit
+ 
+ 
  
    
