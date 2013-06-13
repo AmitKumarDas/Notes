@@ -40,5 +40,12 @@
  - ~/.bash_profile -> affect only your user for bash. If file doesn't exist, create it.
  - export PATH=$PATH:/usr/local/bin/apache-maven-3.0.5/bin
  
+ - Self Extracting Binary -
+ -------------------------------
+ - cd to the location where you want the files to be installed
+ - some xxx.bin
+ - chmod +x xxx.bin
+ - xxx.bin
+ 
  
    
