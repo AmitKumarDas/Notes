@@ -37,3 +37,12 @@ C++ Object & Memory
  - In a C++ program, an object in memory is typically represented by the memory address of the class's v-table 
  - A table of all the functions belonging to the object's class
  - followed by the storage for the object's data.
+ 
+ 
+ 
+ Generic Prog Support
+ ----------------------
+ - lambdas, variadic templates, template aliases
+ 
+ 
+ 
