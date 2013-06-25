@@ -35,6 +35,10 @@
  - $ mkdir .m2
  - $ cp /usr/local/bin/apache-maven-2.2.1/conf/settings.xml .m2/ 
  
+ Maven default Repo loc
+ --------------------------
+ - ~/.m2/repository
+ 
  - PATH -
  ------------
  - ~/.bash_profile -> affect only your user for bash. If file doesn't exist, create it.
