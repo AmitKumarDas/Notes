@@ -178,6 +178,43 @@
  --------------------------------
  - refer cloudstack
  
+ - HttpClient's GetMethod & org.json.JSON -
+ -------------------------------------------
+ - JSONObject response = new JSONObject(
+                             new JSONTokener(
+                             new InputStreamReader(
+                             get.getResponseBodyAsStream())));
+ 
+ - Mutual Auth & CLIENT-CERT -
+ -------------------------------- 
+ - CLIENT-CERT in web.xml & clientAuth=false in connector allows for re-negotiation & also doesnot cause unncessary prompts
+ - realm will be certificate & not tomcat-users
+ 
+ - Assume Immutability In Design -
+ ----------------------------------
+ - this will make life simple, inherently thread safe, can be shared freely, makes great building blocks for other objects
+ 
+ - Achieving Immutability in Java -
+ -----------------------------
+ - Separate object for each distinct value
+ 
+ -How to get Immutability -
+ --------------------------
+ - all fields & class as final
+ - all mutators should return a new THIS
+ 
+ - JavaScript Redirect -
+ -----------------------------
+ - Set the HttpResponse headers for Pragma, Expires, CacheControl, ContentType
+ - Set the writer of HttpResponse with HTTP-EQUIV Expires & Pragma
+ - Set the writer of HttpResponse with <script language='javascript'>
+ - & set the window.top.location.href = new path
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
