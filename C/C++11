@@ -1,0 +1,32 @@
+
+ Uniform Initialization
+ --------------------------
+ int a[] = { 1,2,3 };
+ vector<int> v { 1,2,3};
+ vector<string> geek_heros = {
+      "Dahl", "Kernighan", "McIlroy", "Nygaard ", "Ritchie", "Stepanov"
+ };
+ 
+ thread t{}; // default initialization
+            // remember “thread t();” is a function declaration
+            
+ complex<double> z{1,2};    // invokes constructor
+ struct S { double x, y; } s {1,2};     // no constructor (just initialize members)
+ 
+ C++11 & Concurrency
+ -----------------------
+ - C++11 offers
+ - memory model for concurrency
+ - support for lock free programming
+ - type-safe programming for threads & lock level
+ - futures & async task launching
+ 
+ Threads & Locks
+ --------------------
+ - low level programming
+ - necessary for current systems programming
+ - this is what OS offers
+ - presents an abstraction of the H/W to the programmer
+ - can be the basis of other concurrency abstractions
+ 
+ 
