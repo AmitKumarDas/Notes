@@ -210,6 +210,28 @@
  - Set the writer of HttpResponse with <script language='javascript'>
  - & set the window.top.location.href = new path
  
+ - Java 2 Type s -
+ ----------------------
+ - Primitive --> int, double, boolean ..
+ - Reference --> String, List, Object ...
+ 
+ - Integer Comparision -
+ --------------------------
+ - IntegerA < IntegerB //forces auto unboxing
+ 
+ - Integer Equality -
+ -------------------------
+ - IntegerA == IntegerB //No auto unboxing. Performs identity comparison
+ 
+ - == with boxed primitives -
+ -------------------------
+ - never do it
+ 
+ - Caching & Immutable -
+ ----------------------------
+ - Do caching.. use google guava classes
+ 
+ 
  
  
  
