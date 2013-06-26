@@ -1,4 +1,3 @@
-
  - Reference - 
  ---------------
  http://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.0.2/html/Installation_Guide/deployment-architecture-overview.html
@@ -109,6 +108,16 @@
  - Swift makes the templates & other data available to any zone in the cloud
  - Just 1 swift Container per storage object
  - Everything is available everywhere
+ 
+ - Primary Storage -
+ ----------------------------
+ - shared storgae across a cluster
+ - e.g. Cluster LVM...iSCSI
+ - holds disk images of running VMs
+ 
+ - Secondary Storage -
+ -------------------------
+ - across zone .. can use swift or any object store .. holds snapshots & templates
  
  
  
