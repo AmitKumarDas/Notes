@@ -50,6 +50,20 @@
  - Do Not modify cloudstack database tables
  
  
+ - Plugin NetApp Reference -
+ -------------------------------
+ - XXXMgr --> adds all XXXCommands
+ - XXXMgr extends Manager, PluggableService
+ - XXXMgrImpl extends ManagerBase, XXXMgr
+ - XXXCmd injects the Manager & overrides the execute()
+ 
+ - Plugin Network f5 Reference -
+ -----------------------------------
+ - XXXCmd extends BaseAsyncCmd
+ - XXXCmd injects XXXService
+ - XXXService extends PluggableService
+ - XXXResource implements the ServerResource & does a login etc to appliance
+ - 
  
  
  
