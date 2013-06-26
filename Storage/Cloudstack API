@@ -31,3 +31,32 @@
  --------------------------
  - Defines a set of Platform APIs to be inserted into Cloudstack
  
+ - Cloudstack API - HOW -
+ -----------------------
+ - command class annotated & implements PluggableService
+ 
+ - Components of a Plug In -
+ ------------------------------
+ - PluggableService that configures the plugin
+ - ServerResource to run colocated with resource (no DB access)
+ - Manager Code runs within mgmnt server with access to mgnmt DB
+ - Implement Adaptor interface to implement fucntionalities required by CloudStack
+ - Change components.xml to make the plug-in & adaptors active
+ 
+ - Plugin Requirements -
+ ----------------------------
+ - Ops are atomic
+ - Ops are idempotent
+ - Do Not modify cloudstack database tables
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
