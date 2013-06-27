@@ -1,0 +1,16 @@
+
+ JAX-RS 2.0
+ --------------
+ - is the latest specs
+ - http://java.dzone.com/articles/whats-new-jax-rs-20
+ 
+
+ [1]
+ org.jboss.resteasy.plugins.server.netty.NettyJaxrsServer;
+ org.jboss.resteasy.spi.ResteasyDeployment;
+
+
+ [2]
+ https://github.com/webbit/webbit-rest
+ 
+

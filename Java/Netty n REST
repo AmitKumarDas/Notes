@@ -1,6 +1,0 @@
-
-org.jboss.resteasy.plugins.server.netty.NettyJaxrsServer;
-org.jboss.resteasy.spi.ResteasyDeployment;
-
-https://github.com/webbit/webbit-rest
-
