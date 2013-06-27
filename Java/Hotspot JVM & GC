@@ -1,5 +1,4 @@
 
-
  - Set Targets for Collectors -
  ------------------------------
  - GC Time Ratio
@@ -17,5 +16,17 @@
  
  
  - Q - Does Hotspot achieve above targets ?
+ 
+ - record life of object -
+ ------------------------------
+ - hotspot collector record via no of GC cycles survived
+ 
+ - Frequent Minor Collections -
+ --------------------------------
+ - short lived objs r collected
+ 
+ - Less Often Major Collections -
+ ---------------------------------
+ - older regions r collected
  
  
