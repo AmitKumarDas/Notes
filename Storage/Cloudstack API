@@ -63,7 +63,30 @@
  - XXXCmd injects XXXService
  - XXXService extends PluggableService
  - XXXResource implements the ServerResource & does a login etc to appliance
+ 
+ - [0] cloud-utils
+ ---------------------------------
+ - Finite State Machine
+ - Adapter, Adapterbase,ComponentContext, ComponentLifecycle
+ - PluggableService
+ 
+ 
+ 
+ - [1] cloud-api
+ --------------------------
+ - Volume, Storage, 
+ 
+ - [2] cloud-engine-api -
+ -----------------------------------------
+ - engine.subsystem.api.storage
+ - DataObject, VolumeInfo
+ - DataStore, DataStoreStatus, DataStoreLifeCycle, DataStoreRole
+ - EndPoint : getID, sendMsg, sendMsgAsync
+ - DataStoreDriver, PrimaryDataStoreDriver, 
  - 
+ 
+ 
+ 
  
  
  
