@@ -67,25 +67,36 @@
  - [0] cloud-utils
  ---------------------------------
  - Finite State Machine
- - Adapter, Adapterbase,ComponentContext, ComponentLifecycle
+ - Adapter, Adapterbase,ComponentContext, ComponentLifecycle, 
+ - AnnotationInterceptor,SpringComponentScanUtils
  - PluggableService
- 
  
  
  - [1] cloud-api
  --------------------------
- - Volume, Storage, 
+ - Volume, Storage - pure MODELs
+ - StorageGuru extends Adapter
+ - StorageService, DataStoreProviderApiService
  
- - [2] cloud-engine-api -
+ 
+ - [2] cloud-engine-api >> storage -
  -----------------------------------------
- - engine.subsystem.api.storage
  - DataObject, VolumeInfo
- - DataStore, DataStoreStatus, DataStoreLifeCycle, DataStoreRole
- - EndPoint : getID, sendMsg, sendMsgAsync
- - DataStoreDriver, PrimaryDataStoreDriver, 
- - 
+ - DataStore, DataStoreStatus, DataStoreLifeCycle, DataStoreRole, 
+ - EndPoint 
+ - DataStoreDriver, PrimaryDataStoreDriver,
+ - DataStoreManager, DataStoreProvider,  DataStoreProviderManager
  
  
+ - [3] cloud-engine-storage -
+ --------------------------------
+ - DataStoreManagerImpl
+ 
+ 
+ 
+ - Finale -
+ ---------------
+ - XXMgrImpl composes providerMgr
  
  
  
