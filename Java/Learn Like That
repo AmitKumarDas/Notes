@@ -231,6 +231,11 @@
  ----------------------------
  - Do caching.. use google guava classes
  
+ - JAX-RS 2 & JSON-P -
+ ----------------------
+ - json based java objects can be converted to json representation & vice versa
+ - org.glassfish.javax.json.1.0
+ 
  
  
  
