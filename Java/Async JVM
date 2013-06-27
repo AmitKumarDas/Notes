@@ -1,0 +1,22 @@
+ - https://java.net/projects/jax-rs-spec/pages/AsyncServerProcessingModel
+
+ - http://jfarcand.wordpress.com/2009/11/06/servlet-3-0-asynchronous-api-or-atmosphere-easy-decision/
+ 
+ - https://github.com/Atmosphere/nettosphere
+ 
+ - http://marek.potociar.net/tags/jax-rs/
+ 
+ - http://www.bayes.me/jaxrs-2-and-servlet-3-0-async/
+ 
+ - https://blogs.oracle.com/arungupta/entry/non_blocking_i_o_using
+ 
+ - https://github.com/reactor/reactor
+ 
+ - http://blog.springsource.org/2012/05/06/spring-mvc-3-2-preview-introducing-servlet-3-async-support/
+ 
+ - http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html/scheduling.html#scheduling-annotation-support-async
+ 
+ 
+ 
+ 
+ 
