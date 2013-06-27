@@ -1,0 +1,21 @@
+
+
+ - Set Targets for Collectors -
+ ------------------------------
+ - GC Time Ratio
+ - Max GC Pause Millis
+ - Max HeapSize
+
+ - ‑XX:GCTimeRatio=99 -
+ --------------------------
+ - amount of work done vs time spent in GC
+ 
+ - -XX:MaxGCPauseMillis -
+ ------------------------------
+ - Latency 
+ - time taken by systems in responding to events which is impacted by pauses due to GC
+ 
+ 
+ - Q - Does Hotspot achieve above targets ?
+ 
+ 
