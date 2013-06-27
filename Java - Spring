@@ -1,2 +1,34 @@
-
 http://java.dzone.com/articles/spring-0
+
+
+ - ApplicationContextAware in Servlet Container -
+ -----------------------------------------------
+ - can get it when ServletContext is available
+ - can get it in servlet, servletfilter, or impl of ServletContextListener
+ 
+ - ApplicationContextAware sans ServletContext -
+ ----------------------------------------------------
+ - Implement the ApplicationContextAware
+ - beanify this class in applicationContext.xml
+ 
+ - Spring RestTemplate -
+ ----------------------------
+ - post data to restful web service
+ - use RestTemplate, use MessageConverter, 
+ 
+ - No XML -
+ ----------------
+ - use AnnotationConfigApplicationContext
+ - use @Configuration, @Bean...also @Import etc...
+ - In addition:: @EnableTransactionManagement, @ComponentScan, @PropertySource
+ 
+ 
+ - @PropertySource -
+ ------------------------
+ - declarative way of for adding PropertySource to Spring's env
+ - used in conjuction with @Configuration
+ 
+ 
+ 
+ 
+ 
