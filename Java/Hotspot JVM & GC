@@ -128,6 +128,36 @@
  - slower due to remembered set
  
  
+ - GC Friendly Programming -
+ ----------------------------
+ - avoid large objects
+ - avoid re-sizing of array based collections
+ - Object pooling has issues with GC coz former is live objects
+ - Dont use Finalizers coz it takes 2 GC cycles
+ - - free resources explicitly - JDK's DirectByteBuffer implementation
+ - Dont use SoftReferences
+ - Inner Classes - can increase object retention
+ 
+ - Minor GC Pause Time - 
+ --------------------------
+ - mostly due to #live objs
+ - also ref objects, object graph structure, no of promotions to old gen
+ 
+ - Full GC Frequency -
+ -------------------------
+ - dictated by promotion rate, size of old gen
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  Reference - http://www.infoq.com/presentations/jvm-tuning
  
  
