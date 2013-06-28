@@ -1,4 +1,3 @@
-
  - Set Targets for Collectors -
  ------------------------------
  - GC Time Ratio
@@ -28,5 +27,134 @@
  - Less Often Major Collections -
  ---------------------------------
  - older regions r collected
+ 
+ - HotSpot VM Heap Flows -
+ -----------------------------
+ 
+ -------------------------------------
+   Eden | From Survivor | To Survivor
+ -------------------------------------
+   Eden -----> To Survivor
+   From Survivor <-----> To Survivor
+   To Survivor -----> Old Gen
+   
+   
+ - Frequency of Minor GC -
+ ---------------------------
+ - depends on obj allocation rate
+ - size of eden space
+ 
+ - Freqency of Obj promotion into Old Gen -
+ -------------------------------------------
+ - depends on freq of Minor GC
+ - Size of survivor spaceS
+ 
+  
+ - Object Retention vs. Object Allocation -
+ ----------------------------------------------
+ - retention can degrade performance more than allocation
+ 
+ - Object Allocation -
+ --------------------------
+ - is cheap ... max 10 CPU instructions
+ 
+ - Reclaim new objects -
+ --------------------------
+ - is cheap as GC visits only ___ 
+ 
+ - GC loves 2 girls -
+ --------------------
+ - small immutable objects
+ - short lived objects
+ 
+ - GC loves -
+ -----------------
+ - objs that get killed in Minor GC
+ 
+ - Tuning - Rule of Thumb - 
+ --------------------
+ - Stop promotions
+ - - objs should die often
+ - - Space of survivor should be good enough
+ 
+ - GC Visits -
+ -------------------
+ - only live objects
+ 
+ - GC Duration -
+ --------------------
+ - func of no of live objects & object graph complexity
+ 
+ - Thumb Rule - can go wrong -
+ --------------------------------
+ - if needless allocations
+ - leading 2 frequent Minor GCs
+ - leading to faster obj aging
+ - leading to faster promotions
+ - leading to frequent Old GC collection
+ 
+ - Choosing a GC -
+ ---------------------
+ - start with Parallel GC
+ - idea here is to avoid full GC altogether if we can
+ 
+ 
+ - Parallel GC -
+ --------------------
+ - offers fastest minor GC times
+ 
+ 
+ - Cannot Avoid Old Gen Collections -
+ --------------------------- 
+ - Try CMS or G1
+ 
+ - CMS -
+ -----------
+ - use if app experiences old gen collections
+ - avoids Full GC via old gen concurrent collection
+ 
+ - G1 -
+ ----------
+ - use if app experiences old gen collections
+ - avoids Full GC via concurrent collection
+ - avoids fragmentation via partial old gen collection
+ 
+ - CMS & Minor GC -
+ --------------------
+ - slower due 2 promotion into free lists
+ 
+ - G1 & Minor GC -
+ ---------------------
+ - slower due to remembered set
+ 
+ 
+ Reference - http://www.infoq.com/presentations/jvm-tuning
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
