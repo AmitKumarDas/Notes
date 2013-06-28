@@ -218,7 +218,11 @@
  - MBs r not exposed by JVM
  - JVM injects instructions to enable fencing
 
-
+ - Code Cache -
+ ------------
+ - holds JIT compiled code
+ 
+ 
 
 
 
