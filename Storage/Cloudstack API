@@ -43,6 +43,16 @@
  - Implement Adaptor interface to implement fucntionalities required by CloudStack
  - Change components.xml to make the plug-in & adaptors active
  
+ 
+ - Anatomy of a Plug In -
+ ---------------------------
+ - can be 2 jars
+ - 1/ server component to be deployed on mgmnt server
+ - 2/ optional server resource component to be deployed co-located with the resource
+ - Server component can implement multiple Plugin APIs to add its feature
+ - Server component can expose its own API through Pluggable service, s.t. admins can configure the plugin
+ 
+ 
  - Plugin Requirements -
  ----------------------------
  - Ops are atomic
@@ -50,58 +60,9 @@
  - Do Not modify cloudstack database tables
  
  
- - Plugin NetApp Reference -
- -------------------------------
- - XXXMgr --> adds all XXXCommands
- - XXXMgr extends Manager, PluggableService
- - XXXMgrImpl extends ManagerBase, XXXMgr
- - XXXCmd injects the Manager & overrides the execute()
- 
- - Plugin Network f5 Reference -
- -----------------------------------
- - XXXCmd extends BaseAsyncCmd
- - XXXCmd injects XXXService
- - XXXService extends PluggableService
- - XXXResource implements the ServerResource & does a login etc to appliance
- 
- - [0] cloud-utils
- ---------------------------------
- - Finite State Machine
- - Adapter, Adapterbase,ComponentContext, ComponentLifecycle, 
- - AnnotationInterceptor,SpringComponentScanUtils
- - PluggableService
- 
- 
- - [1] cloud-api
- --------------------------
- - Volume, Storage - pure MODELs
- - StorageGuru extends Adapter
- - StorageService, DataStoreProviderApiService
- 
- 
- - [2] cloud-engine-api >> storage -
- -----------------------------------------
- - DataObject, VolumeInfo
- - DataStore, DataStoreStatus, DataStoreLifeCycle, DataStoreRole, 
- - EndPoint 
- - DataStoreDriver, PrimaryDataStoreDriver,
- - DataStoreManager, DataStoreProvider,  DataStoreProviderManager
- 
- 
- - [3] cloud-engine-storage -
- --------------------------------
- - DataStoreManagerImpl
- 
- 
- 
- - Finale -
- ---------------
- - XXMgrImpl composes providerMgr
- 
- 
- 
- 
- 
+ - Plugin - network - vns -
+ ----------------------------
+ - good one
  
  
  
