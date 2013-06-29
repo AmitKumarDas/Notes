@@ -1,0 +1,32 @@
+
+
+ https://github.com/dynjs/dynjs
+ 
+ - Compiles the JavaScript code to Java bytecode
+ 
+ What does Java's INDY offer ?
+ ------------------------
+ - have a smaller runtime
+ - JIT friendly dynamic code
+ 
+ - Uses dynalink -
+ --------------------
+ - dynalink is the core to dyn.js runtime
+ - dynalink has type conversation
+ - inline cache
+ - MOP
+ 
+ 
+ - dynalink's MOP -
+ -----------------------
+ - Meta Object Protocol
+ - can revolutionalize how JVM langs interact
+ - allows even JIT inlining between lang runtimes
+ 
+ - Uses JiteScript -
+ ------------------------
+ - Java API for bytecode generation
+ 
+ 
+ 
+ 
