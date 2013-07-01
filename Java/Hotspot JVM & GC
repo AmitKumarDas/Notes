@@ -160,6 +160,10 @@
  - less the better for low latency apps
  - -XX:+PrintGCApplicationStoppedTime
  
+ - Tenured Space -
+ ---------------------
+ - is the Old Gen
+ 
  
  
  
