@@ -26,6 +26,11 @@
   obj.toString();  // polymorphic call site
  }
  
+ Intuitive Object Handling
+ ------------------------------
+ - can be done by java.lang.invoke.CallSite
+ - no need of instanceof
+ 
  
  
  
