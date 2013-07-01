@@ -1,4 +1,3 @@
-
  Identifying Hot Methods
 -----------------------------
  - If wrongly identified, a programmer will analyze a cold method for optimizing
@@ -80,7 +79,7 @@
  ClassFileTransformer & transform ++ ASM
  ----------------------------------------
  - dont get hands dirty with bytecode manipulation directly
- - use ASM etc jars
+ - dont use ASM .. try JiteScript
  
  
  
