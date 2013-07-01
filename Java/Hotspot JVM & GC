@@ -147,6 +147,18 @@
  -------------------------
  - dictated by promotion rate, size of old gen
  
+ - Safepoint -
+ ------------------
+ - GC signals ALL the RUNNING threads to stop at a safepoint
+ 
+ - Safepoint & Heap -
+ -----------------------
+ - Heap of the app will be consistent when all threads reach their safepoint
+ 
+ - Time taken to Safepoint -
+ --------------------------------
+ - less the better for low latency apps
+ - -XX:+PrintGCApplicationStoppedTime
  
  
  
@@ -157,9 +169,10 @@
  
  
  
- 
- Reference - http://www.infoq.com/presentations/jvm-tuning
- 
+ Reference 
+ - http://www.infoq.com/presentations/jvm-tuning
+ - http://www.infoq.com/articles/Java_Garbage_Collection_Distilled?utm_source=infoq&utm_medium=popular_links_homepage
+ - 
  
  
  
