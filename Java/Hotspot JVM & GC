@@ -103,7 +103,6 @@
  --------------------
  - offers fastest minor GC times
  
- 
  - Cannot Avoid Old Gen Collections -
  --------------------------- 
  - Try CMS or G1
@@ -164,9 +163,59 @@
  ---------------------
  - is the Old Gen
  
+ - Young Gen -
+ ----------------
+ - Eden & Survivor space
  
+ - TLAB -
+ --------------
+ - Each thread is assiged a Thread Local Allocation Buffer
  
+ - When TLAB is Exhausted ? -
+ ---------------------------------- 
+ - Thread requests a new one from Eden.
+ - When Eden has been filled a minor collection commences
  
+ - Promotion or Tenuring -
+ -------------------------------
+ - happens when objs r old -XX:MaxTenuringThreshold
+ - or when Survivor space overflows
+ 
+ - Minor Collection vs Eden Size -
+ ------------------------------------
+ - Not related
+ 
+ - Minor Collection vs # of live objs -
+ -------------------------------------------
+ - directly proportional
+ 
+ - Minor Collection vs # of Old objs -
+ -----------------------------------------
+ - proportional due to cross-generational reference objs
+ 
+ - to-space vs from-space -
+ -----------------------------
+ - are survivor spaces
+ - alternate their roles
+ 
+ - to-space -
+ ------------------
+ - is the target area where live objs from Eden & from-space r copied
+ 
+ - from-space -
+ ------------------
+ - is the previous minor collection's target survivor space
+ 
+ -----------------------------------------------------------------------------------------
+ # Hence, if Eden Size is doubled then time taken for minor collection is halved         #
+ # Memory traded for throughput                                                          #
+ # Increase in collection time, but its OK if # objs promoted & old gen size is constant #
+ -----------------------------------------------------------------------------------------
+ 
+ - STW Events -
+ ---------------
+ - In hotspot Minor Collections are Stop The World events.
+ - Hence, concurrent collection in young gen is required
  
  
  
@@ -177,30 +226,6 @@
  - http://www.infoq.com/presentations/jvm-tuning
  - http://www.infoq.com/articles/Java_Garbage_Collection_Distilled?utm_source=infoq&utm_medium=popular_links_homepage
  - 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  
  
