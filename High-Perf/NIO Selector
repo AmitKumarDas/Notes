@@ -1,4 +1,3 @@
-
 - Selector & OS -
 -----------------
 - A fundamental benefit of NIO is that Selectors can be used to delegate the notification of events
