@@ -1,4 +1,3 @@
-
  - Multiple Selectors per Reactor -
  ----------------------------------
  - to bind different handlers to different IO events
