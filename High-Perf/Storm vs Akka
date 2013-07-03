@@ -1,2 +1,62 @@
 
-http://architects.dzone.com/articles/akka-vs-storm
+ - Reference  http://architects.dzone.com/articles/akka-vs-storm
+ 
+ - Storm & Cluster -
+ -----------------------
+ - handles cluster comm, fail-over & distributing topologies across cluster nodes
+ 
+ - Storm is ? -
+ ------------------
+ - is a distributed, real-time computation system
+ 
+ - Akka is -
+ ---------------
+ - tool 4 building distributed, concurrent, app
+ 
+ - Akka & Threads -
+ -----------------------
+ - each actor instance runs on atmost 1 Thread at a time
+ 
+ - Akka & Messaging -
+ -------------------------
+ - Actors processes message asynchronously
+ 
+ - Storm's basic unit of data -
+ -----------------------------------
+ - is a Tuple
+ 
+ - Akka's basic unit of data -
+ ---------------------------------
+ - is a message
+ 
+ - Akka & Thread Sharing -
+ ----------------------------
+ - Akka actors share threads
+ 
+ - Storm & Thread Sharing -
+ ----------------------------
+ - bolt instance tend to have dedicated thread
+ 
+ - Guaranteed Message Delivery -
+ -------------------------------------
+ - Storm has this
+ 
+ - Storm - Cluster Mgmnt -
+ ----------------------------
+ - based on Zookeeper
+ 
+ - Akka vs Storm -
+ ---------------------
+ - Akka is generic & Storm is specific
+ - Can build storm like system on Akka
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
