@@ -131,9 +131,28 @@
  --------------------------
  - typically client will want to wait & so is useful w.r.t client code
  
+ - ChannelHandler vs Up/Down Stream Handlers -
+ -----------------------------------------------
+ - CH can act as either or both .. matter of implementing both Interfaces
  
+ --------------------------------------------------------------
+ # Read Up . Write Down . 
+ # Read from remote using Upstream Handler. 
+ # Write to remote using Downstream Handler. 
+ ---- -
+ ----------------------------------------------------------
  
+ - Dynamic Modification of ChannelPipeline -
+ -----------------------------------------------
+ - possible to add/remove handlers in a thread safe way
  
+ - StaticChannelPipeline -
+ -----------------------------
+ - is an immutable Pipeline with better performance
+ 
+ - ChannelHandlerContext
+ -------------------------
+ - Allows the handler to interact with the pipeline
  
  
  
