@@ -154,6 +154,15 @@
  -------------------------
  - Allows the handler to interact with the pipeline
  
+ - ObjectInputStream -
+ ------------------------
+ - read from SocketInputStream & fill into ObjectInputStream
+ 
+ ---------------------------------
+          SIS -----> OIS
+  10101010101 -----> OIS  
+ ---------------------------------
+ 
  
  
  
