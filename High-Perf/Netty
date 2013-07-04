@@ -1,22 +1,18 @@
  
- - Wrapper over Primitive Buffer -
+ - Wrapper over Primitive/NIO Buffer -
  ---------------------------
- - Netty Channel Buffer
- 
- - Wrapper over NIO Buffer -
- ---------------------------
- - Netty Channel Buffer
+ - Netty Channel Buffer - basic stuff
  
  - Byte Transporter -
  ------------------------
- - Netty Channel
+ - Netty Channel ~ created via ChannelFactories
  
  - Byte Futures & Listeners -
  --------------------------------
- - Netty ChannelFuture & ChannelFutureListener
+ - Netty ChannelFuture & ChannelFutureListener ~ deferred result
  
- - Boss Threads -
- ----------------------
+ - Boss Threads  ~  Reactor -
+ --------------------------------
  - Refer Reactor pattern
  - Boss threads create and connect/bind sockets and then pass them off to the worker threads. 
  - In the server, there is one boss thread allocated per listening socket. In the client, there is only one boss thread*
@@ -26,12 +22,14 @@
  - refer Reactor pattern
  - perform all async IO ops
  
- - Old & New Transporter -
- -------------------------
+ - Old & New Transporter/Channel -
+ -------------------------------------
  - TCP NIO Channel - async comm
  - UDP NIO Channel - connection less
  - TCP OIO Channel - sync comm
  - UDP OIO Channel - async connection less
+ 
+ # NOTE - Different ChannelFactories to create each !
  
  - Netty & Executors -
  ------------------------
@@ -52,8 +50,29 @@
   
  - Netty & Interceptors -
  -----------------------------
- - Channel Handlers
+ - Channel Handlers ~ register to ChannelEvents
  - Channel Pipelines maintains the order of Handlers
+ 
+ - ChannelEvents -
+ ----------------------
+ - Connect, Disconnect, Write
+ 
+ -----------------------------------------
+ # Note - EventHandler == ChannelHandler #
+ -----------------------------------------
+ 
+ - Whats the use of Listener ? -
+ ---------------------------------
+ - fire & forget by registering a listener on ChannelFuture
+ - listener receives a callback when the operation completes
+ - callback has a reference to the ChannelFuture
+ 
+ ---------------------------------------------------------------------------------
+ Q Hows of fire & Forget ? -
+ - ChannelFuture listens to event & triggers the callback via registered listener
+ - These events are also broadcasted to ChannelHandlers.
+ - Hence, implement logic in callbacks or ChannelHandler of the Pipeline
+ ---------------------------------------------------------------------------------
  
  - Netty & Encoding/Decoding -
  ----------------------------------
@@ -79,6 +98,42 @@
  - Netty & Events -
  --------------------
  - ChannelEvent - wrap ChannelBuffer
+ 
+ - Selector -
+ -----------------
+ - delegate event to OS
+ 
+ - Tunneling Channel -
+ --------------------------
+ - HttpTunnelingClientSocketChannelFactory
+ - Tunnel to a Netty Server via a special Netty Servlet
+ 
+ # Applications typically exploit HTTP tunneling by, first, trying to establish a connection with a server 
+ # using a normal socket connection. If the socket connection attempt is rejected by a firewall, 
+ # the application will automatically retry the connection by encapsulating its data within an HTTP POST request. 
+ 
+ 
+ - Within JVM Channels -
+ ----------------------------
+ - DefaultLocalClientChannelFactory & DefaultLocalServerChannelFactory
+ 
+ 
+ - 2 Thread Executors -
+ ---------------------
+ - 1 for BOSS Threads & other for Worker Threads
+ 
+ - Worker & Await -
+ -----------------------
+ - You want Worker threads to be Working & not Waiting
+ - So avoid await calls in Worker threads
+ 
+ - Client & awaitXXX -
+ --------------------------
+ - typically client will want to wait & so is useful w.r.t client code
+ 
+ 
+ 
+ 
  
  
  
