@@ -237,6 +237,32 @@
  - org.glassfish.javax.json.1.0
  
  
+ - Java 8 Default Methods helps ? -
+ -------------------------------------
+ - Lambda 
+ 
+ - Default methods also known as -
+ ----------------------------------------
+ - virtual extension / defender methods
+ 
+ - Default methods take care of -
+ --------------------------------------
+ - Multiple Inheritance
+ 
+ - Invoke on Interface Ref -
+ -----------------------------
+ - InvokeInterface 
+ 
+ - Invoke on SubClass Ref -
+ --------------------------------
+ - InvokeVirtual
+ 
+ - DefaultMethod Conflict resolution -
+ -----------------------------------------
+ - InvokeSpecial to particular Interface only
+ 
+ 
+ 
  
  
  
