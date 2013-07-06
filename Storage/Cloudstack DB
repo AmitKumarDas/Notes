@@ -1,8 +1,12 @@
-
  - Create Volume - 
  ----------------------- 
  - create a volume in a pool
- 
+
+ - VolumeTO -
+ ------------------
+ - created from Volume & StoragePool
+
+
  - Objects Needed 2 Create Volume - 
  ------------------------------------
  VolumeInfo has
@@ -10,7 +14,10 @@
     TemplateID     -- to get --> VMTemplateVO
     DataStore      -- equals --  StoragePool
     ID             -- to get --  VolumeVO
-    
+ 
+ Get DiskProfile
+    from Volume & DiskOffering
+ 
  Get Host
     from Pool & Template
   
