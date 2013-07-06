@@ -261,6 +261,20 @@
  -----------------------------------------
  - InvokeSpecial to particular Interface only
  
+ - Functional Interfaces -
+ ---------------------------------
+ - Consumer<T> - act on type T without returning a result
+ - Supplier<T> - no i/p returns an instance of T
+ - Predicate<T> - consume T & produce boolean
+ - Function<T,R> - consume T & produce R
+ - a total 40 new fucntional interfaces in java.util.function
+ 
+ - Define your own Functional Interface -
+ -----------------------------------------------
+ - @FunctionalInterface
+ 
+ 
+ 
  
  
  
