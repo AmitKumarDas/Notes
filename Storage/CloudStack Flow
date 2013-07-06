@@ -1,0 +1,28 @@
+
+ - UI to Core -
+ -------------------
+
+ - ApiServlet
+  - ApiServer
+   - ApiDispatcher
+    - XXXCommand
+     - XXXManagerImpl
+      - XXXServiceImpl
+       - CloudStackPrimaryDataStoreDriverImpl ~ default storage plugin\       
+       
+  - Driver Impl -
+  -------------------------------------------------
+  - CloudStackPrimaryDataStoreDriverImpl
+   - talks to cloud-server project's Daos & Mgrs
+    - what exactly does it do?
+   
+  - LifeCycle Impl -
+  --------------------------------------------------
+  - CloudStackPrimaryDataStoreLifeCycleImpl
+   - 
+   
+  - Provider Impl -
+  --------------------------------------------------
+  - CloudStackPrimaryDataStoreProviderImpl
+   - 
+  
