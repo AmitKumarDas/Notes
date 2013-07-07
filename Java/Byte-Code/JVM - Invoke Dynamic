@@ -5,10 +5,32 @@
  - http://jaxenter.com/404
  - http://www.ec-spride.tu-darmstadt.de/media/ec_spride/secure_software_engineering/theses_1/kamil_erhard_master_thesis.pdf
  - http://www.bodden.de/pubs/bodden12invokedynamic.pdf
- - 
+ 
+ - A new form -
+ ------------------
+ - of invocation
+ 
+ - usage -
+ ----------------
+ - dynamic usage & others
+ 
+ - Argument manipulation -
+ -----------------------------
+ - MethodHandles
+ 
+ - Bootstrap -
+ ------------------
+ - prepares CallSite & MethodHandle
+ 
+ - Tools -
+ ----------
+ - object web's ASM lib
+ - Jitescript - DSL wrapper around ASM
+ - InvokeBinder - DSL API for building MH chanins
+ 
+ 
 
-
- Lamdba Expressions
+ Usage --> Lamdba Expressions
 ------------------------
   > static & dynamic expressions
   > defer the selection of translation strategy intil runtime
@@ -35,7 +57,7 @@
   MethodHandle vs Reflection Method
 -------------------------------------
   > Method Handles are type-checked only at creation time
-  > Reflection objects need to perform checking for each invocation
+  > However, Reflection objects need to perform checking for each invocation
   
   Method Handle combinators 
  ------------------------------
@@ -60,7 +82,7 @@
  MethodHandle && Code Snippet
  ------------------------------
  MethodHandle honk = MethodHandles.lookup()
-                                  .findVuirtual(Car.class, "honk", MethodType.methodType(void.class));
+                                  .findVirtual(Car.class, "honk", MethodType.methodType(void.class));
  honk.invoke(new Car());
  
  
