@@ -28,6 +28,24 @@
  - Jitescript - DSL wrapper around ASM
  - InvokeBinder - DSL API for building MH chanins
  
+ - Select call target @ runtime. Why ? -
+ ------------------------------------
+ - not enough linkage info @ compile time
+ 
+ - MethodHandle -
+ ---------------------
+ - a successful lookup - a object pointing to field/method/constructor impl
+ 
+ - MethodHandle & .invoke()
+ ------------------------------
+ - similar 2 Reflection's Method's .invoke() ~ arbitary no of args
+ 
+ - Adaptation -
+ ---------------
+ - adaptation methods are provided in MethodHandle & MethodHandles classes
+ 
+ 
+ - 
  
  
 
