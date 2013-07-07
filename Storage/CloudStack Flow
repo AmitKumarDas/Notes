@@ -1,4 +1,3 @@
-
  - UI to Core -
  -------------------
 
@@ -8,18 +7,19 @@
     - XXXCommand
      - XXXManagerImpl
       - XXXServiceImpl
-       - CloudStackPrimaryDataStoreDriverImpl ~ default storage plugin\       
+       - CloudStackXXXImpl ~ default XXX plugin\       
        
   - Driver Impl -
   -------------------------------------------------
   - CloudStackPrimaryDataStoreDriverImpl
-   - talks to cloud-server project's Daos & Mgrs
-    - what exactly does it do?
+   - composes cloud-server project's Daos & Mgrs
+    - 
    
   - LifeCycle Impl -
   --------------------------------------------------
   - CloudStackPrimaryDataStoreLifeCycleImpl
-   - 
+   - url ~ scheme://hostname/path
+    - 
    
   - Provider Impl -
   --------------------------------------------------
