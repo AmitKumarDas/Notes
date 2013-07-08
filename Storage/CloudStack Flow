@@ -1,28 +1,58 @@
- - UI to Core -
- -------------------
-
- - ApiServlet
-  - ApiServer
-   - ApiDispatcher
-    - XXXCommand
-     - XXXManagerImpl
-      - XXXServiceImpl
-       - CloudStackXXXImpl ~ default XXX plugin\       
-       
+  
+  ########################################################
+  - Typical Plugin Flow -
+  ########################################################
+  
+  
   - Driver Impl -
   -------------------------------------------------
   - CloudStackPrimaryDataStoreDriverImpl
-   - composes cloud-server project's Daos & Mgrs
-    - 
+   # usecase
+    - DataObjectManagerImpl                    ~ cloud-engine-storage
+     - VolumeServiceImpl                       ~ cloud-engine-storage-volume
+      - VolumeManagerImpl                      ~ cloud-server
+       - XXXCmd                                ~ cloud-api
+        - ApiDispatcher                        ~ cloud-server
+         - ApiServer                           ~ cloud-server        
+          - ApiServlet                         ~ cloud-server
    
   - LifeCycle Impl -
   --------------------------------------------------
-  - CloudStackPrimaryDataStoreLifeCycleImpl
-   - url ~ scheme://hostname/path
-    - 
+  - CloudStackPrimaryDataStoreLifeCycleImpl - lots of Mgrs injected
+    # Initialize
+     - usecase ~ StorageManagerImpl            ~ cloud-storage
+      - XXXCmd                                 ~ cloud-api
+       - ApiDispatcher                         ~ cloud-server
+        - ApiServer                            ~ cloud-server
+         - ApiServlet                          ~ cloud-server
+    # similarly others
+     
    
   - Provider Impl -
   --------------------------------------------------
   - CloudStackPrimaryDataStoreProviderImpl
-   - 
+   # Configure
+    - DataStoreProviderManagerImpl             ~ cloud-engine-storage    
+     - ConponentContext
+      - StartupServlet
+    
+  ########################################################  
+  - Typical Resource Ops Flow -
+  ########################################################
+  - CloudStackPrimaryDataStoreLifeCycleImpl
+   # Initialize
+    - usecase ~ StorageManagerImpl                     ~ cloud-storage
+     - LocalStoragePoolListener                        ~ cloud-server
+      - AgentManagerImpl                               ~ cloud-server
+       - handleConnectedAgent
+        - task
+       - handleDirectConnectAgent
+        - ResourceManagerImpl                          ~ cloud-server
+         - A resource from plugin
+          - XXXCmd
+           - ApiDispatcher
+            - AsyncJobManagerImpl                      ~ cloud-server
+       
+  
+  
   
