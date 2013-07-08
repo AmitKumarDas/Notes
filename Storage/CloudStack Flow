@@ -79,7 +79,13 @@
   - A concrete plugin impl extends AbstractBase, implements ResourceStateAdapter, someotherLifecycleInterface, PluginInterface
   
   
-  
+  #############################################################
+  CloudByte's Integration with CloudStack
+  #############################################################
+  - Create a List of Commands or extend from CloudStack command
+  |_ extending might create problem if CS stores the responses, job id etcs.
+  - Create a PluggableService implementation to register these commands
+  - Create a Web Service client implementation to communicate to CloudByte's REST exposed services
   
   
   
