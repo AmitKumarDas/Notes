@@ -1,0 +1,52 @@
+
+ - MethodHandle -
+ ---------------------
+ - a successful lookup - a object pointing to field/method/constructor impl
+ 
+ - MethodHandles -
+ --------------------
+ - type-safe function pointers that can be combined at runtime into larger units of fucntionality
+ 
+ 
+ - Adaptation -
+ ---------------
+ - adaptation methods are provided in MethodHandle & MethodHandles classes
+ 
+  
+  MethodHandle <-> CallSite
+  ---------------------------------
+  > the MethodHandle matches the call site  
+
+  MethodHandle vs Reflection Method
+-------------------------------------
+  > Method Handles are type-checked only at creation time
+  > However, Reflection objects need to perform checking for each invocation
+  
+  Method Handle combinators 
+ ------------------------------
+  > found in java.lang.invoke.MethodHandle
+  > > filterArguments
+  > > filterReturnValue
+  > Keeps the method handle chain almost intact, it protects JIT optimizations
+
+ InvokeBinder
+ -------------
+ - MethodHandle made easy
+ 
+ MethodHandle & Security Checks
+ ----------------------------------
+ - done during creation
+ - they r immutable
+ 
+ Reflection vs MethodHandles
+ --------------------------
+ - Security Checks done at each call . Hence, reflection is slow
+ 
+ MethodHandle && Code Snippet
+ ------------------------------
+ MethodHandle honk = MethodHandles.lookup()
+                                  .findVirtual(Car.class, "honk", MethodType.methodType(void.class));
+ honk.invoke(new Car());
+ 
+ 
+ 
