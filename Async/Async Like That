@@ -1,0 +1,8 @@
+
+ - Future Objects -
+ ------------------------
+ - created via ExecutorService's submit
+ - or
+ - via FutureTask<Callable>
+ 
+ 
