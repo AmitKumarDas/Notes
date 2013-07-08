@@ -1,4 +1,3 @@
-
  - Synchronized vs Reentrantlock -
  ------------------------------
  - wait vs await
@@ -13,10 +12,6 @@
  - multiple conditions on a single lock
  - await on particular condition
 
- - Synchronzied vs CyclicBarrier -
- -----------------------------------
- - 
- 
 
  - Synchronized vs CountDownLatch -
  -------------------------------------
@@ -34,6 +29,7 @@
  - acquire read or write lock
  - release read or write lock
  - downgrade write lock
+ 
  
  
  References - http://www.infoq.com/presentations/java-concurrent-animation?utm_source=infoq&utm_medium=videos_homepage&utm_campaign=videos_row1
