@@ -54,5 +54,33 @@
             - AsyncJobManagerImpl                      ~ cloud-server
        
   
+  ########################################################
+  - Adapter ~ Pluggable Code within Cloud Stack
+  ########################################################
+  - A ComponentLifeCycle interface  ~ configure/start/stop/run-level
+  - ComponentLifeCycleBase implements ComponentLifeCycle
+  
+  - An Adapter interface extends ComponentLifeCycle  interface  
+  - A concrete AdapterBase extends ComponentLifeCycleBase implements Adapter
+  
+  - An adapter LifeCycle Interface extends Adapter  
+  - An abstract adapter LifeCycle extends AdapterBase implements LifeCycle interface  
+  - A concrete adapter LifeCycle Impl extends abstract adapter lifecycle in plugin project
+  
+  #########################################################
+  - PluggableService ~ Method for Pluggable Code within CS
+  #########################################################
+  - A ComponentLifeCycle interface  ~ configure/start/stop/run-level
+  - PluggableService interface ~ expose pluggable methods
+  - An Adapter interface extends ComponentLifeCycle  interface  
+  - A ResourceStateAdapter interface extends Adapter interface ~ used for Agent Ops
+  
+  - A Plugin Interface extends PluggableService ... 
+  - A concrete plugin impl extends AbstractBase, implements ResourceStateAdapter, someotherLifecycleInterface, PluginInterface
+  
+  
+  
+  
+  
   
   
