@@ -1,4 +1,83 @@
-
  - http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html -
+ 
+ - Whats its not ? -
+ -----------------------
+ - Its not about generating bytecode to create an object that implements the lambda expression
+ 
+ - What it is ?
+ ----------------
+ - Its about describing a recipe 2 construct the lambda & delegate the actual construction to lang runtime
+ 
+ - Whats in Recipe ?
+ ---------------------------
+ - Its the static & dynamic argument list of InvokeDynamic instruction
+ 
+ - How to defer till RunTime ?
+ --------------------------------
+ - Indy helps us in defering the TRANSLATION strategy till run time
+ 
+ - Compiler encounter a lambda expression - Flow ?
+ ---------------------------------------------------
+ - desugar the lamdba expr into a likely matched method
+ - with some additional dynamic args 
+ - generate a INDY callsite
+ 
+ - Dynamic Args -
+ -------------------
+ - for values captured from lexical scope if any
+ 
+ - When u Invoke the CallSite -
+ ----------------------------
+ - u get the functional interface to which the lambda is being converted
+ 
+ - lambda Factory -
+ ----------------------
+ - The particular callsite for the given lambda is called lambda factory
+ 
+ - Dynamic Args Into CallSite -
+ ---------------------------------
+ - captured from lexical scope & set into CallSite
+ 
+ - Bootstrap method -
+ -----------------------
+ - method of the Lambda Factory
+ 
+ - Lambda MetaFactory -
+ -------------------------
+ - is the bootstrap method of the Lambda Factory i.e. CallSite
+ 
+ - Static Bootstrap Args -
+ -----------------------------
+ - r the info captured on lambda @ compile time
+ 
+ - Lambda Descriptor -
+ ------------------------
+ - Functional Interface
+ 
+ - Lambda Object -
+ -----------------------------
+ - object returned from Lambda factory that implements the functional interface
+ - i.e. the object that captures the behavior of lambda
+ 
+ - Static Args of MetaFactory -
+ ----------------------------------
+ metaFactory(MethodHandles.Lookup caller, 
+              String invokedName,
+              MethodType invokedType,
+              MethodHandle descriptor,      //lambda descriptor
+              MethodHandle impl)            //lambda body
+ 
+ - args values provided by VM -
+ ---------------------------------
+ - invokedName, invokedType & caller are stacked by VM during callsite linkage
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
