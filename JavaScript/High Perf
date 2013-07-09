@@ -1,0 +1,13 @@
+
+- http://blog.jamesdbloom.com/ReducingAndMinifyingRequests.html
+
+ - minifying JS & CSS
+ - combine static assets - single css & single js
+ - combine images into a CSS sprite
+ - combine requests - inlining 
+ 
+ - inlining -
+ -----------------
+ - resources , cookie, localstorage
+ 
+ 
