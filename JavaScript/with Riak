@@ -1,7 +1,8 @@
-
  - Data Processing Facets of K/V -
  --------------------------------
- - map, reduce
+ - map - transform data to what you need
+ - reduce - filter data & aggregate
+
 
  - JS Usage with Riak -
  -------------------------
