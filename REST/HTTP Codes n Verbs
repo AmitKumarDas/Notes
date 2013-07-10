@@ -1,0 +1,39 @@
+ - Status Codes -
+ --------------------
+ - 1xx - Metadata
+ - 2xx - Success
+ - 3xx - Redirection
+ - 4xx - Client Error - Bad Request
+ - 5xx - Server Error
+ 
+ 
+ - Create with POST -
+ ------------------------
+ - 201 - created
+ - 400 - bad request
+ - 500 - server error
+ 
+ - Read with GET -
+ --------------------
+ - 200 - ok
+ - 404 - not found
+ - 500 - server error
+ 
+ - Update with PUT -
+ -------------------------
+ - 200 - ok
+ - 404 - not found
+ - 409 - conflict
+ - 500 - server error
+ 
+ - Remove with Delete -
+ --------------------------
+ - 200 - ok
+ - 404 - not found
+ - 405 - method not allowed
+ - 500 - server error
+ 
+ 
+ 
+ 
+ 
