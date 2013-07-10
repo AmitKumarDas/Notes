@@ -1,0 +1,13 @@
+
+ - Data Processing Facets of K/V -
+ --------------------------------
+ - map, reduce
+
+ - JS Usage with Riak -
+ -------------------------
+ - Key/Value
+ - http REST & protobuff data API
+ - Store JSON data on a URL
+ - Very good distribution
+ - Good performance
+ 
