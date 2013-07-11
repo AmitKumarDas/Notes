@@ -3,3 +3,41 @@
  -----------------------
  - think of Compile Time than Reflection Processing
  - http://docs.oracle.com/javase/6/docs/api/javax/annotation/processing/Processor.html
+
+ Annotations & Reflection
+ --------------------------
+ - annotations with runtime retention policy are accessible via reflection
+ 
+ Annotations & Reflection
+ --------------------------
+ - getAnnotation & getAnnotations on Class
+ 
+ Annotatins & Compile Time
+ ---------------------------
+ - Annotation Processors will handle @ compile time
+ 
+ JSR 269
+ -------------
+ - part of Java 6
+ 
+ JSR 269
+ ---------
+ - javax.annotation.processing.Processor
+ - ...AbstractProcessor
+ 
+ JSR 269 + process()
+ -----------------------
+ - 2 params 
+ - java.lang.model.TypeElement, &
+ - javax.annotation.processing.RoundEnvironment
+ 
+ JSR 269 + code generation via Velocity
+ ---------------------------------------
+ - write a tpl to generate code
+ - processor will read the annotated elements via RoundEnvironment
+ - save the annotated elements in memory
+ - processor will initialize the Velocity Context
+ - processor will load the Velocity template
+ - processor will create the .java source file 
+ 
+ 
