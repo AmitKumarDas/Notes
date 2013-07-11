@@ -1,0 +1,30 @@
+
+- http://www.angelikalanger.com/GenericsFAQ/FAQSections/TechnicalDetails.html#FAQ401 -
+
+ - Automatic Type Inference @ Compile Time -
+ ---------------------------------------------
+ class Collections {
+  public static <A extends Comparable<? super A>> A max (Collection<A> xs) {
+    Iterator<A> xi = xs.iterator();
+    A w = xi. next();
+    while (xi.hasNext()) {
+      A x = xi.next();
+      if (w.compareTo(x) < 0) w = x;
+    }
+    return w;
+  }
+ } 
+ 
+final class Test {
+  public static void main (String[ ] args) {
+    LinkedList<Long> list = new LinkedList<Long>();
+    list.add(0L); 
+    list.add(1L);
+    Long y = Collections.max(list) ;
+  }
+ }
+ 
+ - max method is invoked like a regular method 
+ - & the compiler automatically infers the type argument from the type of the method argument.
+ 
+ 
