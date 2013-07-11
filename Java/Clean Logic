@@ -1,0 +1,45 @@
+
+ - What is not a clean logic 
+ -----------------------------
+ - A complex logic, that is understood by the domain experts but not by developers ;)
+
+ - Is DDD the solution to clean logic ?
+ ---------------------------------------
+ - No
+
+ - Why DDD cannot be the answer ?
+ -------------------------------------------------------
+ - It might entice developers to put logic 'which changes constantly' in the Domain object.
+ 
+ - Complex logic is, possibly
+ -------------------------------
+ - which keeps changing the most
+ - Most of the time a)Validations or b)filtering logic or something similar
+ 
+ - Handle Complex - Item [1] - Validation
+ -----------------------------------------
+ - Check for latest developments in JSR Bean Validations
+ 
+ - Handle Complex - Item [II] - Filtering
+ -----------------------------------------
+ - Check for the new functional interfaces, Predicates, Collectors
+ - & ofcourse Lambda
+ 
+ - Handle Complex ~ Probable Solution
+ -------------------------------------
+ - Dont put the above solutions in the Domain class 
+ - Do heavy modularization & abstract the common logic of both validation & filtering
+ - Since we abstract the real business algorithm out of the domain object, app layers, server, ui  etc..
+ 
+ -- We can do lot more --
+ ------------------------------
+ - Think TDD & it becomes so easy to implement now
+ - Think beyond & try applying validations & filtering programatically i.e. @ runtime
+ - Think practical & toggle Logging, Auditing, etc concerns ... into validations & filtering modules
+ - Think profits & apply billing logic into validations & filtering
+  
+ 
+ 
+ References:
+ ----------------
+ 1/ http://java.dzone.com/articles/writing-clean-predicates-java
