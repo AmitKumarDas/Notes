@@ -1,0 +1,51 @@
+
+ - Problems or Features -
+ -----------------------------
+ - Caching
+ - Cluster
+ - Master/Slave
+ - Master/Master
+ - Table Partitioning
+ - Federated Tables
+ - Sharding
+ - Distributed Tables
+ 
+ 
+ - ACID -
+ -------------
+ - All or nothing
+ - Consistent State via Tx
+ - Isolation via Tx
+ - Durability even after system failure
+ 
+ - Isolation -
+ ----------------
+ - levels, locking & MVCC
+ 
+ - Isolation Levels
+ -----------------------
+ - S -> RR -> RC -> RU
+ 
+ - Serializable
+ ---------------------
+ - all txs isolated as if they are serial always
+ 
+ - Repeatable Read -
+ ------------------------
+ - All selects statements in the same tx will always yield same result
+ 
+ - Read is Committed ?
+ -----------------------------
+ - Lock only on the rows currently read/updated
+ 
+ - Read is UnCommitted ?
+ ------------------------------
+ - A tx can access uncommitted changes made by other txs
+ 
+ 
+ 
+ 
+ 
+ References 
+ -------------
+ - http://architects.dzone.com/articles/nosql-databases-why-what-and
