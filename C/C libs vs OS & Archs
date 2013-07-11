@@ -1,4 +1,3 @@
-
  Compression Lib
  -------------------
  - On POSIX systems it's named libz.so and usually comes pre-installed.
