@@ -1,5 +1,4 @@
 
-
   p - pointer - int *p
   a - array   - int a[];
   i - int     - int i;
