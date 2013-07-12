@@ -1,0 +1,18 @@
+
+ - Groovy Closure -
+ ------------------------
+ - Closure ~ by default ~ implementation of java.util.concurrent.Callable
+ 
+ - Groovy Closure - Type Casting -
+ -----------------------------
+ - We can typecast a Closure to other Functional Interface
+ 
+ - Java Lambda -
+ -------------------
+ - Similar to Groovy's Closure
+ 
+ - java 8 Lambda -
+ -------------------
+ - Callable call = () -> "called";
+ 
+ 
