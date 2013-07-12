@@ -1,57 +1,32 @@
+
+  - Typical Http Flow -
+  -------------------------
+  - A command as a http query param
+  - Command attributes are http query params
+  - Intercepted @ servlet layer & transformed to the required Command
+  - Now the base commands has the list of ALL possible Services - injected services
+  - execute of Command is invoked @ servlet layer
+  - Appropriate Injected Service's method invoked taking in 'this'. i.e. Command object as a param
+  - Typically One usecase in a Command - single responsibility - CreateStoragePoolCmd
   
-  ########################################################
-  - Typical Plugin Flow -
-  ########################################################
+  - Typical Plugin Requirement -
+  -------------------------------   
+  - Driver Impl 
+  - LifeCycle Impl 
+  - Provider Impl 
   
+  # note - ProviderManager is managed by CS
   
-  - Driver Impl -
-  -------------------------------------------------
-  - CloudStackPrimaryDataStoreDriverImpl
-   # usecase
-    - DataObjectManagerImpl                    ~ cloud-engine-storage
-     - VolumeServiceImpl                       ~ cloud-engine-storage-volume
-      - VolumeManagerImpl                      ~ cloud-server
-       - XXXCmd                                ~ cloud-api
-        - ApiDispatcher                        ~ cloud-server
-         - ApiServer                           ~ cloud-server        
-          - ApiServlet                         ~ cloud-server
-   
-  - LifeCycle Impl -
-  --------------------------------------------------
-  - CloudStackPrimaryDataStoreLifeCycleImpl - lots of Mgrs injected
-    # Initialize
-     - usecase ~ StorageManagerImpl            ~ cloud-storage
-      - XXXCmd                                 ~ cloud-api
-       - ApiDispatcher                         ~ cloud-server
-        - ApiServer                            ~ cloud-server
-         - ApiServlet                          ~ cloud-server
-    # similarly others
-     
-   
-  - Provider Impl -
-  --------------------------------------------------
-  - CloudStackPrimaryDataStoreProviderImpl
-   # Configure
-    - DataStoreProviderManagerImpl             ~ cloud-engine-storage    
-     - ConponentContext
-      - StartupServlet
- 
-  - How wil your Data Store Provider get Called -
+  - Making sure your Data Store Provider get Called -
   ------------------------------------------
+  - DataStoreProviderManagerImpl will have a list of several Provider Impls.
   - The getDataStoreProvider(String) of DataStoreProviderManagerImpl is the key
   - The name of the Storage provider will be received from the Command itself
   - e.g. CreateStoragePoolCmd has method called getStorageProviderName
  
   
-  
-  
-  
-  
-  
-    
-  ########################################################  
   - Typical Resource Ops Flow -
-  ########################################################
+  --------------------------------
   - CloudStackPrimaryDataStoreLifeCycleImpl
    # Initialize
     - usecase ~ StorageManagerImpl                     ~ cloud-storage
@@ -67,9 +42,8 @@
             - AsyncJobManagerImpl                      ~ cloud-server
        
   
-  ########################################################
   - Adapter ~ Pluggable Code within Cloud Stack
-  ########################################################
+  ---------------------------------------------------
   - A ComponentLifeCycle interface  ~ configure/start/stop/run-level
   - ComponentLifeCycleBase implements ComponentLifeCycle
   
@@ -80,9 +54,9 @@
   - An abstract adapter LifeCycle extends AdapterBase implements LifeCycle interface  
   - A concrete adapter LifeCycle Impl extends abstract adapter lifecycle in plugin project
   
-  #########################################################
+  
   - PluggableService ~ Method for Pluggable Code within CS
-  #########################################################
+  ---------------------------------------------------------------
   - A ComponentLifeCycle interface  ~ configure/start/stop/run-level
   - PluggableService interface ~ expose pluggable methods
   - An Adapter interface extends ComponentLifeCycle  interface  
@@ -90,17 +64,6 @@
   
   - A Plugin Interface extends PluggableService ... 
   - A concrete plugin impl extends AbstractBase, implements ResourceStateAdapter, someotherLifecycleInterface, PluginInterface
-  
-  
-  
-  
-  
-  #############################################################
-  CloudByte's Integration with CloudStack
-  #############################################################
-  - Create a List of Commands if these r not implemented in CS  
-  - Create a PluggableService implementation to register these commands
-  - Create a Web Service client implementation to communicate to CloudByte's REST exposed services
   
   
   
