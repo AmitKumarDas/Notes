@@ -35,6 +35,19 @@
     - DataStoreProviderManagerImpl             ~ cloud-engine-storage    
      - ConponentContext
       - StartupServlet
+ 
+  - How wil your Data Store Provider get Called -
+  ------------------------------------------
+  - The getDataStoreProvider(String) of DataStoreProviderManagerImpl is the key
+  - The name of the Storage provider will be received from the Command itself
+  - e.g. CreateStoragePoolCmd has method called getStorageProviderName
+ 
+  
+  
+  
+  
+  
+  
     
   ########################################################  
   - Typical Resource Ops Flow -
@@ -79,14 +92,32 @@
   - A concrete plugin impl extends AbstractBase, implements ResourceStateAdapter, someotherLifecycleInterface, PluginInterface
   
   
+  
+  
+  
   #############################################################
   CloudByte's Integration with CloudStack
   #############################################################
-  - Create a List of Commands or extend from CloudStack command
-  |_ extending might create problem if CS stores the responses, job id etcs.
+  - Create a List of Commands if these r not implemented in CS  
   - Create a PluggableService implementation to register these commands
   - Create a Web Service client implementation to communicate to CloudByte's REST exposed services
   
   
   
+  
+  Questions ?
+  - --------------
+  1/  DefaultPrimaryDataStoreProviderManagerImpl & DataStoreProviderManagerImpl have a cyclic dependency!
+  
+      Why does DataStoreProviderManagerImpl compose DefaultPrimaryDataStoreProviderManagerImpl ?
+      
+      DefaultPrimaryDataStoreProviderManagerImpl composes the DataStoreProviderManagerImpl, which seems fine.
+      The registerDriver & registerHostListener can be done in DefaultPrimaryDataStoreProviderManagerImpl class itself in its 
+      @PostConstruct method . Ofcourse, this will be effective only when getDataStoreProviders() of
+      DataStoreProviderManagerImpl returns the providers instead of null.
+      
+      An alternative approach might be to have DefaultPrimaryDataStoreProviderManagerImpl extend
+      DataStoreProviderManagerImpl instead of composing the latter. This way the configure method can be overridden to register
+      drivers & host listeners.
+      
   
