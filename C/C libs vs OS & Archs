@@ -15,3 +15,8 @@
  - but a 32 bit type on Windows/x64 and on 32 bit systems. 
  - Thus a long result can be either a plain Lua number or a boxed 64 bit integer cdata object, 
  - depending on the target system
+
+ - Calling Conventions
+ ----------------------------
+ - R different in Windows.
+ - Windows vs. Other OS
