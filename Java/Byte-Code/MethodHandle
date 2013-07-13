@@ -1,4 +1,3 @@
-
  - MethodHandle -
  ---------------------
  - a successful lookup - a object pointing to field/method/constructor impl
@@ -7,12 +6,33 @@
  --------------------
  - type-safe function pointers that can be combined at runtime into larger units of fucntionality
  
+ - Method Handle -
+ ---------------------
+ - Given any method M, JVM provides a way to produce a Method Handle MH
+ - Use this MH later on as amny times as required
+ 
+ - Method Handle ~ Provide -
+ --------------------------------
+ - Supply this MH to others & they too can invoke via the MH
+ 
  
  - Adaptation -
  ---------------
  - adaptation methods are provided in MethodHandle & MethodHandles classes
  
+ - Adaptation -
+ -------------------
+ - Given a method handle and some arguments for it, 
+ - the JVM will give me a partial invocation of that method handle, 
+ - which is the 'new' Method Handle that remembers those arguments, 
+ - and, when invoked on the remaining arguments, 
+ - will invoke the original method handle with the grand total set of arguments. 
   
+ - Adaption ~ Partial Invocation -
+ -----------------------------------------
+ - Adaptation is also known as Partial Invocation
+ 
+   
   MethodHandle <-> CallSite
   ---------------------------------
   > the MethodHandle matches the call site  
@@ -49,4 +69,4 @@
  honk.invoke(new Car());
  
  
- 
+ - https://blogs.oracle.com/jrose/entry/method_handles_in_a_nutshell 
