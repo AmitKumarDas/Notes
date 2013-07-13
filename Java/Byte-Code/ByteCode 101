@@ -1,7 +1,21 @@
 
+
  - invokespecial -
  -------------------------
  - constructor methods
  - private methods
  - methods of super class of the current class
- - 
+ 
+ - InvokeStatic - 
+ -----------------
+ - if target is not available
+ 
+ - InvokeInterface -
+ ------------------------
+ - target available & resolved type is an Interface
+ 
+ - InvokeVirtual or InvokeSpecial -
+ -----------------------------------------
+ - class or array
+ 
+ 
