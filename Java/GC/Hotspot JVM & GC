@@ -217,6 +217,112 @@
  - In hotspot Minor Collections are Stop The World events.
  - Hence, concurrent collection in young gen is required
  
+ - Full GC - 
+ ----------------
+ - promote live objs from YoungGen
+ - followed by a Collection & Compaction of OldGen
+ 
+ - Heap Needs to Grow -
+ -----------------------------
+ - When this event occurs & FullGC is triggered
+ - Can be avoided by setting the -Xms & -Xmx to same value
+ 
+ - Promotion -
+ --------------------
+ - is a large STW
+ 
+ - Compaction -
+ ---------------------
+ - is a large STW
+ 
+ - Reduce Compaction interval -
+ ----------------------------------
+ - if no of objects in OldGen is less / controlled
+ - i.e. increasing size of survivor space
+ - & increase age of objects before being promoted to OldGen
+ 
+ - Increase Size of Survivor Space -
+ --------------------------------------
+ - Increases the cost & pause times of Minor Collections
+ 
+ - Serial Collector -
+ -------------------------
+ - simplest & good for Single Processor system
+ 
+ - Serial Collector & Obj Allocation to OldGen -
+ -------------------------------------------------
+ - done via Bump the Pointer Algorithm
+ 
+ - Serial Collector & Major Collection
+ ----------------------------------------
+ - triggered when Tenured Space/Old Gen is full
+ 
+ - Parallel Collector & its 2 Types -
+ ----------------------------------------
+ - -XX:+UseParallelGC
+ - -XX:+UseParallelOldGC
+ 
+ - UseParallelGC -
+ ----------------------
+ - Multi Threads for Minor Collection & Single Thread for Major Collection
+ 
+ - UseParallelOldGC -
+ --------------------------
+ - Multi Threads for both Minor & Major collections
+ 
+ - UseParallelOldGC -
+ --------------------------
+ - good for multi CPU  system running batch applications
+ 
+ - Collection in OldGen -
+ ---------------------------
+ - impacted by the no of objs to retain
+ 
+ - Collection in OldGen -
+ ---------------------------
+ - not much impacted by heap size
+ - this doesnot mean that increasing heap size will do nothing
+ - rather increasing heap size will provide other benefits
+ 
+ - UseParallelOldGC & Increase d HeapSize  -
+ ----------------------------------------------
+ - ability to accept more objs during a collection
+ - freq of collection pause s will be reduced
+ 
+ 
+ - ParallelCollector - The Basic Trigger -
+ ----------------------------------------------
+ - Major Colleciton is triggered only when the Old Gen is FULL
+ 
+ - Concurrent Mark & Sweep - The Basic Trigger -
+ ----------------------------------------------------
+ - Runs concurrently with the app
+ 
+ - Serial Collector - The Basic Trigger -
+ --------------------------------------------
+ - Major Collection is triggered only when the Tenured Space is FULL
+ 
+ - FULL GC vs. above Collectors ? -
+ --------------------------------------------
+ - Full GC occurs when a promotional failure occurs
+ - We should try to avoid these as this is a STW
+ 
+ - STW - occurs on 2 Events -
+ ---------------------
+ - A FULL GC
+ - or a Compaction in OldGen
+ 
+ 
+ - App tolerance to Collection Pauses -
+ -------------------------------------------
+ - If App cannot tolerate the major coll pauses then
+ - try some other Concurrent Collector perhaps
+  
+ - CMS -
+ -----------
+ 
+ 
+ 
  
  
  
