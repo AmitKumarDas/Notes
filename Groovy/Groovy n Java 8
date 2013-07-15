@@ -1,4 +1,3 @@
-
  - Groovy Closure -
  ------------------------
  - Closure ~ by default ~ implementation of java.util.concurrent.Callable
@@ -14,5 +13,10 @@
  - java 8 Lambda -
  -------------------
  - Callable call = () -> "called";
+ 
+ - Java 8 + Single Lined Interface -
+ ---------------------------------------
+ - Lambda on this can have implicit return
+ 
  
  
