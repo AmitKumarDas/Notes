@@ -28,17 +28,35 @@
  ---------------------------------------
  - starts with AttachVolumeCmd
  - Service layer i.e. VolumeMgrImpl - attachVolumeToVM
- - Service layer - 
- 
- 
- - Volume - Learn the Domain -
- -----------------------------------------------
- - com.cloud.storage.Volume
- - once attached to a VM it has got a InstanceId
- - can give its State . i.e. Destroyed etc
- - one of its TYPE is - DATADISK
+ - Service layer - Check for Volume's validness
+ - Service layer - Check for VirtualMachine's validness
+ - Service layer - Check the no of DataVolumes to a VM is supported by hypervisor
+ - Service layer - Check if VM & Volume are in the same Zone i.e. DataCenterId
+ - Service layer - Check if attaching Volume with local disk is allowed i.e. DataCenter should allow local storage
+ - Service layer - permission check
+ - Service layer - volume state checks - i.e. Volume's validness
+ - Service layer - No of Root Volumes check - 
+ - Service layer - RootHypervisor Type check with dataDiskHypervisorType
  - 
-  
+ 
+ 
+ 
+ 
+ - Learn the Storage -
+ ----------------------------------------------- 
+ - Once Volume attached to a VM; former has got a InstanceId
+ - Volume give its State . i.e. Destroyed etc
+ - one of Volume's TYPE is - DATADISK
+ - Image based Volume ~ different ~ than PrimaryVolume i.e. Data Volume
+ - Image based Volume ~ ObjectInDataStore
+ - VolumeVO - The persistence table - ORM
+ - VolumeObject - composes _volumeVO, _volStateMachine, dataStore 
+ - VolumeObject - implements VolumeInfo for other goodies
+ - VolumeObject - typically is much more than just a persistence table representation
+ - 
+ 
+
+
   - Typical Resource Ops Flow -
   --------------------------------
   - CloudStackPrimaryDataStoreLifeCycleImpl
