@@ -1,0 +1,41 @@
+
+ - Good learns from Apache Cloudstack's design -
+ 
+ 
+ - On Security :: OwnedBy -
+ ---------------------------------
+ - getAccountID
+ 
+ - On Security :: PartOf -
+ ---------------------------
+ - getDomainID
+ 
+ - On Security :: ControlledEntity -
+ -----------------------------------
+ - extends OwnedBy, PartOf
+ - enum ACLType {Account, Domain}
+ 
+ - Cool Utility :: BasedOn -
+ -------------------------------
+ - getTemplateID
+ 
+ - Cool Utility :: InternalIdentity -
+ -----------------------------------------
+ - getID() // any obj which needs an internal id to be stored in db table
+ 
+ - Cool State :: StateObject<S> -
+ -----------------------------------
+ - S getState() //return finite State
+ 
+ - On Domain :: Identity -
+ -----------------------------
+ - getUuid
+ 
+ - A Domain :: Volume -
+ ---------------------------
+ - An interface extending all above
+ - has enum TYPE
+ - has enum STATE
+ - enum STATE defines the StateMachine
+ - has enum EVENT
+ - has other public methods
