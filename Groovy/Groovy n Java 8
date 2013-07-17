@@ -1,3 +1,6 @@
+
+ References - http://www.infoq.com/articles/groovy-to-Java-8
+
  - Groovy Closure -
  ------------------------
  - Closure ~ by default ~ implementation of java.util.concurrent.Callable
@@ -18,5 +21,47 @@
  ---------------------------------------
  - Lambda on this can have implicit return
  
+ - Java 8 & Streams API -
+ ---------------------------
+ - use this for Map -> Collect -> Filter -> Chaining
+ 
+ - Java 8 & Fluent API -
+ ---------------------------
+ - Streaming is a Fluent API
+ 
+ - Java 8 & Proper Lambda Usage -
+ ---------------------------------------
+ - Dont try all in a closure which will be unmaintainable
+ - Pass Method References to the function 
+ 
+ - Java 8 & Reference to a Method -
+ ----------------------------------------
+ - Inside a Lambda
+ - :: operator
+ 
+ - Java 8 & Method References in Lambda -
+ --------------------------------------------
+ - Method References can be passed as arguments to any method that
+ -- requires a functional interface
+ 
+ - Snippet for Method Referencing -
+ ---------------------------------------
+ public interface MyFunctionalInterface {
+  boolean apply();
+ }
+ 
+ void caller(MyFunctionalInterface functionalInterface) {
+  assert functionalInterface.apply();
+ }
+
+ //Inside Helpers class
+ boolean myTrueMethod() {
+  return true;
+ }
+
+ caller(Helpers::myTrueMethod);
+ 
+ 
+  
  
  
