@@ -37,7 +37,8 @@
  - Service layer - volume state checks - i.e. Volume's validness
  - Service layer - No of Root Volumes check - 
  - Service layer - RootHypervisor Type check with dataDiskHypervisorType
- - 
+ - Service layer - createVolOnPrimaryStorage
+ - Service layer - Check for the need to move volume
  
  
  
