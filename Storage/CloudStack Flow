@@ -1,4 +1,3 @@
-
   - Typical Http Flow -
   -------------------------
   - A command as a http query param
@@ -24,6 +23,21 @@
   - The name of the Storage provider will be received from the Command itself
   - e.g. CreateStoragePoolCmd has method called getStorageProviderName
  
+ 
+ - A Storage Usecase :: AttachVolume -
+ ---------------------------------------
+ - starts with AttachVolumeCmd
+ - Service layer i.e. VolumeMgrImpl - attachVolumeToVM
+ - Service layer - 
+ 
+ 
+ - Volume - Learn the Domain -
+ -----------------------------------------------
+ - com.cloud.storage.Volume
+ - once attached to a VM it has got a InstanceId
+ - can give its State . i.e. Destroyed etc
+ - one of its TYPE is - DATADISK
+ - 
   
   - Typical Resource Ops Flow -
   --------------------------------
