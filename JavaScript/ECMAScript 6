@@ -1,6 +1,19 @@
 
+ - http://css.dzone.com/articles/ecmascript-6-and-proxy
+ - http://ariya.ofilabs.com/2013/03/es6-and-method-definitions.html
+
  - Proxy -
  -------------
- http://css.dzone.com/articles/ecmascript-6-and-proxy
+ - define interceptors
+ - define data binding with ease
 
- - 
+ - Method Definitions -
+ ---------------------------
+ - dont write too much code
+ - no need to write 'function' at all
+
+ - Block Scope -
+ -------------------
+ - check use of let
+ 
+ 
