@@ -40,7 +40,14 @@
  - Service layer - createVolOnPrimaryStorage
  - Service layer - Check for the need to move volume
  
- 
+ |__ :: More Specific - CreateVolOnPrimaryStorage -
+ ---------------------------------------------------------------
+ - Service Layer - getRootDiskTpl
+ - Service Layer - getDataCenter
+ - Service Layer - getStoragePool
+ - Service Layer - getServiceOffering
+ - Service Layer - getDiskOffering
+ - Service Layer - getClusterID
  
  
  - Learn the Storage -
