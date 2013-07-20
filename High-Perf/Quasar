@@ -1,0 +1,14 @@
+
+ # Ref - http://blog.paralleluniverse.co/post/49445260575/quasar-pulsar -
+
+ - Lightweight Threads, Channels, Actors for JVM -
+ 
+ - How Light Wt ?
+ -----------------------
+ - Coz they are not scheduled by OS
+ - Hence, they require far less system resources
+ - Hence, their Context Switch is often faster
+ - So, can we say a single machine can handle millions of them
+ 
+ 
+ 
