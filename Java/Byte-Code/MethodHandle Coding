@@ -1,0 +1,23 @@
+
+ - Ref - http://i.cmpnet.com/ddj/images/mediacenter/jvmlanguagesummit/2011_Rose_Method_Handles.pdf
+ 
+ - Get the MH -
+ -----------------
+ - MethodHandle mh = MethodHandles.Lookup.findStatic(
+                                            target.class,
+                                                "methodName", 
+                                                    methodType(return.class, argument.class)
+                                                      ) 
+                                                    
+ - Indy to MH - the Connection -
+ -------------------------------------
+ - InvokeDynamic gets the direct link to MH
+ 
+ - Indy to MH -
+ -------------------
+ - have the InvokeDynamic 
+ - get the CallSite from Indy
+ - get the MH from CS
+ 
+ 
+                                                      
