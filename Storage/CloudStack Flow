@@ -14,7 +14,7 @@
   - LifeCycle Impl 
   - Provider Impl 
   
-  # note - ProviderManager is managed by CS
+  # note - ProviderManager is managed by CloudStack !!
   
   - Making sure your Data Store Provider get Called -
   ------------------------------------------
@@ -23,6 +23,19 @@
   - The name of the Storage provider will be received from the Command itself
   - e.g. CreateStoragePoolCmd has method called getStorageProviderName
  
+  #  Who should have the control for verifying the suitability/validity of a Storage Pool? 
+  -----------------------------------------------------------------------------------------
+  - Elastistore or CloudStack !
+  - Its Cloudstack who will provide the logic.
+  - The CreateStoragePoolCmd will have done the job for Elastistore in Cloudstack
+  - Later, when AttachVol etc CMDs are executed, the above Storage Pool ID will be utilized.
+  
+  # How CloudStack manages instance injection with dynamic property setting ?
+  -----------------------------------------------------------------------------
+  - Check DefaultPrimaryDataStore.createDataStore() ...
+  - this creates a new instance of DefaultPrimaryDataStore
+  - the runtime properties are set against this newly created instance
+  
  
  - A Storage Usecase :: AttachVolume -
  ---------------------------------------
@@ -48,20 +61,32 @@
  - Service Layer - getServiceOffering
  - Service Layer - getDiskOffering
  - Service Layer - getClusterID
+ - Service Layer - based on state of Volume - Its Created or Uploaded
+ -
  
- 
- - Learn the Storage -
+ - Volume vs VM -
  ----------------------------------------------- 
- - Once Volume attached to a VM; former has got a InstanceId
- - Volume give its State . i.e. Destroyed etc
- - one of Volume's TYPE is - DATADISK
- - Image based Volume ~ different ~ than PrimaryVolume i.e. Data Volume
+ - Once Volume attached to a VM --> Volume gets an InstanceId
+ 
+ - Volume Type -
+ ----------------
+ - One of Volume's TYPE is - DATADISK
+ - Image based Volume ~ different ~ than PrimaryVolume
  - Image based Volume ~ ObjectInDataStore
- - VolumeVO - The persistence table - ORM
+ - PrimaryVolume      ~ Data Volume
+ 
+ - VolumeVO - The persistence table - ORM -
+ ---------------------------------------------
  - VolumeObject - composes _volumeVO, _volStateMachine, dataStore 
  - VolumeObject - implements VolumeInfo for other goodies
  - VolumeObject - typically is much more than just a persistence table representation
- - 
+ 
+ - Others -
+ --------------
+ - Service Offering seems to convey opposite behavior vs Disk Offering
+ - Service Offering - can be local type or shared type
+ - Template needs to be Downloaded to the Zone
+ 
  
 
 
@@ -123,4 +148,8 @@
       DataStoreProviderManagerImpl instead of composing the latter. This way the configure method can be overridden to register
       drivers & host listeners.
       
+  2/  How does a DiskProfile relate to Volume ?
+  
+  
+  
   
