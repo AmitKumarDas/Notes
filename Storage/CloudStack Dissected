@@ -152,6 +152,10 @@
   
   3/  Does Elastistore does any RnD on Secondary Storage ?
   
+  4/  If Cloudstack is used with EC2/S3, is there any role for elastistore ?
   
+  5/  Did/Will Cloudstack go the Cocoon way for componentization? Was Vert.x or Reactor or Netty considered ?
+  
+  6/  
   
   
