@@ -1,4 +1,3 @@
-
  - Interception -
  -------------------
  - Interception to methods, properties, constructor - possible
@@ -38,7 +37,7 @@
  - @Delegate
  - @GroovyASTTransformation(phase=CompilePhase.CONVERSION)
  - Global Transformation & Local Transformation
- 
+ - POGOs can be pre-compiled to POJOs & used inter-changeably.
  
  
  
