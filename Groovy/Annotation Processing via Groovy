@@ -1,2 +1,16 @@
 
- - Is this better -
+ - Is this better than JSR 269 -
+ --------------------------------------
+ - i.e. is it better than Pluggable Annotation Processing API
+ 
+ - AST Transformation vs. JSR 269 -
+ ------------------------------------
+ - ?
+ 
+ - AST Transformation -
+ ---------------------------
+ - @Singleton, @Immutable, @Lazy, @Delegate
+ - @Newify, @......
+ 
+ 
+ 
