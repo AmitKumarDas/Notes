@@ -1,4 +1,3 @@
-
  - Is this better than JSR 269 -
  --------------------------------------
  - i.e. is it better than Pluggable Annotation Processing API
@@ -11,6 +10,14 @@
  ---------------------------
  - @Singleton, @Immutable, @Lazy, @Delegate
  - @Newify, @......
+ 
+ - Groovy 1.7 Annotations -
+ ------------------------------
+ - put annotations on packages, imports & variable declaration
+ 
+ - Groovy 1.8 Annotations -
+ ----------------------------------
+ - access annotation with closure parameters @ runtime
  
  
  
