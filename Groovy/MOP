@@ -1,0 +1,44 @@
+
+ - Interception -
+ -------------------
+ - Interception to methods, properties, constructor - possible
+ 
+ - Behavior Adaptation 
+ -------------------------
+ - adapt @ runtime. thru MetaClass
+ 
+ - Hooks -
+ --------------
+ - to change the runtime behavior
+ 
+ - Hooks - How ?
+ ------------------
+ - GroovyObject, custom MetaClass Impl, categories, ExpandoMetaClass
+ 
+ - Behavior Adaptation of existing libraries -
+ -------------------------------------------------
+ - Possible via MetaClass
+ 
+ - Behavior Adaptation of JDK libs -
+ ------------------------------------
+ - Possible via MetaClass
+ 
+ - DSL for MetaClass -
+ -------------------------
+ - ExpandoMetaClass
+ 
+ - Compile-Time MetaProgramming -
+ -------------------------------------
+ - AST Transformations since Groovy 1.6
+ 
+ - Useful Utilities -
+ ---------------------
+ - Builders for XML, Object graph, Swing, Ant, JMX, & more
+ - @Singleton .. lazy & non-lazy version
+ - @Delegate
+ - @GroovyASTTransformation(phase=CompilePhase.CONVERSION)
+ - Global Transformation & Local Transformation
+ 
+ 
+ 
+ 
