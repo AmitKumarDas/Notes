@@ -1,0 +1,14 @@
+
+ - DSL ..cool but how ?
+ --------------------------
+ a/ Java 6's javax.script.* APIs
+ b/ Spring's language namespace
+ c/ Groovy's own mechanism
+ 
+ - Key Requirement -
+ ----------------------
+ - externalize the DSL scripts/rules
+ - no need to redeploy an app because of a rule change
+ - business folks need not see the technical code
+ 
+ 
