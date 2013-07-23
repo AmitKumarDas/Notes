@@ -1,9 +1,15 @@
-
  - DSL ..cool but how ?
  --------------------------
  a/ Java 6's javax.script.* APIs
  b/ Spring's language namespace
  c/ Groovy's own mechanism
+ 
+ 
+ - DSL via Groovy - 
+ -----------------------
+ - Eval, or
+ - GroovyShell, or
+ - GroovyClassLOader
  
  - Key Requirement -
  ----------------------
