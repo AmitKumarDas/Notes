@@ -39,10 +39,21 @@
  ----------------------------
  - POGOs can be pre-compiled to POJOs & used inter-changeably.
  
+ - Food for Thought -
+ --------------------------
+ - runtime MIXINs
+  
  - Builders -
  ---------------------
- - Builders for XML, Object graph, Swing, Ant, JMX, & more
+ - r DSLs for handling
+ - - XML, Object graph, Swing, Ant, JMX, JSON, & more
  
+ - AST simplified -
+ --------------------------
+ - need not know the AST API indepth !!
+ - Hence;
+ - - ASTViewer in Groovy Console
+ - - ASTBuilder
  
  
  
