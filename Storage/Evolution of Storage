@@ -74,6 +74,27 @@
  - With the CloudByte solution, even the provider can't read the individual subscriber’s data since 
  -- the keys are held at the subscriber level
  
+ - Legacy Way -
+ ------------------------
+ - hardwire storage controller & disk to meet a desirable performance
+ 
+ - Cloudbyte Nodes -
+ ---------------------------
+ - Intelligent storage nodes, where each storage endpoint/volume is defined in terms of IOPS, throughput, and latency, 
+ - in addition to capacity.
+ 
+ - CLoudbyte Provisioning -
+ ----------------------------
+ - Automated provisioning - determine the right storage node and storage pool, 
+ -- which can deliver the required storage performance and capacity.
+ 
+ - IOPS && Throughput && Latency -
+ ------------------------------------------------
+ - Host a database application, a video streaming application and an email application on the same storage platform
+ 
+ 
+ 
+ 
  
  
  
