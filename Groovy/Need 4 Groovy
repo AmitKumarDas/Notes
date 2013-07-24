@@ -71,6 +71,19 @@
  - bundled with Groovy 1.8 to tame the multi-cores
  - can use it from plain Java as well
  
+ - @groovy.transform.TypeChecked -
+ -----------------------------------
+ - not a static compiler
+ - bytecode not changed
+ 
+ - @groovy.transform.CompileStatic -
+ ----------------------------------------
+ - a static compiler
+ - bytecode is changed
+ 
+ 
+ 
+ 
  - AST Templates -
  --------------------
  - 
