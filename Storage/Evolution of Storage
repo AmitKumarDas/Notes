@@ -60,6 +60,13 @@
  - An account is assigned to each of the Virtual Controller
  - Capacity and IOPS/Throughput/Latency, based on the needs of the account, are then assigned to the virtual controller.
  - The account can then sub-divide the capacity and SLA parameters based on the needs of each of its applications. 
+ - However, there is no isolation within apps of a single account
+ 
+ - Think Enterprise -
+ ------------------------------
+ - Enterprise can achieve the same what CSP will be able to
+ - Every LOB (similar to Account) can be assigned a Virtual Storage Controller
+ - The enterprise also has a mix of storage systems and could benefit from a centralized controller cluster.
  
  
  
