@@ -17,4 +17,14 @@
  - no need to redeploy an app because of a rule change
  - business folks need not see the technical code
  
+ - GroovyShell & Binding & Compiler Customization -
+ -------------------------------------------------------
+ - help you to inject Object into DSL
+ - help you to remove imports from DSL
+ - Binding & Compiler Customization helps in above stuff
+ 
+ - Further DSL-ing -
+ ----------------------
+ - Inject a closure into binding
+ 
  
