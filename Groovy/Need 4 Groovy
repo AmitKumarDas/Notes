@@ -55,7 +55,23 @@
  - - ASTViewer in Groovy Console
  - - ASTBuilder
  
+ - Performance -
+ -----------------
+ - Groovy 1.7 - no optimizations
+ - Groovy 1.8 - primitive optimizations
+ - Groovy 2.0 - static compilation
+ 
+ - INDY -
+ ------------
+ - Groovy 2.0 - not all call paths go thru invoke dynamic calls
+ - Groovy 2.1 - uses indy everywhere 
+ 
+ - GPars -
+ ----------------
+ - bundled with Groovy 1.8 to tame the multi-cores
+ - can use it from plain Java as well
+ 
  - AST Templates -
  --------------------
  - 
- 
+  
