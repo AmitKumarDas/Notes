@@ -1,2 +1,17 @@
 
- - GPars
+ - GPars -
+ --------------
+ - actors
+ - fork/join
+ - map/filter/reduce
+ - dataflow
+ - agents
+ - parallel arrays
+ - executors
+ - STM, & more
+ 
+ - GPars & Java -
+ --------------------
+ - can use GPars from plain Java as well
+ 
+ 
