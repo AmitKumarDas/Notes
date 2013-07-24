@@ -1,0 +1,24 @@
+
+- Ref - http://www.cloudbyte.com/blog/the-cloud-storage-provisioning-roadblock/
+
+ - Storage Provisoning -
+ ------------------------------
+ - Is not same as server provisoning i.e. server virtualization
+ 
+ - Storage Virtualization in Legacy Storage -
+ ----------------------------------------------
+ - is often internal, meaning it is isolated to a single system and a single manufacturer.
+ 
+ - Legacy Storage Virtualization - Issue -
+ ---------------------------------------------
+ - multiple storage virtualization software instances running as each system from each manufacturer has its own software
+ - The CSP/MSP typically has a wide collection of storage hardware.
+ - Hence, this leads to a different brand hypervisor loaded on every server and having to manage each of those separately.
+ 
+ - Legacy Storage Virtualization - Lacks Intelligence -
+ -----------------------------------------------------------
+ - It cannot MAP an APP type w.r.t Storage Media Type
+ - i.e. a high performing app will do good with a particular media type, etc.
+ 
+ 
+ 
