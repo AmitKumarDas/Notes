@@ -1,4 +1,3 @@
-
 - Ref - http://www.cloudbyte.com/blog/the-cloud-storage-provisioning-roadblock/
 
  - Storage Provisoning -
@@ -19,6 +18,52 @@
  -----------------------------------------------------------
  - It cannot MAP an APP type w.r.t Storage Media Type
  - i.e. a high performing app will do good with a particular media type, etc.
+ 
+ - Provisioning != Physical Capacity
+ -------------------------------------
+ - Other Storage Resources r also IMP
+ - Storage CPU, Storage Controller Memory, Internal Cache Management and network bandwidth
+ 
+ - Ok so IF ALL Above r Provisoned ?
+ ---------------------------------------------
+ - Combination & Control of these resources
+ == amount of IOPS or throughput and storage latency that a storage system can deliver
+ - Now deliver the IOPs w.r.t an app or server
+ 
+ - Self-Serviced Provisioning -
+ ----------------------------------------
+ - delegate provisioning to the account while maintaining oversight
+ - This means allocating a certain amount of capacity and IOPS/throughput/latency per account 
+ - and then allowing the account to divide up those services based on need.
+ 
+ - Self Monitoring -
+ ----------------------
+ - Account wants to know how much he is using on which application at what time. 
+ - This will help them to better manage their applications running at a CSP/MSP
+ 
+ 
+ - Storage Services other than Provisioning -
+ --------------------------------------------
+ - Thin Provisioning, Snapshots, Cloning and Replication, across multiple storage platforms, 
+ -- even those from different vendors.
+ 
+ 
+ - Elastic Provisioning -
+ ----------------------------
+ - Deploy a series of off the shelf servers to act as physical storage controllers. 
+ - The storage in the environment (physical storage != storage controllers) is then assigned to storage controllers. 
+ - Since these controllers are abstracted from the physical storage they can manage a mixed storage vendor environment.
+ 
+ - Virtual Controller -
+ ------------------------------
+ - very similar to virtual server in hypervisor
+ - An account is assigned to each of the Virtual Controller
+ - Capacity and IOPS/Throughput/Latency, based on the needs of the account, are then assigned to the virtual controller.
+ - The account can then sub-divide the capacity and SLA parameters based on the needs of each of its applications. 
+ 
+ 
+ 
+ 
  
  
  
