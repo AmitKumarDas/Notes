@@ -19,9 +19,9 @@
   - Making sure your Data Store Provider get Called -
   ------------------------------------------
   - DataStoreProviderManagerImpl will have a list of several Provider Impls.
-  - The getDataStoreProvider(String) of DataStoreProviderManagerImpl is the key
-  - The name of the Storage provider will be received from the Command itself
-  - e.g. CreateStoragePoolCmd has method called getStorageProviderName
+  - The getDataStoreProvider(String providerName/storeId) of DataStoreProviderManagerImpl is the key
+  - Earlier, the name of the Storage provider will be set during execution of CreateStoragePoolCmd.
+  
  
   #  Who should have the control for verifying the suitability/validity of a Storage Pool? 
   -----------------------------------------------------------------------------------------
@@ -29,6 +29,12 @@
   - Its Cloudstack who will provide the logic.
   - The CreateStoragePoolCmd will have done the job for Elastistore in Cloudstack
   - Later, when AttachVol etc CMDs are executed, the above Storage Pool ID will be utilized.
+  
+  # How about provisioning ? 
+  ----------------------------
+  - If cloudstack determines the logic to get the StoragePool & hence the respective Data Store
+  - How will provisioning intelligence of Elastistore be utilized?
+  
   
   # How CloudStack manages instance injection with dynamic property setting ?
   -----------------------------------------------------------------------------
@@ -150,12 +156,23 @@
       
   2/  How does a DiskProfile relate to Volume ?
   
-  3/  Does Elastistore does any RnD on Secondary Storage ?
+  3/  Does Elastistore have any virtualization/intelligence software on Secondary Storage ?
   
   4/  If Cloudstack is used with EC2/S3, is there any role for elastistore ?
   
-  5/  Did/Will Cloudstack go the Cocoon way for componentization? Was Vert.x or Reactor or Netty considered ?
+  5/  Did/Will Cloudstack go the Cocoon way for componentization? 
+      Was any other frameworks considered, e.g. Vert.x or Reactor or Netty considered ?
   
-  6/  
+  6/  The plugin Driver impl methods make use of AsyncCompletionCallback params. 
+      Are these params capable enough to accept long running programs which give a job id instead of a success & success results ?
   
-  
+  7/  If Elastistore builds the CloudStack plugin, it has to implement PrimaryDataStoreDriver.
+      It exposes following methods:
+      - takeSnapshot, revertSnapshot, grantAccess, revokeAccess, listObjects, createAsync, deleteAsync, copyAsync, canCopy, resize.
+      
+      Do above methods meet all the requirements that Elastistore provides ?
+      
+      How/Where will the Admin set the IOPs, Latency, Throughput related values that are provided by Elastistore ?
+
+
+
