@@ -1,3 +1,22 @@
+
+
+ - ref - http://groovy.dzone.com/articles/metaprogramming-groovy-i
+ 
+
+ - Cool Examples -
+ ----------------------
+ // look ma, I'm calling a method on an integer!
+ 3.times { println "hello!" }
+
+ List aList = []
+ // what's that wacky operator doing to aList ?
+ aList << "a string"
+ assert aList[0] == "a string"
+
+ - java.lang.Integer is FINAL -
+ -------------------------------
+ - However, Groovy can do above via MOP
+
  - Interception -
  -------------------
  - Interception to methods, properties, constructor - possible
