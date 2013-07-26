@@ -1,0 +1,17 @@
+
+
+ ref - http://www.infoq.com/presentations/lanyrd-architecture?utm_source=infoq&utm_medium=videos_homepage&utm_campaign=videos_row3
+
+ - Awareness -
+ ------------------
+ - Everyone should know what is happening
+ - Daily stand ups
+ - Weekly show-and-tell sessions
+ 
+ - Always Deployable -
+ ----------------------
+ - Master branch always shippable
+ - Large development behind feature flags
+ - Code review for nastier changes
+ 
+ 
