@@ -19,5 +19,18 @@
  ----------------------------------
  - access annotation with closure parameters @ runtime
  
+ - Groovy 2.1 @AnnotationCollector -
+ ---------------------------------------
+ 
+ 
+ - TO DO -
+ --------------
+ - http://blog.andresteingress.com/2013/01/25/groovy-2-1-the-annotationcollector-annotation/
+ - http://rosowski.wordpress.com/2011/06/16/adding-custom-constraints-per-ast-transformation/
+ - http://groovy.codehaus.org/Meta-annotations
+ - 
+ 
+ 
+ 
  
  
