@@ -1,4 +1,18 @@
 
+ - ref - http://groovy.dzone.com/articles/metaprogramming-groovy-i
+
+
+ - Groovy's MetaClass -
+ --------------------------------
+ - Every object in groovy (not matter if it comes from a java class or a groovy class) has a MetaClass, 
+ - responsible for holding information about the object's class. 
+ 
+ - Groovy's Dispatch Mechanism -
+ ---------------------------------
+ - Everytime you invoke a method on an object, 
+ - Groovy's dispatch mechanism routes the call through the MetaClass related to the object, 
+ - so if you can alter the MetaClass in any way you may change the object's behavior at runtime
+
  - SomeClass.metaClass.curriedMethod -
  -------------------------------------------
  - adds dynamic behavior to existing class
@@ -47,6 +61,9 @@
  ---------------------------
  - EMC requires Closures & hence Groovy
  - Categories requries plain classes with static methods & any Java util class can be a Category
+ 
+ - Category -
+ ------------------
  
  
  - Great Example -
