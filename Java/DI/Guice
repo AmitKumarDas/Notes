@@ -1,7 +1,9 @@
 
-
  ref -http://blog.stannard.net.au/2010/05/18/dependency-injection-with-groovy-and-google-guice/
   >> Well Explained 
+  
+ ref- http://blog.stannard.net.au/2010/05/19/google-guice-assistedinject-exampl-in-groovy/
+  >> Assisted Injection .. Has Good UseCases !!!
   
  
  
