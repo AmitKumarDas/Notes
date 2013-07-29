@@ -1,0 +1,20 @@
+
+ - ref - http://clojure.com/blog/2013/06/28/clojure-core-async-channels.html
+
+ - core.async -
+ ---------------
+ - Decouples channels and processes (go blocks) 
+ - Push, Pull, or a mix are possible. 
+ 
+ - message oriented -
+ ------------------------
+ - core.async is message oriented
+ - Hence, granular & more flexible
+ 
+ - concurrency vs parallelsim -
+ ------------------------------------
+ - ref - http://blog.golang.org/concurrency-is-not-parallelism
+ - In programming, concurrency is the composition of independently executing processes, 
+ - while parallelism is the simultaneous execution of (possibly related) computations. 
+ - Concurrency is about dealing with lots of things at once. 
+ - Parallelism is about doing lots of things at once.
