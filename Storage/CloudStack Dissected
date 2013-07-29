@@ -174,5 +174,5 @@
       
       How/Where will the Admin set the IOPs, Latency, Throughput related values that are provided by Elastistore ?
 
-
+  8/  Do we need to implement a Lifecycle impl for Cloudstack-Elastistor plugin ?
 
