@@ -1,0 +1,12 @@
+ 
+http://www.slideshare.net/shr3kst3r/java-one-2011-monitoring-a-largescale-infrastructure-with-clojure
+
+Meanwhile, I am trying to find out the best JVM language that can monitor things like Erlang does.
+
+Even though I am yet to understand why Erlang is best in this.
+
+I feel, above concepts i.e. strengths of the particular JVM language can be applied for
+- automated deployment/migration/upgrade
+- distributed session management
+- HA solutions
+
