@@ -30,6 +30,17 @@ http://blog.architexa.com/2012/10/the-decline-of-spring/
  - used in conjuction with @Configuration
  
  
+ - @ComonentScan -
+ -------------------
+ - Tells Spring which components should be loaded.  
+ - Note that Spring notes all classes in the package of the class specified so it can load too many classes. 
+ - To avoid this, specify the includeFilters 
  
+ - @Configuration -
+ ------------------------
+ - Class that spring uses as a configuration to be used for JUnit classes
+ - use along with a JUnit class marked with below
+ - @RunWith(SpringJUnit4ClassRunner.class)
+ - @ContextConfiguration(loader = AnnotationConfigContextLoader.class)
  
  
