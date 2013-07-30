@@ -1,0 +1,12 @@
+
+ - First Of All -
+ ----------------------
+ - Management server should be up & running
+
+ - Summary -
+ --------------------
+ - https://cwiki.apache.org/confluence/display/CLOUDSTACK/Marvin+-+Testing+with+Python
+ - test against a management server which is deployed & running.
+ - the mgmnt server should be able to accept commands
+ - divided into modules .. each having separate responsibility
+ - dependencies - remote ssh access, ssh-agent, mysql-connector-plugin, .. OS dependent
