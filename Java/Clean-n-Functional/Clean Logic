@@ -37,6 +37,10 @@
  - Think practical & toggle Logging, Auditing, etc concerns ... into validations & filtering modules
  - Think profits & apply billing logic into validations & filtering
   
+ - Search Criteria ~ Setting Values - 
+ --------------------------------------
+ - query on entities -> Search Criteria vs. annotation for setting search values
+ - 
  
  
  References:
