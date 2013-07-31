@@ -92,26 +92,7 @@
  - Service Offering seems to convey opposite behavior vs Disk Offering
  - Service Offering - can be local type or shared type
  - Template needs to be Downloaded to the Zone
- 
- 
-
-
-  - Typical Resource Ops Flow -
-  --------------------------------
-  - CloudStackPrimaryDataStoreLifeCycleImpl
-   # Initialize
-    - usecase ~ StorageManagerImpl                     ~ cloud-storage
-     - LocalStoragePoolListener                        ~ cloud-server
-      - AgentManagerImpl                               ~ cloud-server
-       - handleConnectedAgent
-        - task
-       - handleDirectConnectAgent
-        - ResourceManagerImpl                          ~ cloud-server
-         - A resource from plugin
-          - XXXCmd
-           - ApiDispatcher
-            - AsyncJobManagerImpl                      ~ cloud-server
-       
+        
   
   - Adapter ~ Pluggable Code within Cloud Stack
   ---------------------------------------------------
@@ -176,3 +157,26 @@
 
   8/  Do we need to implement a Lifecycle impl for Cloudstack-Elastistor plugin ?
 
+ - II set of questions -
+ ----------------------------
+  1/ Is cloud-fire plugin impl the right way to implement for CS 4.1.0 & future releases ?
+  1.1 / How are external storage plugin provider implementations configured ?
+       e.g. UUID, ID, Driver & LifeCycle needs to be configured. 
+            Who will provide the values to the storage plugin provider in a production scenario ? 
+
+  2/ How to make sure that a particular provider is being executed during execution of actual usescases ?
+  Answer - The name of the provider should meet this requirement.
+          However, which client class will provide this requirement ?
+
+  3/ How to provide custom attributes like IOPS, Throughput & Latency for cloudbyte storage plugin ?
+    - Will it be done via a custom LifeCycleImpl ?
+ 
+  4/ Will the cloudbyte plugin implementation subscribe & hence respond to cloudstack events.
+    - If yes, need to determine which all events cloudbyte is interested in?
+    - Similarly, need to see if cloudstack will be interested in events from cloudbyte ?
+
+  5/ Should we create image data store apart from primary datastore?
+
+  6/ How does cloudbyte handle long running operations ?
+  
+  
