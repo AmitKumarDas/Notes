@@ -1,0 +1,9 @@
+
+ - ListenerThread & WorkerTask of ApiServer
+ - completely dedicated to integration port or OTW requests.
+ - Can we remove Tomcat altogether & use integration port to handle all kinds of requests.
+ - How about establishing trust/security etc
+ - Does CB expose itself to the api port without any security ?
+ - Does CB utilize the api port at all ?
+ 
+  
