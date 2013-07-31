@@ -1,4 +1,3 @@
-
  - ListenerThread & WorkerTask of ApiServer
  - completely dedicated to integration port or OTW requests.
  - Can we remove Tomcat altogether & use integration port to handle all kinds of requests.
