@@ -1,4 +1,55 @@
-  - Typical Http Flow -
+
+ - Compute the Signature -
+ ------------------------
+ - lower case values, replace + with %20
+ - generate hmac using sha1 hash function
+ - Base64 encode the digest
+ - Encode for http transport
+ -- Form the signature by adding to the url &signature=
+ 
+ 
+ - CS Client in JS & Clojure -
+ -----------------------
+ - https://github.com/ragnar-johannsson/csclient
+ - https://github.com/pyr/clostack
+ 
+ 
+ - Default Template -
+ --------------------------
+ - provided by cs - provides a CentOS template
+ - provided per Xen, kvm, vsphere
+ - root pw of default tpl - password
+ 
+ - Create VM from tpl -
+ ---------------------------
+ - login as admin ... Instances
+ - Add Instance - select zone - select tpl or ISO Boot
+ - BE SURE THE H/W U HAVE ALLOWS STARTING THE SELECTED SERVICE OFFERING
+ - Submit - will create & start the VM
+ 
+ - Creating vs Starting a VM -
+ ------------------------------
+ - VM can be created without starting
+ - req param startVM in the deployVM API provides this
+ 
+ - Windows VM on XenServer -
+ --------------------------------
+ - require PV drivers
+ - drivers can be provided to the tpl
+ - can be added after a VM is created
+ 
+ - PV drivers -
+ ------------------
+ - reqd for - mounting additional vols & ISO images, live migration, & graceful shutdown
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ - Typical Http Flow -
   -------------------------
   - A command as a http query param
   - Command attributes are http query params
