@@ -1,0 +1,10 @@
+
+ - ref - https://code.google.com/p/vmfs/ -
+ - The type of this Primary Storage is PreSetup for XenServer, vmfs for VMware, and SharedMountPoint for KVM.-
+ 
+ 
+ - java.io.RandomAccessFile -
+ ------------------------------
+ - 
+ 
+ 
