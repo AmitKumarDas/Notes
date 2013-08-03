@@ -1,10 +1,59 @@
-
  - References -
  -------------------
  - http://www.slideshare.net/buildacloud/1-cloudstack-storage-subsystem
  
- - 
-
+ - Secondary Storage - Types
+ ----------------------------
+ - Nfs / S3 / Swift
+ 
+ - Secondary Storage VM -
+ -----------------------------
+ - a bootstrap VM created by CS
+ - place where storage provision happens
+ - VM's cpu/ram/network throughput is fine grained controlled
+ 
+ - Storage UseCases -
+ -------------------------
+ - create ROOT/DATA vol on pri storage
+ - import DATA volume
+ - Create template from volume
+ - Create snapshot from volume
+ 
+ - create vol snapshot on pri storage
+ - create backup snapshot into sec storage
+ - create tpl from snapshot
+ 
+ - import tpl
+ - create vm from tpl
+ - export tpl
+ - copy tpl between zones
+ 
+ - Mgmt Server Orchestration Engine <--> Storage Provisioning
+ -----------------------------------------------------------------
+ - [ Storage Orchestration Engine <=> Storage Plugin ] <=> Provisioning Service
+ - OrchestrationService <=> DataStore Plugin <=> ProvisoningAgent
+ 
+ - OrchestrationService -
+ -------------------------
+ - Image / Volume / Snapshot / DataMotion ~ Services
+ 
+ - ProvisoningAgent -
+ ------------------------
+ - Storage Box / Hypervisor Agent / SSVM ~ Agents
+ 
+ - Orchestration Plugins -
+ ------------------------------
+ - Pluggable UI
+ - DataStoreDriver
+ - DataMotionStrategy
+ - SnapshotStrategy
+ 
+ - Cloud Engine vs Cloud API -
+ ----------------------------------
+ - Orchestration Logic vs Business Logic
+ - deploy service VMs (SSVM & VR) vs. deploy user VM
+ - virutalization terms vs offering terms
+ 
 
  - Primary Storage -
  -----------------------
