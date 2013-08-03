@@ -1,4 +1,31 @@
 
+ - References -
+ -------------------
+ - http://www.slideshare.net/buildacloud/1-cloudstack-storage-subsystem
+ 
+ - 
+
+
+ - Primary Storage -
+ -----------------------
+ - Root Disk & Data Disk
+
+ - Primary Storage - Scopes
+ -------------------------------
+ - Local / Cluster wide / Zone wide
+
+ - Primary Storage - Types -
+ ----------------------------------
+ - NFS / ISCSI/ FC / Ceph
+
+ - Storage as Service -
+ --------------------------
+ - Storage Tags
+ - Disk offering with tags
+ 
+ 
+ 
+ 
  - Compute the Signature -
  ------------------------
  - lower case values, replace + with %20
