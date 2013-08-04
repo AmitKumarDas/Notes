@@ -1,0 +1,7 @@
+
+ - Can you please elaborate what  you mean with 'jnr'?
+ - Basically a better licensed jna, which is used extensively in jruby impl
+ 
+ - https://github.com/jnr/jnr-ffi-examples
+ - https://github.com/brianm/gressil/blob/master/src/main/java/org/skife/gressil/MicroC.java
+ 
