@@ -1,0 +1,15 @@
+
+ - Virtualization -
+ ----------------------
+
+ - http://blog.n01se.net/blog-n01se-net-p-452.html
+ 
+ - https://groups.google.com/forum/#!topic/pallet-clj/rHs0hfCcX3Q
+ 
+ - VMFest is a PalletOps project to turn VirtualBox into a light-weight cloud provider. 
+   This is very useful for when developing cloud automation. 
+   VirtualBox's Virtual Machines (VMs) boot very quickly (seconds), so why not take advantage of it? 
+   
+ - jClouds
+ 
+ 
