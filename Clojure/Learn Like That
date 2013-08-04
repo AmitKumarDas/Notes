@@ -1,4 +1,3 @@
-
  - Virtualization -
  ----------------------
 
@@ -12,4 +11,4 @@
    
  - jClouds
  
- 
+ - https://github.com/lstoll/libvirt-clj
