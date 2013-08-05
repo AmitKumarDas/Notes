@@ -115,31 +115,6 @@
  - ByteBuffer, MappedByte... , Char..., Double..., Float..., Int..., Long..., Short...
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 Reference
 ----------
 1/ http://tutorials.jenkov.com/java-nio/buffers.html
