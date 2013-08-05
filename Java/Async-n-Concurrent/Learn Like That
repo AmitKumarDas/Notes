@@ -1,0 +1,71 @@
+ - Old Way - Multiple --> Futures & Callables -
+ -----------------------------------
+ - collection of data to be executed parallely
+ - Executors.xxx()
+ - List<Future<String>> etc.. i.e. a collection
+ - Iterate over the collection & capture the Futures
+ - do a future.get() over the iter of futures
+ 
+ - Issues in above -
+ ----------------------
+ - if first future is slowest one
+ - can we sort from fastest future to slowest future
+ 
+ - ExecutorCompletionService -
+ ---------------------------------
+ - Solves above ... returns the fastest completed future first..
+ 
+ - CompletionService Issues -
+ ---------------------------------
+ - How to process the incoming results parallely
+ 
+ - JVM & Concurrent -
+ -----------------------------
+ - Great memory model .. allowing lock-free & wait-free techniques
+ 
+ - Lock-Free & Wait-Free - Adv -
+ ----------------------------------
+ - efficient data structs possible
+ 
+ - JMM & H/W -
+ -------------------
+ - H/W & Compiler will reorder code to gain performance
+ - However, it has visiblity issues across threads
+ - JMM provides techniques to achieve perf wihout visibility issues
+ 
+ - Lock-Free & Wait-Free lib -
+ -----------------------------------
+ - http://lmax-exchange.github.io/disruptor/
+ 
+ - Memory Control && Cache Miss -
+ -----------------------------------
+ - create data strucures in DirectByteBuffer
+ - or go off heap
+ - use Unsafe
+ 
+ - Expensive Ops -
+ ------------------------
+ - IO & Cache Misses
+ 
+ - Avoid - Multi Threading & Shared Data Issue -
+ -----------------------------------------------------
+ - updates queued as commands: queue processed by a single thread
+ - queue itself shuld be handled by lock free techniques
+ 
+ - low latency in Java - evolution -
+ ------------------------------------
+ - refinement of lock-free & cache friendly algos
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
