@@ -1,0 +1,18 @@
+
+ - LMAX Collections -
+ ------------------------
+ - a high perf collections library
+ - https://github.com/LMAX-Exchange/LMAXCollections
+ 
+ - Running jUnit Tests in Parallel -
+ ---------------------------------------
+ - https://github.com/LMAX-Exchange/parallel-junit
+ 
+ - Inter-Thread Messaging Library -
+ ----------------------------------
+ - a lock free & wait free lib
+ - https://github.com/LMAX-Exchange/disruptor
+ 
+ 
+ 
+ 
