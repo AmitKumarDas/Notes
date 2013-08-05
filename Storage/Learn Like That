@@ -1,0 +1,16 @@
+
+
+ - list processes on VM w.r.t KVM -
+ -----------------------------------
+ - ps aux | grep kvm
+
+ - KVM Virtual Machine - made of -
+ ---------------------------------
+ - files in a directory
+ - ls -al <put the path .. refer to ps aux command>
+ 
+ - One of KVM with OpenStack's Nova files - libvirt.xml  -
+ ----------------------------------------------------------
+ - same as .vmx file in vmware
+ 
+ 
