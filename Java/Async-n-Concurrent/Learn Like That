@@ -1,3 +1,30 @@
+
+
+ - wait vs await -
+ 
+ 
+ - notify vs signal -
+ 
+ 
+ - synchronized vs tryLock -
+ 
+ 
+ - notify vs countDown -
+ 
+ 
+ - CountDown Usage -
+ -------------------------
+ - Construct a AcquireThread ~ await()
+ - Construct a ReleaseThread ~ countDown()
+ 
+ - ReentrantLock Usage -
+ ----------------------------
+ - acquire read or write lock
+ - release read or write lock
+ - downgrade write lock
+ 
+
+
  - Old Way - Multiple --> Futures & Callables -
  -----------------------------------
  - collection of data to be executed parallely
