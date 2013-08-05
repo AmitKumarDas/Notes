@@ -1,0 +1,68 @@
+
+- IO Access based on SSH -
+ ------------------------------
+ - refer vmfs driver
+ 
+ - Decode Native Binary DataStructure -
+ ------------------------------------------ 
+ - refer vmfs driver
+ - a lot fo structure binary data is present in the real world
+ 
+ - Exchange data from Java to C -
+ --------------------------------------
+ - nio.ByteBuffer & take care of Endianess
+ 
+ - C++ Class vs Java Class -
+ -------------------------------
+ - view of arbitary Memory layout vs something else
+ 
+ - C++ Class/Struct  -
+ ----------------------------------
+ - C++ Class == Memory Struct
+ - use a ptr --> cast it to ptr to struct --> & use code like p->seqNum
+ - ptr arithmetic is done for U by the compiler
+
+ - Java Class -
+ ------------------
+ - obj.seqNum --> translated to bytecode ops
+ - inturn translated to getfield or putfield
+ 
+ 
+ - ByteBuffer & Binary DataStructure -
+ ---------------------------------------
+ - && use a Java Bean .. to avoid the hassles of tracking indices
+ 
+ - Java File IO -wrapper- Native IO -
+ ------------------------------------------
+ - java read --> posix read --> cache of diskbuffer OR context switch to kernel mode for a disk read
+ 
+ - Mapped Files -
+ --------------------
+ - No context switching required if file mapped in memory
+ - Dont worry about RAM as it will be less to disk buffers compared to programs
+ 
+ - Mapped File -e.g. RandomAccessFile -
+ -------------------------------------------
+ 
+ - flush() & power off -
+ -------------------------
+ - use force to flush dirty pages to disk
+ - remember this is a IO bound & becomes anti-pattern w.r.t mapped files
+ 
+ - Mapped File - When to use ?
+ --------------------------------
+ - if no writes then cool
+ - on 64-bit , one can map terabytes of read-only
+ - small size files then cool
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
