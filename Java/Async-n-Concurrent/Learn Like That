@@ -1,5 +1,4 @@
 
-
  - wait vs await -
  
  
@@ -10,6 +9,30 @@
  
  
  - notify vs countDown -
+ 
+ 
+ - Message Consumer vs Message Listener -
+ ----------------------------------------------
+ - Consumer is blocking .. defeats async messaging
+ - Listener is hard to use
+ 
+ 
+ - Async Messaging via Future<T> && Listener -
+ ----------------------------------------------
+ - wrap the reply that has not come yet in the Future
+ - trick out to override the get to a blocking method & at same time dependant on onMessage
+ - BlockingQueue - can be used - onMessage() to put - get() to queue.poll
+ - get returns T
+ - volatile State [WAITING/CANCELLED/DONE]
+ - cleanup
+ - ref - http://nurkiewicz.blogspot.no/2013/02/implementing-custom-future.html
+ 
+ 
+ - Conventional Way to JMS Listener -
+ ------------------------------------------
+ - 
+ 
+ 
  
  
  - CountDown Usage -
