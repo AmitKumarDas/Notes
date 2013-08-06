@@ -10,6 +10,18 @@
  - notify vs countDown -
  
  
+ - Want high concurrency with lots of Futures -
+ --------------------------------------------------
+ - use ListenableFuture of Guava
+ 
+ - Short Cut Design -
+ -----------------------
+ - Extend the original
+ - Build Utils to add callbacks/transforms
+ - Build Adapter to transform originals to new
+ 
+ 
+ 
  - JMS Message Consumer vs JMS Message Listener -
  ----------------------------------------------
  - Consumer is blocking .. defeats async messaging
@@ -18,17 +30,17 @@
  
  - Async Messaging via Future<T> && JMS Listener -
  ----------------------------------------------
- - trick out to override the get to a blocking method & at same time dependant on onMessage
- - BlockingQueue - can be used - onMessage() to put - get() to queue.poll
+ - trick ~ override the get() as a blocking method & at same time dependant on onMessage
+ - Impl a ArrayBlockingQueue -  onMessage() will do a queue.put() - get() will do a queue.poll()
  - get returns T
- - volatile State [WAITING/CANCELLED/DONE] 
- - cleanup
+ - additonals - volatile State [WAITING/CANCELLED/DONE] ,  cleanup
  - ref - http://nurkiewicz.blogspot.no/2013/02/implementing-custom-future.html
  
  
  - Conventional Way to JMS Listener -
  ------------------------------------------
- - 
+ - Why is Listener hard ?
+ - Need not have so many levels of indirections
  
  
  
