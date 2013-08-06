@@ -1,4 +1,17 @@
 
+ - log util/libs -
+ ----------------------
+ - logstash 
+ - grok - wrapper over regex
+ 
+ - r u familiar -
+ ---------------------
+ - graphite, ganglia, circonus, boundary, librato, openstack, graylog2
+ 
+ - grok - usecase -
+ --------------------------
+ - Apache -> Grok -> STATSD -> Graphite
+ 
 
  - Java SSH2 Impl -
  -----------------------
@@ -24,21 +37,15 @@
  ------------------
  - FormUrlEncodedProvider, spi.AsynchronousResponse, Encode, Dispatcher
  
- - javax.ws.rs
+ - Http Utils - 
  -------------------
- - HttpHeaders , MultiValueMap, UriInfo
+ - HttpHeaders , MultiValueMap, UriInfo from javax.ws.rs
  
- - twitter -
+ - Future & Promise -
  ----------------
- - util.Future, util.Promise
+ - util.Future, util.Promise from twitter
  
- - javax.annotation -
- ------------------------
- - Nullable
-
- - java concurrency -
- ----------------------
- - ExecutorService, CompletionService, Executors
+ 
  
  - Parallel n Sequential -
  --------------------------
@@ -51,9 +58,6 @@
  - ScheduledThreadPool - schedule future task
  - SingleThreadScheduledPool - 1 thread to schedule future task
  
- - Too much Futures -
- -----------------------
- - Try CompletionService
  
  - Webbit -
  -------------------------------
