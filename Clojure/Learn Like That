@@ -1,14 +1,56 @@
- - Virtualization -
- ----------------------
 
+
+ - Virtualization Refs-
+ ----------------------
  - http://blog.n01se.net/blog-n01se-net-p-452.html
- 
  - https://groups.google.com/forum/#!topic/pallet-clj/rHs0hfCcX3Q
  
- - VMFest is a PalletOps project to turn VirtualBox into a light-weight cloud provider. 
-   This is very useful for when developing cloud automation. 
-   VirtualBox's Virtual Machines (VMs) boot very quickly (seconds), so why not take advantage of it? 
+ - VMFest -
+ --------------
+ - PalletOps project - turns VirtualBox into a light-weight cloud provider. 
+ - This is very useful for when developing cloud automation. 
    
- - jClouds
+ - Concurrency -
+ ----------------------
+ - clojure is a natural fit
  
- - https://github.com/lstoll/libvirt-clj
+ - Why Clojure introduced -
+ ---------------------------
+ - access data from multiple threads
+ 
+ - sequences -
+ -----------------
+ - logical views of collections
+ - easily done in clj
+ 
+ - Refs -
+ ------------
+ - synchronous access to multiple pieces of shared data
+ 
+ - Atoms -
+ ------------------
+ - sync access to single piece of shared data
+ 
+ 
+ 
+ - futures & promises -
+ ------------------------
+ - clojure distinguishes clearly
+ 
+ - promise -
+ ----------------
+ - immutable
+ - can be delivered only once
+ - if delivered then non blocking
+ - if not delivered then blocking
+ 
+ - Future vs Promise -
+ ---------------------------
+ - Future - like background compute
+ - Promise - container just like listener
+ 
+ - Learn clj -
+ --------------------
+ - http://learn-clojure.com/clojure_tutorials.html
+ 
+ 
