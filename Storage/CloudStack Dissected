@@ -4,7 +4,14 @@
  - http://architects.dzone.com/articles/cloudstack-storage
  - http://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.0.2/html/Admin_Guide/working-with-volumes.html
  
- 
+ - Root or Data Disk -
+ ---------------------
+ - Tab in the VM wizard always says "Data Disk Offering," if you create a VM using ISO, this step actually means Root Disk
+Offering.
+
+If this is the case, the tab name should depend on whether the user chooses
+Select Template (Data Disk Offering) or Select ISO (Root Disk Offering).
+
  - Root Disk of a Pri Stor -
  -------------------------------
  - has a '/' in the file system
