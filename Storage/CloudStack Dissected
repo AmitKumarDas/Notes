@@ -11,6 +11,10 @@
  - If this is the case, the tab name should depend on whether the user chooses
     -- Select Template (Data Disk Offering) or Select ISO (Root Disk Offering).
 
+ - CS Mgmnt Install Success -
+ ---------------------------------
+ - select * from version;
+ 
  
 
  - Root Disk of a Pri Stor -
