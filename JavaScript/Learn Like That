@@ -1,6 +1,15 @@
-
  - h5bp - server-configs -
  ---------------------------
  - webserver configuration templates for various platforms
+ 
+ - build -
+ ------------
+ - Grunt ~ ant or gradle
+ - Bower ~ maven or ivy
+ - Yeoman~ app scaffolding
+ 
+ - decouple client & server builds -
+ ---------------------------------------
+ - http://addyosmani.com/blog/making-maven-grunt/
  
  
