@@ -1,5 +1,4 @@
 
-
  - Virtualization Refs-
  ----------------------
  - http://blog.n01se.net/blog-n01se-net-p-452.html
@@ -9,6 +8,14 @@
  --------------
  - PalletOps project - turns VirtualBox into a light-weight cloud provider. 
  - This is very useful for when developing cloud automation. 
+   
+ - My Take -
+ ------------------
+ - just start with ()
+ 
+ - With JNA -
+ -----------------
+ - clj-v8
    
  - Concurrency -
  ----------------------
