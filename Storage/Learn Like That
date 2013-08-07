@@ -1,5 +1,4 @@
 
-
  - list processes on VM w.r.t KVM -
  -----------------------------------
  - ps aux | grep kvm
@@ -13,4 +12,9 @@
  ----------------------------------------------------------
  - same as .vmx file in vmware
  
- 
+ - Cloud - The disruptive Idea -
+ ------------------------------------
+ - http://erlangonxen.org/blog/rediscovering-cloud
+ - http://erlangonxen.org/blog/glimpse-truly-elastic
+ - http://erlangonxen.org/blog/goofs-simple-filesystem
+ - http://erlangonxen.org/more/clustering
