@@ -1,0 +1,49 @@
+
+ ---------------- Elixir -----------------------------------------------
+ - ref - http://learnxinyminutes.com/docs/elixir/
+ 
+ - What do u get ?
+ -----------------------
+ - concurrent, 
+ - distributed, 
+ - fault tolerant apps 
+ - hot code upgrades
+ 
+ - Elixir & DSLs -
+ -------------------
+ - quite cool
+ 
+ - Code Editor Support -
+ ----------------------------
+ - Emacs Mode
+ - Textmate Bundle
+ - Vim Elixir
+ 
+ - = -
+ ---------
+ - = denotes pattern matching & not an assignment
+ - both in Elixir & Erlang
+ 
+ - Store contiguously in memory -
+ ---------------------------------
+ - a tuple
+ 
+ - List -
+ -----------
+ - is a linked list
+ 
+ - Atom -
+ ------------
+ - Yes its possible
+ - use :
+ 
+ - String & char list -
+ ---------------------------
+ - "" vs ''
+ - binaries vs list
+  
+ - Concurrency -
+ -----------------
+ - relies on Actor model for concurrency
+ 
+ -------------- Elixir -------------------------------------------
