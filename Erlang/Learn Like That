@@ -1,6 +1,6 @@
-
  ---------------- Elixir -----------------------------------------------
  - ref - http://learnxinyminutes.com/docs/elixir/
+ - http://joearms.github.io/2013/05/31/a-week-with-elixir.html
  
  - What do u get ?
  -----------------------
@@ -8,6 +8,19 @@
  - distributed, 
  - fault tolerant apps 
  - hot code upgrades
+ 
+ - What it derives from Erlang -
+ ---------------------------------
+ - brings pattern matching, 
+ - higher order functions 
+ - and the entire process 
+ - and error handling “let it crash” philosophy. 
+ 
+ - pipe operator -
+ ------------------------
+ |>
+ 
+ 
  
  - Elixir & DSLs -
  -------------------
