@@ -1,4 +1,3 @@
-
  - list processes on VM w.r.t KVM -
  -----------------------------------
  - ps aux | grep kvm
@@ -18,3 +17,27 @@
  - http://erlangonxen.org/blog/glimpse-truly-elastic
  - http://erlangonxen.org/blog/goofs-simple-filesystem
  - http://erlangonxen.org/more/clustering
+
+ - XenServer & Storage -
+ <====================================================>
+ 
+ - XenServer Host API - to perform storage related tasks
+ - SR - Storage Repository - a Container
+ - VDI - Virtual Disk Image - contains the contents of a Virtual Disk
+ - SR & VDI abstractions - good for advanced storage features
+ - SR Types - depends on H/W types - local or remote
+ - SR Types - local -> IDE, SATA, SCSI, SAS drives
+ - SR Types - remote -> iSCSI, NFS, Fibre Channel
+ - Each XenServer Host - can use multiple SRs
+ - Each XenServer Host - can use different SRs
+ - SRs - can be dedicated to a Host
+ - SRs - can be shared between Hosts
+ - Shared SR must be network accessible
+ - Network accessible SR - must be iSCSI, NFS, NetApp or FibreChannel SR
+ - VDI types - VHD, LVM, NetApp managed LUNs
+ - Virtual Hard Disk - specs from Microsoft
+ - LVM - Logical Volume Manager
+ - VHD Images - extra metadata & chaining info - Hence less performant against LVM
+ - SRs contain homogenous Virtual Disk Images
+ - 
+ - 
