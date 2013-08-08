@@ -1,6 +1,5 @@
 
 
-
  Profiling with Signals
 ------------------------------------
  - There is an undocumented JVMTI call in OpenJDK that allows you to get a stack trace from a running thread,
