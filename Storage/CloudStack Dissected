@@ -15,7 +15,13 @@
  ---------------------------------
  - select * from version;
  
- 
+ - patch -
+ ------------
+ - In the future, please format patches so that they can be applied using git am
+ - (authorship info is maintained if you do this).
+ - This one has been applied using
+ - git apply-patch and git commit -s --author="Donal Lafferty <donal.lafferty@citrix.com>" -m "Get QuickCloud working again"
+
 
  - Root Disk of a Pri Stor -
  -------------------------------
