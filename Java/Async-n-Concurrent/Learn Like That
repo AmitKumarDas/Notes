@@ -10,6 +10,15 @@
  - notify vs countDown -
  
  
+ - TCP/UDP & Async -
+ ----------------------
+ - look out for Riemann clients for code
+ 
+ - Netty & Guava Futures -
+ -----------------------------
+ - look out Riemann client for code
+ 
+ 
  - Want high concurrency with lots of Futures -
  --------------------------------------------------
  - use ListenableFuture of Guava
