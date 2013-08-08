@@ -33,7 +33,11 @@
  # Build
   $ mvn clean install -P developer,systemvm -DskipTests
 
- 
+ - Before Committing / Creating a Patch -
+ --------------------------------------------
+ - One suggestion I have is that if anyone makes pom file changes 
+ - Or any large changes at all,they shuld nuke their local Maven cache (rm -rf ~/.m2/repository) and do
+ - A "clean install" before submitting a patch.
 
  - Root Disk of a Pri Stor -
  -------------------------------
