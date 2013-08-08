@@ -67,8 +67,18 @@
  - iSCSI single initiator - can connect to multiple iSCSI targets concurrently
  - IQN - Access Control - Maintained in Initiator IQNs & Target IQNs
  - If no Access Control - target IQN will restrict to a single initiator IQN 
+ - Every iSCSI target and initiator have a unique IQN. 
+ -- If a non-unique IQN identifier is used, data corruption and/or denial of LUN access can occur. **
+ - Do not change the XenServer Host IQN with iSCSI SRs attached. 
+ -- Doing so can result in failures connecting to new targets or existing SRs. **
+ - Thin Provisioning - present more storage space to the VMs connecting to the SR than is actually available on the SR
+ - Thick Provisioning - whenever a VDI (LUN) is allocated on the filer, sufficient space is reserved
+ - Forgetting a SR ~ SR Detach operation within XenCenter - can be Re Attached later
+ - Detach the SR - Unplug the PBD
+ - Destroy the SR - deletes the SR & corresponding PBD from XenServer Host database
+ - Destroy the SR - && deletes the SR contents from physical media
+ - Detach the SR  - deletes the SR & corresponding PBD from XenServer Host database only
  - 
- 
  
  
  
