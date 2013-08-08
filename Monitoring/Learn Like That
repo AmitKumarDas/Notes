@@ -1,4 +1,3 @@
-
  - Lumberjack -
  -------------------
  - collect logs locally & ship them elsewhere
@@ -6,5 +5,50 @@
  - Beaver -
  ---------------
  - python daemon - parse logs & send content to remote logstash via Redis or 0MQ
+ 
+ - GELF -
+ -------------
+ - avoids the shortcoming of syslog
+ 
+ - Gelfino -
+ -----------------
+ - real time processing of log events through streams
+ 
+ - Riemann -
+ ----------------
+ - Aggregates events from servers & apps with a powerful stream processing language
+ 
+ - logix -
+ ---------------
+ - send local syslog to Graylog2 via AMQP
+ - no worries of UDP - miss log events
+ - no performance penalty of TCP remote syslog
+ - Graylog will act as a consumer
+ 
+ 
+ - Logix with Logstash -
+ ------------------------
+ - can this be done ?
+ - Well Beaver does this !!
+ 
+ - Ok What about Beaver vs Riemann -
+ ----------------------------------------
+ - Riemann is different. Riemann seems to get a real time stuff !!!
+ - Require a Riemann client to instrument the code & send events
+ 
+ - What does Riemann Clients speak -
+ ----------------------------------
+ - Protocol Buffers over TCP & UDP
+ - Almost all languages have a Riemann client impl
+ 
+ 
+ - Grok -
+ -------------
+ - parse log & other files
+ 
+ 
+ 
+ 
+ 
  
  
