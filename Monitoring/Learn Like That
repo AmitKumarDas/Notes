@@ -1,0 +1,10 @@
+
+ - Lumberjack -
+ -------------------
+ - collect logs locally & ship them elsewhere
+ 
+ - Beaver -
+ ---------------
+ - python daemon - parse logs & send content to remote logstash via Redis or 0MQ
+ 
+ 
