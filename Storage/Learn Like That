@@ -39,5 +39,20 @@
  - LVM - Logical Volume Manager
  - VHD Images - extra metadata & chaining info - Hence less performant against LVM
  - SRs contain homogenous Virtual Disk Images
+ - SR - a persistent - on-disk datastructure
+ - SR - creating a new -> kinda formatting a disk
+ - PBD - Physical Block Devices
+ - PBD - interface betwn Physical Host & attached SR
+ - PBD - has the config/IP/path - of storage target & Host - *
+ - PBD Objects - manage runtime attachment of a given SR to a given XenServer Host - *
+ - VDI - persistent - can exist independently of Host
+ - VDI - fundamental unit of virtualized Storage in XenServer
+ - VBD - Virtual Block Device
+ - VBD - can attach a VDI to a VM
+ - VBD - fine tuning of QoS & bootability of a given VDI
+ - low level storage management - python scripts - /opt/xensource/sm
+ - SR - r implemented as Python scripts
+ - New SR Impls - Can be placed in above directory & XenServer should be able to detect them
+ - XenServer <-> NFS Server - via NFS V3 over TCP/IP .. for storing VDIs on shared network attached SR
  - 
- - 
+ 
