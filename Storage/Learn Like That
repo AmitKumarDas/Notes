@@ -54,5 +54,21 @@
  - SR - r implemented as Python scripts
  - New SR Impls - Can be placed in above directory & XenServer should be able to detect them
  - XenServer <-> NFS Server - via NFS V3 over TCP/IP .. for storing VDIs on shared network attached SR
+ - Modify contents of SR directory -> risk of corrupting contents of VDIs
+ - NFS server must be configured to export the specified path to all XenServer Host in the pool
+ - Prior to this NFS server IP must be provided & sr-probe will list the available destination paths
+ - XenServer use non-volatile RAM to provide fast acknowledgments of write requests 
+ -- while maintaining a high degree of data protection from failure. 
+ - Shared SRs - via - iSCSI LUNs
+ - Shared iSCSI SRs - support VM agility - using XenMotion
+ - iSCSI initiators & targets - must have unique name to be identified on the network
+ - iSCSI initiator & target addresses - colelctively - called IQNs
+ - iSCSI IQNs - iSCSI Qualified Names
+ - iSCSI single initiator - can connect to multiple iSCSI targets concurrently
+ - IQN - Access Control - Maintained in Initiator IQNs & Target IQNs
+ - If no Access Control - target IQN will restrict to a single initiator IQN 
  - 
+ 
+ 
+ 
  
