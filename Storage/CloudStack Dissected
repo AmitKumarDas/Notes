@@ -22,6 +22,18 @@
  - This one has been applied using
  - git apply-patch and git commit -s --author="Donal Lafferty <donal.lafferty@citrix.com>" -m "Get QuickCloud working again"
 
+ - Start Fresh -
+ ------------------
+ # Nuke my local maven cache
+  $  rm -rf ~/.m2/repository
+ # Get latest master
+  $ git pull
+ # Clean any files hanging around my git working copy just in case
+  $ git clean -dxf
+ # Build
+  $ mvn clean install -P developer,systemvm -DskipTests
+
+ 
 
  - Root Disk of a Pri Stor -
  -------------------------------
