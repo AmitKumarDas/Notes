@@ -1,0 +1,38 @@
+ 
+ - Apache Cloudstack's design - 
+ -------------------------------
+ -  look out for Security simple classes
+ 
+ - TCP/UDP && Async && Netty && Guava Futures- 
+ -----------------------------------------------
+ - look out for Riemann clients for code
+ 
+ - Short Cut Design -
+ -----------------------
+ - Extend the original
+ - Build Utils to add callbacks/transforms
+ - Build Adapter to transform originals to new
+ 
+ - Async Messaging via Future<T> && JMS Listener - 
+---------------------------------------------- 
+ - trick ~ override the get() as a blocking method & at same time dependant on onMessage
+ - Impl a ArrayBlockingQueue 
+   - onMessage() will do a queue.put() 
+   - get() will do a queue.poll()
+ - get returns T
+ - additonals - volatile State [WAITING/CANCELLED/DONE] ,  cleanup
+ - ref - http://nurkiewicz.blogspot.no/2013/02/implementing-custom-future.html
+ 
+ - InterThread Messaging -
+ ----------------------------
+ - Disruptor library
+ 
+ 
+
+
+
+
+ 
+
+
+
