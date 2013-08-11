@@ -10,25 +10,9 @@
  - notify vs countDown -
  
  
- - TCP/UDP & Async -
- ----------------------
- - look out for Riemann clients for code
- 
- - Netty & Guava Futures -
- -----------------------------
- - look out Riemann client for code
- 
- 
  - Want high concurrency with lots of Futures -
  --------------------------------------------------
  - use ListenableFuture of Guava
- 
- - Short Cut Design -
- -----------------------
- - Extend the original
- - Build Utils to add callbacks/transforms
- - Build Adapter to transform originals to new
- 
  
  
  - JMS Message Consumer vs JMS Message Listener -
@@ -37,21 +21,10 @@
  - Listener is hard to use
  
  
- - Async Messaging via Future<T> && JMS Listener -
- ----------------------------------------------
- - trick ~ override the get() as a blocking method & at same time dependant on onMessage
- - Impl a ArrayBlockingQueue -  onMessage() will do a queue.put() - get() will do a queue.poll()
- - get returns T
- - additonals - volatile State [WAITING/CANCELLED/DONE] ,  cleanup
- - ref - http://nurkiewicz.blogspot.no/2013/02/implementing-custom-future.html
- 
- 
  - Conventional Way to JMS Listener -
  ------------------------------------------
  - Why is Listener hard ?
  - Need not have so many levels of indirections
- 
- 
  
  
  - CountDown Usage -
@@ -65,13 +38,9 @@
  - release read or write lock
  - downgrade write lock
  
-
-
+ 
  - Old Way - Multiple --> Futures & Callables -
  -----------------------------------
- - collection of data to be executed parallely
- - Executors.xxx()
- - List<Future<String>> etc.. i.e. a collection
  - Iterate over the collection & capture the Futures
  - do a future.get() over the iter of futures
  
@@ -83,6 +52,27 @@
  - ExecutorCompletionService -
  ---------------------------------
  - Solves above ... returns the fastest completed future first..
+ 
+ 
+ - Expensive Ops -
+ ------------------------
+- IO & Cache Misses
+ 
+
+- Memory Control && Cache Miss -
+-----------------------------------
+- create data strucures in DirectByteBuffer
+- or go off heap
+- use Unsafe
+ 
+
+- JMM & H/W -
+-------------------
+- H/W & Compiler will reorder code to gain performance
+- However, it has visiblity issues across threads 
+- JMM provides techniques to achieve perf wihout visibility issues
+ 
+
  
  - CompletionService Issues -
  ---------------------------------
@@ -96,25 +86,10 @@
  ----------------------------------
  - efficient data structs possible
  
- - JMM & H/W -
- -------------------
- - H/W & Compiler will reorder code to gain performance
- - However, it has visiblity issues across threads
- - JMM provides techniques to achieve perf wihout visibility issues
- 
  - Lock-Free & Wait-Free lib -
  -----------------------------------
  - http://lmax-exchange.github.io/disruptor/
  
- - Memory Control && Cache Miss -
- -----------------------------------
- - create data strucures in DirectByteBuffer
- - or go off heap
- - use Unsafe
- 
- - Expensive Ops -
- ------------------------
- - IO & Cache Misses
  
  - Avoid - Multi Threading & Shared Data Issue -
  -----------------------------------------------------
